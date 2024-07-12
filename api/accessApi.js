@@ -15,5 +15,4 @@ router.route('/consumerSignup')
 router.route('/logIn')
     .get(accessController.logIn);
 
-
 module.exports = router;

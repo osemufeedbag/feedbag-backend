@@ -60,7 +60,7 @@ const consumerSignup = async (req, res) => {
     const {fullName, cont, pwd} = req.body;
     const status = "consumer";
     const duplicateContact = await farmerSignupModel.findOne({contact: cont}).exec();
-    if (duplicateContact) return res.sendStatus(409);
+    if(duplicateContact) return res.sendStatus(409);
 
     try {
         const hashedPwd = await bcrypt.hash(pwd, 10);
@@ -89,6 +89,7 @@ const logIn = async (req, res) => {
         if(!valideCont) return res.sendStatus(409);
         console.log(userDetails["contact"]);
         console.log(userDetails["password"]);
+        console.log(userDetails);
 
         await bcrypt.compare(logInPwd, userDetails["password"])? res.sendStatus(200):  res.status(500).json({'message': "Bad request"});
     } catch (err) {
