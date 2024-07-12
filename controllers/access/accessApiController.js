@@ -1,16 +1,16 @@
 const bcrypt = require('bcrypt');
-const farmerSignupModel = require('../../database/dbModel/farmerSignUpModel');
+const signupModel = require('../../database/dbModel/signUpModel');
 
 //Farmer sign up logic start-->
 const farmerSignup = async (req, res) => {
     const {fullName, businessLegalStatus, cont, businessRegistrationNos, pwd} = req.body;
     const status = "farmer";
-    const duplicateContact = await farmerSignupModel.findOne({contact: cont}).exec();
+    const duplicateContact = await signupModel.findOne({contact: cont}).exec();
     if (duplicateContact) return res.sendStatus(409);
 
     try {
         const hashedPwd = await bcrypt.hash(pwd, 10);
-        const newSignup = await farmerSignupModel.create({
+        const newSignup = await signupModel.create({
             user: status,
             fullName: fullName,
             businessLegalStatus: businessLegalStatus,
@@ -32,12 +32,12 @@ const farmerSignup = async (req, res) => {
 const AggSignup = async (req, res) => {
     const {fullName, businessLegalStatus, cont, businessRegistrationNos, pwd} = req.body;
     const status = "aggregator";
-    const duplicateContact = await farmerSignupModel.findOne({contact: cont}).exec();
+    const duplicateContact = await signupModel.findOne({contact: cont}).exec();
     if (duplicateContact) return res.sendStatus(409);
 
     try {
         const hashedPwd = await bcrypt.hash(pwd, 10);
-        const newSignup = await farmerSignupModel.create({
+        const newSignup = await signupModel.create({
             'user': status,
             'fullName': fullName,
             'businessLegalStatus': businessLegalStatus,
@@ -59,12 +59,12 @@ const AggSignup = async (req, res) => {
 const consumerSignup = async (req, res) => {
     const {fullName, cont, pwd} = req.body;
     const status = "consumer";
-    const duplicateContact = await farmerSignupModel.findOne({contact: cont}).exec();
+    const duplicateContact = await signupModel.findOne({contact: cont}).exec();
     if(duplicateContact) return res.sendStatus(409);
 
     try {
         const hashedPwd = await bcrypt.hash(pwd, 10);
-        const newSignup = await farmerSignupModel.create({
+        const newSignup = await signupModel.create({
             'user': status,
             'fullName': fullName,
             'contact': cont,
@@ -83,7 +83,7 @@ const consumerSignup = async (req, res) => {
 //Login logic start-->
 const logIn = async (req, res) => {
     const { cont, logInPwd } = req.body;
-    const userDetails = await farmerSignupModel.findOne({contact: cont}).exec();
+    const userDetails = await signupModel.findOne({contact: cont}).exec();
         
     try { const valideCont = userDetails["contact"];
         if(!valideCont) return res.sendStatus(409);
