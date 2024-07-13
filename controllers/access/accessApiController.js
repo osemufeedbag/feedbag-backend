@@ -18,10 +18,12 @@ const farmerSignup = async (req, res) => {
             businessRegistrationNos: businessRegistrationNos,
             password: hashedPwd
         })
-        newSignup.save();
+        newSignup.save()
+        res.sendStatus(200).json({
+                message: 'Successful'
+            });
         console.log(newSignup);
-        res.sendStatus(200);
-        
+
     } catch (error) {
         console.log(error);
     }
@@ -47,7 +49,9 @@ const AggSignup = async (req, res) => {
         })
         newSignup.save();
         console.log(newSignup);
-        res.sendStatus(200);
+        res.sendStatus(200).json({
+                message: 'Successful'
+            });
         
     } catch (error) {
         console.log(error);
@@ -72,7 +76,9 @@ const consumerSignup = async (req, res) => {
         })
         newSignup.save();
         console.log(newSignup);
-        res.sendStatus(200);
+        res.sendStatus(200).json({
+            message: 'Successful'
+        });
         
     } catch (error) {
         console.log(error);
