@@ -1,5 +1,8 @@
+require('dotenv').config();
 const bcrypt = require('bcrypt');
-const signupModel = require('../../database/dbModel/signUpModel');
+const signupModel = require('../../database/dbModel/signUpEmailModel');
+const signupModelPhone = require('../../database/dbModel/signUpPhoneModel');
+const jwt = require('jsonwebtoken');
 
 //Farmer sign up logic start-->
 const farmerSignup = async (req, res) => {
@@ -89,18 +92,27 @@ const consumerSignup = async (req, res) => {
 //Login logic start-->
 const logIn = async (req, res) => {
     const { cont, logInPwd } = req.body;
+    if (!cont || !logInPwd) return res.status(400).json({
+        'message': 'Username and password required'
+    })
     const userDetails = await signupModel.findOne({contact: cont}).exec();
-        
-    try { const valideCont = userDetails["contact"];
-        if(!valideCont) return res.sendStatus(409);
-        console.log(userDetails["contact"]);
-        console.log(userDetails["password"]);
-        console.log(userDetails);
-
-        await bcrypt.compare(logInPwd, userDetails["password"])? res.sendStatus(200):  res.status(500).json({'message': "Bad request"});
-    } catch (err) {
-        res.status(500).json({'message': err.message})
+    if (!userDetails) {
+        const userDetails = await signupModelPhone.findOne({contact: cont}).exec();
+        if(!userDetails) return res.sendStatus(401);
     }
+    
+    console.log(userDetails);
+    const match = bcrypt.compare(logInPwd, userDetails["password"]);
+    if (match) {
+        const accessToken = jwt.sign(
+            {" userName": },
+            process.env.ACCESS_TOKE_SECRET,
+            {expiresIn: "30s"}
+        )
+    } else {
+        res.sendStatus(401);
+    }
+    
 };
 //Login logic end-->
 

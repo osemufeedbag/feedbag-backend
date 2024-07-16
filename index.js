@@ -3,10 +3,11 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4000;
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
+const userProfileImgModel = require('./database/dbModel/userProfile/userProfileImg/userProfileImgModel');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
@@ -16,19 +17,19 @@ connectDB();
 
 // To handle form data
 app.use(express.urlencoded({extended: true}));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // built-in middleware to read json file into the server json
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
-})
+});
 
 app.use('/access', require('./api/accessApi'));
 
-// Digital wallet document verification upload start--->
+// Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
@@ -38,27 +39,79 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage: storage});
+const upload = multer({
+    storage: storage
+});
 
-app.post('/docUploads', upload.single('imageDocument'), async (req, res) => {
 
-    const newImage = await verificationDocModel.create({
+app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
+    try {
+        const newImage = await verificationDocModel.create({
+        data: req.body.nin,
         image: {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             contentType: 'image/png'
         },
-    })
-    .then ((err, newImage) => {
+    });
+    newImage.save();
+    //console.log(newImage);
+    res.status(200).send('Successful');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
+    console.log(req.files);
+    try {
+        const newImage = await verificationDocModel.create({
+        image: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
+            contentType: 'image/png'
+        },
+        SelfieImage: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)),
+            contentType: 'image/png'
+        },
+    });
+    newImage.save();
+    //console.log(newImage);
+    res.status(200).send('Successful');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.get('/docUploads', (req, res) => {
+
+});
+// Digital wallet document verification upload and display ends--->
+
+// User profile picture upload and display start--->
+app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
+
+    const newImage = await userProfileImgModel.create({
+        businessName: req.body.businessName,
+        image: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+            contentType: 'image/png'
+        },
+    }) 
+    .then ((err) => {
         if (err) {
             console.log(err);
         }
         else {
-            newImage.save();
             res.sendStatus(200);
         }
-    });
+    })
+    newImage.save();
 });
-// Digital wallet document verification upload ends--->
+
+app.get('/userProfileImgUpload', (req, res) => {
+
+});
+// User profile picture upload and display ends--->
 
 mongoose.connection.once('open', () => {
     console.log("Connected to Mongodb");
