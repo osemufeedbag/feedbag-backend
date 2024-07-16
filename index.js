@@ -7,7 +7,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
-const userProfileImgModel = require('./database/dbModel/userProfile/userProfileImg/userProfileImgModel');
+const userProfileImgModel = require('./database/dbModel/userProfile/userProfileImg/userProfileImgModel')
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
@@ -23,11 +25,17 @@ app.use(bodyParser.json());
 // built-in middleware to read json file into the server json
 app.use(express.json());
 
+//middleware for cookies
+//app.use(cookieParser());
+
 app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
 
-app.use('/access', require('./api/accessApi'));
+app.use('/auth', require('./api/AuthenticationApi'));
+app.use('/refresh', require('./api/refresh'));
+
+//app.use(verifyJWT);
 
 // Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({

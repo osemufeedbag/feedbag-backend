@@ -12,7 +12,8 @@ const signUpPhoneSchema = new Schema({
     postalCode: {type: Number, require: false},
     businessRegistrationNos: {type: String, require: false},
     address: {type: String, require: false},
-    password: {type: String, require: true}
+    password: {type: String, require: true},
+    refreshToken: {type: String, require: false}
 });
 
 module.exports = mongoose.model('signUpPhone', signUpPhoneSchema);
