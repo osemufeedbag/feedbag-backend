@@ -1,4 +1,4 @@
-const UserModel = require('../../database/dbModel/UserModel');
+const UserModel = require('../../database/dbModel/userModel');
 const bcrypt = require('bcrypt');
 
 const UserReg = async (req, res) => {
@@ -7,20 +7,20 @@ const UserReg = async (req, res) => {
     switch (User) {
         case "Farmer":
 
-            const hashedPwd = await bcrypt.hash(req.body.Password, 10);
-            const FarmerUser = await UserModel.findOne({Email: req.body.Email}).exec();
+            const hashedPwd0 = await bcrypt.hash(req.body.Password, 10);
+            const FarmerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
             if (FarmerUser) return res.sendStatus(409);
 
             try {
                 const newSignup = await UserModel.create({
-                    'User': User,
-                    'FirstName': req.body.FirstName,
-                    'LastName': req.body.LastName,
-                    'Company': req.body.Company,
-                    'BusinessName': req.body.BusinessName,
-                    'Email': req.body.Email,
-                    'BusinessRegistrationNos': req.body.BusinessRegistrationNos,
-                    'Password': hashedPwd
+                    'PersonalInfo.User': User,
+                    'PersonalInfo.FirstName': req.body.FirstName,
+                    'PersonalInfo.LastName': req.body.LastName,
+                    'PersonalInfo.Company': req.body.Company,
+                    'PersonalInfo.BusinessName': req.body.BusinessName,
+                    'PersonalInfo.Email': req.body.Email,
+                    'PersonalInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
+                    'PersonalInfo.Password': hashedPwd0
                 })
                 newSignup.save()
                 res.sendStatus(200);
@@ -35,6 +35,7 @@ const UserReg = async (req, res) => {
 
         case "Aggregator":
 
+            const hashedPwd1 = await bcrypt.hash(req.body.Password, 10);
             const AggregatorUser = await UserModel.findOne({Email: req.body.email}).exec();
             if (AggregatorUser) return res.sendStatus(409);
 
@@ -47,7 +48,7 @@ const UserReg = async (req, res) => {
                     'BusinessName': req.body.BusinessName,
                     'Email': req.body.Email,
                     'BusinessRegistrationNos': req.body.BusinessRegistrationNos,
-                    'Password': hashedPwd
+                    'Password': hashedPwd1
                 })
                 newSignup.save()
                 res.sendStatus(200);
@@ -62,7 +63,8 @@ const UserReg = async (req, res) => {
 
         case "Consumer":
 
-            const ConsumerUser = await UserModel.findOne({Email: req.body.email}).exec();
+        const hashedPwd2 = await bcrypt.hash(req.body.Password, 10);
+        const ConsumerUser = await UserModel.findOne({Email: req.body.email}).exec();
             if (ConsumerUser) return res.sendStatus(409);
 
             try {
@@ -71,7 +73,7 @@ const UserReg = async (req, res) => {
                     'FirstName': req.body.FirstName,
                     'LastName': req.body.LastName,
                     'Email': req.body.Email,
-                    'Password': hashedPwd
+                    'Password': hashedPwd2
                 })
                 newSignup.save()
                 res.sendStatus(200)

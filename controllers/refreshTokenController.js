@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const UserModel = require('../database/dbModel/UserModel');;
+const UserModel = require('../database/dbModel/userModel');;
 
 const handleRefreshToken = async (req, res) => {
     const cookies = req.cookie;

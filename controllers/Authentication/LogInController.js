@@ -1,18 +1,21 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
-const signupModel = require('../../database/dbModel/signUpEmailModel');
-const signupModelPhone = require('../../database/dbModel/signUpPhoneModel');
+const UserModel = require('../../database/dbModel/UserModel');
 const jwt = require('jsonwebtoken');
 
-//Farmer sign up logic start-->
+
 const logIn = async (req, res) => {
     const { cont, logInPwd } = req.body;
     if (!cont || !logInPwd) return res.status(400).json({
         'message': 'Username and password required'
     })
 
-    const userDetails = await signupModel.findOne({contact: cont}).exec();
-        const match = bcrypt.compare(logInPwd, userDetails["password"]);
+    const userDetails = await UserModel.findOne({Email: cont}).exec();
+    if (!userDetails) return res.status(400).json({
+        'message': 'No known user with is email, try again'
+    });
+
+    const match = bcrypt.compare(logInPwd, userDetails["Password"]);
         if (match) {
             const accessToken = jwt.sign(
                 {"userEmail": userDetails["email"]},
@@ -31,6 +34,8 @@ const logIn = async (req, res) => {
     } else {
         res.sendStatus(401);
     }
-        
 };
-//Login Email logic ends-->
+
+module.exports = {
+    logIn
+};
