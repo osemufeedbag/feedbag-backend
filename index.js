@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', require('./api/AuthenticationApi'));
+app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
 app.use('/refresh', require('./api/refresh'));
 
 //app.use(verifyJWT);

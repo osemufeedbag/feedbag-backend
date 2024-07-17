@@ -1,4 +1,5 @@
 const UserModel = require('../../database/dbModel/UserModel');
+const bcrypt = require('bcrypt');
 
 const UserReg = async (req, res) => {
     const User = req.params.user;
@@ -6,19 +7,20 @@ const UserReg = async (req, res) => {
     switch (User) {
         case "Farmer":
 
+            const hashedPwd = await bcrypt.hash(req.body.Password, 10);
             const FarmerUser = await UserModel.findOne({Email: req.body.Email}).exec();
             if (FarmerUser) return res.sendStatus(409);
 
             try {
                 const newSignup = await UserModel.create({
                     'User': User,
-                    'FullName': req.body.FullName,
+                    'FirstName': req.body.FirstName,
                     'LastName': req.body.LastName,
                     'Company': req.body.Company,
                     'BusinessName': req.body.BusinessName,
                     'Email': req.body.Email,
                     'BusinessRegistrationNos': req.body.BusinessRegistrationNos,
-                    'Password': req.body.Password
+                    'Password': hashedPwd
                 })
                 newSignup.save()
                 res.sendStatus(200);
@@ -39,13 +41,13 @@ const UserReg = async (req, res) => {
             try {
                 const newSignup = await UserModel.create({
                     'User': User,
-                    'FullName': req.body.FullName,
+                    'FirstName': req.body.FirstName,
                     'LastName': req.body.LastName,
                     'Company': req.body.Company,
                     'BusinessName': req.body.BusinessName,
                     'Email': req.body.Email,
                     'BusinessRegistrationNos': req.body.BusinessRegistrationNos,
-                    'Password': req.body.Password
+                    'Password': hashedPwd
                 })
                 newSignup.save()
                 res.sendStatus(200);
@@ -66,18 +68,13 @@ const UserReg = async (req, res) => {
             try {
                 const newSignup = await UserModel.create({
                     'User': User,
-                    'FullName': req.body.FullName,
-                    'LastName': req.body.FullName,
-                    'Company': req.body.FullName,
-                    'BusinessName': req.body.FullName,
-                    'Email': req.body.FullName,
-                    'BusinessRegistrationNos': req.body.FullName,
-                    'Password': req.body.Password
+                    'FirstName': req.body.FirstName,
+                    'LastName': req.body.LastName,
+                    'Email': req.body.Email,
+                    'Password': hashedPwd
                 })
                 newSignup.save()
-                res.sendStatus(200).json({
-                        message: 'Successful'
-                    });
+                res.sendStatus(200)
                 console.log(newSignup);
 
             } catch (error) {

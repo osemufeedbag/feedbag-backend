@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     'User': {type: String, require: true},
-    'FullName': {type: String, require: true},
+    'FirstName': {type: String, require: true},
     'LastName': {type: String, require: false},
     'Company': {type: String, require: false},
     'BusinessName': {type: String, require: false},
