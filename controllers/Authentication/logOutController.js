@@ -1,28 +1,26 @@
-const signupModel = require('../../database/dbModel/signUpEmailModel');
-const signupModelPhone = require('../../database/dbModel/signUpPhoneModel');
+const UserModel = require('../../database/dbModel/userModel');;
 
-const handleRefreshToken = async (req, res) => {
-    const cookies = req.cookie;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    const RefreshToken = cookies.jwt;
+const LogOut = async (req, res) => {
+    //On the client side, also delete the accessToken when the logout button is clicked
 
-    const userDetails = await signupModel.findOne({refreshToken: RefreshToken}).exec();
-    if(!userDetails) return res.sendStatus(403);
-        jwt.verify(
-            RefreshToken,
-            process.env.REFRESH_TOKEN_SECRET,
-            (err, decoded) => {
-                if(err || userDetails['email'] !== decoded.userEmail) return res.sendStatus(403);
-                const accessToken = jwt.sign(
-                    {"userEmail": decoded.userEmail},
-                    process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn: "30s"} //set long in production
-                );
-                res.json({accessToken})
-            }
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(204);
+    const refreshToken = cookies.jwt;
 
-        )
-        
-    };
+    const userDetails = await UserModel.findOne({RefreshToken: refreshToken}).exec();
+    if(!userDetails) {
+        res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+        return res.sendStatus(204);
+    }
 
-    module.exports = {handleRefreshToken}
+     userDetails.RefreshToken = ' ';
+     const result = await userDetails.save();
+     console.log(result);
+     
+     res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+     res.sendStatus(204);
+};
+
+    module.exports = {
+        LogOut
+    }

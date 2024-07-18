@@ -26,17 +26,13 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 //middleware for cookies
-//app.use(cookieParser());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
 
-app.use('/auth', require('./api/reg'));
-app.use('/authlogin', require('./api/login'));
-app.use('/refresh', require('./api/refresh'));
-
-//app.use(verifyJWT);
+app.use('/access', require('./api/auth'));
 
 // Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({
@@ -94,6 +90,7 @@ app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
 app.get('/docUploads', (req, res) => {
 
 });
+
 // Digital wallet document verification upload and display ends--->
 
 // User profile picture upload and display start--->
@@ -121,6 +118,8 @@ app.get('/userProfileImgUpload', (req, res) => {
 
 });
 // User profile picture upload and display ends--->
+
+app.use('/refresh', require('./api/refresh'));
 
 app.use(verifyJWT);
 app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
