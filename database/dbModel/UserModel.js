@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const inventorySchema = new Schema({
-    'ItemName': {type: String, require: false},
-    'DateAdded': {type: Date, require: false},
-    'Price': {type: String, require: false},
-    'Quantity': {type: Number, require: false},
-    'OutOfStock': {type: Boolean, require: false},
-    'LowStock': {type: Boolean, require: false}
+const inventorySchema = ({
+    'ItemName': {type: String, require: false, default: {}},
+    'DateAdded': {type: Date, require: false, default: {}},
+    'Price': {type: String, require: false, default: {}},
+    'Quantity': {type: Number, require: false, default: {}},
+    'OutOfStock': {type: Boolean, require: false, default: {}},
+    'LowStock': {type: Boolean, require: false, default: {}}
 }) 
 
 const userSchema = new Schema({

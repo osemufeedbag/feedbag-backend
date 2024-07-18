@@ -32,7 +32,8 @@ app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
 
-app.use('/auth', require('./api/AuthenticationApi'));
+app.use('/auth', require('./api/regApi'));
+app.use('/authlogin', require('./api/loginApi'));
 app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
 app.use('/refresh', require('./api/refresh'));
 

@@ -3,24 +3,24 @@ const UserModel = require('../../database/dbModel/userModel');
 
 const GetPersonalInfo = async (req, res) => {
     const SessionUserId = req.params.Email;
-    const user = await UserModel.findOne({Email: SessionUserId}).exec();
+    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
     res.json(user);
 };
 
 const UpdatePersonalInfo = async (req, res) => {
     const SessionUserId = req.params.Email;
     const EditSession = req.params.EditSession;
-    const user = await UserModel.findOne({Email: SessionUserId}).exec();
+    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
 
     switch (EditSession) {
         // Personal Information
         case "PersonalInfo":
-            if(req.body?.FirstName) user.FirstName = req.body.FirstName;
-            if(req.body?.LastName) user.LastName = req.body.LastName;
-            if(req.body?.Phone) user.Phone = req.body.Phone;
-            if(req.body?.Country) user.Country = req.body.Country;
-            if(req.body?.Address) user.Address = req.body.Address;
-            if(req.body?.PostalCode) user.PostalCode = req.body.PostalCode;
+            if(req.body?.FirstName) user.PersonalInfo.FirstName = req.body.FirstName;
+            if(req.body?.LastName) user.PersonalInfo.LastName = req.body.LastName;
+            if(req.body?.Phone) user.PersonalInfo.Phone = req.body.Phone;
+            if(req.body?.Country) user.PersonalInfo.Country = req.body.Country;
+            if(req.body?.Address) user.PersonalInfo.Address = req.body.Address;
+            if(req.body?.PostalCode) user.PersonalInfo.PostalCode = req.body.PostalCode;
 
             const result1 = await user.save();
             res.json(result1);
@@ -28,9 +28,9 @@ const UpdatePersonalInfo = async (req, res) => {
 
         // Farm Information
         case "FarmInfo":
-            if(req.body?.FarmName) user.FarmName = req.body.FarmName;
-            if(req.body?.FarmSize) user.FarmSize = req.body.FarmSize;
-            if(req.body?.FarmLocation) user.FarmLocation = req.body.FarmLocation;
+            if(req.body?.FarmName) user.FarmInfo.Name = req.body.FarmName;
+            if(req.body?.FarmSize) user.FarmInfo.Size = req.body.FarmSize;
+            if(req.body?.FarmLocation) user.FarmInfo.Location = req.body.FarmLocation;
 
             const result0 = await user.save();
             res.json(result0);
@@ -47,9 +47,9 @@ const UpdatePersonalInfo = async (req, res) => {
 
         // Billing Information
         case "BillingInfo":
-            if(req.body?.CardHolder) user.BillingInfo_CardHolder = req.body.CardHolder;
-            if(req.body?.CardNumber) user.BillingInfo_CardNumber = req.body.CardNumber;
-            if(req.body?.PaymentMethod) user.BillingInfo_PaymentMethod = req.body.PaymentMethod;
+            if(req.body?.CardHolder) user.BillingInfo.CardHolder = req.body.CardHolder;
+            if(req.body?.CardNumber) user.BillingInfo.CardNumber = req.body.CardNumber;
+            if(req.body?.PaymentMethod) user.BillingInfo.PaymentMethod = req.body.PaymentMethod;
             if(req.body?.BillingAddress) user.BillingAddress = req.body.BillingAddress;
 
             const result3 = await user.save();
@@ -60,7 +60,7 @@ const UpdatePersonalInfo = async (req, res) => {
 
 const DelPersonalInfo = async (req, res) => {
     const SessionUserId = req.params.Email;
-    const user = await UserModel.findOne({Email: SessionUserId}).exec();
+    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
     res.json(user);
 };
 
