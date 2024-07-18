@@ -32,9 +32,8 @@ app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
 
-app.use('/auth', require('./api/regApi'));
-app.use('/authlogin', require('./api/loginApi'));
-app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
+app.use('/auth', require('./api/reg'));
+app.use('/authlogin', require('./api/login'));
 app.use('/refresh', require('./api/refresh'));
 
 //app.use(verifyJWT);
@@ -122,6 +121,10 @@ app.get('/userProfileImgUpload', (req, res) => {
 
 });
 // User profile picture upload and display ends--->
+
+app.use(verifyJWT);
+app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
+
 
 mongoose.connection.once('open', () => {
     console.log("Connected to Mongodb");
