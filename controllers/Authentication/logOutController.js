@@ -9,7 +9,7 @@ const LogOut = async (req, res) => {
 
     const userDetails = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     if(!userDetails) {
-        res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+        res.clearCookie('jwt', {httpOnly: true, sameSite: 'None'}); //Add in production environment = secure: true;
         return res.sendStatus(204);
     }
 
@@ -17,7 +17,7 @@ const LogOut = async (req, res) => {
      const result = await userDetails.save();
      console.log(result);
      
-     res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+     res.clearCookie('jwt', {httpOnly: true, sameSite: 'None'}); //Add in production environment = secure: true;
      res.sendStatus(204);
 };
 
