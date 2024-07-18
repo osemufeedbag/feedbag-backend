@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
-const userProfileImgModel = require('./database/dbModel/userProfile/userProfileImg/userProfileImgModel')
+const userProfileImgModel = require('./database/dbModel/userProfileImg/userProfileImgModel')
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
@@ -122,7 +122,8 @@ app.get('/userProfileImgUpload', (req, res) => {
 app.use('/refresh', require('./api/refresh'));
 
 app.use(verifyJWT);
-app.use('/UserProfile', require('./api/UserProfile/PersonalInfoApi'));
+app.use('/UserProfile', require('./api/UserProfile/PersonalInfo'));
+app.use('/Inventory', require('./api/UserProfile/inventory'));
 
 
 mongoose.connection.once('open', () => {

@@ -2,15 +2,24 @@ const UserModel = require('../../database/dbModel/userModel');
 
 
 const GetPersonalInfo = async (req, res) => {
-    const SessionUserId = req.params.Email;
-    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
+    //const SessionUserId = req.params.Email;
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
+    //const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
     res.json(user);
 };
 
 const UpdatePersonalInfo = async (req, res) => {
-    const SessionUserId = req.params.Email;
-    const EditSession = req.params.EditSession;
-    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
 
     switch (EditSession) {
         // Personal Information
@@ -58,14 +67,17 @@ const UpdatePersonalInfo = async (req, res) => {
     };   
 };
 
-const DelPersonalInfo = async (req, res) => {
-    const SessionUserId = req.params.Email;
-    const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
-    res.json(user);
+const DelAccount = async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
 };
 
 module.exports = {
     GetPersonalInfo,
     UpdatePersonalInfo,
-    DelPersonalInfo
+    DelAccount
 };

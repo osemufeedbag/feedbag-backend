@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const inventorySchema = ({
-    'ItemName': {type: String, require: false, default: {}},
-    'DateAdded': {type: Date, require: false, default: {}},
-    'Price': {type: String, require: false, default: {}},
-    'Quantity': {type: Number, require: false, default: {}},
-    'OutOfStock': {type: Boolean, require: false, default: {}},
-    'LowStock': {type: Boolean, require: false, default: {}}
-}) 
-
 const userSchema = new Schema({
         'PersonalInfo': {
             'User': {type: String, require: true},
@@ -47,12 +38,6 @@ const userSchema = new Schema({
             'CardNumber': {type: Number, require: false},
             'PaymentMethod': {type: String, require: false},
             'BillingAddress': {type: String, require: false}
-        },
-
-        'Inventory': {
-            'AllItems': [inventorySchema],
-            'OutOfStock': [inventorySchema],
-            'LowStock': [inventorySchema]
         },
 
         'RefreshToken': {type: String, require: false}
