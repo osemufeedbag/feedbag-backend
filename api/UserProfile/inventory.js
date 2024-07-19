@@ -10,4 +10,10 @@ router.route('/addInventory')
 router.route('/allInventory')
     .get(MyInventoryController.GetUserAllItems);
 
+router.route('/outOfStock')
+    .get(MyInventoryController.OutOfStock);
+
+router.route('/lowStock')
+    .get(MyInventoryController.LowStock);
+
 module.exports = router;

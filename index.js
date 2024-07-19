@@ -120,10 +120,10 @@ app.get('/userProfileImgUpload', (req, res) => {
 // User profile picture upload and display ends--->
 
 app.use('/refresh', require('./api/refresh'));
-
 app.use(verifyJWT);
 app.use('/UserProfile', require('./api/UserProfile/PersonalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
+app.use('/Order', require('./api/UserProfile/order'));
 
 
 mongoose.connection.once('open', () => {
