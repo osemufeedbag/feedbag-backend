@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { randomUUID } = require('crypto');
+//const { randomUUID } = require('crypto');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
@@ -11,10 +11,7 @@ const orderSchema = new Schema({
             'Date': {type: String, require: true},
             'Quantity': {type: String, require: true},
             'Amount': {type: String, require: true},
-            'TrackingId': {
-                    type: 'UUID',
-                    default: () => randomUUID()
-            },
+            'TrackingId': {type: String, require: true},
             'Status': {type: String, require: true}
     },
 });

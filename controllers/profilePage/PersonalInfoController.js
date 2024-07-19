@@ -8,6 +8,7 @@ const GetPersonalInfo = async (req, res) => {
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
 
+    
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     //const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
     res.json(user);

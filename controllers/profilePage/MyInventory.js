@@ -1,5 +1,10 @@
 const inventoryModel = require('../../database/dbModel/inventoryModel');
 const UserModel = require('../../database/dbModel/userModel');
+const date = require('date-and-time');
+const now = new Date();
+
+
+//date.format(new Date(), 'DD-[MM]-YYYY');
 
 const AddInventoryItem =  async (req, res) => {
     const cookies = req.cookies;
@@ -15,7 +20,7 @@ const AddInventoryItem =  async (req, res) => {
         const inventory = await inventoryModel.create({
             'UserId': user._id,
             'AllItem.ItemName': req.body.ItemName,
-            'AllItem.DateAdded': req.body.DateAdded,
+            'AllItem.DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
             'AllItem.Price': req.body.Price,
             'AllItem.Quantity': req.body.Quantity
         });

@@ -4,10 +4,10 @@ const OrderPageController = require('../../controllers/profilePage/OrderPage');
 
 
 
-router.route('/orderHistory')
+router.route('/orderHistory/:filter')
     .get(OrderPageController.GetOrderHistory);
 
-router.route('/placeOrder')
+router.route('/placeOrder/:id')
     .post(OrderPageController.PlaceOrder);
 
 module.exports = router;

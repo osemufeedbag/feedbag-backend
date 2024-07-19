@@ -25,14 +25,14 @@ app.use(bodyParser.json());
 // built-in middleware to read json file into the server json
 app.use(express.json());
 
-//middleware for cookies
-app.use(cookieParser());
-
+app.use('/access', require('./api/auth'));
 app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
 
-app.use('/access', require('./api/auth'));
+
+//middleware for cookies
+app.use(cookieParser());
 
 // Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({

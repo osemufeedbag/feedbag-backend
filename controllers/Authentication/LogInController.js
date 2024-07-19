@@ -20,7 +20,7 @@ const logIn = async (req, res) => {
             const accessToken = jwt.sign(
                 {"userEmail": userDetails.PersonalInfo.Email},
                 process.env.ACCESS_TOKEN_SECRET,
-                {expiresIn: "30s"} //Increase the time to a longer period.
+                {expiresIn: "60s"} //Increase the time to a longer period.
             );
             const refreshToken = jwt.sign(
                 {"userEmail": userDetails.PersonalInfo.Email},
