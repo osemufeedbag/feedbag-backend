@@ -33,14 +33,17 @@ const PlaceOrder = async (req, res) => {
 
 
 const GetOrderHistory = async (req, res) => {
-    const filter = req.params.filter;
+    //const filter = req.params.filter;
     const cookies = req.cookies;
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
 
+    const customerUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const filter = customerUser.PersonalInfo.User;
+
     switch(filter) {
-        case "consumer":
+        case "Consumer":
             const customerUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
             const customerOrderHistory = await OrderModel.find({'Order.CustomerId': customerUser._id}).exec()
             if(!customerOrderHistory) return res.sendStatus(401);
@@ -48,12 +51,20 @@ const GetOrderHistory = async (req, res) => {
             res.json(customerOrderHistory);
         break;
 
-        case "producer":
-            const producerUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-            const userOrderHistory = await OrderModel.find({OrderReceiverId: producerUser._id}).exec()
-            if(!userOrderHistory) return res.sendStatus(401);
+        case "Farmer":
+            const farmerUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+            const farmerOrderHistory = await OrderModel.find({OrderReceiverId: farmerUser._id}).exec()
+            if(!farmerOrderHistory) return res.sendStatus(401);
 
-            res.json(userOrderHistory);
+            res.json(farmerOrderHistory);
+        break;
+
+        case "Aggregator":
+            const aggregatorUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+            const aggregatorOrderHistory = await OrderModel.find({OrderReceiverId: aggregatorUser._id}).exec()
+            if(!aggregatorOrderHistory) return res.sendStatus(401);
+
+            res.json(aggregatorOrderHistory);
         break;
     };
 };

@@ -4,7 +4,7 @@ const OrderPageController = require('../../controllers/profilePage/Order/OrderPa
 
 
 
-router.route('/orderHistory/:filter')
+router.route('/orderHistory')
     .get(OrderPageController.GetOrderHistory);
 
 router.route('/placeOrder/:id')

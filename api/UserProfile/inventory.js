@@ -7,7 +7,7 @@ const MyInventoryController = require('../../controllers/profilePage/Inventory/M
 router.route('/addInventory')
     .post(MyInventoryController.AddInventoryItem);
 
-router.route('/allInventory')
+router.route('/allInventory/:filter')
     .get(MyInventoryController.GetUserAllItems);
 
 router.route('/outOfStock')
