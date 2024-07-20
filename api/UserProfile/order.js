@@ -7,6 +7,12 @@ const OrderPageController = require('../../controllers/profilePage/Order/OrderPa
 router.route('/orderHistory')
     .get(OrderPageController.GetOrderHistory);
 
+router.route('/totalOrder')
+    .get(OrderPageController.TotalOrder);
+
+router.route('/totalSales')
+    .get(OrderPageController.TotalSales);
+
 router.route('/placeOrder/:id')
     .post(OrderPageController.PlaceOrder);
 

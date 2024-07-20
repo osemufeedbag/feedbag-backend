@@ -8,8 +8,8 @@ const orderSchema = new Schema({
             'Item': {type: String, require: true},
             'CustomerId': {type: String, require: true},
             'Date': {type: String, require: true},
-            'Quantity': {type: String, require: true},
-            'Amount': {type: String, require: true},
+            'Quantity': {type: Number, require: true},
+            'Amount': {type: Number, require: true},
             'TrackingId': {type: String, require: true},
             'Status': {type: String, require: true}
     },
