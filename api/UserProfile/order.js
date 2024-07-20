@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const OrderPageController = require('../../controllers/profilePage/OrderPage');
+const OrderPageController = require('../../controllers/profilePage/Order/OrderPage');
 
 
 

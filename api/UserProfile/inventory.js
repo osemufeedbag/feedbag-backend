@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const MyInventoryController = require('../../controllers/profilePage/MyInventory');
+const MyInventoryController = require('../../controllers/profilePage/Inventory/MyInventory');
 
 
 

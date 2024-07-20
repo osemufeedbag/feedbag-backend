@@ -1,5 +1,5 @@
-const OrderModel = require('../../database/dbModel/orderModel');
-const UserModel = require('../../database/dbModel/userModel');
+const OrderModel = require('../../../database/dbModel/orderModel');
+const UserModel = require('../../../database/dbModel/userModel');
 const date = require('date-and-time');
 const now = new Date();
 
@@ -20,7 +20,6 @@ const PlaceOrder = async (req, res) => {
         'OrderReceiverId': OrderReceiver._id,
         'Order.Item': req.body.item,
         'Order.CustomerId': user._id,
-        'Order.CustomerName': user.PersonalInfo.FirstName,
         'Order.Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
         'Order.Quantity': req.body.quantity,
         'Order.Amount': req.body.amount,

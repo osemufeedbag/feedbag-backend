@@ -1,5 +1,5 @@
-const inventoryModel = require('../../database/dbModel/inventoryModel');
-const UserModel = require('../../database/dbModel/userModel');
+const inventoryModel = require('../../../database/dbModel/inventoryModel');
+const UserModel = require('../../../database/dbModel/userModel');
 const date = require('date-and-time');
 const now = new Date();
 

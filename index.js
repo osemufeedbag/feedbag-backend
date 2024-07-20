@@ -121,7 +121,7 @@ app.get('/userProfileImgUpload', (req, res) => {
 
 app.use('/refresh', require('./api/refresh'));
 app.use(verifyJWT);
-app.use('/UserProfile', require('./api/UserProfile/PersonalInfo'));
+app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
 
