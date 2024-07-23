@@ -192,12 +192,12 @@ const TopSellingProd = async (req, res) => {
 };
 
 const TrackOrder = async (req, res) => {
-    const cookies = req.cookies;
+    /*const cookies = req.cookies;
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
 
-    //const User = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const User = await UserModel.findOne({RefreshToken: refreshToken}).exec()*/
     const trackingNos = req.body.nos;
     
     const ConsumerTotalOrder = await OrderModel.find({"Order.TrackingId": trackingNos}).exec()
