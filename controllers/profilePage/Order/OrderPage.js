@@ -146,9 +146,57 @@ const TotalSales = async (req, res) => {
         res.sendStatus(403);
     };
 };
+
+const TopSellingProd = async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const User = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    //const filter = User.PersonalInfo.User;
+    const formatter = new Intl.NumberFormat();
+
+    const sellingInfo = await OrderModel.find({OrderReceiverId: User._id}).exec()
+            if(!sellingInfo) return res.sendStatus(401);
+            
+            let total =0;
+            let itm = {};
+            sellingInfo.forEach(order => {
+                const item = order.Order.Item;
+                const amt = order.Order.Amount;
+                
+                if(!itm[item]){
+                    itm[item] = amt;
+                    total += amt;
+                } else {
+                    itm[item] += amt;
+                    total += amt;
+                }
+            })
+
+            for (let item in itm) {
+                itm[item] = ((itm[item] / total) * 100).toFixed(1) + "%";
+            }
+
+            let sortedPercentagesArray = Object.entries(itm).sort((a, b) => {
+                // Compare the percentages as numbers
+                return parseFloat(b[1]) - parseFloat(a[1]);
+              });
+              
+              // Convert the sorted array back to an object
+              let sortedPercentages = Object.fromEntries(sortedPercentagesArray);
+
+              
+        
+            res.json(sortedPercentages);
+            console.log(total)
+};
+
 module.exports = {
     GetOrderHistory,
     PlaceOrder,
     TotalOrder,
-    TotalSales
+    TotalSales,
+    TopSellingProd
 };

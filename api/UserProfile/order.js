@@ -13,6 +13,9 @@ router.route('/totalOrder')
 router.route('/totalSales')
     .get(OrderPageController.TotalSales);
 
+router.route('/topSellingProd')
+    .get(OrderPageController.TopSellingProd);
+
 router.route('/placeOrder/:id')
     .post(OrderPageController.PlaceOrder);
 
