@@ -22,10 +22,35 @@ const AddInventoryItem =  async (req, res) => {
             'AllItem.ItemName': req.body.ItemName,
             'AllItem.DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
             'AllItem.Price': req.body.Price,
-            'AllItem.Quantity': req.body.Quantity
+            'AllItem.Quantity': req.body.Quantity,
+            'AllItem.Id': Math.trunc((crypto.getRandomValues(count))/1000000)
         });
         inventory.save();
         res.json(inventory);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const UpdateInventory =  async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const userInventory = await inventoryModel.findOne({UserId: user._id}).exec()
+    if(!user) return res.sendStatus(401);
+
+
+    try {
+        
+        if(req.body?.ItemName) userInventory.AllItem.ItemName = req.body.ItemName;
+        if(req.body?.Price) userInventory.AllItem.Price = req.body.Price;
+
+        const userInventoryResult = await userInventory.save();
+        res.json(userInventoryResult);
 
     } catch (error) {
         console.log(error);

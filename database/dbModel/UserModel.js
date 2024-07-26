@@ -16,7 +16,8 @@ const userSchema = new Schema({
             'Country': {type: String, require: false},
             'PostalCode': {type: Number, require: false},
             'Address': {type: String, require: false},
-            'Password': {type: String, require: true}
+            'Password': {type: String, require: true},
+            'Rating(s)': {type: Number, require: false}
         },
         
         'FarmInfo': {

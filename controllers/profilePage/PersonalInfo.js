@@ -1,4 +1,5 @@
 const UserModel = require('../../database/dbModel/userModel');
+const allCompanyNamesModel = require('../../database/dbModel/allCompanyNames');
 
 
 const GetPersonalInfo = async (req, res) => {
@@ -19,6 +20,7 @@ const UpdatePersonalInfo = async (req, res) => {
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
+    const EditSession = req.params.EditSession;
 
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
 
@@ -48,7 +50,14 @@ const UpdatePersonalInfo = async (req, res) => {
 
         //Business Information
         case "BusinessInfo":
-            if(req.body?.CompanyName) user.BusinessInfo.CompanyName = req.body.CompanyName;
+            if(req.body?.CompanyName) {
+                user.BusinessInfo.CompanyName = req.body.CompanyName;
+                const newCompanyName = await allCompanyNamesModel.create({
+                    "companyName" : req.body.CompanyName
+                });
+                newCompanyName.save();
+                console.log(newCompanyName);
+            };
             if(req.body?.CompanyLocation) user.BusinessInfo.CompanyLocation = req.body.CompanyLocation;
 
             const result2 = await user.save();
