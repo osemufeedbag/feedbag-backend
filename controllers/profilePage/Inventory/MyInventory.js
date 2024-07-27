@@ -112,9 +112,23 @@ const LowStock =  async (req, res) => {
     res.json(userInventory);
 };
 
+const SearchInventory =  async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const search = req.body.itemSearch
+
+    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const searchedInventory = await inventoryModel.find({'UserId': user._id, 'AllItem.ItemName': search}).exec()
+    res.json(searchedInventory);
+};
+
 module.exports = {
     GetUserAllItems,
     AddInventoryItem,
     OutOfStock,
-    LowStock
+    LowStock,
+    SearchInventory
 }
