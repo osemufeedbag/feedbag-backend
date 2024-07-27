@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh; /* Take up full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .left img {
@@ -40,6 +41,7 @@ body {
   padding: 20px;
   box-sizing: border-box;
   border-radius: 15px;
+  overflow-y: auto; /* Allow scrolling within the right container */
 }
 
 .right h1 {
@@ -59,15 +61,14 @@ body {
   margin-bottom: 20px; /* Reduced for better spacing */
   height: 45px;
   background-color: #ebffee;
-  /*padding: 12px 24px; /* Corrected padding syntax */
-  padding-left:24px;
-  padding-right:24px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-radius: 16px;
   border: none;
 }
+
 a {
-  text-align: center
-  ;
+  text-align: center;
 }
 
 .right label {
@@ -103,9 +104,10 @@ a {
 @media (min-width: 768px) {
   body {
     flex-direction: row;
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden; /* Disable vertical scrolling on larger screens */
   }
 
   .right div {
@@ -146,6 +148,7 @@ a {
     flex-direction: column;
     align-items: center;
     margin-top: 0;
+    overflow-y: auto; /* Allow scrolling within the right container */
   }
 
   .right h1 {
@@ -183,7 +186,7 @@ a {
     width: 100%; /* Ensure it fills the parent container */
     align-items: center; /* Align items to the top for consistent label alignment */
     border: none;
-    margin-right:0px;
+    margin-right: 0px;
   }
 
   .tg .ctn {
@@ -206,15 +209,15 @@ a {
   }
 
   .last {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-top:80px;
-    /*margin-left:160px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
   }
+
   .last button {
-    margin-top:30px;
-    height:60px;
-    font-size:23px;
+    margin-top: 30px;
+    height: 60px;
+    font-size: 23px;
   }
 }

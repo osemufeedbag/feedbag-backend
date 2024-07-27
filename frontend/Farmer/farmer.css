@@ -2,86 +2,87 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; /* Set default layout to column for mobile-first */
+  flex-direction: column;
   height: 100vh;
   background-image: url("agrihub bg.png");
   background-size: cover;
-  overflow: hidden; /* Hide overflow to ensure no scrollbars appear */
-}
-
-.left {
-  width: 100%; /* Full width on smaller screens */
-  border: none;
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
-  box-sizing: border-box;
-  background-image: url("agrihub bg.png");
-  background-size: cover;
-  text-align: center; /* Center text for smaller screens */
+  font-family: 'Poppins', sans-serif;
 }
 
 .left img {
-  height: 80px;
-  width: 190px;
-  display: block; /* Ensures block-level behavior */
-  margin: 0 auto; /* Center on smaller screens */
+  /*height: 40px;*/
+  width: 120px;
+}
+
+.left {
+  margin-top: 20px;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom:15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
 
 .left h1 {
-  font-size: 40px; /* Adjusted for smaller screens */
   color: white;
-  margin-top: 20px; /* Space between image and heading */
+  font-size: 20px;
 }
 
 .right {
-  width: 100%; /* Full width on smaller screens */
+  width: 100%;
   background-color: white;
-  padding-top: 30px; /* Reduced padding-top to fit content */
-  border: none;
-  border-bottom-left-radius: 24px;
-  border-top-left-radius: 24px;
+  padding: 30px 5%;
   box-sizing: border-box;
-  padding-right: 5%;
-  padding-left: 5%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center elements horizontally */
-  justify-content: center; /* Center elements vertically */
-  overflow: hidden; /* Hide overflow to ensure no scrollbars appear */
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
 
 .head {
-  border: none;
-  width: 100%; /* Ensure full width for border alignment */
-  text-align: center; /* Center text */
+  width: 100%;
+  text-align: center;
 }
 
 .head h1 {
-  font-weight: 500;
-  font-size: 35px; /* Adjust font size for smaller screens */
+  font-weight: 800;
+  font-size: 25px;
 }
 
 .right h3 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 24px; /* Adjust font size for smaller screens */
+  font-size: 17px;
   text-align: center;
+  font-weight: 400;
 }
 
 .constituent {
   display: flex;
-  flex-direction: column; /* Stack items vertically for smaller screens */
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  margin-top: 20px; /* Add space above constituent */
+  margin-top: 20px;
+}
+
+.constituent p {
+  font-weight: 400;
 }
 
 .sign_up_as {
   color: #49c01f;
   text-align: center;
-  font-size: 27px;
-  margin-bottom: 20px; /* Space below heading */
+  font-size: 20px;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .farmer,
@@ -91,20 +92,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 150px; /* Adjusted for smaller screens */
-  width: 150px; /* Adjusted for smaller screens */
+  height: 150px;
+  width: 150px;
   border-radius: 10%;
   background-color: #ebffee;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  margin: 10px 0; /* Space between items */
+  margin: 10px 0;
 }
 
 .farmer img,
 .Aggregator img,
 .Consumer img {
   border-radius: 50%;
-  height: 80px; /* Adjusted for smaller screens */
-  width: 80px; /* Adjusted for smaller screens */
+  height: 80px;
+  width: 80px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -151,74 +152,77 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Ensure the buttons container is full width */
-  margin-top: 20px; /* Space above the buttons */
+  width: 300px;
+  margin-top: 20px;
+}
+
+button {
+  width: 100px;
+  height: 250px;
 }
 
 .email,
 .phone_number {
-  width: 90%; /* Responsive width */
-  height: 45px; /* Standard height for smaller screens */
-  font-size: 18px; /* Font size adjustment for smaller screens */
-  border-radius: 10px; /* Softer corners */
+  width: 90%;
+  height: 45px;
+  font-size: 18px;
+  border-radius: 10px;
   padding: 10px;
-  margin: 10px 0; /* Space between buttons */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-align: center; /* Center text inside buttons */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover transition */
-  cursor: pointer; /* Pointer cursor to indicate clickability */
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .email {
-  background-color: #1fc043; /* Consistent brand color */
-  color: white; /* Text color for contrast */
-  border: 2px solid #1fc043; /* Consistent border */
+  background-color: #1fc043;
+  color: white;
+  border: 2px solid #1fc043;
 }
 
 .phone_number {
   background-color: white;
   color: #1fc043;
-  border: 2px solid #1fc043; /* Consistent border */
+  border: 2px solid #1fc043;
 }
 
 .email:hover,
 .phone_number:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .login {
   display: flex;
-  flex-direction: column; /* Stack elements vertically for smaller screens */
+  flex-direction: column;
   align-items: center;
-  margin-top: 20px; /* Space above login section */
+  margin-top: 20px;
 }
 
 .login p {
-  font-size: 20px; /* Adjust font size for smaller screens */
-  margin: 5px 0; /* Space between text and link */
+  font-size: 20px;
+  margin: 5px 0;
 }
 
 .login a {
-  font-size: 20px; /* Adjust font size for smaller screens */
+  font-size: 20px;
   color: #1fc043;
-  text-decoration: none; /* Remove underline from link */
+  text-decoration: none;
 }
 
 .login a:hover {
-  text-decoration: underline; /* Underline on hover for clarity */
+  text-decoration: underline;
 }
 
 /* Media Queries for responsiveness */
-
 @media (min-width: 768px) {
   body {
-    display:flex;
-    flex-direction: row; /* Side-by-side layout on larger screens */
+    flex-direction: row;
   }
 
   .right {
-    width: 60%; /* Equal width for left and right sections */
+    width: 60%;
   }
 
   .left {
@@ -226,66 +230,76 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
     padding-top: 80px;
     padding-left: 80px;
   }
 
   .left img {
-    margin-left: 0; /* Align image to the left */
+    margin-left: 0;
     text-align: left;
-    display: inline-block; /* Allow text to wrap around */
+    display: inline-block;
   }
 
   .left h1 {
-    font-size: 60px; /* Larger font size for headings on larger screens */
-    margin-left: 0px;
-    padding-left: 0px;
+    font-size: 60px;
+    margin-left: 0;
+    padding-left: 0;
     text-align: left;
   }
 
   .head h1 {
-    font-size: 45px; /* Larger font size for headings on larger screens */
+    font-size: 45px;
   }
 
   .right h3 {
-    font-size: 30px; /* Larger font size for headings on larger screens */
+    font-size: 30px;
   }
 
   .constituent {
-    flex-direction: row; /* Row layout on larger screens */
+    flex-direction: row;
   }
 
   .farmer,
   .Aggregator,
   .Consumer {
-    height: 190px; /* Larger dimensions for items on larger screens */
+    height: 190px;
     width: 190px;
   }
 
   .farmer img,
   .Aggregator img,
   .Consumer img {
-    height: 90px; /* Larger image dimensions for larger screens */
+    height: 90px;
     width: 90px;
   }
 
   .buttons {
-    margin-top: 40px; /* More space above buttons on larger screens */
+    margin-top: 40px;
   }
 
   .email,
   .phone_number {
-    width: 450px; /* Fixed width for each button on larger screens */
-    height: 55px; /* Standard height for a more substantial button */
-    font-size: 22px; /* Increase font size for emphasis */
+    width: 450px;
+    height: 55px;
+    font-size: 22px;
   }
 
   .login {
-    flex-direction: row; /* Horizontal layout for login section on larger screens */
+    flex-direction: row;
   }
 
   .login p {
-    margin-right: 10px; /* Space between text and link on larger screens */
+    margin-right: 10px;
+  }
+}
+
+/* Custom styles for mobile view */
+@media (max-width: 767px) {
+  .email,
+  .phone_number {
+    width: 250px; /* Increase the button width for mobile view */
+    height: 60px; /* Increase the button height for mobile view */
+    font-size: 20px; /* Adjust font size for larger button text */
   }
 }
