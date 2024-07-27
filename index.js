@@ -59,7 +59,7 @@ app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
         },
     });
     newImage.save();
-    //console.log(newImage);
+    console.log(newImage);
     res.status(200).send('Successful');
     } catch (error) {
         console.log(error);

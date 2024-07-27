@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const PersonalInfoController = require('../../controllers/profilePage/personalInfo');
+const PersonalInfoController = require('../../controllers/profilePage/PersonalInfo');
 const DataManagementController = require('../../controllers/profilePage/Data_Privacy/DataManagement')
 const Consent_PerController = require('../../controllers/profilePage/Data_Privacy/Consent_Per')
 
 
 
-router.route('/personalInfo/:Email')
+router.route('/personalInfo')
     .get(PersonalInfoController.GetPersonalInfo);
 
-router.route('/personalInfo/:Email/:EditSession')
+router.route('/personalInfo/:EditSession')
     .put(PersonalInfoController.UpdatePersonalInfo);
 
 router.route('/consentOption')

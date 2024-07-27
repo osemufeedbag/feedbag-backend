@@ -28,7 +28,7 @@ const PlaceOrder = async (req, res) => {
         'Order.Quantity': req.body.quantity,
         'Order.Amount': result,
         //'Order.TrackingId': count += Math.round((Date.now() / 1000000000) * Math.floor(Math.random() * 100)) + 1,
-        'Order.TrackingId': crypto.getRandomValues(count),
+        'Order.TrackingId': Math.trunc((crypto.getRandomValues(count))/1000000),
         'Order.Status': "Processing"
     });
     newOrder.save();

@@ -9,6 +9,7 @@ const userSchema = new Schema({
         },
         'PersonalInfo': {
             'User': {type: String, require: true},
+            'UserName': {type: String, require: false},
             'FirstName': {type: String, require: true},
             'LastName': {type: String, require: false},
             'Email': {type: String, require: true},
@@ -16,7 +17,8 @@ const userSchema = new Schema({
             'Country': {type: String, require: false},
             'PostalCode': {type: Number, require: false},
             'Address': {type: String, require: false},
-            'Password': {type: String, require: true}
+            'Password': {type: String, require: true},
+            'Rating(s)': {type: Number, require: false}
         },
         
         'FarmInfo': {
@@ -30,7 +32,7 @@ const userSchema = new Schema({
         },
         
         'BusinessInfo': {
-                'CompanyName': {type: String, require: false},
+                //'CompanyName': {type: String, require: false},
                 'CompanyLocation': {type: String, require: false},
                 'BusinessRegistrationNos': {type: Number, require: false},
                 'Company': {type: String, require: false},

@@ -1,4 +1,8 @@
 const UserModel = require('../../database/dbModel/userModel');
+const allCompanyNamesModel = require('../../database/dbModel/allCompanyNames');
+const activityLogsModel = require('../../database/dbModel/activityLogs');
+const date = require('date-and-time');
+const now = new Date();
 
 
 const GetPersonalInfo = async (req, res) => {
@@ -19,6 +23,7 @@ const UpdatePersonalInfo = async (req, res) => {
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
+    const EditSession = req.params.EditSession;
 
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
 
@@ -33,6 +38,16 @@ const UpdatePersonalInfo = async (req, res) => {
             if(req.body?.PostalCode) user.PersonalInfo.PostalCode = req.body.PostalCode;
 
             const result1 = await user.save();
+
+            const newActivityLog = await activityLogsModel.create({
+                'UserId':user._id,
+                'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+                'ProfileUpdate': true
+            });
+
+            newActivityLog.save();
+            console.log(newActivityLog);
+
             res.json(result1);
         break;
 
@@ -42,14 +57,40 @@ const UpdatePersonalInfo = async (req, res) => {
             if(req.body?.FarmSize) user.FarmInfo.Size = req.body.FarmSize;
             if(req.body?.FarmLocation) user.FarmInfo.Location = req.body.FarmLocation;
 
+            const newActivityLogFarmer = await activityLogsModel.create({
+                'UserId':user._id,
+                'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+                'ProfileUpdate': true
+            });
+            
+            newActivityLogFarmer.save();
+            console.log(newActivityLogFarmer);
+
             const result0 = await user.save();
             res.json(result0);
         break;
 
         //Business Information
         case "BusinessInfo":
-            if(req.body?.CompanyName) user.BusinessInfo.CompanyName = req.body.CompanyName;
+            if(req.body?.BusinessName) {
+                user.BusinessInfo.BusinessName = req.body.BusinessName;
+                const newBusinessName = await allCompanyNamesModel.create({
+                    "companyName" : req.body.BusinessName
+                });
+                newBusinessName.save();
+                console.log(newCompanyName);
+            };
             if(req.body?.CompanyLocation) user.BusinessInfo.CompanyLocation = req.body.CompanyLocation;
+            if(req.body?.BusinessRegistrationNos) user.BusinessInfo.BusinessRegistrationNos = req.body.BusinessRegistrationNos;
+
+            const newActivityLogBuisness = await activityLogsModel.create({
+                'UserId':user._id,
+                'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+                'ProfileUpdate': true
+            });
+            
+            newActivityLogBuisness.save();
+            console.log(newActivityLogBuisness);
 
             const result2 = await user.save();
             res.json(result2);

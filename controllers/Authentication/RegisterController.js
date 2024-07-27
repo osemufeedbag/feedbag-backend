@@ -9,9 +9,11 @@ const UserReg = async (req, res) => {
 
             const hashedPwd0 = await bcrypt.hash(req.body.Password, 10);
             const FarmerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
+            const FarmerDuplicateBusinessName = await UserModel.findOne({'PersonalInfo.BusinessName': req.body.BusinessName}).exec();
             /*const name = req.body.Fullname;
             const firstname = name.split(' ')[0];*/
             if (FarmerUser) return res.sendStatus(409);
+            if (FarmerDuplicateBusinessName) return res.sendStatus(409);
 
             try {
                 const newSignup = await UserModel.create({
@@ -39,7 +41,9 @@ const UserReg = async (req, res) => {
 
             const hashedPwd1 = await bcrypt.hash(req.body.Password, 10);
             const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+            const AggregatorDuplicateBusinessName = await UserModel.findOne({'PersonalInfo.BusinessName': req.body.BusinessName}).exec();
             if (AggregatorUser) return res.sendStatus(409);
+            if (AggregatorDuplicateBusinessName) return res.sendStatus(409);
 
             try {
                 const newSignup = await UserModel.create({
@@ -67,11 +71,14 @@ const UserReg = async (req, res) => {
 
         const hashedPwd2 = await bcrypt.hash(req.body.Password, 10);
         const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+        const ConsumerUserName = await UserModel.findOne({'PersonalInfo.UserName': req.body.UserName}).exec();
             if (ConsumerUser) return res.sendStatus(409);
+            if (ConsumerUserName) return res.sendStatus(409);
 
             try {
                 const newSignup = await UserModel.create({
                     'PersonalInfo.User': User,
+                    'PersonalInfo.UserName': req.body.UserName,
                     'PersonalInfo.FirstName': req.body.FirstName,
                     'PersonalInfo.LastName': req.body.LastName,
                     'PersonalInfo.Email': req.body.Email,
