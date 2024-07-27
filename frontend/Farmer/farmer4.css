@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("agrihub bg.png");
+    box-sizing: border-box;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Take up full viewport height */
+  }
+  
+  .left {
+    margin-top: 20px;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .left img {
+    height: 40px;
+    width: 85px;
+  }
+  
+  .left h1 {
+    color: white;
+    font-size: 20px;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin: 4%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: white;
+    padding: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: calc(100vh - 10% - 40px); /* Adjusted to fill the remaining space */
+    overflow: hidden; /* Prevent scrollbars */
+  }
+
+
+
+  .right .up {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .up h1,p{
+    text-align:center;
+    margin-top:0;
+  }
+
+  .phone {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+  }

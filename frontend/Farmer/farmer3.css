@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("agrihub bg.png");
+    box-sizing: border-box;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Take up full viewport height */
+  }
+  
+  .left {
+    margin-top: 20px;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .left img {
+    height: 40px;
+    width: 85px;
+  }
+  
+  .left h1 {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin: 4%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: calc(100vh - 10% - 40px); /* Adjusted to fill the remaining space */
+    overflow: hidden; /* Prevent scrollbars */
+  }
+  
+  .right .img img {
+    height: 250px;
+    width: 300px;
+  }
+  
+  .first {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .text h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .text p {
+    text-align: center;
+    font-weight: 300;
+  }
+  
+  .second {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure buttons take full width available */
+  }
+  
+  .second button {
+    width: 100%; /* Full width of the container */
+    max-width: 300px; /* Maximum width for smaller screens */
+    height: 50px; /* Reduced height for smaller screens */
+    border: none;
+    border-radius: 16px;
+    margin-top: 20px; /* Margin between buttons */
+    font-size: 16px; /* Reduced font size for smaller screens */
+    background-color: #49c01f;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    white-space: nowrap; /* Ensure text stays on one line */
+  }
+  
+  .second button:nth-child(2) {
+    background-color: white;
+    color: #49c01f;
+    border: 1px solid #49c01f;
+  }
+  
+  .second button:hover {
+    transform: scale(1.05); /* Increase size on hover */
+  }
+  
+  .second button:nth-child(2):hover {
+    transform: scale(1.05); /* Increase size on hover for the second button */
+  }
+  
+  /* Medium screens adjustments */
+  @media (min-width: 768px) {
+    body {
+      flex-direction: row;
+    }
+  
+    .left {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: 80px;
+      padding-left: 80px;
+    }
+  
+    .left img {
+      margin-left: 0;
+      text-align: left;
+      display: inline-block;
+    }
+  
+    .left h1 {
+      font-size: 60px;
+      margin-left: 0px;
+      padding-left: 0px;
+      text-align: left;
+    }
+  
+    .right {
+      width: 60%;
+      height: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      margin:0;
+    }
+  
+    .right .img img {
+      height: 450px;
+      width: 600px;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  
+    .text h1 {
+      font-size: 40px;
+    }
+  
+    .text p {
+      font-size: 18px;
+    }
+  
+    .second button {
+      max-width: 600px; /* Increased for medium screens */
+      font-size: 20px; /* Larger font size for larger screens */
+      width: 250px;
+      height: 70px; /* Increased height for larger screens */
+    }
+  
+    .second .go {
+      color: black;
+      background-color: white;
+    }
+  }
+  

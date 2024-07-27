@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("agrihub bg.png");
+  box-sizing: border-box;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Take up full viewport height */
+}
+
+.left img {
+  height: 40px;
+  width: 85px;
+}
+
+.left {
+  margin-top: 20px;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left h1 {
+  color: white;
+  font-size: 20px;
+}
+
+.right {
+  border: 1px solid white;
+  flex-grow: 1; /* Take up remaining space */
+  margin: 4%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.right h1 {
+  font-size: 25px;
+  text-align: center;
+}
+
+.right h3 {
+  text-align: center;
+  margin-top: 0px;
+  font-weight: 300;
+}
+
+.right input {
+  width: 100%;
+  max-width: 300px; /* Maximum width for smaller screens */
+  margin-bottom: 20px; /* Reduced for better spacing */
+  height: 45px;
+  background-color: #ebffee;
+  /*padding: 12px 24px; /* Corrected padding syntax */
+  padding-left:24px;
+  padding-right:24px;
+  border-radius: 16px;
+  border: none;
+}
+a {
+  text-align: center
+  ;
+}
+
+.right label {
+  font-weight: 900;
+}
+
+.right button {
+  width: 100%;
+  max-width: 300px; /* Ensure buttons fit within designated area */
+  height: 40px;
+  border: none;
+  border-radius: 16px;
+  margin-top: 10px; /* Added margin for spacing */
+}
+
+.continue {
+  background-image: linear-gradient(#49c01f, #1fc043);
+  color: white;
+}
+
+.goBack {
+  background-color: white;
+  border: 1px solid #49c01f; /* Added border for visibility */
+  color: #49c01f; /* Added color for text */
+  margin-top: 10px; /* Added margin for spacing */
+}
+
+a {
+  color: #49c01f;
+}
+
+/* Medium screens adjustments */
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  .right div {
+    width: 80%;
+  }
+
+  .left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-left: 80px;
+    border: none;
+    margin-top: 10px;
+  }
+
+  .left img {
+    margin-left: 0;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .left h1 {
+    font-size: 60px;
+    margin-left: 0px;
+    padding-left: 0px;
+    text-align: left;
+  }
+
+  .right {
+    border: none;
+    width: 60%;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .right h1 {
+    font-size: 40px;
+  }
+
+  .right h3 {
+    font-size: 30px;
+  }
+
+  .right input {
+    width: 100%;
+    max-width: 600px; /* Ensure inputs fit within medium screen size */
+    height: 50px;
+  }
+
+  .right button {
+    width: 100%;
+    max-width: 450px; /* Consistent width for medium screens */
+    font-size: 18px;
+  }
+
+  .comp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make the .comp take full width for better alignment */
+    max-width: 800px; /* Set a max-width to control the overall width */
+  }
+
+  .tg {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribute space between elements */
+    width: 100%; /* Ensure it fills the parent container */
+    align-items: center; /* Align items to the top for consistent label alignment */
+    border: none;
+    margin-right:0px;
+  }
+
+  .tg .ctn {
+    width: 48%; /* Each container takes roughly equal width, with some margin */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to fill container width */
+    margin-right: 0; /* Remove right margin for consistent spacing */
+  }
+
+  .tg .ctn label {
+    margin-bottom: 10px; /* Add spacing between label and input */
+  }
+
+  .tg .ctn input {
+    width: 100%; /* Make sure the input fills the container */
+    height: 45px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .last {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:80px;
+    /*margin-left:160px;*/
+  }
+  .last button {
+    margin-top:30px;
+    height:60px;
+    font-size:23px;
+  }
+}
