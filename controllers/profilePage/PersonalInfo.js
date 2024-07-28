@@ -1,5 +1,5 @@
 const UserModel = require('../../database/dbModel/userModel');
-const allCompanyNamesModel = require('../../database/dbModel/allCompanyNames');
+const allCompanyNamesModel = require('../../database/dbModel/allCompanyNamesModel');
 const activityLogsModel = require('../../database/dbModel/activityLogs');
 const date = require('date-and-time');
 const now = new Date();
@@ -74,12 +74,14 @@ const UpdatePersonalInfo = async (req, res) => {
         case "BusinessInfo":
             if(req.body?.BusinessName) {
                 user.BusinessInfo.BusinessName = req.body.BusinessName;
+                
                 const newBusinessName = await allCompanyNamesModel.create({
-                    "companyName" : req.body.BusinessName
+                    "BusinessName" : req.body.BusinessName
                 });
                 newBusinessName.save();
-                console.log(newCompanyName);
+                console.log(newBusinessName);
             };
+
             if(req.body?.CompanyLocation) user.BusinessInfo.CompanyLocation = req.body.CompanyLocation;
             if(req.body?.BusinessRegistrationNos) user.BusinessInfo.BusinessRegistrationNos = req.body.BusinessRegistrationNos;
 
@@ -94,6 +96,7 @@ const UpdatePersonalInfo = async (req, res) => {
 
             const result2 = await user.save();
             res.json(result2);
+
         break;
 
         // Billing Information

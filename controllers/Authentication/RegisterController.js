@@ -1,5 +1,5 @@
 const UserModel = require('../../database/dbModel/userModel');
-const allCompanyNamesModel = require('../../database/dbModel/allCompanyNames');
+const allCompanyNamesModel = require('../../database/dbModel/allCompanyNamesModel');
 const bcrypt = require('bcrypt');
 
 const UserReg = async (req, res) => {
