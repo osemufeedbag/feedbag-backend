@@ -131,7 +131,7 @@ app.use(verifyJWT);
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
-app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/searchApi'));
+app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 
 
 mongoose.connection.once('open', () => {
