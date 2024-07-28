@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const allCompanyNameSchema = new Schema({
-    'companyName': [String]
+    'UserId': {type: String, require: true},
+    'BusinessName': {type: String, require: true}
 });
 
 module.exports = mongoose.model('allCompanyNamedb', allCompanyNameSchema);

@@ -17,6 +17,9 @@ const path = require('path');
 // Connect to mongodb database
 connectDB();
 
+//Serve static files
+app.use(express.static(path.join(__dirname, '/public')));
+
 // To handle form data
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +28,11 @@ app.use(bodyParser.json());
 // built-in middleware to read json file into the server json
 app.use(express.json());
 
+
+
 app.use('/access', require('./api/auth'));
+app.use('/signup', require('./routes/SignUpPage'));
+
 app.get('/', (req, res) => {
     res.status(500).json('Welcome to feedbag agrihub server');
 });
@@ -124,6 +131,7 @@ app.use(verifyJWT);
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
+app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/searchApi'));
 
 
 mongoose.connection.once('open', () => {

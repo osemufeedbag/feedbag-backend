@@ -4,7 +4,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url("agrihub bg.png");
+  background-image: url("../../img/farmer/agrihub bg.png");
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }

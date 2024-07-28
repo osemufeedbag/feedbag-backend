@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("agrihub bg.png");
+    background-image: url("../../img/farmer/agrihub bg.png");
     box-sizing: border-box;
     background-size: cover;
     display: flex;
