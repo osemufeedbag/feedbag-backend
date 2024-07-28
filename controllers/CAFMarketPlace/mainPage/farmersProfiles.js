@@ -11,19 +11,15 @@ const displayFramers = async (req, res) => {
     if(!displayFarmer) return res.sendStatus(401);
 
     let result = [];
+    let int = 0;
     
-    while (result.length <= 6 || result.length == 0) {
-        let int = getRandomInteger(displayFarmer.length - 1, 0);
-        result.push(displayFarmer[int]);
+    //let int = getRandomInteger(displayFarmer.length - 1, 0);
+    while(int <= 6) {
+        result.push(displayFarmer[getRandomInteger(displayFarmer.length - 1, 0)]);
+        int ++;
     }
 
-    let container = [];
-    result.forEach(async (rl) => {
-        let dFarmer = await userModel.findOne({'BusinessInfo.BusinessName': rl.BusinessName}).exec();
-        container.push(dFarmer);
-    })
-
-    res.json(container);
+    res.json(result);
 };
 
 module.exports = {
