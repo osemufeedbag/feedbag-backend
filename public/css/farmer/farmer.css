@@ -10,7 +10,6 @@ body {
 }
 
 .left img {
-  /*height: 40px;*/
   width: 120px;
 }
 
@@ -21,13 +20,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-bottom:15px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  text-align: center;
+  margin-bottom: 15px;
 }
 
 .left h1 {
@@ -37,6 +30,7 @@ a {
 
 .right {
   width: 100%;
+  border: 5px solid #49c01f;
   background-color: white;
   padding: 30px 5%;
   box-sizing: border-box;
@@ -45,7 +39,7 @@ a {
   align-items: center;
   justify-content: center;
   border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
+  border-top-right-radius: 24px;
 }
 
 .head {
@@ -85,6 +79,7 @@ a {
   padding-top: 0;
 }
 
+
 .farmer,
 .Aggregator,
 .Consumer {
@@ -98,6 +93,8 @@ a {
   background-color: #ebffee;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   margin: 10px 0;
+  border: none; 
+  cursor: pointer; 
 }
 
 .farmer img,
@@ -163,8 +160,8 @@ button {
 
 .email,
 .phone_number {
-  width: 90%;
-  height: 45px;
+  width: 200px;
+  height: 60px;
   font-size: 18px;
   border-radius: 10px;
   padding: 10px;
@@ -223,6 +220,7 @@ button {
 
   .right {
     width: 60%;
+    border:none;
   }
 
   .left {
@@ -267,39 +265,4 @@ button {
     width: 190px;
   }
 
-  .farmer img,
-  .Aggregator img,
-  .Consumer img {
-    height: 90px;
-    width: 90px;
-  }
-
-  .buttons {
-    margin-top: 40px;
-  }
-
-  .email,
-  .phone_number {
-    width: 450px;
-    height: 55px;
-    font-size: 22px;
-  }
-
-  .login {
-    flex-direction: row;
-  }
-
-  .login p {
-    margin-right: 10px;
-  }
-}
-
-/* Custom styles for mobile view */
-@media (max-width: 767px) {
-  .email,
-  .phone_number {
-    width: 250px; /* Increase the button width for mobile view */
-    height: 60px; /* Increase the button height for mobile view */
-    font-size: 20px; /* Adjust font size for larger button text */
-  }
 }
