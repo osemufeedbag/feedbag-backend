@@ -1,4 +1,5 @@
 const UserModel = require('../../database/dbModel/userModel');
+const allCompanyNamesModel = require('../../database/dbModel/allCompanyNames');
 const bcrypt = require('bcrypt');
 
 const UserReg = async (req, res) => {
@@ -6,10 +7,9 @@ const UserReg = async (req, res) => {
 
     switch (User) {
         case "Farmer":
-
             const hashedPwd0 = await bcrypt.hash(req.body.Password, 10);
             const FarmerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
-            const FarmerDuplicateBusinessName = await UserModel.findOne({'PersonalInfo.BusinessName': req.body.BusinessName}).exec();
+            const FarmerDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
             /*const name = req.body.Fullname;
             const firstname = name.split(' ')[0];*/
             if (FarmerUser) return res.sendStatus(409);
@@ -20,10 +20,10 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.User': User,
                     'PersonalInfo.FirstName': req.body.FirstName,
                     'PersonalInfo.LastName': req.body.LastName,
-                    'PersonalInfo.Company': req.body.Company,
-                    'PersonalInfo.BusinessName': req.body.BusinessName,
                     'PersonalInfo.Email': req.body.Email,
-                    'PersonalInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
+                    'BusinessInfo.Company': req.body.Company,
+                    'BusinessInfo.BusinessName': req.body.BusinessName,
+                    'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
                     'PersonalInfo.Password': hashedPwd0
                 })
                 newSignup.save()
@@ -35,13 +35,24 @@ const UserReg = async (req, res) => {
                 console.log(error);
             };
 
+            try {
+                const newBusinessSignup = await allCompanyNamesModel.create({
+                    'BusinessName': req.body.BusinessName,
+                })
+                newBusinessSignup.save()
+                console.log(newBusinessSignup);
+
+            } catch (error) {
+                console.log(error);
+            };
+
         break;
 
         case "Aggregator":
 
             const hashedPwd1 = await bcrypt.hash(req.body.Password, 10);
             const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
-            const AggregatorDuplicateBusinessName = await UserModel.findOne({'PersonalInfo.BusinessName': req.body.BusinessName}).exec();
+            const AggregatorDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
             if (AggregatorUser) return res.sendStatus(409);
             if (AggregatorDuplicateBusinessName) return res.sendStatus(409);
 
@@ -65,13 +76,24 @@ const UserReg = async (req, res) => {
                 console.log(error);
             }
 
+            try {
+                const newBusinessSignup = await allCompanyNamesModel.create({
+                    'BusinessName': req.body.BusinessName,
+                })
+                newBusinessSignup.save()
+                console.log(newBusinessSignup);
+
+            } catch (error) {
+                console.log(error);
+            };
+
         break;
 
         case "Consumer":
 
         const hashedPwd2 = await bcrypt.hash(req.body.Password, 10);
         const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
-        const ConsumerUserName = await UserModel.findOne({'PersonalInfo.UserName': req.body.UserName}).exec();
+        const ConsumerUserName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
             if (ConsumerUser) return res.sendStatus(409);
             if (ConsumerUserName) return res.sendStatus(409);
 
@@ -91,6 +113,17 @@ const UserReg = async (req, res) => {
             } catch (error) {
                 console.log(error);
             }
+
+            try {
+                const newBusinessSignup = await allCompanyNamesModel.create({
+                    'BusinessName': req.body.BusinessName,
+                })
+                newBusinessSignup.save()
+                console.log(newBusinessSignup);
+
+            } catch (error) {
+                console.log(error);
+            };
     }
 }
 //Sign up logic end-->
