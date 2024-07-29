@@ -296,7 +296,7 @@ button {
 
   .reg,
   .irreg {
-    width: 600px;
+    width: 400px;
   }
 
   .reg {
@@ -305,16 +305,20 @@ button {
 
   .irreg {
     margin-bottom: 40px;
+    
   }
 
   .irreg .irgFirst,
   .irreg .irgSecond {
     width: 100%;
     margin-bottom: 20px;
+    margin-right:10px;
   }
 
   input {
     height: 50px;
+    
+
   }
 
   .buttons {
