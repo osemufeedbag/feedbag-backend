@@ -317,8 +317,7 @@ button {
 
   input {
     height: 50px;
-    
-
+    font-size:20px;
   }
 
   .buttons {
@@ -328,5 +327,7 @@ button {
   button {
     width: 300px;
     height: 45px;
+    font-size:900px;
+    border:10px solid orange;
   }
 }
