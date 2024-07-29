@@ -2,28 +2,24 @@
 const allCompanyNamesModel = require('../../../database/dbModel/allCompanyNamesModel');
 const userModel = require('../../../database/dbModel/userModel');
 
-function getRandomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 const displayFramers = async (req, res) => { 
-    const displayFarmer= await allCompanyNamesModel.find({});
-    if(!displayFarmer) return res.sendStatus(401);
+    const displayFilter = req.params.displayFilter;
 
-    let result = [];
-    
-    while (result.length <= 6 || result.length == 0) {
-        let int = getRandomInteger(displayFarmer.length - 1, 0);
-        result.push(displayFarmer[int]);
-    }
+    switch(displayFilter) {
+        case "Farmer+":
+            const displayFarmerX = await allCompanyNamesModel.find({});
+            if(!displayFarmerX) return res.sendStatus(401);
 
-    let container = [];
-    result.forEach(async (rl) => {
-        let dFarmer = await userModel.findOne({'BusinessInfo.BusinessName': rl.BusinessName}).exec();
-        container.push(dFarmer);
-    })
+            res.json(displayFarmerX.sort().slice(0,7));
+        break;
 
-    res.json(container);
+        case "Farmer++":
+            const displayFarmerX2 = await allCompanyNamesModel.find({});
+            if(!displayFarmerX2) return res.sendStatus(401);
+            
+            res.json(displayFarmerX2.sort());
+        break;
+    }  
 };
 
 module.exports = {

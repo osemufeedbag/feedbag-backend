@@ -126,12 +126,16 @@ app.get('/userProfileImgUpload', (req, res) => {
 });
 // User profile picture upload and display ends--->
 
+// Remember to take these back to after verifyJWT
+app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
+// Remember to take these back to after verifyJWT
+
 app.use('/refresh', require('./api/refresh'));
 app.use(verifyJWT);
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
-app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
+
 
 
 mongoose.connection.once('open', () => {

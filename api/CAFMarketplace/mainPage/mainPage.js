@@ -9,4 +9,7 @@ router.route('/mainPage/search')
 router.route('/mainPage/displayFramers')
     .get(farmersProfilesController.displayFramers);
 
+router.route('/mainPage/displayFramers/:displayFilter')
+    .get(farmersProfilesController.displayFramers);
+
 module.exports = router;
