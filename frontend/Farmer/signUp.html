@@ -20,20 +20,29 @@
         <div class="sign_up_as"><h2>Sign Up as a...</h2></div>
         <div class="constituent">
           
-            <button id="farmerStatus" class="farmer" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
-                <div class="title"><p>Farmer</p></div>
-            </button>
+            <label for="farmerCheckbox" class="checkbox-container">
+                <input type="checkbox" id="farmerCheckbox" name="userStatus" value="Farmer">
+                <div class="checkbox-content">
+                    <div class="image"><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+                    <div class="title"><p>Farmer</p></div>
+                </div>
+            </label>
  
-            <button id="aggregatorStatus" class="Aggregator" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub aggregator.png" alt=""></div>
-                <div class="title"><p>Aggregator</p></div>
-            </button>
+            <label for="aggregatorCheckbox" class="checkbox-container">
+                <input type="checkbox" id="aggregatorCheckbox" name="userStatus" value="Aggregator">
+                <div class="checkbox-content">
+                    <div class="image"><img src="../../public/img/farmer/agrihub aggregator.png" alt=""></div>
+                    <div class="title"><p>Aggregator</p></div>
+                </div>
+            </label>
 
-            <button id="consumerStatus" class="Consumer" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub consumer.png" alt=""></div>
-                <div class="title"><p>Consumer</p></div>
-            </button>
+            <label for="consumerCheckbox" class="checkbox-container">
+                <input type="checkbox" id="consumerCheckbox" name="userStatus" value="Consumer">
+                <div class="checkbox-content">
+                    <div class="image"><img src="../../public/img/farmer/agrihub consumer.png" alt=""></div>
+                    <div class="title"><p>Consumer</p></div>
+                </div>
+            </label>
         </div>
         <div class="buttons">
             <div><a href="farmer2.html"><button class="email">Sign up with email</button></a></div>
@@ -45,6 +54,7 @@
         </div>
     </div>
 
-    <script src="../../js/farmer/Farmer1.js"></script>
+    <script src="../../public/js/farmer/Farmer1.js"></script>
+    <script src="../../public/js/farmer/signUpScript.js" type="module"></script>
 </body>
 </html>

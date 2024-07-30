@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   padding: 0;
   margin: 0;
@@ -79,27 +82,39 @@ body {
   padding-top: 0;
 }
 
-
-.farmer,
-.Aggregator,
-.Consumer {
+.checkbox-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 150px;
   width: 150px;
+  height: 150px;
   border-radius: 10%;
   background-color: #ebffee;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   margin: 10px 0;
-  border: none; 
-  cursor: pointer; 
+  border: none;
+  cursor: pointer;
+  position: relative;
 }
 
-.farmer img,
-.Aggregator img,
-.Consumer img {
+.checkbox-container input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-container .checkbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 10%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.checkbox-container .checkbox-content .image img {
   border-radius: 50%;
   height: 80px;
   width: 80px;
@@ -108,40 +123,13 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.farmer:hover,
-.Aggregator:hover,
-.Consumer:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background-color: #1fc043;
-}
-
-.farmer img:hover,
-.Aggregator img:hover,
-.Consumer img:hover {
+.checkbox-container .checkbox-content:hover .image img {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.farmer img {
-  animation: rotate 8s infinite alternate;
-}
-
-.Aggregator img {
-  animation: rotate 8s infinite alternate-reverse;
-}
-
-.Consumer img {
-  animation: rotate 8s infinite alternate;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(5deg);
-  }
+.checkbox-container input[type="checkbox"]:checked + .checkbox-content {
+  background-color: #1fc043;
 }
 
 .buttons {
@@ -156,6 +144,10 @@ body {
 button {
   width: 100px;
   height: 250px;
+}
+
+button:active {
+  background-color: red;
 }
 
 .email,
@@ -215,63 +207,59 @@ button {
 /* Media Queries for responsiveness */
 @media (min-width: 768px) {
   body {
-    flex-direction: row;
+      flex-direction: row;
   }
 
   .right {
-    width: 60%;
-    border:none;
+      width: 60%;
+      border: none;
   }
 
   .left {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
-    padding-top: 80px;
-    padding-left: 80px;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items: flex-start;
+      padding-top: 80px;
+      padding-left: 80px;
   }
 
   .left img {
-    margin-left: 0;
-    text-align: left;
-    display: inline-block;
+      margin-left: 0;
+      text-align: left;
+      display: inline-block;
   }
 
   .left h1 {
-    font-size: 60px;
-    margin-left: 0;
-    padding-left: 0;
-    text-align: left;
+      font-size: 60px;
+      margin-left: 0;
+      padding-left: 0;
+      text-align: left;
   }
 
   .head h1 {
-    font-size: 45px;
+      font-size: 45px;
   }
 
   .right h3 {
-    font-size: 30px;
+      font-size: 30px;
   }
 
   .constituent {
-    flex-direction: row;
+      flex-direction: row;
   }
 
-  .farmer,
-  .Aggregator,
-  .Consumer {
-    height: 190px;
-    width: 190px;
+  .checkbox-container {
+      height: 190px;
+      width: 190px;
   }
 
   .buttons {
-   
-    width:600px;
+      width: 600px;
   }
 
   .buttons button {
-    width:300px;
+      width: 300px;
   }
-
 }
