@@ -1,6 +1,7 @@
 const UserModel = require('../../database/dbModel/userModel');
 const allCompanyNamesModel = require('../../database/dbModel/allCompanyNamesModel');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 const UserReg = async (req, res) => {
     const User = req.params.user;
@@ -27,8 +28,7 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.Password': hashedPwd0
                 })
                 newSignup.save()
-                res.sendStatus(200);
-
+                res.redirect('/signup/farmer3');
                 console.log(newSignup);
 
             } catch (error) {
@@ -68,7 +68,7 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.Password': hashedPwd1
                 })
                 newSignup.save()
-                res.sendStatus(200);
+                res.redirect('/signup/farmer3');
                 
                 console.log(newSignup);
 
@@ -107,7 +107,7 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.Password': hashedPwd2
                 })
                 newSignup.save()
-                res.sendStatus(200)
+                res.redirect('/signup/farmer3');
                 console.log(newSignup);
 
             } catch (error) {
