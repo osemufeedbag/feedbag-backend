@@ -265,4 +265,13 @@ button {
     width: 190px;
   }
 
+  .buttons {
+   
+    width:600px;
+  }
+
+  .buttons button {
+    width:300px;
+  }
+
 }

@@ -1,0 +1,347 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("../../img/farmer/agrihub bg.png");
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .left img {
+    width: 120px;
+  }
+  
+  .left {
+    margin-top: 20px;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .left h1 {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .right {
+    width: 100%;
+    background-color: white;
+    padding: 30px 5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+  
+  .heading h1 {
+    font-size: 20px;
+    text-align: center;
+    font-family: Helvetica;
+  }
+  
+  .heading h3 {
+    font-size: 13px;
+    font-family: 'Poppins';
+    text-align: center;
+    font-weight: 300;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .forms {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .reg {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .irreg {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .irreg .irgFirst {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  input {
+    width: 100%;
+    align-self: center;
+    background-color: #EBFFEE;
+    border: 2px solid transparent;
+    height: 40px;
+    border-radius: 16px;
+    padding-left: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #49C01F;
+  }
+  
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    z-index: 10;
+    box-sizing: border-box;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 13px;
+    font-weight: 200;
+  }
+  
+  a {
+    font-size: 12px;
+    color: #49C01F;
+  }
+  
+  button {
+    width: 230px;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: #49C01F;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  
+  .backk {
+    border:1px solid  #49C01F; 
+    color: #49C01F;
+    background-color: #ffffff;
+  }
+  
+  @media (min-width: 768px) {
+  
+    body {
+      flex-direction: row;
+    }
+  
+    .left {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: 80px;
+      padding-left: 80px;
+    }
+  
+    .left img {
+      margin-left: 0;
+      text-align: left;
+      display: inline-block;
+    }
+  
+    .left h1 {
+      font-size: 60px;
+      margin-left: 0px;
+      padding-left: 0px;
+      text-align: left;
+    }
+  
+    .right {
+      width: 60%;
+      height: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      border: none;
+    }
+  
+    .right h1 {
+      font-size: 36px;
+    }
+  
+    .right h3 {
+      font-size: 23px;
+      font-weight: 10;
+    }
+    .forms {
+      border: none;
+      width: 800px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .reg {
+      width: 800px;
+      height: 50px;
+      margin-bottom: 60px;
+    }
+  
+    label {
+      font-size: 15px;
+    }
+  
+    .irreg {
+      width: 800px;
+      height: 50px;
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+   
+    .irgFirst {
+      width: 250px;
+    }
+  
+    .irgSecond {
+      width: 450px;
+    }
+  
+    input {
+      height: 70px;
+ 
+      font-size:20px;
+    }
+  
+    .reg a {
+      font-size: 18px;
+    }
+  
+    .buttons {
+      margin-top: 70px;
+    }
+  
+    button {
+      width: 400px;
+      height: 50px;
+      font-size:22px;
+    }
+
+    .backk {
+        background-color:#ffffff;
+        border:1px solid  #49C01F; 
+    }
+  }
+  
+  /* Tablet View */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .left {
+      width: 35%;
+      padding-left: 40px;
+      padding-top: 40px;
+    }
+  
+    .left h1 {
+      font-size: 45px;
+    }
+  
+    .right {
+      width: 65%;
+      padding: 20px 3%;
+    }
+  
+    .right h1 {
+      font-size: 28px;
+    }
+  
+    .right h3 {
+      font-size: 18px;
+    }
+  
+    .forms {
+      width: 600px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .reg,
+    .irreg {
+      width: 400px;
+    }
+  
+    .reg {
+      margin-bottom: 40px;
+    }
+  
+    .irreg {
+      margin-bottom: 40px;
+      
+    }
+  
+    .irreg .irgFirst,
+    .irreg .irgSecond {
+      width: 100%;
+      margin-bottom: 20px;
+      margin-right:10px;
+    }
+  
+    .forms input {
+      height: 50px;
+      font-size:500px;
+      font-size:20px;
+    }
+  
+    .buttons {
+      margin-top: 50px;
+    }
+  
+    button {
+      width: 300px;
+      height: 45px;
+      font-size: 50px;
+    }
+
+    .backk {
+        border:1px solid  #49C01F; 
+        background-color: #ffffff; 
+    }
+  }
+  
