@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain In Agriculture</title>
-    <link rel="stylesheet" href="../../public/css/farmer/farmer.css">
+    <link rel="stylesheet" href="../../css/farmer/farmer.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
     <div class="left">
-        <div><img src="../../public/img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
+        <div><img src="../../img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
         <div><h1>Blockchain In<br> Agriculture</h1></div>
     </div>
     <div class="right">
@@ -20,23 +20,23 @@
         <div class="sign_up_as"><h2>Sign Up as a...</h2></div>
         <div class="constituent">
           
-            <button class="farmer" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+            <button id="farmerStatus" class="farmer" onclick="location.href='#'">
+                <div class="image"><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
                 <div class="title"><p>Farmer</p></div>
             </button>
  
-            <button class="Aggregator" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub aggregator.png" alt=""></div>
+            <button id="aggregatorStatus" class="Aggregator" onclick="location.href='#'">
+                <div class="image"><img src="../../img/farmer/agrihub aggregator.png" alt=""></div>
                 <div class="title"><p>Aggregator</p></div>
             </button>
 
-            <button class="Consumer" onclick="location.href='#'">
-                <div class="image"><img src="../../public/img/farmer/agrihub consumer.png" alt=""></div>
+            <button id="consumerStatus" class="Consumer" onclick="location.href='#'">
+                <div class="image"><img src="../../img/farmer/agrihub consumer.png" alt=""></div>
                 <div class="title"><p>Consumer</p></div>
             </button>
         </div>
         <div class="buttons">
-            <div><a href="farmer2.html"><button class="email">Sign up with email</button></a></div>
+            <div><a id="emailSignup" href="farmer2.html"><button class="email">Sign up with email</button></a></div>
             <div><button class="phone_number">Sign up with phone number</button></div>
         </div>
         <div class="login">
@@ -45,8 +45,6 @@
         </div>
     </div>
 
-   
-   
-
+    <script src="../../js/farmer/Farmer1.js"></script>
 </body>
 </html>
