@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../public/css/farmer/farmer2.css">
+    <link rel="stylesheet" href="../../css/farmer/farmer2.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
     <div class="left">
-        <div><img src="../../public/img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
+        <div><img src="../../img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
         <div><h1>Blockchain In <br> Agriculture</h1></div>
     </div>
 
@@ -20,17 +20,17 @@
         </div>
 
         <div class="forms">
-            <form action="">
+            <form id="regFrom" action="/access/register" method="post">
                 <div class="reg">
                     <div><label for="fullName">Full name</label></div>
-                    <div><input type="text" id="fullName" placeholder="Enter your full name"></div>
+                    <div><input type="text" name="FirstName" id="fullName" placeholder="Enter your full name"></div>
                 </div>
 
                 <div class="irreg">
                     <div class="irgFirst">
                         <div><label for="businessType">Business Type</label></div>
                         <div class="dropdown-container">
-                            <input type="text" id="businessType" placeholder="Business Type" readonly>
+                            <input type="text" name="Company" id="businessType" placeholder="Business Type" readonly>
                             <div class="dropdown">
                                 <div class="dropdown-item">business name</div>
                                 <div class="dropdown-item">LLC</div>
@@ -41,58 +41,35 @@
 
                     <div class="irgSecond">
                         <div><label for="businessName">Business name</label></div>
-                        <div><input type="text" id="businessName" placeholder="Enter your business name"></div>
+                        <div><input type="text" name="BusinessName" id="businessName" placeholder="Enter your business name"></div>
                     </div>
                 </div>
 
                 <div class="reg">
                     <div><label for="email">Email</label></div>
-                    <div><input type="email" id="email" placeholder="Enter your email"></div>
+                    <div><input type="email" name="Email" id="email" placeholder="Enter your email"></div>
                 </div>
 
                 <div class="reg">
                     <div><label for="businessRegNo">Business registration number</label></div>
-                    <div><input type="text" id="businessRegNo" placeholder="Enter your business registration number"></div>
+                    <div><input type="text" name="BusinessRegistrationNos" id="businessRegNo" placeholder="Enter your business registration number"></div>
                 </div>
 
                 <div class="reg">
                     <div><label for="password">Password</label></div>
-                    <div><input type="password" id="password" placeholder="Enter your password"></div>
+                    <div><input type="text" name="Password" id="password" placeholder="Enter your password"></div>
                     <div><a href="#">Forgot password?</a></div>
+                </div>
+                <div class="buttons">
+                    <div class="continue"><a href="farmer3.html"><button type="submit">Continue</button></a></div>
+                    <div class="back"><a href="farmer1.html"><button type="button" class="back">Go back</button></a></div>
                 </div>
             </form>
         </div>
-
-        <div class="buttons">
-            <div class="continue"><a href="farmer3.html"><button type="button">Continue</button></a></div>
-            <div class="back"><a href="farmer1.html"><button type="button" class="back">Go back</button></a></div>
-        </div>
+        
     </div>
 
-    <script>
-
-
-        document.getElementById('businessType').addEventListener('click', function() {
-            var dropdown = this.nextElementSibling;
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        });
-
-        document.querySelectorAll('.dropdown-item').forEach(function(item) {
-            item.addEventListener('click', function() {
-                var input = document.getElementById('businessType');
-                input.value = this.textContent;
-                this.parentElement.style.display = 'none';
-            });
-        });
-
-        document.addEventListener('click', function(event) {
-            var dropdown = document.querySelector('.dropdown');
-            var businessTypeInput = document.getElementById('businessType');
-
-            if (!businessTypeInput.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-    </script>
+    <script src="../../js/farmer/SignUp.js"></script>
+    <script src="../../js/farmer/Farmer2.js"></script>
 </body>
 </html>
