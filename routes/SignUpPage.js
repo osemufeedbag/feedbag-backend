@@ -10,8 +10,8 @@ router.get('/EmailReg(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','EmailReg.html'));
 });
 
-router.get('/farmer3(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','frontend','Farmer','farmer3.html'));
+router.get('/successful(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','successful.html'));
 });
 
 router.get('/farmer4(.html)?', (req, res) => {
