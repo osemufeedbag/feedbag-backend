@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-router.get('/farmer1(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','frontend','Farmer','farmer1.html'));
+router.get('/getStarted(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','getStarted.html'));
 });
 
-router.get('/farmer2(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','frontend','Farmer','farmer2.html'));
+router.get('/EmailReg(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','EmailReg.html'));
 });
 
 router.get('/farmer3(.html)?', (req, res) => {

@@ -12,3 +12,11 @@ document.getElementById("consumerStatus").addEventListener('click', function() {
         document.getElementById("emailSignup").href = "consumer.html"
         console.log(document.getElementById("emailSignup").href);
     });
+
+document.getElementById("emailSignUp").addEventListener('click', function() {
+        if(!sessionStorage.getItem('UserStatus')) {
+            alert("Please select a sign up status");
+        } else {
+            document.getElementById("emailSignUp").href = "EmailReg.html";
+        }
+    });

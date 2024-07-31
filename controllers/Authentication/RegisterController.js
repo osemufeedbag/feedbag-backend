@@ -28,8 +28,8 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.Password': hashedPwd0
                 })
                 newSignup.save()
-                res.redirect('/signup/farmer3');
                 console.log(newSignup);
+                res.redirect('/signup/farmer3');
 
             } catch (error) {
                 console.log(error);
@@ -69,7 +69,6 @@ const UserReg = async (req, res) => {
                 })
                 newSignup.save()
                 res.redirect('/signup/farmer3');
-                
                 console.log(newSignup);
 
             } catch (error) {
