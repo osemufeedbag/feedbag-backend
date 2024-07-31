@@ -1,14 +1,18 @@
 
+window.onload = (event) =>{
+    sessionStorage.removeItem("UserStatus");
+};
+
 document.getElementById("farmerStatus").addEventListener('click', function() {
-        sessionStorage.getItem('UserStatus') ? sessionStorage.removeItem('UserStatus') :  sessionStorage.setItem('UserStatus', document.getElementById("farmerStatus").innerText);
+        sessionStorage.getItem('UserStatus') == "Farmer" ? sessionStorage.removeItem('UserStatus') :  sessionStorage.setItem('UserStatus', document.getElementById("farmerStatus").innerText);
     });
 
 document.getElementById("aggregatorStatus").addEventListener('click', function() {
-    sessionStorage.getItem('UserStatus') ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("aggregatorStatus").innerText);
+    sessionStorage.getItem('UserStatus') == "Aggregator" ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("aggregatorStatus").innerText);
     });
 
 document.getElementById("consumerStatus").addEventListener('click', function() {
-        sessionStorage.getItem('UserStatus') ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("consumerStatus").innerText);
+        sessionStorage.getItem('UserStatus') == "Consumer" ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("consumerStatus").innerText);
        // document.getElementById("emailSignUp").href = "consumer.html"
         console.log(document.getElementById("emailSignup").href);
     });
