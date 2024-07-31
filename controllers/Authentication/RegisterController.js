@@ -1,6 +1,6 @@
 const UserModel = require('../../database/dbModel/userModel');
 const allCompanyNamesModel = require('../../database/dbModel/allCompanyNamesModel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const path = require('path');
 
 const UserReg = async (req, res) => {

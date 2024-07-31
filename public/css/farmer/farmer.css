@@ -213,6 +213,7 @@ button:active {
   .right {
       width: 60%;
       border: none;
+      height:1000px;
   }
 
   .left {
@@ -244,6 +245,7 @@ button:active {
 
   .right h3 {
       font-size: 30px;
+      
   }
 
   .constituent {

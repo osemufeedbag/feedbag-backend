@@ -41,7 +41,7 @@ body {
     box-sizing: border-box;
     flex-grow: 1;
     height: calc(100vh - 10% - 40px); /* Adjusted to fill the remaining space */
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: auto;
   }
   
   .right .img img {
