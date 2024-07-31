@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-router.get('/getStarted(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','frontend','Farmer','getStarted.html'));
+router.get('/signUp(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','signUp.html'));
 });
 
 router.get('/EmailReg(.html)?', (req, res) => {
