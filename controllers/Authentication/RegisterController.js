@@ -51,7 +51,7 @@ const UserRegEmail = async (req, res) => {
         case "Aggregator":
 
             const hashedPwd1 = await bcrypt.hash(req.body.Password, 10);
-            const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+            const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
             const AggregatorDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
 
             if (AggregatorUser) return res.sendStatus(409);
@@ -92,7 +92,7 @@ const UserRegEmail = async (req, res) => {
         case "Consumer":
 
         const hashedPwd2 = await bcrypt.hash(req.body.Password, 10);
-        const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+        const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
         const ConsumerUserName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
 
             if (ConsumerUser) return res.sendStatus(409);

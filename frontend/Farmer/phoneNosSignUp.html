@@ -20,10 +20,10 @@
         </div>
 
         <div class="forms">
-            <form id="regFrom" action="/access/register" method="post">
+            <form id="logForm" action="/access/register" method="post">
                 <div class="reg">
                     <div><label for="fullName">Full name</label></div>
-                    <div><input type="text" name="FullName" id="fullName" placeholder="Enter your full name"></div>
+                    <div><input type="text" name="FirstName" id="firstName" placeholder="Enter your full name"></div>
                 </div>
 
                 <div class="irreg">
@@ -47,7 +47,7 @@
 
                 <div class="reg">
                     <div><label for="phone number">Phone number</label></div>
-                    <div><input type="email" name="Email" id="email" placeholder="Enter your phone number"></div>
+                    <div><input type="number" name="Phone" id="phone" placeholder="Enter your phone number"></div>
                 </div>
 
                 <div class="reg">
@@ -60,22 +60,14 @@
                     <div><input type="password" name="Password" id="password" placeholder="Enter your password"></div>
                     <div><a href="#">Forgot password?</a></div>
                 </div>
+                <div class="buttons">
+                    <div class="continue"><a href=""><button id="submitButton" type="button">Continue</button></a></div>
+                    <div class="back"><a href="signUp.html"><button id="goBack" type="button" class="back">Go back</button></a></div>
+                </div>
             </form>
-        </div>
-
-        <div class="buttons">
-            <div class="continue"><a href=""><button id="submitButton" type="button">Continue</button></a></div>
-            <div class="back"><a href="signUp.html"><button id="goBack" type="button" class="back">Go back</button></a></div>
-        </div>
+        </div> 
     </div>
-
-    <script>
-
-
-        
-    </script>
-
-    <script src="../../js/farmer/Reg.js"></script>
+    <script src="../../js/farmer/login.js"></script>
     <script src="../../js/farmer/PhoneRegFrontend.js"></script>
 </body>
 </html>

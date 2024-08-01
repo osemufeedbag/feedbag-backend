@@ -1,7 +1,7 @@
 
 
 const userStatus = sessionStorage.getItem('UserStatus');
-console.log(document.getElementById("regFrom").action = `http://localhost:4000/access/register/${userStatus}`)
+console.log(document.getElementById("regForm").action = `http://localhost:4000/access/eRegister/${userStatus}`)
 
 function reset(e) {
         e.preventDefault();
@@ -26,7 +26,7 @@ document.getElementById("submitButton").addEventListener('click', function() {
             } 
             
         if (isNaN(Number(businessRegistrationNos))) {
-                return alert("Business Registration numer is not valid");
+                return alert("Business Registration number is not valid");
         } else {
                 document.getElementById("submitButton").type = "submit";
             }
