@@ -5,11 +5,17 @@ const RegisterController = require('../controllers/Authentication/RegisterContro
 const logOutController = require('../controllers/Authentication/logOutController');
 
 
-router.route('/register/:user')
-    .post(RegisterController.UserReg);
+router.route('/eRegister/:user')
+    .post(RegisterController.UserRegEmail);
 
-router.route('/login')
-    .post(LoginController.logIn);
+router.route('/pRegister/:user')
+    .post(RegisterController.UserRegPhone);
+
+router.route('/elogin')
+    .post(LoginController.eLogin);
+
+router.route('/plogin')
+    .post(LoginController.pLogin);
     
 router.route('/logout')
     .post(logOutController.LogOut);

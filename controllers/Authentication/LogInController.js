@@ -3,49 +3,79 @@ const bcrypt = require("bcryptjs");
 const UserModel = require("../../database/dbModel/userModel");
 const jwt = require("jsonwebtoken");
 
-const logIn = async (req, res) => {
-  const { Email, Password } = req.body;
-  if (!Email || !Password)
-    return res.status(400).json({
-      message: "Username and password required",
-    });
+const eLogin = async (req, res) => {
+        const { Email, Password } = req.body;
+        if (!Email || !Password) return res.status(400).json({
+            message: "Username and password required",
+          });
 
-  const userDetails = await UserModel.findOne({
-    "PersonalInfo.Email": Email,
-  }).exec();
-  if (!userDetails)
-    return res.status(400).json({
-      message: "No known user with is email, try again",
-    });
+        const userDetails = await UserModel.findOne({ "PersonalInfo.Email": Email }).exec();
+        if (!userDetails) return res.status(400).json({
+            message: "No known user with email, try again",
+          });
 
-  const match = bcrypt.compare(Password, userDetails.PersonalInfo.Password);
-  if (match) {
-    const accessToken = jwt.sign(
-      { userEmail: userDetails.PersonalInfo.Email },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "60s" } //Increase the time to a longer period.
-    );
-    const refreshToken = jwt.sign(
-      { userEmail: userDetails.PersonalInfo.Email },
-      process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: "1d" } //Increase the time to a longer period.
-    );
-    // Get otherUsers and update frefreshToken;
-    userDetails.RefreshToken = refreshToken;
-    const result = await userDetails.save();
-    console.log(result);
+        const match = bcrypt.compare(Password, userDetails.PersonalInfo.Password);
+        if (match) { 
+            const accessToken = jwt.sign( 
+              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: "60s" }//Increase the time to a longer period.
+          );
 
-    res.cookie("jwt", refreshToken, {
-      httpOnly: true,
-      sameSite: "None",
-      maxAge: 24 * 60 * 60 * 1000,
-    }); //Add in production environment = secure: true;
-    res.json({ accessToken });
-  } else {
-    res.sendStatus(401);
-  }
+            const refreshToken = jwt.sign(
+              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
+              process.env.REFRESH_TOKEN_SECRET,
+              { expiresIn: "1d" } //Increase the time to a longer period.
+          );
+        
+            userDetails.RefreshToken = refreshToken;
+            const result = await userDetails.save();
+            console.log(result);
+        
+            res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000 }); //Add in production environment = secure: true;
+            res.json({ accessToken });
+        } else {
+            res.sendStatus(401);
+          }
+};
+
+const pLogin = async (req, res) => {
+  const { Phone, Password } = req.body;
+        if (!Phone || !Password) return res.status(400).json({
+            message: "Phone number and password required",
+          });
+
+        const userDetails = await UserModel.findOne({ "PersonalInfo.Phone": Phone }).exec();
+        if (!userDetails) return res.status(400).json({
+            message: "No known user with Phone number, try again",
+          });
+
+        const match = bcrypt.compare(Password, userDetails.PersonalInfo.Password);
+        if (match) { 
+            const accessToken = jwt.sign( 
+              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: "60s" }//Increase the time to a longer period.
+          );
+
+            const refreshToken = jwt.sign(
+              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
+              process.env.REFRESH_TOKEN_SECRET,
+              { expiresIn: "1d" } //Increase the time to a longer period.
+          );
+        
+            userDetails.RefreshToken = refreshToken;
+            const result = await userDetails.save();
+            console.log(result);
+        
+            res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000 }); //Add in production environment = secure: true;
+            res.json({ accessToken });
+        } else {
+            res.sendStatus(401);
+          }
 };
 
 module.exports = {
-  logIn,
+  eLogin,
+  pLogin
 };

@@ -10,13 +10,16 @@ const handleRefreshToken = async (req, res) => {
     
     const userDetails = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     if(!userDetails) return res.sendStatus(403);
+    
         jwt.verify(
             refreshToken,
             process.env.REFRESH_TOKEN_SECRET,
             (err, decoded) => {
-                if(err || userDetails.PersonalInfo.Email !== decoded.userEmail) return res.sendStatus(403);
+                const filter = userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName 
+                //if(err || userDetails.PersonalInfo.UserName !== decoded.userName) return res.sendStatus(403);
+                if(err || filter !== decoded.Name) return res.sendStatus(403);
                 const accessToken = jwt.sign(
-                    {"userEmail": decoded.userEmail},
+                    {"Name": decoded.Name},
                     process.env.ACCESS_TOKEN_SECRET,
                     {expiresIn: "60s"} //set long in production
                 );
