@@ -12,17 +12,22 @@ document.getElementById("goBack").addEventListener('click', function() {
 });
 
 document.getElementById("submitButton").addEventListener('click', function() {
-        console.log(document.getElementById("fullName").value);
+
         const fullName = document.getElementById("fullName").value;
         const businessType = document.getElementById("businessType").value;
         const businessName = document.getElementById("businessName").value;
         const email = document.getElementById("email").value;
         const businessRegistrationNos = document.getElementById("businessRegNo").value;
         const password = document.getElementById("password").value;
+        
 
         if(!fullName || !businessType || !businessName || !email || !businessRegistrationNos || !password) {
-                alert("Please fill in your details");
-            } else {
+                return alert("Please fill in your details");
+            } 
+            
+        if (isNaN(Number(businessRegistrationNos))) {
+                return alert("Business Registration numer is not valid");
+        } else {
                 document.getElementById("submitButton").type = "submit";
             }
 });
