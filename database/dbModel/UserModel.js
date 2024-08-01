@@ -12,7 +12,7 @@ const userSchema = new Schema({
             'UserName': {type: String, require: false},
             'FirstName': {type: String, require: true},
             'LastName': {type: String, require: false},
-            'Email': {type: String, require: true},
+            'Email': {type: String, require: false},
             'Phone': {type: String, require: false},
             'Country': {type: String, require: false},
             'PostalCode': {type: Number, require: false},

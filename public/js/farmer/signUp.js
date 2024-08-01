@@ -14,7 +14,6 @@ document.getElementById("aggregatorStatus").addEventListener('click', function()
 document.getElementById("consumerStatus").addEventListener('click', function() {
         sessionStorage.getItem('UserStatus') == "Consumer" ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("consumerStatus").innerText);
        // document.getElementById("emailSignUp").href = "consumer.html"
-        console.log(document.getElementById("emailSignup").href);
     });
 
 /*document.getElementById("emailSignUp").addEventListener('click', function() {
@@ -31,4 +30,8 @@ document.getElementById("consumerStatus").addEventListener('click', function() {
 
 document.getElementById("emailSignUp").addEventListener('click', function() {
         !sessionStorage.getItem('UserStatus') ? alert("Please select a sign up status") : sessionStorage.getItem('UserStatus') == "Consumer" ? document.getElementById("emailSignUp").href = "consumer.html" : document.getElementById("emailSignUp").href = "EmailReg.html";
+    });
+
+document.getElementById("phoneSignUp").addEventListener('click', function() {
+        !sessionStorage.getItem('UserStatus') ? alert("Please select a sign up status") : sessionStorage.getItem('UserStatus') == "Consumer" ? document.getElementById("phoneSignUp").href = "consumerPhone.html" : document.getElementById("phoneSignUp").href = "phoneSignUp.html";
     });

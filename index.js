@@ -31,12 +31,7 @@ app.use(express.json());
 
 
 app.use('/access', require('./api/auth'));
-app.use('/signup', require('./routes/SignUpPage'));
-
-app.get('/', (req, res) => {
-    res.status(500).json('Welcome to feedbag agrihub server');
-});
-
+app.use('/', require('./routes/root'));
 
 //middleware for cookies
 app.use(cookieParser());

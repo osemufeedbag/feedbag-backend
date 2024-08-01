@@ -9,11 +9,12 @@ const UserReg = async (req, res) => {
     switch (User) {
         case "Farmer":
             const hashedPwd0 = await bcrypt.hash(req.body.Password, 10);
-            const FarmerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
+            const FarmerUser1 = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
+            const FarmerUser2 = await UserModel.findOne({'PersonalInfo.Phone': req.body.Phone}).exec();
             const FarmerDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
             /*const name = req.body.Fullname;
             const firstname = name.split(' ')[0];*/
-            if (FarmerUser) return res.sendStatus(409);
+            if (FarmerUser1 || FarmerUser2) return res.sendStatus(409);
             if (FarmerDuplicateBusinessName) return res.sendStatus(409);
 
             try {
@@ -22,6 +23,7 @@ const UserReg = async (req, res) => {
                     'PersonalInfo.FirstName': req.body.FirstName,
                     'PersonalInfo.LastName': req.body.LastName,
                     'PersonalInfo.Email': req.body.Email,
+                    'PersonalInfo.Phone': req.body.Phone,
                     'BusinessInfo.Company': req.body.Company,
                     'BusinessInfo.BusinessName': req.body.BusinessName,
                     'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
@@ -51,9 +53,11 @@ const UserReg = async (req, res) => {
         case "Aggregator":
 
             const hashedPwd1 = await bcrypt.hash(req.body.Password, 10);
-            const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+            const AggregatorUser1 = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+            const AggregatorUser2 = await UserModel.findOne({'PersonalInfo.Phone': req.body.Phone}).exec();
             const AggregatorDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
-            if (AggregatorUser) return res.sendStatus(409);
+
+            if (AggregatorUser1 || AggregatorUser2) return res.sendStatus(409);
             if (AggregatorDuplicateBusinessName) return res.sendStatus(409);
 
             try {
@@ -91,9 +95,11 @@ const UserReg = async (req, res) => {
         case "Consumer":
 
         const hashedPwd2 = await bcrypt.hash(req.body.Password, 10);
-        const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+        const ConsumerUser1 = await UserModel.findOne({'PersonalInfo.Email': req.body.email}).exec();
+        const ConsumerUser2 = await UserModel.findOne({'PersonalInfo.Phone': req.body.Phone}).exec();
         const ConsumerUserName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
-            if (ConsumerUser) return res.sendStatus(409);
+
+            if (ConsumerUser1 || ConsumerUser2) return res.sendStatus(409);
             if (ConsumerUserName) return res.sendStatus(409);
 
             try {
