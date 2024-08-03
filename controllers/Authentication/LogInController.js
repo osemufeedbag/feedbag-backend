@@ -33,7 +33,9 @@ const eLogin = async (req, res) => {
             console.log(result);
         
             res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000 }); //Add in production environment = secure: true;
-            res.json({ accessToken });
+            //res.json({ accessToken });
+            console.log(accessToken);
+            res.redirect('/successful'); // Change to the one for login. this redirects to the reg successful page.
         } else {
             res.sendStatus(401);
           }
@@ -69,7 +71,9 @@ const pLogin = async (req, res) => {
             console.log(result);
         
             res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000 }); //Add in production environment = secure: true;
-            res.json({ accessToken });
+            //res.json({ accessToken });
+            console.log(accessToken);
+            res.redirect('/successful'); // Change to the one for login. this redirects to the reg successful page.
         } else {
             res.sendStatus(401);
           }
