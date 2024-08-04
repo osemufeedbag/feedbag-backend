@@ -46,75 +46,67 @@
         </div>
 
         <div class="components">
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-grid-1x2-fill"></i></div>
-                    <h3>Dashboard</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-person-fill"></i></div>
-                    <h3>Personal Information</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-cart-dash-fill"></i></div>
-                    <h3>Orders</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-cart-dash-fill"></i></div>
-                    <h3>My Inventory</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-bell-fill"></i></div>
-                    <h3>Notifications</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-shield-fill-exclamation"></i></div>
-                    <h3>Data & Privacy</h3>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="comp">
-                    <div><i class="bi bi-gear-fill"></i></div>
-                    <h3>Settings</h3>
-                </div>
-            </a>
-
-            <div class="rmv">
-                <a href="#">
-                    <div class="rmvComp">
-                        <div><i class="bi bi-telephone-fill"></i></div>
-                        <h3>Help & Support</h3>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="rmvComp">
-                        <div><i class="bi bi-door-open-fill"></i></div>
-                        <h3>Log Out</h3>
-                    </div>
-                </a>
+            <button class="comp" id="Dashboard">
+                <div><i class="bi bi-grid-1x2-fill"></i></div>
+                <h3>Dashboard</h3>
+            </button>
+        
+            <button class="comp" id="personalInformation">
+                <div><i class="bi bi-person-fill"></i></div>
+                <h3>Personal Information</h3>
+            </button>
+        
+            <button class="comp" id="orders">
+                <div><i class="bi bi-cart-dash-fill"></i></div>
+                <h3>Orders</h3>
+            </button>
+        
+            <button class="comp" id="inventory">
+                <div><i class="bi bi-cart-dash-fill"></i></div>
+                <h3>My Inventory</h3>
+            </button>
+        
+            <button class="comp" id="notifications">
+                <div><i class="bi bi-bell-fill"></i></div>
+                <h3>Notifications</h3>
+            </button>
+        
+            <button class="comp" id="dataAndPrivacy">
+                <div><i class="bi bi-shield-fill-exclamation"></i></div>
+                <h3>Data & Privacy</h3>
+            </button>
+        
+            <button class="comp" id="settings">
+                <div><i class="bi bi-gear-fill"></i></div>
+                <h3>Settings</h3>
+            </button>
+        
+            <div class="rmv" id="help">
+                <button class="rmvComp">
+                    <div><i class="bi bi-telephone-fill"></i></div>
+                    <h3>Help & Support</h3>
+                </button>
+        
+                <button class="rmvComp" id="logOut">
+                    <div><i class="bi bi-door-open-fill"></i></div>
+                    <h3>Log Out</h3>
+                </button>
             </div>
         </div>
+        
     </div>
 
+
+
+
+
+
+
+
     <div class="lapComp">
-        
+        <div class="goBack">
+            <div><button id="goBack">< Go back</button></div>
+        </div>
         <div class="personalInformation">
            <div class="top">
        <div><h2>Personal Information</h2></div>
@@ -233,7 +225,7 @@
         <div class="billingInformation">
 
             <div class="top">
-                <div><h2>Farm Information</h2></div>
+                <div><h2>Billing Information</h2></div>
                 <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
             </div>
 
@@ -271,5 +263,12 @@
         </div>
     </div>
     </div>
+
+
+
+
+
+
+    <script src="../../public/js/usersProfile/usersProfile.js" type="module"></script>
 </body>
 </html>

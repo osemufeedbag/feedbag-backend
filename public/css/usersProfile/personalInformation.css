@@ -36,11 +36,12 @@
 
 .lapMiddle {
     display: flex;
+    flex-direction:column;
     justify-content: center;
     background-color: #F1F1F1;
     padding-top: 50px;
-    height: 1200px;
-
+    
+    border:10px solid green
 }
 
 .dashNav {
@@ -53,6 +54,7 @@
     background-color: white;
     height:800px;
     border-radius:24px;
+    border:10px solid pink;
 }
 
 .profile {
@@ -95,6 +97,7 @@
     flex-direction: column;
     align-items: stretch;
     margin-top: 60px;
+    border:1px solid red
 }
 
 .components .comp,
@@ -105,7 +108,7 @@
     transition: background-color 0.3s ease;
 }
 
-.components a {
+.components button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -114,13 +117,15 @@
     color: black;
     width: 100%;
     height: 100%;
+    border:none;
+    background-color:white;
 }
 
-.components a:hover {
+.components button:hover {
     background-color: #F1FCF3;
 }
 
-.components a i {
+.components button i {
     font-size: 24px;
 }
 
@@ -149,11 +154,68 @@
 .rmvComp h3 {
     margin-left: 5px;
 }
+
+
 .lapComp {
+    display:block;
+}
+
+.top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.top button {
+    margin-right:20px;
+}
+.top button {
+    border:none;
+    text-decoration:underline;
+    color:#49C01F;
+    font-size:15px;
+}
+.top i {
     display:none;
 }
 
+.bottom {
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
 
+.bottom .right {
+    margin-left:66px;
+}
+
+.content {
+    margin-bottom:30px;
+}
+
+.goBack button {
+    color:black;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:700;
+    border:none;
+}
+.personalInformation, .farmInformation,
+.billingInformation {
+    margin-top:30px;
+    border:2px solid black;
+    padding-top:20px;
+    border-radius:24px;
+}
+
+.eachLine {
+    display:flex;
+    margin-bottom:10px;
+}
+.eachline h3 {
+    margin-left:20px;
+}
 @media (min-width: 768px) {
     .nav {
         display: flex;
@@ -187,7 +249,9 @@
     }
 
     .lapMiddle {
+        
         display: flex;
+        flex-direction:row;
         justify-content: flex-start; /* Align children to start */
         background-color: #F1F1F1;
         padding-top: 100px;
@@ -195,7 +259,7 @@
     }
 
     .dashNav {
-        border: none;
+       
         margin-left: 150px;
         
         width: 300px;
@@ -211,7 +275,7 @@
 
     .rmv {
         display: block;
-        margin-top: 200px;
+        padding:0;
     }
 
     .lapComp {
@@ -222,16 +286,21 @@
        
     }
 
-    .rmvComp {
-        height: 10px;
+
+
+ 
+ 
+    .goBack {
+        display:none;
     }
 
     .personalInformation {
+        margin-top:0px;
         padding-top:20px;
         margin-left:50px;
         border: none; 
         width:100%;
-        height:350px;
+        
         background-color:white;
         border-radius:24px;
         margin-bottom:40px;
