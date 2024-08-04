@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav img {
+    height: 45px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: sticky;
+    box-shadow: 1px 1px #757575;
+}
+
+.middle {
+    display: none;
+}
+
+.end {
+    display: none;
+}
+
+.bi.bi-list {
+    font-size: 45px;
+}
+
+.dashNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pic {
+    position: relative; /* Add relative positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.namee {
+    display:flex;
+    align-items:center;
+
+}
+.bi.bi-patch-check-fill {
+    margin-right:4px;
+    font-size:20px;
+    color: #49C01F;
+}
+.name {
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+}
+.bi.bi-pencil-square {
+    font-size: 24px;
+    color: #49C01F;
+    position:absolute;
+    bottom:0px;
+    left:95px;
+    font-size:35px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.components {
+    width:80%;
+    border:1px solid red;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    
+}
+
+.comp  {
+    display:flex;
+}
+
+.rmvComp  {
+    display:flex;
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        position: sticky;
+        border-bottom: none;
+    }
+
+    .middle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        width: 850px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .end {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 130px;
+        border: none;
+    }
+}
