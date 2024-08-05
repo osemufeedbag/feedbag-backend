@@ -6,6 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../public/css/usersProfile/personalInformation.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
 </head>
 <body>
     
@@ -25,91 +29,246 @@
         <div class="menu"><i class="bi bi-list"></i></div>
     </div>
 
+    <div class="lapMiddle">
     <div class="dashNav">
         <div class="profile">
             <div class="pic">
-            <div><img src="../../public/img/usersProfile/userImageDemo.png" alt=""></div>
-             <div><i class="bi bi-pencil-square"></i></div>
-        </div>
+                <div><img src="../../public/img/usersProfile/userImageDemo.png" alt=""></div>
+                <div><i class="bi bi-pencil-square"></i></div>
+            </div>
             <div class="name">
                 <div class="namee">
-                <div><i class="bi bi-patch-check-fill"></i></div>
-                <div><h2>Joshua Akeke</h2></div>
+                    <div><i class="bi bi-patch-check-fill"></i></div>
+                    <div><h2>Joshua Akeke</h2></div>
                 </div>
-                <div><p>Crisp Greens C0</p></div>
+                <div><p>Crisp Greens Co</p></div>
             </div>
         </div>
 
         <div class="components">
-            <a href="#">
-            <div class="comp">
-               
+            <button class="comp" id="Dashboard">
                 <div><i class="bi bi-grid-1x2-fill"></i></div>
-                <div><h3>Dashboard</h3></div>
-            </div>
-            </a>
-
-         <a href="">
-            <div class="comp">
-                <div><i class="bi bi-person-fill"></i></i></div>
-                <div><h3>Personal Information</h3></div>
-            </div>
-         </a>
-        <a href="#">
-            <div class="comp">
+                <h3>Dashboard</h3>
+            </button>
+        
+            <button class="comp" id="personalInformation">
+                <div><i class="bi bi-person-fill"></i></div>
+                <h3>Personal Information</h3>
+            </button>
+        
+            <button class="comp" id="orders">
                 <div><i class="bi bi-cart-dash-fill"></i></div>
-                <div><h3>Orders</h3></div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="comp">
+                <h3>Orders</h3>
+            </button>
+        
+            <button class="comp" id="inventory">
                 <div><i class="bi bi-cart-dash-fill"></i></div>
-                <div><h3>My Inventory</h3></div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="comp">
+                <h3>My Inventory</h3>
+            </button>
+        
+            <button class="comp" id="notifications">
                 <div><i class="bi bi-bell-fill"></i></div>
-                <div><h3>Notifications</h3></div>
-            </div>
-        </a>
-
-        <a href="#"></a>
-            <div class="comp">
-                
+                <h3>Notifications</h3>
+            </button>
+        
+            <button class="comp" id="dataAndPrivacy">
                 <div><i class="bi bi-shield-fill-exclamation"></i></div>
-                <div><h3>Data & Privacy</h3></div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div class="comp">
-                
+                <h3>Data & Privacy</h3>
+            </button>
+        
+            <button class="comp" id="settings">
                 <div><i class="bi bi-gear-fill"></i></div>
-                <div><h3>Settings</h3></div>
+                <h3>Settings</h3>
+            </button>
+        
+            <div class="rmv" id="help">
+                <button class="rmvComp">
+                    <div><i class="bi bi-telephone-fill"></i></div>
+                    <h3>Help & Support</h3>
+                </button>
+        
+                <button class="rmvComp" id="logOut">
+                    <div><i class="bi bi-door-open-fill"></i></div>
+                    <h3>Log Out</h3>
+                </button>
             </div>
-        </a>
+        </div>
+        
+    </div>
 
-        <a href="#">
-            <div class="rmvComp">
-                
-                <div><i class="bi bi-telephone-fill"></i></div>
-                <div><h3>Help & Support </h3></div>
-                
-            </div>
-        </a>
 
-        <a href="#"></a>
-            <div class="rmvComp">
-                
-                <div><i class="bi bi-door-open-fill"></i></div>
-                <div><h3>Log Out </h3></div>
-                
+
+
+
+
+
+
+    <div class="lapComp">
+        <div class="goBack">
+            <div><button id="goBack">< Go back</button></div>
+        </div>
+        <div class="personalInformation">
+           <div class="top">
+       <div><h2>Personal Information</h2></div>
+       <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+           </div>
+
+           <div class="bottom">
+
+            <div class="left">
+                <div class="content">
+                    <div><p>first name</p></div>
+                    <div><h3>Joshua</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>last name</p></div>
+                    <div><h3>Akeke</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>Bio</p></div>
+                    <div><h3>Farmer</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>country</p></div>
+                    <div><h3>Nigeria</h3></div>
+                </div>
             </div>
-        </a>
+
+            <div class="right">
+            
+                <div class="content">
+                    <div><p>email</p></div>
+                    <div><h3>joshuaakeke@gmail.com</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>phone number</p></div>
+                    <div><h3>+234817463765</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>postal code</p></div>
+                    <div><h3>47200</h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>Address</p></div>
+                    <div><h3>10B Adola Odeku street, Victoria<br> Island, Lagos State</h3></div>
+                </div>
+
+            </div>
+           </div>
+        </div>
+
+        <div class="farmInformation">
+
+            <div class="top">
+                <div><h2>Farm Information</h2></div>
+                <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+            </div>
+
+            <div class="bottom">
+
+                <div class="left">
+
+                    <div class="content">
+                        <div><p>Business name</p></div>
+                        <div><h3>Crisp Greens Co</h3></div>
+                    </div>
+
+                    <div class="content">
+                        <div><p>Postal Code</p></div>
+                        <div><h3>10200</h3></div>
+                    </div>
+
+                    <div class="content">
+
+                     <div class="eachLine">
+                        <div><i class="bi bi-paperclip"></i></div>
+                        <div><h3>ID Card</h3></div>
+                     </div>
+
+                     <div class="eachLine">
+                        <div><i class="bi bi-paperclip"></i></div>
+                        <div><h3>Fair Trade</h3></div>
+                     </div>
+
+                     <div class="eachLine">
+                        <div><i class="bi bi-paperclip"></i></div>
+                        <div><h3>Registered Business Cert</h3></div>
+                     </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="right">
+
+                    <div class="content">
+                        <div><p>Farm Size</p></div>
+                        <div><h3>4 hectares</h3></div>
+                    </div>
+
+                    <div class="content">
+                        <div><p>Farm Location</p></div>
+                        <div><h3>15C Ajose Adeogun Street, Flat 4A, <br> Victoria Island, Lagos State</h3></div>
+                    </div>
+                </div>
+            </div>
+
+                    
+        </div>
+
+        <div class="billingInformation">
+
+            <div class="top">
+                <div><h2>Billing Information</h2></div>
+                <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+            </div>
+
+            <div class="bottom">
+
+                <div class="left">
+ 
+                    <div class="content">
+                        <div><p>Card holder</p></div>
+                        <div><h3>Joshua Akeke</h3></div>
+                    </div>
+
+                    <div class="content">
+                        <div><p>Payment Method</p></div>
+                        <div><h3>Token/Paypal</h3></div>
+                    </div>
+                </div>
+
+                <div class="right">
+
+                    <div class="content">
+                        <div><p>Card Number</p></div>
+                        <div><h3>5105 1051 0510 5100</h3></div>
+                    </div>
+
+                    <div class="content">
+                        <div><p>Billing address</p></div>
+                        <div><h3>10B Adeola Odeku Street, Victoria<br>Island, Lagos State</h3></div>
+                    </div>
+                    
+                </div>
+
+
+            </div>
         </div>
     </div>
+    </div>
+
+
+
+
+
+
+    <script src="../../public/js/usersProfile/usersProfile.js" type="module"></script>
 </body>
 </html>
