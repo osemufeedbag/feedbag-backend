@@ -41,7 +41,7 @@
     background-color: #F1F1F1;
     padding-top: 50px;
     
-    border:10px solid green
+    border:none;
 }
 
 .dashNav {
@@ -97,7 +97,7 @@
     flex-direction: column;
     align-items: stretch;
     margin-top: 60px;
-    border:1px solid red
+    border:none;
 }
 
 .components .comp,
@@ -216,6 +216,186 @@
 .eachline h3 {
     margin-left:20px;
 }
+
+.Orders {
+    display:flex;
+    flex-direction:column;
+    background-color: #F1F1F1;
+}
+
+.Orders .search {
+border:none;
+width:100%;
+}
+.search input {
+    width:80%;
+    height:40px;
+    
+    border-radius:5px;
+    padding-left:5px;
+    border:none;
+    background-color: white;
+}
+
+.orderButton {
+    display:flex;
+    border:none;
+    justify-content: space-between;
+    align-items:center;
+    margin-top:20px;
+    margin-bottom:20px;
+    border:none;
+    width:80%;
+}
+
+.orderButton button, input {
+    height:45px;
+    width:100px;
+    border-radius:5px;
+    border:none;
+    background-color:#F1FCF3;
+}
+.orderButton button:hover {
+    background-color: #49C01F;
+}
+
+.orderButton input {
+    background-color:white;
+}
+
+.ordersList {
+    overflow-x: auto; 
+    white-space: nowrap; 
+    width: calc(100% - 6%); 
+  
+}
+
+.orderListHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 190%;
+    border: none;
+    height: 60px;
+    background-color: #49b821;
+    color: white;
+    overflow-x: auto;
+    box-sizing: border-box;
+    border-top-left-radius: 15px;
+    border-top-right-radius:15px;
+}
+
+.orderListHead div {
+    border: none;
+    max-width: 130px;
+    width: 130px;
+    box-sizing: border-box;
+    white-space: normal; 
+    overflow-wrap: break-word; 
+}
+
+.orderListHead p {
+    text-align: center;
+    margin: 0; 
+    font-weight:700;
+}
+
+.eachOrderList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 190%;
+    border: none;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border-bottom: #49C01F solid 2px;
+    box-sizing: border-box;
+}
+
+.eachOrderList div {
+    border: none;
+    max-width: 130px;
+    width: 130px;
+    box-sizing: border-box;
+    white-space: normal; 
+    overflow-wrap: break-word; 
+}
+
+.eachOrderList p {
+    text-align: center;
+    margin: 0; 
+}
+
+
+
+.eachOrderList {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:190%;
+    border:none;
+    height:50px;
+    background-color: white;
+    color:black;
+    border-bottom:#49C01F solid 2px;
+}
+
+.eachOrderList div {
+    border:none;
+    max-width:130px;
+    width:130px;
+    
+    
+}
+.eachOrderList p {
+    text-align: center;
+}
+
+::-webkit-scrollbar-thumb {
+    color:green;
+}
+
+
+.orderNav {
+    display:flex;
+    border:2px pink solid;
+    justify-content: space-between;
+    background-color: white;
+    margin-top:20px;
+}
+
+.btnumbers {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    border:none;
+    width:200px;
+}
+
+.previous, .next {
+    width:80px;
+    font-size:14px;
+    border:none;
+    background-color:white;
+    height:40px;
+}
+
+.btnumbers button {
+    width:25px;
+    border:none;
+    background-color:white;
+    height:30px;
+}
+.btnumbers button:hover {
+    background-color:#49C01F;
+}
+
+
 @media (min-width: 768px) {
     .nav {
         display: flex;
@@ -407,4 +587,61 @@
         display:flex;
         justify-content:space-between;
     }
+
+    .Orders{
+        margin-top:30px;
+        width:150%;
+        margin-left:30px;
+        padding-left:50px;
+    }
+
+     
+    .search input  {
+     height:60px;
+     border-radius:10px;
+     font-size:25px;
+    }
+
+
+    .orderButton button, input {
+        width:150px;
+        height:70px;
+        border-radius:10px;
+        font-size:15px;
+        font-family:'poppins'
+    }
+
+    .orderListHead {
+        width:90%;
+    }
+
+    .orderListHead p {
+        font-size:25px;
+    }
+
+    .eachOrderList{
+        width:90%;
+    }
+
+    .eachOrderList p  {
+      font-size:20px;
+    }
+
+   .btnumbers {
+    width:700px;
+   }
+
+   .btnumbers button {
+    height:40px;
+    width:40px;
+    border-radius:5px;
+    font-family: 'poppins';
+   }
+
+   .previous, .next {
+    font-size:20px;
+    width:190px;
+    border:none;
+    font-weight:700;
+   }
 }
