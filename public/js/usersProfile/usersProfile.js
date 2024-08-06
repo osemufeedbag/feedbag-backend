@@ -14,6 +14,8 @@ orderEl.onclick = orders
 function personalInformation() {
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
+document.getElementsByClassName("Orders")[0].style.display = "none"
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "block"
 } else {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "block"
     personalInformationEl.style.borderLeft = "10px solid #49C01F"
@@ -27,7 +29,8 @@ document.getElementsByClassName("dashNav")[0].style.display = "none"
 function orders()  {
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
-personalInformationEl.style.display = "none"
+document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+document.getElementsByClassName("Orders")[0].style.display = "block"
 } else {
     orderEl.style.borderLeft = "10px solid #49C01F"
     orderEl.style.borderBottomLeftRadius = "0px"
