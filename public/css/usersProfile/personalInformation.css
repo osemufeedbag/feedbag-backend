@@ -285,8 +285,7 @@ width:100%;
 .ordersList {
     overflow-x: auto; 
     white-space: nowrap; 
-     
-  
+    
 }
 
 .orderListHead {
@@ -414,6 +413,147 @@ width:100%;
 .btnumbers button:hover {
     background-color:#49C01F;
 }
+
+.inventory  {
+    margin-left:5%;
+    margin-right:5%;
+}
+.inventorySearch input {
+    width:100%;
+    padding-left:5%;
+    border-radius:12px;
+    background-color: white;
+    font-size:15px;
+}
+
+.inventoryButtons{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    width:90%;
+    margin-bottom:20px;
+}
+
+.inventoryButtons .first {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+   
+    width:90%;
+}
+
+.inventoryButtons .second {
+    border:none;
+}
+
+.first button{
+    width:80px;
+    height:50px;
+    border-radius:12px;
+    margin-top:10px;
+    border:none;
+    background-color: #F1FCF3;
+}
+
+.first button:hover {
+    background-color: #1FC043;
+    border:none;
+    border-radius:12px;
+}
+
+.second button {
+    margin-top:10px;
+    width:120px;
+    height:50px;
+    background-color: #49C01F;
+    border:none;
+    border-radius:12px;
+}
+
+ .inventoryBody {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    border:none;
+}
+
+.inventoryHead{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+   border-bottom: 2px solid #49b821;
+    width:200%;
+    background-color:#F1FCF3;
+}
+
+.inventoryHead {
+   
+    height:70px;
+    
+}
+.itemName {
+    display:flex;
+    align-items:center;
+    height:90px;
+    
+}
+.inventoryList {
+    width:100%;
+}
+.eachInventory {
+    display:flex;
+    flex-direction:row;
+    border-bottom: 2px solid #49b821;
+    width:200%;
+    align-items: center;
+}
+
+.headName, .itemName {
+    border:none;
+    width:250px;
+    max-width:250px;
+}
+.inventoryHead p  {
+    text-align: center;
+    font-weight:900;
+    
+}
+.eachInventory h3, h4{
+    text-align: center;
+    font-weight:200;
+}
+
+.itemName h3 {
+    color:red;
+    text-align: center;
+    padding-left:40px
+}
+
+.headDate, .itemDate {
+    border:none;
+    width:150px;
+}
+.itemName img {
+    height:40px;
+    width:60px;
+    border-radius: 20%;
+}
+
+.headPrice, .itemPrice {
+    border:none;
+    min-width:150px;
+    margin-left:0;
+}
+
+.headQuantity, .itemQuantity {
+    border:none;
+    min-width:150px;
+    margin-left:0;
+}
+
+
 
 
 @media (min-width: 768px) {
@@ -677,4 +817,60 @@ width:100%;
     width:90%;
    }
  
+   .inventoryBody {
+    width:auto;
+   }
+   .inventory {
+    margin-top:30px;
+   }
+
+   .inventoryHead, .eachInventory {
+    width:100%;
+   }
+
+   .inventoryButtons {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+   }
+   .inventoryButtons button {
+    width:130px;
+    height:70px;
+    font-size:20px;
+   }
+   .inventoryButtons .second {
+    margin-left:60px;
+   }
+   .second button {
+    width:160px;
+    height:70px;
+    font-size:20px;
+   }
+   .inventory {
+    width:1100px;
+   }
+   .inventory h2 {
+    font-size:40px;
+   }
+
+   .inventorySearch input {
+    font-size:25px;
+   }
+
+   .inventoryHead, .eachInventory {
+  width: 1000px;
+  justify-content: space-between;
+   }
+
+   .inventoryHead p {
+    font-family:'poppins';
+    font-size:20px;
+   }
+
+   .eachInventory h3,h4 {
+    font-size:20px;
+   }
+
+   
+
 }
