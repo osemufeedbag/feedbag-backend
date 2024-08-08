@@ -554,6 +554,93 @@ width:100%;
 }
 
 
+.inventoryAddItem {
+    margin-left:5%;
+    margin-right:5%;
+}
+.imageForm {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.imageForm input {
+    height:130px;
+    width:150px;
+}
+
+.imageForm p {
+    font-size:14px;
+    margin-left:10px;
+}
+
+.images {
+    display:flex;
+    max-width:130%;
+    overflow-x: auto;
+    margin-top:40px;
+}
+.images img {
+    width:120px;
+    margin-right:10px;
+    border-radius:4%;
+}
+
+.eachform, .descriptionForm{
+    width:100%;
+    border:none;
+    margin-top:20px;
+}
+.eachform input {
+    width:100%;
+    background-color:white;
+    border-radius:24px;
+    height:60px;
+    padding-left:5%;
+}
+
+    
+
+.descriptionForm input {
+    width:100%;
+    background-color:white;
+    height:200px;
+    margin-top:0;
+    padding-top:0px;
+    padding-left:5%;
+}
+
+.buttons {
+    border:none;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width:100%;
+    margin-top:20px;
+}
+
+.buttons button {
+    width:150px;
+    height:50px;
+}
+
+.cancel button{
+    border:1px solid #49C01F;
+    border-radius:16px;
+    color:#49C01F;
+    font-family:'poppins'
+}
+
+.add Button {
+    background-color:#49C01F;
+    color:white;
+    border:none;
+    border-radius:16px;
+}
+
+
+
 
 
 @media (min-width: 768px) {
@@ -876,6 +963,48 @@ width:100%;
     font-size:20px;
    }
 
+.inventoryAddItem {
+    margin-left:5%;
+}
+
+.images {
+    width:3000px;
+}
+
+.inventoryGoBack{
+   display:none;
+}
    
+.inventoryAddItem h2 {
+    font-size:30px;
+}
+
+.imageForm p {
+    font-size:25px;
+    margin-left:10px;
+}
+
+.eachform label, .descriptionForm label {
+    font-weight:600;
+    font-family:'poppins';
+
+}
+.eachform input {
+    width:100%;
+    background-color:white;
+    border-radius:24px;
+    height:80px;
+    padding-left:5%;
+}
+
+.buttons {
+    padding-left:300px;
+}
+.buttons button {
+    width:200px;
+    font-size:16px;
+}
+
+
 
 }
