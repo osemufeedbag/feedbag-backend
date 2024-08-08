@@ -32,9 +32,9 @@ router.get('/phoneLogin(.html)?', (req, res) => {
 //Login ends here
 
 //User profile starts here
-router.get('/userProfile(.html)?', (req, res) => {
+/*router.get('/userProfile(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','usersProfile','personalInformation.html'));
-});
+});*/
 //User profile ends here
 
 //Digital wallet starts here

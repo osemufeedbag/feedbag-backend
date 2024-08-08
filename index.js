@@ -24,7 +24,8 @@ const corsOptions = {
             callback(new Error ("Not allowed by CORS"));
         }
     }, 
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    Credentials: true
 }
 
 app.use(cors(corsOptions));
@@ -142,6 +143,9 @@ app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 
 app.use('/refresh', require('./api/refresh'));
 app.use(verifyJWT);
+app.use('/userProfile(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
+});
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));

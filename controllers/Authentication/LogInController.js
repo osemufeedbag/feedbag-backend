@@ -16,30 +16,41 @@ const eLogin = async (req, res) => {
 
         const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
         if (match) { 
-            const accessToken = jwt.sign( 
-              { "Name": userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
-              process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: "60s" }//Increase the time to a longer period.
-          );
+          const accessToken = jwt.sign( 
+            { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: "30s" } //Increase the time to a longer period.
+        );
 
-            const refreshToken = jwt.sign(
-              { "Name": userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
-              process.env.REFRESH_TOKEN_SECRET,
-              { expiresIn: "1d" } //Increase the time to a longer period.
-          );
-        
-            userDetails.RefreshToken = refreshToken;
-            const result = await userDetails.save();
-            console.log(result);
-        
-            res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000, secure: true }); //Add in production environment = secure: true;
-            res.cookie("accjwt", accessToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000, secure: true });
-            //res.json({ accessToken });
-            console.log(accessToken);
-            res.redirect('/userProfile'); // Change to the one for login. this redirects to the reg successful page.
-        } else {
-            res.sendStatus(401);
-          }
+          const refreshToken = jwt.sign(
+            { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: "60s" } //Increase the time to a longer period.
+        );
+      
+          userDetails.RefreshToken = refreshToken;
+          const result = await userDetails.save();
+          console.log(result);
+      
+          res.cookie("jwt", refreshToken, { 
+            httpOnly: true, 
+            sameSite: "None", 
+            maxAge: 24 * 60 * 60 * 1000, 
+            secure: true
+          }); //Add in production environment = secure: true;
+
+          res.cookie("accjwt", accessToken, { 
+            httpOnly: true, 
+            sameSite: "None", 
+            maxAge: 60000, 
+            secure: true
+          }); 
+          //res.json({ accessToken });
+          console.log(accessToken);
+          res.redirect('/userProfile');
+      } else {
+          res.sendStatus(401);
+        }
 };
 
 const pLogin = async (req, res) => {
@@ -58,23 +69,35 @@ const pLogin = async (req, res) => {
             const accessToken = jwt.sign( 
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
               process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: "60s" } //Increase the time to a longer period.
+              { expiresIn: "30s" } //Increase the time to a longer period.
           );
 
             const refreshToken = jwt.sign(
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
               process.env.REFRESH_TOKEN_SECRET,
-              { expiresIn: "1d" } //Increase the time to a longer period.
+              { expiresIn: "60s" } //Increase the time to a longer period.
           );
         
             userDetails.RefreshToken = refreshToken;
             const result = await userDetails.save();
             console.log(result);
         
-            res.cookie("jwt", refreshToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000, secure: true}); //Add in production environment = secure: true;
-            res.cookie("accjwt", accessToken, { httpOnly: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000, secure: true });
+            res.cookie("jwt", refreshToken, { 
+              httpOnly: true, 
+              sameSite: "None", 
+              //maxAge: 24 * 60 * 60 * 1000,
+              maxAge: 100000,
+              secure: true
+            }); //Add in production environment = secure: true;
+
+            res.cookie("accjwt", accessToken, { 
+              httpOnly: true, 
+              sameSite: "None", 
+              maxAge: 60000, 
+              secure: true
+            }); 
             //res.json({ accessToken });
-            console.log(accessToken);
+            //console.log(accessToken);
             res.redirect('/userProfile');
         } else {
             res.sendStatus(401);
