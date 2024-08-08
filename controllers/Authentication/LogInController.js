@@ -53,7 +53,7 @@ const pLogin = async (req, res) => {
             message: "No known user with Phone number, try again",
           });
 
-        const match =  bcrypt.compare(Password, userDetails.PersonalInfo.Password);
+        const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
         if (match) { 
             const accessToken = jwt.sign( 
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
