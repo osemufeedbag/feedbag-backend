@@ -1,6 +1,9 @@
 //alert("js connected")
-
+ document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
 let dashBoardEl = document.getElementById("Dashboard")
+
+let inventoryAddItemsEl = document.getElementById("inventoryAddItems")
+inventoryAddItemsEl.onclick = inventoryAddItems
 
 let goBackEl =  document.getElementById("goBack")
 goBackEl.onclick = goBack
@@ -14,6 +17,26 @@ orderEl.onclick = orders
 let inventoryEl = document.getElementById("inventory")
 inventoryEl.onclick = inventory
 
+let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack")
+inventoryAddItemsGoBackEl.onclick = inventoryGoBack
+
+function inventoryGoBack() {
+    document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+    document.getElementsByClassName("inventory")[0].style.display = "block"  
+    document.getElementsByClassName("goBack")[0].style.display = "block";
+
+}
+
+
+function inventoryAddItems () {
+    document.getElementsByClassName("inventoryAddItem")[0].style.display = "block"
+     document.getElementsByClassName("inventory")[0].style.display = "none"
+     document.getElementsByClassName("goBack")[0].style.display = "none";
+
+     if(window.innerWidth >= 768) {
+        inventoryAddItemsGoBackEl.style.display = 'none'
+     }
+}
 function personalInformation() {
         document.getElementsByClassName("inventory")[0].style.display = "none"
     if(window.innerWidth <= 768) {
@@ -53,7 +76,9 @@ function inventory() {
    
 document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
 document.getElementsByClassName("Orders")[0].style.display = "none"
-    document.getElementsByClassName("inventory")[0].style.display = "block"
+    document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+       document.getElementsByClassName("inventory")[0].style.display = "block"
+   
 
 if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
