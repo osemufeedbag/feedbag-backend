@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/farmer/farmer2phonenumber.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <div class="left">
+        <div><img src="../../img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
+        <div><h1>Blockchain In <br> Agriculture</h1></div>
+    </div>
+
+    <div class="right">
+        <div class="heading">
+            <div><h1>Create Your Feedbag Agrihub Account</h1></div>
+            <div><h3>Ensure that the information provided matches <br> your identity information</h3></div>    
+        </div>
+
+        <div class="forms">
+            <form id="regForm" action="/access/register" method="post">
+                <div class="reg">
+                    <div><label for="fullName">Full name</label></div>
+                    <div><input type="text" name="FirstName" id="firstName" placeholder="Enter your full name"></div>
+                </div>
+
+                <div class="irreg">
+                    <div class="irgFirst">
+                        <div><label for="businessType">Business Type</label></div>
+                        <div class="dropdown-container">
+                            <input type="text" name="Company" id="businessType" placeholder="Business Type" readonly>
+                            <div class="dropdown">
+                                <div class="dropdown-item">business name</div>
+                                <div class="dropdown-item">LLC</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="irgSecond">
+                        <div><label for="businessName">Business name</label></div>
+                        <div><input type="text" name="BusinessName" id="businessName" placeholder="Enter your business name"></div>
+                    </div>
+                </div>
+
+                <div class="reg">
+                    <div><label for="phone number">Phone number</label></div>
+                    <div><input type="number" name="Phone" id="phone" placeholder="Enter your phone number"></div>
+                </div>
+
+                <div class="reg">
+                    <div><label for="businessRegNo">Business registration number</label></div>
+                    <div><input type="text" name="BusinessRegistrationNos" id="businessRegNo" placeholder="Enter your business registration number"></div>
+                </div>
+
+                <div class="reg">
+                    <div><label for="password">Password</label></div>
+                    <div><input type="password" name="Password" id="password" placeholder="Enter your password"></div>
+                    <div><a href="#">Forgot password?</a></div>
+                </div>
+                <div class="buttons">
+                    <div class="continue"><a href=""><button id="submitButton" type="button">Continue</button></a></div>
+                    <div class="back"><a href="signUp.html"><button id="goBack" type="button" class="back">Go back</button></a></div>
+                </div>
+            </form>
+        </div> 
+    </div>
+    <script src="../../js/farmer/pReg.js"></script>
+    <script src="../../js/farmer/PhoneRegFrontend.js"></script>
+</body>
+</html>

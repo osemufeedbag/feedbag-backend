@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "message": "Customer identity fetched successfully",
+    "data": {
+      "identity": {
+        "data": {
+          "phone_1": "070112211222",
+          "image": "https://dv2.cloudfront.net",
+          "firstname": "user FirstName",
+          "full_details": {
+            "email": "@gmail.com",
+            "date_of_birth": "2023-1-31",
+            "last_name": "Kingsley",
+            "msisdn": "090111122",
+            "middle_name": "Flick",
+            "first_name": "Kings",
+            "phone_number1": "08111222000",
+            "gender": "male"
+          },
+          "middlename": "user mddleName",
+          "lastname": "user LastName"
+        }
+      }
+    }
+  }

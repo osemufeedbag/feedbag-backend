@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/farmer/login.phoneNumber.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <div class="left">
+        <div><img src="../../img/farmer/agrihub logo.png" alt="AgriHub Logo"></div>
+        <div><h1>Blockchain In <br> Agriculture</h1></div>
+    </div>
+
+    <div class="right">
+        <div class="heading">
+            <div><h1>Welcome Back to Feedbag Agrihub</h1></div>
+            <div><h3>start your journey towards a transparent and sustainable agricultural future today <br> your identity information</h3></div>    
+        </div>
+
+        <div class="forms">
+            <form id="logForm" action="/access" method="Post">
+                <div class="reg"> <!--Should this not be login it says reg-->
+                    <div><label for="phone number">phone number</label></div>
+                    <div><input type="text" name="Phone" id="phone" placeholder="Enter your phone number"></div>
+                </div>
+                <div class="reg"> <!--Should this not be login it says reg-->
+                    <div><label for="password">Password</label></div>
+                    <div><input type="password" name="Password" id="password" placeholder="Enter your password"></div>
+                    <div><a href="#">Forgot password?</a></div>
+                </div>
+                <div class="buttons">
+                    <div class="continue"><a href=""><button id="loginButton" type="button">Continue</button></a></div>
+                    <div class="back"><a href="/signUp.html"><button type="button" class="backk">Go back</button></a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="../../js/farmer/pLogin.js" ></script>
+
+</html>
