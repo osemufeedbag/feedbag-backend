@@ -638,6 +638,55 @@ width:100%;
     border:none;
     border-radius:16px;
 }
+.notifications {
+    margin-left:5%;
+    margin-top:10px;
+}
+.notifications input {
+    width:100%;
+    border-radius:24px;
+    padding-left:4%;
+    background-color:white;
+}
+
+.notificationsButton {
+    display:flex;
+    margin-top:10px;
+}
+
+.notificationsButton button {
+    background-color:#F1FCF3;
+    margin-right:5px;
+    border-radius:10px;
+    border:none;  
+    width:84px;
+    height:62px;
+    font-weight: 600;
+    font-family:"poppins";
+}
+
+.notificationsButton button:hover {
+    background-color:#1FC043;
+}
+
+.notificationList {
+    margin-top:15px;
+}
+.eachNotification {
+    background-color:white;
+    display:flex;
+    align-items:center;
+    margin-top:10px;
+    padding:12px 20px 12px 20px;
+    border-radius: 16px;;
+}
+
+.notificationImage img {
+    height:50px;
+    margin-right:5px;
+}
+
+
 
 
 
@@ -1004,7 +1053,37 @@ width:100%;
     width:200px;
     font-size:16px;
 }
+.notifications h2 {
+    font-size:40px;
+    width:1200px;
+}
 
+.notifications input {
+    height:60px;
+     border-radius:10px;
+     font-size:28px;
+     width:900px;
+}
 
+.all button {
+    width:71px;
+    height:62px;
+    
+}
+
+.new button{
+    width:92px;
+    height:62px;
+}
+
+.unread button {
+    width:122px;
+    height:62px;
+}
+
+.eachNotification {
+    width:828px;
+    height:96px;
+}
 
 }
