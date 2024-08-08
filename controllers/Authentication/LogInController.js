@@ -56,13 +56,13 @@ const pLogin = async (req, res) => {
         const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
         if (match) { 
             const accessToken = jwt.sign( 
-              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
+              { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
               process.env.ACCESS_TOKEN_SECRET,
               { expiresIn: "60s" } //Increase the time to a longer period.
           );
 
             const refreshToken = jwt.sign(
-              { Name: userDetails.PersonalInfo.User == "Farmer" || "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
+              { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
               process.env.REFRESH_TOKEN_SECRET,
               { expiresIn: "1d" } //Increase the time to a longer period.
           );
