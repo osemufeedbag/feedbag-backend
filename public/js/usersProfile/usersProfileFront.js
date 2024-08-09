@@ -20,6 +20,52 @@ inventoryEl.onclick = inventory
 let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack")
 inventoryAddItemsGoBackEl.onclick = inventoryGoBack
 
+let notificationsEl = document.getElementById("notifications")
+notificationsEl.onclick = notifications
+
+let dataAndPrivacyEl = document.getElementById("dataAndPrivacy")
+dataAndPrivacyEl.onclick = () => {
+
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+    document.getElementsByClassName("Orders")[0].style.display = "none"
+        document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+           document.getElementsByClassName("inventory")[0].style.display = "none"
+           document.getElementsByClassName("notifications")[0].style.display = "none"
+           document.getElementsByClassName("dataAndPrivacy")[0].style.display = "block"
+
+           if(window.innerWidth <= 768) {
+            document.getElementsByClassName("dashNav")[0].style.display = "none"
+            }else {
+                dataAndPrivacyEl.style.borderLeft = "10px solid #49C01F"
+                notificationsEl.style.borderLeft = "0px"
+                inventoryEl.style.borderLeft = "0px"
+                orderEl.style.borderLeft = "0px"
+            inventoryEl.style.borderBottomLeftRadius = "0px"
+            inventoryEl.style.borderTopLeftRadius = "0px"
+                personalInformationEl.style.borderLeft = "0px"
+            }
+}
+function notifications() {
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+document.getElementsByClassName("Orders")[0].style.display = "none"
+    document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+       document.getElementsByClassName("inventory")[0].style.display = "none"
+       document.getElementsByClassName("notifications")[0].style.display = "block"
+       document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+if(window.innerWidth <= 768) {
+document.getElementsByClassName("dashNav")[0].style.display = "none"
+}
+else {
+    notificationsEl.style.borderLeft = "10px solid #49C01F"
+    dataAndPrivacyEl.style.borderLeft = "0px"
+    inventoryEl.style.borderLeft = "0px"
+    orderEl.style.borderLeft = "0px"
+inventoryEl.style.borderBottomLeftRadius = "0px"
+inventoryEl.style.borderTopLeftRadius = "0px"
+    personalInformationEl.style.borderLeft = "0px"
+}
+}
+
 function inventoryGoBack() {
     document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
     document.getElementsByClassName("inventory")[0].style.display = "block"  
@@ -39,26 +85,34 @@ function inventoryAddItems () {
 }
 function personalInformation() {
         document.getElementsByClassName("inventory")[0].style.display = "none"
+        document.getElementsByClassName("notifications")[0].style.display = "none"
+        document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
 document.getElementsByClassName("Orders")[0].style.display = "none"
+
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "block"
 } else {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "block"
     personalInformationEl.style.borderLeft = "10px solid #49C01F"
     personalInformationEl.style.borderBottomLeftRadius = "0px"
+     notificationsEl.style.borderLeft = "0px"
     personalInformationEl.style.borderTopLeftRadius = "0px"
     document.getElementsByClassName("Orders")[0].style.display = "none"
     orderEl.style.borderLeft = "0px"
+    dataAndPrivacyEl.style.borderLeft = "0px"
     inventoryEl.style.borderLeft = "0px"
 }
 }
 
 function orders()  {
      document.getElementsByClassName("inventory")[0].style.display = "none"
+     document.getElementsByClassName("notifications")[0].style.display = "none"
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
+document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
 document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+
 document.getElementsByClassName("Orders")[0].style.display = "block"
 } else {
     orderEl.style.borderLeft = "10px solid #49C01F"
@@ -68,6 +122,8 @@ document.getElementsByClassName("Orders")[0].style.display = "block"
         document.getElementsByClassName("Orders")[0].style.display = "block"
     personalInformationEl.style.borderLeft = "0px"
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+     notificationsEl.style.borderLeft = "0px"
+     dataAndPrivacyEl.style.borderLeft = "0px"
        
 }
 }
@@ -76,8 +132,11 @@ function inventory() {
    
 document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
 document.getElementsByClassName("Orders")[0].style.display = "none"
-    document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+document.getElementsByClassName("notifications")[0].style.display = "none"    
+document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
        document.getElementsByClassName("inventory")[0].style.display = "block"
+
    
 
 if(window.innerWidth <= 768) {
@@ -87,7 +146,9 @@ document.getElementsByClassName("dashNav")[0].style.display = "none"
         orderEl.style.borderLeft = "0px"
     inventoryEl.style.borderBottomLeftRadius = "0px"
     inventoryEl.style.borderTopLeftRadius = "0px"
+    notificationsEl.style.borderLeft = "0px"
         personalInformationEl.style.borderLeft = "0px"
+        dataAndPrivacyEl.style.borderLeft = "0px"
 }
 
 }
