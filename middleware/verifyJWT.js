@@ -1,23 +1,24 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const refreshTokenController = require('../controllers/refreshTokenController')
+const handleRefreshToken = require('../controllers/refreshTokenController');
 
-const verifyJWT = (req, res, next) => {
+    const verifyJWT = async (req, res, next) => {
     const accessToken = req.cookies.accjwt;
-    if(!accessToken) {
-        return res.sendStatus(403);
+    //console.log("access token from verify " + accessToken);
+    if(accessToken == undefined) {
+        return await handleRefreshToken(req, res, next);
     } else {
         jwt.verify(
             accessToken, 
             process.env.ACCESS_TOKEN_SECRET,
             (err, decoded) => {
-                if(err) return res.sendStatus(403); //invalid token
+                if(err) {
+                    return res.sendStatus(403);
+                } //invalid token
                 req.Name = decoded.Name;
                 next();
-            }
-        );
-    }
-        
+            });
+        }
     };
 
 module.exports = verifyJWT

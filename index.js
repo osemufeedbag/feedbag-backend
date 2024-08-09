@@ -141,15 +141,14 @@ app.get('/userProfileImgUpload', (req, res) => {
 app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 // Remember to take these back to after verifyJWT
 
-app.use('/refresh', require('./api/refresh'));
-app.use(verifyJWT);
-app.use('/userProfile(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
-});
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
-
+//app.use('/refresh', require('./api/refresh'));
+app.use(verifyJWT);
+app.use('/userProfile(.html)?',(req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
+});
 
 
 mongoose.connection.once('open', () => {
