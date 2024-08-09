@@ -57,7 +57,7 @@ body {
     background-color: white;
     height:800px;
     border-radius:24px;
-    border:10px solid pink;
+    border:none;
 }
 
 .profile {
@@ -240,6 +240,7 @@ body {
     flex-direction:column;
     background-color: #F1F1F1;
     padding-left:5%;
+    
 }
 
 .Orders .search {
@@ -385,6 +386,7 @@ width:100%;
     justify-content: space-between;
     background-color: white;
     margin-top:20px;
+    margin-right:5%;
 }
 
 .btnumbers {
@@ -394,6 +396,7 @@ width:100%;
     align-items:center;
     border:none;
     width:200px;
+    
 }
 
 .previous, .next {
@@ -520,7 +523,7 @@ width:100%;
     font-weight:900;
     
 }
-.eachInventory h3, h4{
+.eachInventory h3, .eachInventory h4{
     text-align: center;
     font-weight:200;
 }
@@ -643,10 +646,11 @@ width:100%;
     margin-top:10px;
 }
 .notifications input {
-    width:100%;
+    width:90%;
     border-radius:24px;
     padding-left:4%;
     background-color:white;
+    margin-right:5%;
 }
 
 .notificationsButton {
@@ -677,6 +681,7 @@ width:100%;
     display:flex;
     align-items:center;
     margin-top:10px;
+    margin-right:5%;
     padding:12px 20px 12px 20px;
     border-radius: 16px;;
 }
@@ -685,12 +690,125 @@ width:100%;
     height:50px;
     margin-right:5px;
 }
+.dataAndPrivacy {
+    margin-left:5%;
+}
+.dataAndPrivacy input {
+    width:90%;
+    background-color:white;
+    border-radius:16px;
+    padding-left:5%;
+}
+.privacySetting, .activityVisibility {
+    margin-top:10px;
+    margin-right:2%;
+    display:flex;
+    flex-direction:column;
+    align-items: left;
+}
+.profileVisibility, .activityVisibility,.deleteData, .downloadData {
+    background-color:white;
+    margin-bottom:10px;
+    border-radius:16px;
+    margin-top:10px;
+    padding-left:5%;
+    margin-right:5%;
+    height:136px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+.profileVisibilityComponent, .activityVisibilityComponent, .downloadDataComponent, .deleteDataComponent  {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+}
 
+.profileVisibility i,  .activityVisibility i, .downloadData i, .deleteData i, .secondRow i  {
+    margin-right:10px;
+    font-size:25px;
+    background-color: #F1FCF3;
+    border:none;
+}
 
+.profileVisibilityComponent button, .activityVisibility button, .downloadDataComponent button {
 
+    width:109px;
+    height:44px;
+    background-color: #49C01F;
+    color:white;
+    border:none;
+    font-family:'poppins';
+    border-radius:16px;
+}
+.downloadDataComponent button i {
+    font-size:25px;
+    color:white;
+    background-color: #1FC043;
+}
 
+.downloadDataComponent button{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
 
+.downloadData, .deleteData{
+    margin-top:15px;
+}
 
+.dataUsage h2 {
+    margin-top:20px;
+}
+
+.dataUsage p {
+    margin-top:15px;
+    margin-right:5%;
+    background-color:white;
+    border-radius:16px;
+    padding-left:5%;
+}
+
+.dataUsage a {
+    color:#1FC043;
+}
+.contentPermission {
+    margin-top:20px;
+}
+.marketPreferences, .cookiePreferences, .legalComponent {
+    background-color: white;
+    margin-top:10px;
+    margin-right:5%;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.secondRow {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    padding-left:5%;
+}
+.radios {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    padding-left:5%;
+}
+.legalComponent a {
+    color:#1FC043;
+}
+
+.legalCompliance {
+    margin-top:20px;
+}
+.marketPreferences h3, .cookiePreferences h3,  .legalCompliance h3{
+    margin-bottom:20px;
+    padding-left:5%;
+    margin-top:10px;
+}
 
 @media (min-width: 768px) {
     .nav {
@@ -932,6 +1050,7 @@ width:100%;
 
    .btnumbers {
     width:700px;
+    
    }
 
    .btnumbers button {
@@ -1086,4 +1205,59 @@ width:100%;
     height:96px;
 }
 
+.dataAndPrivacy {
+    border:none;
+    width:130%;
+}
+.dataAndPrivacy h2{
+font-size:30px;
+}
+.dataAndPrivacy input{
+    font-size:25px;
+    width:70%;
+    height:55px;
+}
+.profileVisibilityComponent {
+    display:flex;
+    justify-content: start;
+}
+.activityVisibilityComponent {
+    display:flex;
+    justify-content: start;
+}
+
+.profileVisibilityComponent button{
+    margin-left:500px;
+}
+.activityVisibilityComponent button {
+    margin-left:140px;
+}
+
+.profileVisibility h4, .activityVisibility h4, .downloadData h4, .deleteData h4, .marketPreferences h4, .cookiePreferences h4, .legalComponent h4{
+    font-size:25px;
+}
+.marketPreferences h4, .cookiePreferences h4, .legalComponent h4 {
+    padding-left: 5%;
+}
+.legalComponent a {
+padding-left:5%;
+}
+.profileVisibility p, .activityVisibility p, .downloadDataComponent p, .deleteDataComponent p, .dataUsage p, .marketPreferences p, .cookiePreferences p   {
+    font-size:20px;
+}
+
+.dataUsage p{
+    height:60px;
+}
+.downloadDataComponent {
+    display:flex;
+    justify-content:start;
+}
+.downloadDataComponent button {
+    margin-left:100px;
+}
+.deleteDataComponent {
+    display:flex;
+    justify-content: start;
+}
 }
