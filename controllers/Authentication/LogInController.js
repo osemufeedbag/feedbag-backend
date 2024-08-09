@@ -30,7 +30,7 @@ const eLogin = async (req, res) => {
       
           userDetails.RefreshToken = refreshToken;
           const result = await userDetails.save();
-          console.log(result);
+          //console.log(result);
       
           res.cookie("jwt", refreshToken, { 
             httpOnly: true, 
@@ -46,7 +46,7 @@ const eLogin = async (req, res) => {
             secure: true
           }); 
           //res.json({ accessToken });
-          console.log(accessToken);
+          //console.log(accessToken);
           res.redirect('/userProfile');
       } else {
           res.sendStatus(401);
@@ -80,7 +80,7 @@ const pLogin = async (req, res) => {
         
             userDetails.RefreshToken = refreshToken;
             const result = await userDetails.save();
-            console.log(result);
+            //console.log(result);
         
             res.cookie("jwt", refreshToken, { 
               httpOnly: true, 

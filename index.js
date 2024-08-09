@@ -44,8 +44,6 @@ app.use(express.json());
 // built-in middleware to read json file into the server json
 app.use(express.json());
 
-
-
 app.use('/access', require('./api/auth'));
 app.use('/', require('./routes/root'));
 
@@ -137,19 +135,23 @@ app.get('/userProfileImgUpload', (req, res) => {
 });
 // User profile picture upload and display ends--->
 
-// Remember to take these back to after verifyJWT
-app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
-// Remember to take these back to after verifyJWT
 
+app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
 //app.use('/refresh', require('./api/refresh'));
+
+// Protected pages starts here
 app.use(verifyJWT);
 app.use('/userProfile(.html)?',(req, res) => {
     res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
 });
 
+app.use('/digitalWallet(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname,'frontend','DigitalWallet_KYC','KYC.html'));
+});
+// Protected pages ends here
 
 mongoose.connection.once('open', () => {
     console.log("Connected to Mongodb");
