@@ -46,6 +46,10 @@ app.use(express.json());
 
 app.use('/access', require('./api/auth'));
 app.use('/', require('./routes/root'));
+app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
+app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
+app.use('/Inventory', require('./api/UserProfile/inventory'));
+app.use('/Order', require('./api/UserProfile/order'));
 
 //middleware for cookies
 app.use(cookieParser());
@@ -135,11 +139,6 @@ app.get('/userProfileImgUpload', (req, res) => {
 });
 // User profile picture upload and display ends--->
 
-
-app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
-app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
-app.use('/Inventory', require('./api/UserProfile/inventory'));
-app.use('/Order', require('./api/UserProfile/order'));
 //app.use('/refresh', require('./api/refresh'));
 
 // Protected pages starts here
@@ -148,9 +147,7 @@ app.use('/userProfile(.html)?',(req, res) => {
     res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
 });
 
-app.use('/digitalWallet(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname,'frontend','DigitalWallet_KYC','KYC.html'));
-});
+
 // Protected pages ends here
 
 mongoose.connection.once('open', () => {
