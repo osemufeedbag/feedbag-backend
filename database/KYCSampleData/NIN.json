@@ -1,0 +1,61 @@
+{
+    "status": "200",
+    "message": "Customer identity fetched successfully",
+    "data": {
+      "request_attr": "",
+      "is_new": "true",
+      "identity": {
+        "data": {
+          "phone_2": "070112211222",
+          "phone_1": "070112211222",
+          "image": " https://qrabaebwebhookbucket.s3.us-east-2.amazonaws.com/uploads/_h-6yzOyoEs5.jpg",
+          "firstname": "Kingsley",
+          "full_details": {
+            "date_of_birth": "2023-1-31",
+            "nin": "002233311332",
+            "telephoneno": "07033311332",
+            "birthlga": "",
+            "trackingId": "",
+            "profession": "",
+            "nok_firstname": "",
+            "residencestatus": "",
+            "self_origin_state": "",
+            "residence_state": "",
+            "nok_state": "",
+            "nok_middlename": "",
+            "nok_surname": "",
+            "self_origin_lga": "",
+            "maritalstatus": "",
+            "heigth": "",
+            "nok_lga": "",
+            "phone_number": "08122442333",
+            "spoken_language": "",
+            "firstname": "Kingsley",
+            "email": "",
+            "educationallevel": "",
+            "birthcountry": "",
+            "nok_address2": "",
+            "nok_address1": "",
+            "nok_postalcode": "",
+            "last_name": "Kingsley",
+            "photo": "https://qrabaebwebhookbuc",
+            "residence_address": "user Address",
+            "middle_name": "User MiddleName",
+            "religion": "",
+            "ospokenlang": "",
+            "centralID": "",
+            "self_origin_place": "",
+            "birthstate": "",
+            "psurname": "",
+            "nok_town": "",
+            "residence_lga": "",
+            "customer": "f01a2b07-ec76-495a-b09c-2f60a670244c",
+            "residence_town": ""
+          },
+          "address": "user Address",
+          "middlename": "Kingsley",
+          "lastname": "Kingsley"
+        }
+      }
+    }
+  }

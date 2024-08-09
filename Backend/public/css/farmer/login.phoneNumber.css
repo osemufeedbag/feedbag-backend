@@ -269,6 +269,8 @@ body {
         background-color:#ffffff;
         border:1px solid  #49C01F; 
     }
+
+
   }
   
   /* Tablet View */
@@ -342,6 +344,11 @@ body {
     .backk {
         border:1px solid  #49C01F; 
         background-color: #ffffff; 
+    }
+
+    .emailLink a{
+      font-size:180px;
+      color:green;
     }
   }
 

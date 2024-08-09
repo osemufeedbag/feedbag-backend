@@ -14,7 +14,7 @@ const GetPersonalInfo = async (req, res) => {
 
     
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
-    //const user = await UserModel.findOne({'PersonalInfo.Email': SessionUserId}).exec();
+    if(!user) return res.sendStatus(409);
     res.json(user);
 };
 
@@ -26,6 +26,7 @@ const UpdatePersonalInfo = async (req, res) => {
     const EditSession = req.params.EditSession;
 
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) return res.sendStatus(409);
 
     switch (EditSession) {
         // Personal Information

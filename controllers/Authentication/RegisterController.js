@@ -153,8 +153,8 @@ const UserRegPhone = async (req, res) => {
                     'PersonalInfo.Password': hashedPwd0
                 })
                 newSignup.save()
-                console.log(newSignup);
                 res.redirect('/successful');
+                console.log(newSignup);
 
             } catch (error) {
                 console.log(error);

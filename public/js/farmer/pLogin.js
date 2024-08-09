@@ -1,6 +1,3 @@
-
-console.log(document.getElementById("loginButton").action = "http://localhost:4000/access/pLogin")
-
 function reset(e) {
         e.preventDefault();
 };

@@ -1,9 +1,10 @@
 require('dotenv').config();
 
+const cors = require('cors');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4000;
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
@@ -14,6 +15,21 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
+const whitelist = ['https://www.domainname.com','http://127.0.0.1:5500','http://localhost:4000'];
+const corsOptions = {
+    orgin: (origin, callback)=>{ 
+        if(whitelist.indexOf(origin) !== -1 || !origin) {
+            callback(null, true)
+        } else {
+            callback(new Error ("Not allowed by CORS"));
+        }
+    }, 
+    optionsSuccessStatus: 200,
+    Credentials: true
+}
+
+app.use(cors(corsOptions));
+
 // Connect to mongodb database
 connectDB();
 
@@ -22,8 +38,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // To handle form data
 app.use(express.urlencoded({extended: true}));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // built-in middleware to read json file into the server json
 app.use(express.json());
@@ -127,6 +143,9 @@ app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 
 app.use('/refresh', require('./api/refresh'));
 app.use(verifyJWT);
+app.use('/userProfile(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
+});
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
