@@ -17,8 +17,13 @@ fetch('http://localhost:4000/UserProfile/personalInfo', {
             document.getElementById('email').innerText = data.user.PersonalInfo.Email == undefined ? "------" : data.user.PersonalInfo.Emai;
             document.getElementById('phone').innerText = data.user.PersonalInfo.Phone == undefined ? "------" : data.user.PersonalInfo.Phone;
             document.getElementById('user').innerText = data.user.PersonalInfo.User == undefined ? "------" : data.user.PersonalInfo.User;
+            document.getElementById('businessname').innerText = data.user.BusinessInfo.BusinessName == undefined ? "------" : data.user.BusinessInfo.BusinessName;
         })
         .catch(error => console.error('Error:', error));
 
+
+document.getElementById('logOut').addEventListener('click', () =>{
+
+})
 
 
