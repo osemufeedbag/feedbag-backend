@@ -160,7 +160,8 @@ body {
 
 
 .lapComp {
-    display:block;
+    display:flex;
+    flex-direction:column;
 }
 
 .top {
@@ -417,6 +418,128 @@ width:100%;
     background-color:#49C01F;
 }
 
+.trackOrders {
+padding:5%;
+border:none;
+}
+.trackOrders input {
+    width:80%;
+    margin-top:10px;
+    padding-left:5%;
+    border-radius:16px;
+}
+
+
+.idTop {
+    background-color:white;
+    border-radius:16px;
+    padding:5%;
+    display:flex;
+    align-items:center;
+    margin-top:10px;
+}
+.idTop i {
+    font-size:30px;
+    background-color: #F1FCF3;
+    margin-right:10px;
+}
+.idTop h6 {
+    font-size:20px;
+}
+
+.customerInformation {
+    padding:5%;
+    background-color:white;
+    margin-top:20px;
+    border-radius:16px;
+}
+
+.customerInfo {
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+}
+
+.left {
+    border:none;
+    width:380px;
+}
+
+.eachCustomerInfo {
+    margin-bottom:30px;
+}
+
+.eachCustomerInfo h6 {
+    font-size:16px;
+}
+
+.orderSummary img{
+width:100px;
+height:90px;
+border-radius:10px;
+margin-right:10px;
+}
+
+.eachOrderItem {
+    display:flex;
+    align-items:center;
+}
+
+.orderDetails {
+
+}
+.orderSummary {
+    background-color:white;
+    margin-top:20px;
+    border-radius:16px;
+    padding:5%;
+}
+
+.eachSubDetails {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-bottom:5px;
+}
+
+.orderTracker {
+    background-color:white;
+    padding-right:0;
+    margin-top:20px;
+    padding:5%;
+    border-radius:16px;
+    overflow: auto;
+    margin-right:0px;
+}
+.orderTracker h2 {
+    margin-bottom:10px;
+}
+
+.orderPath {
+    display:flex;
+    width:1300px;
+    margin-top:20px;
+
+}
+.eachPathDetails h2  {
+    font-size:20px;
+    padding-left:15px;
+}
+
+.eachPath {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.eachPath i {
+    font-size:30px;
+}
+
+.eachPathDetails {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 .inventory  {
     margin-left:5%;
     margin-right:5%;
