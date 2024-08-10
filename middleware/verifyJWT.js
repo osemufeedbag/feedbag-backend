@@ -13,6 +13,8 @@ const handleRefreshToken = require('../controllers/refreshTokenController');
             process.env.ACCESS_TOKEN_SECRET,
             (err, decoded) => {
                 if(err) {
+                    console.log(err);
+                    console.log('app terminated at line 17: verifyJWT');
                     return res.sendStatus(403);
                 } //invalid token
                 req.Name = decoded.Name;
