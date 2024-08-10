@@ -38,7 +38,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // To handle form data
 app.use(express.urlencoded({extended: true}));
-app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // built-in middleware to read json file into the server json

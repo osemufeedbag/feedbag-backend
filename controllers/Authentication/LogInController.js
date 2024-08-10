@@ -69,13 +69,13 @@ const pLogin = async (req, res) => {
             const accessToken = jwt.sign( 
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
               process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: "30s" } //Increase the time to a longer period.
+              { expiresIn: 60000 } //Increase the time to a longer period.
           );
 
             const refreshToken = jwt.sign(
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
               process.env.REFRESH_TOKEN_SECRET,
-              { expiresIn: "60s" } //Increase the time to a longer period.
+              { expiresIn: 100000 } //Increase the time to a longer period.
           );
         
             userDetails.RefreshToken = refreshToken;
@@ -84,21 +84,23 @@ const pLogin = async (req, res) => {
         
             res.cookie("jwt", refreshToken, { 
               httpOnly: true, 
-              sameSite: "None", 
+              //sameSite: "None", 
+              origin: 'http://localhost:4000',
               //maxAge: 24 * 60 * 60 * 1000,
               maxAge: 100000,
-              secure: true
+              //secure: true
             }); //Add in production environment = secure: true;
 
             res.cookie("accjwt", accessToken, { 
               httpOnly: true, 
-              sameSite: "None", 
+              //sameSite: "None", 
+              origin: 'http://localhost:4000',
               maxAge: 60000, 
-              secure: true
+              //secure: true
             }); 
             //res.json({ accessToken });
             //console.log(accessToken);
-            res.redirect('/userProfile');
+            return res.redirect('/userProfile');
         } else {
             res.sendStatus(401);
           }

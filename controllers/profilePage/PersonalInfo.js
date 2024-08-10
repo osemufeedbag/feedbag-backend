@@ -6,16 +6,18 @@ const now = new Date();
 
 
 const GetPersonalInfo = async (req, res) => {
-    //const SessionUserId = req.params.Email;
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
-
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 12: GetPersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
     
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     if(!user) return res.sendStatus(409);
-    res.json(user);
+    res.json({user});
 };
 
 const UpdatePersonalInfo = async (req, res) => {
