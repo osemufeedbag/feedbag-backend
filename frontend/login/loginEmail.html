@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/farmer/login.email.css">
+    <link rel="stylesheet" href="../../css/farmer/login.phoneNumber.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
@@ -20,30 +20,27 @@
         </div>
 
         <div class="forms">
-            <form action="">
-
-
-            
-
-                <div class="reg">
-                    <div><label for="email">email</label></div>
-                    <div><input type="email" id="email" placeholder="Enter your email"></div>
+            <form id="logForm" action="/access" method="Post">
+                <div class="reg"> <!--Should this not be login it says reg-->
+                    <div><label for="phone number">Email</label></div>
+                    <div><input type="text" name="Phone" id="phone" placeholder="Enter your Email"></div>
                 </div>
-
-
-
-                <div class="reg">
+                <div class="reg"> <!--Should this not be login it says reg-->
                     <div><label for="password">Password</label></div>
-                    <div><input type="password" id="password" placeholder="Enter your password"></div>
+                    <div><input type="password" name="Password" id="password" placeholder="Enter your password"></div>
                     <div><a href="#">Forgot password?</a></div>
+                </div>
+                <div class="buttons">
+                  
+                    <div class="continue"><a href=""><button id="loginButton" type="button">Continue</button></a></div>
+                    <div class="back"><a href="/signUp.html"><button type="button" class="backk">Go back</button></a></div>
+                    <div><a href="././loginPhoneNos.html">Login with phone Number</a></div>
                 </div>
             </form>
         </div>
-
-        <div class="buttons">
-            <div class="continue"><a href="../farmer/successful.html"><button type="button">Continue</button></a></div>
-            <div class="back"><a href="../farmer/signUp.html"><button type="button" class="backk">Go back</button></a></div>
-        </div>
     </div>
+</body>
 
-    <script>
+<script src="../../js/farmer/pLogin.js" ></script>
+
+</html>
