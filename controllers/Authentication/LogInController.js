@@ -10,9 +10,10 @@ const eLogin = async (req, res) => {
           });
 
         const userDetails = await UserModel.findOne({ "PersonalInfo.Email": Email }).exec();
-        if (!userDetails) return res.status(400).json({
-            message: "No known user with email, try again",
-          });
+        if (!userDetails) {
+          //return res.status(400).json({message: "No known user with email, try again"});
+          return res.redirect('/phoneLogin.html');
+        }
 
         const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
         if (match) { 
@@ -63,9 +64,10 @@ const pLogin = async (req, res) => {
           });
 
         const userDetails = await UserModel.findOne({ "PersonalInfo.Phone": Phone }).exec();
-        if (!userDetails) return res.status(400).json({
-            message: "No known user with Phone number, try again",
-          });
+        if (!userDetails) {
+          //return res.status(400).json({message: "No known user with email, try again"});
+          return res.redirect('/phoneLogin.html');
+        }
 
         const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
         if (match) { 
