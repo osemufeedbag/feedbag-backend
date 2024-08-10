@@ -15,7 +15,6 @@ fetch('http://localhost:4000/UserProfile/personalInfo', {
             document.getElementById('name1').innerText = data.user.PersonalInfo.FirstName == undefined ? "-----" : data.user.PersonalInfo.FirstName;
             document.getElementById('companyname').innerText = data.user.BusinessInfo.BusinessName == undefined ? "-----" : data.user.BusinessInfo.BusinessName;
             document.getElementById('email').innerText = data.user.BusinessInfo.Email == undefined ? "------" : data.user.BusinessInfo.Emai;
-            document.getElementById('userPhoneNumber').innerText = data.user.PersonalInfo.Phone == undefined ? "------" : data.user.BusinessInfo.Phone;
         })
         .catch(error => console.error('Error:', error));
 
