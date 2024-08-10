@@ -5,14 +5,14 @@ const jwt = require("jsonwebtoken");
 
 const eLogin = async (req, res) => {
         const { Email, Password } = req.body;
-        if (!Email || !Password) return res.status(400).json({
+        /*if (!Email || !Password) return res.status(400).json({
             message: "Username and password required",
-          });
+          });*/
 
         const userDetails = await UserModel.findOne({ "PersonalInfo.Email": Email }).exec();
         if (!userDetails) {
           //return res.status(400).json({message: "No known user with email, try again"});
-          return res.redirect('/phoneLogin.html');
+          return res.redirect('/loginEmail.html');
         }
 
         const match = await bcrypt.compare(Password, userDetails.PersonalInfo.Password);
@@ -20,13 +20,13 @@ const eLogin = async (req, res) => {
           const accessToken = jwt.sign( 
             { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: 100000 } //Increase the time to a longer period.
+            { expiresIn: 1800000 } //Increase the time to a longer period.
         );
 
           const refreshToken = jwt.sign(
             { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
             process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: 60000 } //Increase the time to a longer period.
+            { expiresIn: 3600000 } //Increase the time to a longer period.
         );
       
           userDetails.RefreshToken = refreshToken;
@@ -38,7 +38,7 @@ const eLogin = async (req, res) => {
             //sameSite: "None", 
             origin: 'http://localhost:4000',
             //maxAge: 24 * 60 * 60 * 1000,
-            maxAge: 100000,
+            maxAge: 3600000,
             //secure: true
           }); //Add in production environment = secure: true;
 
@@ -46,7 +46,7 @@ const eLogin = async (req, res) => {
             httpOnly: true, 
             //sameSite: "None", 
             origin: 'http://localhost:4000',
-            maxAge: 60000, 
+            maxAge: 1800000, 
             //secure: true
           }); 
           //res.json({ accessToken });
@@ -58,10 +58,10 @@ const eLogin = async (req, res) => {
 };
 
 const pLogin = async (req, res) => {
-  const { Phone, Password } = req.body;
-        if (!Phone || !Password) return res.status(400).json({
+        const { Phone, Password } = req.body;
+        /*if (!Phone || !Password) return res.status(400).json({
             message: "Phone number and password required",
-          });
+          });*/
 
         const userDetails = await UserModel.findOne({ "PersonalInfo.Phone": Phone }).exec();
         if (!userDetails) {
@@ -74,13 +74,13 @@ const pLogin = async (req, res) => {
             const accessToken = jwt.sign( 
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName}, 
               process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: 60000 } //Increase the time to a longer period.
+              { expiresIn: 1800000 } //Increase the time to a longer period.
           );
 
             const refreshToken = jwt.sign(
               { Name: userDetails.PersonalInfo.User == "Farmer" || userDetails.PersonalInfo.User == "Aggregator" ? userDetails.BusinessInfo.BusinessName : userDetails.PersonalInfo.UserName },
               process.env.REFRESH_TOKEN_SECRET,
-              { expiresIn: 100000 } //Increase the time to a longer period.
+              { expiresIn: 3600000 } //Increase the time to a longer period.
           );
         
             userDetails.RefreshToken = refreshToken;
@@ -92,7 +92,7 @@ const pLogin = async (req, res) => {
               //sameSite: "None", 
               origin: 'http://localhost:4000',
               //maxAge: 24 * 60 * 60 * 1000,
-              maxAge: 100000,
+              maxAge: 3600000,
               //secure: true
             }); //Add in production environment = secure: true;
 
@@ -100,7 +100,7 @@ const pLogin = async (req, res) => {
               httpOnly: true, 
               //sameSite: "None", 
               origin: 'http://localhost:4000',
-              maxAge: 60000, 
+              maxAge: 1800000, 
               //secure: true
             }); 
             //res.json({ accessToken });
