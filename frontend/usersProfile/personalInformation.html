@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../css/usersProfile/personalInformation.css">
+    <link rel="stylesheet" href="../../public/css/usersProfile/personalInformation.css">
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
@@ -14,7 +14,7 @@
 <body>
     
     <div class="nav">
-        <div><img src="../../img/farmer/agrihub logo.png" alt=""></div>
+        <div><img src="../../public/img/farmer/agrihub logo.png" alt=""></div>
         <div class="middle">
             <div><a>Home</a></div>
             <div><a>CAF Marketplace</a></div>
@@ -24,7 +24,7 @@
         </div>
         <div class="end">
             <div><i class="bi bi-cart-fill"></i></div>
-            <div><img src="../../img/farmer/agrihub logo.png" alt=""></div>
+            <div><img src="../../public/img/farmer/agrihub logo.png" alt=""></div>
         </div>
         <div class="menu"><i class="bi bi-list"></i></div>
     </div>
@@ -33,7 +33,7 @@
     <div class="dashNav">
         <div class="profile">
             <div class="pic">
-                <div><img src="../../img/usersProfile/userImageDemo.png" alt=""></div> <!--Image should be loaded from userdb not from public img-->
+                <div><img src="../../public/img/usersProfile/userImageDemo.png" alt=""></div> <!--Image should be loaded from userdb not from public img-->
                 <div><i class="bi bi-pencil-square"></i></div>
             </div>
             <div class="name">
@@ -279,7 +279,7 @@
                 <div><input type="date"></div>
             </div>
 
-
+         <div class="orderHistory">
             <div class="ordersList">
                 <div class="orderListHead">
                     <div><p>Item</p></div>
@@ -330,6 +330,186 @@
 
                 <div><button class="next">Next --></button></div>
             </div>
+         </div>
+
+
+
+        
+         <div class="trackOrders">
+            <div><input type="text" placeholder="Input tracking ID"></div>
+            <div class="idTop">
+                <div><i class="bi bi-cart-fill"></i></div>
+                <div class="idDetails">
+                <div><h6>Order Id</h6></div>
+                <div><p>23592196</p></div>
+                </div>
+            </div>
+
+            <div class="customerInformation">
+                <div><h3>Customer Information</h3></div>
+                <div class="customerInfo">
+                    <div class="left">
+
+                        <div class="eachCustomerInfo">
+                            <div><p>First Name</p></div>
+                            <div><h6>David</h6></div>
+                        </div>
+
+                        <div class="eachCustomerInfo">
+                            <div><p>Last Name</p></div>
+                            <div><h6>George</h6></div>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="eachCustomerInfo">
+                            <div><p>phone number</p></div>
+                            <div><h6>+2348037135498</h6></div>
+                        </div>
+
+                        <div class="eachCustomerInfo">
+                            <div><p>Delivery Address</p></div>
+                            <div><h6>10B Adeola Odeku Street, Victoria Island, Lagos State</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orderSummary">
+                <div><h3>Order Summary</h3></div>
+
+                <div class="eachOrderItem">
+                    <div class="itemImage">
+                        <div><img src="../../public/img/farmer/agrihubPepper.jpg" alt=""></div>
+                    </div>
+                    <div class="itemData">
+                        <div><p>Crisp Garden Cabbage</p></div>
+                        <div><h5>₦2,000/kg</h5></div>
+                        <div><a href="">2% discount</a></div>
+                    </div>
+                </div>
+
+                <div class="eachOrderItem">
+                    <div class="itemImage">
+                        <div><img src="../../public/img/farmer/agrihubCabbage.jpg" alt=""></div>
+                    </div>
+                    <div class="itemData">
+                        <div><p>Crisp Garden Cabbage</p></div>
+                        <div><h5>₦9,000/kg</h5></div>
+                        <div><a href="">2% discount</a></div>
+                    </div>
+                </div>
+
+                <div class="orderDetails">
+                    <div class="eachSubDetails">
+                        <div><p>sub Total</p></div>
+                        <div><p><h4>₦9,000</h4></p></div>
+                    </div>
+
+                    <div class="eachSubDetails">
+                        <div><p>Discount</p></div>
+                        <div><p><h4>₦1,000</h4></p></div>
+                    </div>
+
+                    <div class="eachSubDetails">
+                        <div><p>Delivery Fee</p></div>
+                        <div><p><h4>₦0.00</h4></p></div>
+                    </div>
+
+                    <hr>    
+                    
+                    <div class="eachSubDetails">
+                        <div><p>Total</p></div>
+                        <div><p><h4>₦8,000</h4></p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orderTracker">
+                <div><h2>Track your Order</h2></div>
+                <div><p>Estimated Delivery Time: 3:00pm</p></div>
+                <div><p>24 Jan,2024</p></div>
+
+                <div class="orderPath">
+
+                    <div class="eachPath">
+                        <div><i class="bi bi-cart-fill"></i></div>
+                        <div class="eachPathDetails">
+                            <div><h2>Ordered</h2></div>
+                            <div><p>31st April,2024</p></div>
+                            <div><p>9:00pm</p></div>
+                        </div>
+                    </div>
+
+                    <div class="pathway">
+                        <div><p>---------------------------------</p></div>
+                    </div>
+
+                    <div class="eachPath">
+                        <div><i class="bi bi-cart-fill"></i></div>
+                        <div class="eachPathDetails">
+                            <div><h2>Confirmed</h2></div>
+                            <div><p>31st April,2024</p></div>
+                            <div><p>9:00pm</p></div>
+                        </div>
+                    </div>
+
+                    <div class="pathway">
+                        <div><p>---------------------------------</p></div>
+                    </div>
+
+
+                    <div class="eachPath">
+                        <div><i class="bi bi-cart-fill"></i></div>
+                        <div class="eachPathDetails">
+                            <div><h2>Shipped</h2></div>
+                            <div><p>31st April,2024</p></div>
+                            <div><p>9:00pm</p></div>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="pathway">
+                        <div><p>---------------------------------</p></div>
+                    </div>
+                   
+
+                    <div class="eachPath">
+                        <div><i class="bi bi-cart-fill"></i></div>
+                        <div class="eachPathDetails">
+                            <div><h2>Out for Delivery</h2></div>
+                            <div><p>31st April,2024</p></div>
+                            <div><p>9:00pm</p></div>
+                        </div>
+
+                       
+                    </div>
+
+                    <div class="pathway">
+                        <div><p>---------------------------------</p></div>
+                    </div>
+                    
+                        <div class="eachPath">
+                            <div><i class="bi bi-cart-fill"></i></div>
+                            <div class="eachPathDetails">
+                                <div><h2>Delivered</h2></div>
+                                <div><p>31st April,2024</p></div>
+                                <div><p>9:00pm</p></div>
+                            </div>
+                        </div>
+    
+                       
+                    </div>
+
+                  
+                
+                </div>
+            </div>
+
+
+
+
         </div>
 
         <div class="inventory">
@@ -361,7 +541,7 @@
 
                     <div class="eachInventory">
                     <div class="itemName">
-                        <div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
+                        <div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
                         <div><h4>Red Onions</h4></div>
                     </div>
 
@@ -375,7 +555,7 @@
 
                     <div class="eachInventory">
                         <div class="itemName">
-                            <div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
+                            <div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
                             <div><h4>Carrots</h4></div>
                         </div>
     
@@ -389,7 +569,7 @@
 
                         <div class="eachInventory">
                             <div class="itemName">
-                                <div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
+                                <div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
                                 <div><h4>Golden Harvest Corn</h4></div>
                             </div>
         
@@ -433,12 +613,12 @@
             </div>
 
             <div class="images">
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
+<div><img src="../../public/img/farmer/agrihub farmer.png" alt=""></div>
             </div>
 
             <form action="">
@@ -487,7 +667,7 @@
             <div class="notificationList">
                 <div class="eachNotification">
                     <div class="notificationImage">
-                        <div><img src="../../img/farmer/agrihub aggregator.png" alt=""></div>
+                        <div><img src="../../public/public/img/farmer/agrihub aggregator.png" alt=""></div>
                     </div>
                     <div class="notificationBody">
                         <div><h3>You have a new message from john smith</h3></div>
@@ -497,7 +677,7 @@
 
                 <div class="eachNotification">
                     <div class="notificationImage">
-                        <div><img src="../../img/farmer/agrihub aggregator.png" alt=""></div>
+                        <div><img src="../../public/public/img/farmer/agrihub aggregator.png" alt=""></div>
                     </div>
                     <div class="notificationBody">
                         <div><h3>Item Sold</h3></div>
@@ -508,7 +688,7 @@
 
                     <div class="eachNotification">
                         <div class="notificationImage">
-                            <div><img src="../../img/farmer/agrihub aggregator.png" alt=""></div>
+                            <div><img src="../../public/public/img/farmer/agrihub aggregator.png" alt=""></div>
                         </div>
                         <div class="notificationBody">
                             <div><h3>Arrival Of New Features</h3></div>
@@ -811,7 +991,7 @@
     </div>
     </div>
 
-    <script src="../../js/usersProfile/usersProfileFront.js" type="module"></script>
+    <script src="../../public/js/usersProfile/usersProfileFront.js" type="module"></script>
     <script src="../../js/usersProfile/usersProfileBack.js"></script>
 </body>
 </html>
