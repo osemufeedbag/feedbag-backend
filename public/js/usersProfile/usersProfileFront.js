@@ -1,5 +1,6 @@
 //alert("js connected")
  document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+ document.getElementsByClassName("trackOrders")[0].style.display = "none"
 let dashBoardEl = document.getElementById("Dashboard")
 
 let inventoryAddItemsEl = document.getElementById("inventoryAddItems")
@@ -20,6 +21,16 @@ inventoryEl.onclick = inventory
 let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack")
 inventoryAddItemsGoBackEl.onclick = inventoryGoBack
 
+let orderHistoryEl = document.getElementById("orderHistory").onclick = ()=> {
+    document.getElementsByClassName("orderHistory")[0].style.display = "block"
+    document.getElementsByClassName("trackOrders")[0].style.display = "none"
+
+}
+
+let  trackOrderEL = document.getElementById("trackOrder").onclick =()=> {
+    document.getElementsByClassName("orderHistory")[0].style.display = "none"
+    document.getElementsByClassName("trackOrders")[0].style.display = "block"
+}
 let notificationsEl = document.getElementById("notifications")
 notificationsEl.onclick = notifications
 
