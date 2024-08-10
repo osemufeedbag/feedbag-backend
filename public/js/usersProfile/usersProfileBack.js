@@ -9,6 +9,11 @@ fetch('http://localhost:4000/UserProfile/personalInfo', {
             }
             return response.json();
             })
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error)
-);
+        .then(data => {
+            console.log(data)
+            document.getElementById('name').innerText = data.user.PersonalInfo.FirstName;
+        })
+        .catch(error => console.error('Error:', error));
+
+
+
