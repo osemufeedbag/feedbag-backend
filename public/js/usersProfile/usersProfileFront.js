@@ -23,20 +23,34 @@ inventoryAddItemsGoBackEl.onclick = inventoryGoBack
 let notificationsEl = document.getElementById("notifications")
 notificationsEl.onclick = notifications
 
-let dataAndPrivacyEl = document.getElementById("dataAndPrivacy")
-dataAndPrivacyEl.onclick = () => {
+ document.getElementById("contactSupport").onclick = () => {
+    document.getElementsByClassName("FAQ")[0].style.display = "none"
+    document.getElementsByClassName("contactSupport")[0].style.display = "block"
+ }
 
+ document.getElementById("FAQ").onclick = () => {
+    document.getElementsByClassName("FAQ")[0].style.display = "block"
+    document.getElementsByClassName("contactSupport")[0].style.display = "none"
+ }
+let helpEl = document.getElementById("help")
+helpEl.onclick = () => {
+    
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
     document.getElementsByClassName("Orders")[0].style.display = "none"
         document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
            document.getElementsByClassName("inventory")[0].style.display = "none"
            document.getElementsByClassName("notifications")[0].style.display = "none"
-           document.getElementsByClassName("dataAndPrivacy")[0].style.display = "block"
+           document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+           document.getElementsByClassName("setting")[0].style.display = "none"
+           document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "block"
 
            if(window.innerWidth <= 768) {
             document.getElementsByClassName("dashNav")[0].style.display = "none"
             }else {
-                dataAndPrivacyEl.style.borderLeft = "10px solid #49C01F"
+                settingsEl.style.borderLeft = "0px"
+                helpEl.style.borderLeft = "10px solid #49C01F"
+                helpEl.style.borderLeft = "0px"
+                dataAndPrivacyEl.style.borderLeft = "0px"
                 notificationsEl.style.borderLeft = "0px"
                 inventoryEl.style.borderLeft = "0px"
                 orderEl.style.borderLeft = "0px"
@@ -45,24 +59,82 @@ dataAndPrivacyEl.onclick = () => {
                 personalInformationEl.style.borderLeft = "0px"
             }
 }
+let settingsEl = document.getElementById("settings")
+settingsEl.onclick = () => {
+
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+    document.getElementsByClassName("Orders")[0].style.display = "none"
+        document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+           document.getElementsByClassName("inventory")[0].style.display = "none"
+           document.getElementsByClassName("notifications")[0].style.display = "none"
+           document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+           document.getElementsByClassName("setting")[0].style.display = "block"
+           document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
+
+           if(window.innerWidth <= 768) {
+            document.getElementsByClassName("dashNav")[0].style.display = "none"
+            }else {
+                settingsEl.style.borderLeft = "10px solid #49C01F"
+                 helpEl.style.borderLeft = "0px"
+                dataAndPrivacyEl.style.borderLeft = "0px"
+                notificationsEl.style.borderLeft = "0px"
+                inventoryEl.style.borderLeft = "0px"
+                orderEl.style.borderLeft = "0px"
+            inventoryEl.style.borderBottomLeftRadius = "0px"
+            inventoryEl.style.borderTopLeftRadius = "0px"
+                personalInformationEl.style.borderLeft = "0px"
+            }
+} 
+
+let dataAndPrivacyEl = document.getElementById("dataAndPrivacy")
+dataAndPrivacyEl.onclick = () => {
+    
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+    document.getElementsByClassName("Orders")[0].style.display = "none"
+        document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+           document.getElementsByClassName("inventory")[0].style.display = "none"
+           document.getElementsByClassName("notifications")[0].style.display = "none"
+           document.getElementsByClassName("setting")[0].style.display = "none"
+           document.getElementsByClassName("dataAndPrivacy")[0].style.display = "block"
+           document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
+
+           if(window.innerWidth <= 768) {
+            document.getElementsByClassName("dashNav")[0].style.display = "none"
+            }else {
+                dataAndPrivacyEl.style.borderLeft = "10px solid #49C01F"
+                 helpEl.style.borderLeft = "0px"
+                notificationsEl.style.borderLeft = "0px"
+                inventoryEl.style.borderLeft = "0px"
+                orderEl.style.borderLeft = "0px"
+            inventoryEl.style.borderBottomLeftRadius = "0px"
+            inventoryEl.style.borderTopLeftRadius = "0px"
+                personalInformationEl.style.borderLeft = "0px"
+                 settingsEl.style.borderLeft ="0px"
+            }
+}
 function notifications() {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
 document.getElementsByClassName("Orders")[0].style.display = "none"
     document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
        document.getElementsByClassName("inventory")[0].style.display = "none"
-       document.getElementsByClassName("notifications")[0].style.display = "block"
        document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+document.getElementsByClassName("setting")[0].style.display = "none"
+document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
+document.getElementsByClassName("notifications")[0].style.display = "block"
+        
 if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
 }
 else {
     notificationsEl.style.borderLeft = "10px solid #49C01F"
+     helpEl.style.borderLeft = "0px"
     dataAndPrivacyEl.style.borderLeft = "0px"
     inventoryEl.style.borderLeft = "0px"
     orderEl.style.borderLeft = "0px"
 inventoryEl.style.borderBottomLeftRadius = "0px"
 inventoryEl.style.borderTopLeftRadius = "0px"
     personalInformationEl.style.borderLeft = "0px"
+     settingsEl.style.borderLeft ="0px"
 }
 }
 
@@ -70,6 +142,7 @@ function inventoryGoBack() {
     document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
     document.getElementsByClassName("inventory")[0].style.display = "block"  
     document.getElementsByClassName("goBack")[0].style.display = "block";
+
 
 }
 
@@ -87,6 +160,8 @@ function personalInformation() {
         document.getElementsByClassName("inventory")[0].style.display = "none"
         document.getElementsByClassName("notifications")[0].style.display = "none"
         document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+         document.getElementsByClassName("setting")[0].style.display = "none"
+         document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
 document.getElementsByClassName("Orders")[0].style.display = "none"
@@ -96,18 +171,22 @@ document.getElementsByClassName("Orders")[0].style.display = "none"
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "block"
     personalInformationEl.style.borderLeft = "10px solid #49C01F"
     personalInformationEl.style.borderBottomLeftRadius = "0px"
+     helpEl.style.borderLeft = "0px"
      notificationsEl.style.borderLeft = "0px"
     personalInformationEl.style.borderTopLeftRadius = "0px"
     document.getElementsByClassName("Orders")[0].style.display = "none"
     orderEl.style.borderLeft = "0px"
     dataAndPrivacyEl.style.borderLeft = "0px"
     inventoryEl.style.borderLeft = "0px"
+     settingsEl.style.borderLeft ="0px"
 }
 }
 
 function orders()  {
      document.getElementsByClassName("inventory")[0].style.display = "none"
      document.getElementsByClassName("notifications")[0].style.display = "none"
+      document.getElementsByClassName("setting")[0].style.display = "none"
+      document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
     if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
 document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
@@ -116,6 +195,7 @@ document.getElementsByClassName("personalPersonalInformation")[0].style.display 
 document.getElementsByClassName("Orders")[0].style.display = "block"
 } else {
     orderEl.style.borderLeft = "10px solid #49C01F"
+     helpEl.style.borderLeft = "0px"
     orderEl.style.borderBottomLeftRadius = "0px"
     orderEl.style.borderTopLeftRadius = "0px"
     inventoryEl.style.borderLeft = "0px"
@@ -124,6 +204,7 @@ document.getElementsByClassName("Orders")[0].style.display = "block"
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
      notificationsEl.style.borderLeft = "0px"
      dataAndPrivacyEl.style.borderLeft = "0px"
+      settingsEl.style.borderLeft ="0px"
        
 }
 }
@@ -135,6 +216,8 @@ document.getElementsByClassName("Orders")[0].style.display = "none"
 document.getElementsByClassName("notifications")[0].style.display = "none"    
 document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
 document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
+ document.getElementsByClassName("setting")[0].style.display = "none"
        document.getElementsByClassName("inventory")[0].style.display = "block"
 
    
@@ -143,12 +226,14 @@ if(window.innerWidth <= 768) {
 document.getElementsByClassName("dashNav")[0].style.display = "none"
 }else {
     inventoryEl.style.borderLeft = "10px solid #49C01F"
+     helpEl.style.borderLeft = "0px"
         orderEl.style.borderLeft = "0px"
     inventoryEl.style.borderBottomLeftRadius = "0px"
     inventoryEl.style.borderTopLeftRadius = "0px"
     notificationsEl.style.borderLeft = "0px"
         personalInformationEl.style.borderLeft = "0px"
         dataAndPrivacyEl.style.borderLeft = "0px"
+        settingsEl.style.borderLeft ="0px"
 }
 
 }

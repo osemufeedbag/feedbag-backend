@@ -810,6 +810,243 @@ width:100%;
     margin-top:10px;
 }
 
+.setting {
+    border:none;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+.setting input {
+    width:80%;
+    padding-left:5%;
+    background-color:white;
+    border-radius:16xpx;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.emailNotifications, .pushNotifications, .smsNotifications {
+    background-color:white;
+    border-radius:16px;
+    padding-left:5%;
+    margin-bottom:20px;
+    margin-top:10px;
+    padding-top:10px;
+}
+
+.head {
+display:flex;
+align-items:center;
+margin-top:10px;
+}
+.head i {
+    margin-right:10px;
+}
+
+.body div {
+    display:flex;
+    align-items:center;
+    justify-content: left;
+
+}
+.body input {
+    width:20px;
+}
+.body input:checked {
+    background-color:#1FC043;
+}
+
+.personalizedAds, .info, .personalizedAds, .recentActivities, .notificationComponent, .languageComponent {
+background-color:white;
+padding-left:5%;
+padding-right:5%;
+padding-bottom:3%;
+border-radius:16px;
+margin-top:10px;
+padding-top:10px;
+margin-bottom:10px;
+}
+.p {
+    display:flex;
+    align-items:center;
+}
+.p input{
+width:30px;
+margin-left:20px;
+}
+
+.info {
+    display:flex;
+    align-items:center;
+    padding-left:0;
+
+}
+
+.info button {
+    width:100px;
+    height:40px;
+    color:white;
+    background-color:#49b821;
+    border:none;
+    border-radius:16px;
+    margin-left:30px;
+}
+.rrecentActivities{
+    margin-top:10px;
+}
+ 
+.notificationComponent {
+    display:flex;
+    align-items:center;
+}
+.notificationComponent i, .languageComponent i {
+    font-size:20px;
+    margin-right:10px;
+    background-color: #F1FCF3;
+}
+.languageComponent {
+    display:flex;
+    align-items:center;
+}
+
+.languageComponent button {
+    margin-left:40px;
+    width:100px;
+    height:40px;
+    color:white;
+    background-color:#49b821;
+    border:none;
+    border-radius:16px;
+    margin-left:20px;
+}
+
+
+.mainhelpAndSupport {
+    border:none;
+    padding-left:5%;
+    padding-right:5%;
+}
+.mainhelpAndSupport input {
+    width:80%;
+    border-radius:16px;
+    background-color:white;
+    padding-left:5%;
+}
+
+.mainhelpAndSupport .buttons {
+    width:60%;
+    border:none;
+    margin-bottom:20px;
+}
+
+.contactSupportButton button {
+    width:120px;
+    background-color: #F1FCF3;
+    border:none;
+  color:black;
+  border-radius:16px;
+}
+.contactSupportButton button:hover {
+    background-color: #49C01F;
+}
+.FAQButton button{
+  width:80px;
+  background-color: #F1FCF3;
+  border:none;
+  color:black;
+  border-radius:16px;
+}
+.FAQButton button:hover {
+    background-color: #49C01F;
+}
+
+.helpCenter{
+    display:flex;
+    background-color:white;
+    padding-left:5%;
+    padding-right:5%;
+    height:130px;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+.helpTop, .contactTop {
+    display:flex;
+    align-items:center;
+}
+.helpTop i, .contactTop i, .contactInformation i, .first i {
+    font-size:35px;
+    margin-right:10px;
+    background-color: #F1FCF3;
+
+}
+.helpTop h6, .contactTop h6 {
+    font-size:18px;
+}
+.helpCenter {
+display:flex;
+flex-direction:column;
+justify-content: space-around;
+}
+
+.helpLink a{
+    color:#49b821;
+}
+
+.helpLink {
+    display:flex;
+}
+
+.helpLink button {
+    width:120px;
+    height:40px;
+    background-color:#1FC043;
+    border:none;
+    color:white;
+    border-radius:16px;
+}
+
+.contactInformation {
+    background-color:white;
+    padding:5%;
+}
+
+.contactInformation div {
+    display:flex;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.liveChat {
+    padding:5%;
+    background-color:white;
+    margin-top:20px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.liveChat .first {
+    display:flex;
+    align-items:center;
+}
+
+.liveChat button {
+    color:white;
+}
+
+.eachQuestion {
+    background-color:white;
+    padding:5%;
+    margin-bottom:10px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.eachQuestion i {
+    font-size:30px;
+    color:#49b821;
+    border:1px solid #49b821;
+    margin-left:5px;
+}
 @media (min-width: 768px) {
     .nav {
         display: flex;
@@ -1259,5 +1496,80 @@ padding-left:5%;
 .deleteDataComponent {
     display:flex;
     justify-content: start;
+}
+
+.setting {
+    width:130%;
+}
+
+.setting h2 {
+    font-size:40px;
+}
+
+.setting input {
+    font-size:28px;
+}
+
+.setting h3 {
+    font-size:25px;
+}
+.setting p {
+    font-size:20px;
+}
+
+.setting i {
+    font-size:30px;
+}
+
+.setting button {
+    width:170px;
+    height:50px;
+}
+.languageComponent button {
+    margin-left:400px;
+}
+.mainhelpAndSupport{
+    border:none;
+    width:130%;
+}
+.mainhelpAndSupport h2{
+font-size:35px;
+}
+.mainhelpAndSupport input {
+    font-size:20px;
+}
+.buttons {
+    padding-left:0;
+    margin-right:0;
+}
+.mainhelpAndSupport h6 {
+    font-size:22px;
+}
+.mainhelpAndSupport .buttons {
+    display:flex;
+    justify-content: left;
+}
+.contactSupportButton button {
+    width:150px;
+    margin-right:20px;
+}
+.FAQButton button {
+    width:90px;
+}
+.mainhelpAndSupport h3, h5 {
+    font-size:25px;
+} 
+
+.mainhelpAndSupport p {
+    font-size:20px;
+}
+.helpLink {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.helpLink button {
+    width:130px;
+    height:50px;
 }
 }
