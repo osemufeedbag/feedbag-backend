@@ -27,7 +27,7 @@ router.get('/phoneLogin(.html)?', (req, res) => {
 //Login ends here
 
 router.get('/digitalWallet(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname,'frontend','DigitalWallet_KYC','KYC.html'));
+    res.sendFile(path.join(__dirname,'..','frontend','DigitalWallet_KYC','KYC.html'));
 });
 
 module.exports = router;
