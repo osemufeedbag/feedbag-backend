@@ -12,6 +12,7 @@ fetch('http://localhost:4000/UserProfile/personalInfo', {
         .then(data => {
             console.log(data)
             document.getElementById('name').innerText = data.user.PersonalInfo.FirstName;
+            document.getElementById('companyname').innerText = data.user.BusinessInfo.BusinessName;
         })
         .catch(error => console.error('Error:', error));
 
