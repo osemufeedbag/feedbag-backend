@@ -27,21 +27,18 @@ const UserRegEmail = async (req, res) => {
                     'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
                     'PersonalInfo.Password': hashedPwd0
                 })
-                newSignup.save()
-                console.log(newSignup);
-                res.redirect('/successful');
 
-            } catch (error) {
-                console.log(error);
-            };
-
-            try {
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+                
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
@@ -62,27 +59,24 @@ const UserRegEmail = async (req, res) => {
                     'PersonalInfo.User': User,
                     'PersonalInfo.FirstName': req.body.FirstName,
                     'PersonalInfo.LastName': req.body.LastName,
-                    'PersonalInfo.Company': req.body.Company,
-                    'PersonalInfo.BusinessName': req.body.BusinessName,
+                    'BusinessInfo.Company': req.body.Company,
+                    'BusinessInfo.BusinessName': req.body.BusinessName,
                     'PersonalInfo.Email': req.body.Email,
-                    'PersonalInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
+                    'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
                     'PersonalInfo.Password': hashedPwd1
                 })
-                newSignup.save()
-                res.redirect('/successful');
-                console.log(newSignup);
 
-            } catch (error) {
-                console.log(error);
-            }
-
-            try {
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+                
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
@@ -107,21 +101,18 @@ const UserRegEmail = async (req, res) => {
                     'PersonalInfo.Email': req.body.Email,
                     'PersonalInfo.Password': hashedPwd2
                 })
-                newSignup.save()
-                res.redirect('/successful');
-                console.log(newSignup);
 
-            } catch (error) {
-                console.log(error);
-            }
-
-            try {
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+                
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
@@ -152,25 +143,21 @@ const UserRegPhone = async (req, res) => {
                     'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
                     'PersonalInfo.Password': hashedPwd0
                 })
-                newSignup.save()
-                res.redirect('/successful');
-                console.log(newSignup);
 
-            } catch (error) {
-                console.log(error);
-            };
-
-            try {
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
-
         break;
 
         case "Aggregator":
@@ -187,27 +174,24 @@ const UserRegPhone = async (req, res) => {
                     'PersonalInfo.User': User,
                     'PersonalInfo.FirstName': req.body.FirstName,
                     'PersonalInfo.LastName': req.body.LastName,
-                    'PersonalInfo.Company': req.body.Company,
-                    'PersonalInfo.BusinessName': req.body.BusinessName,
+                    'BusinessInfo.Company': req.body.Company,
+                    'BusinessInfo.BusinessName': req.body.BusinessName,
                     'PersonalInfo.Phone': req.body.Phone,
-                    'PersonalInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
+                    'BusinessInfo.BusinessRegistrationNos': req.body.BusinessRegistrationNos,
                     'PersonalInfo.Password': hashedPwd1
                 })
-                newSignup.save()
-                res.redirect('/successful');
-                console.log(newSignup);
 
-            } catch (error) {
-                console.log(error);
-            }
-
-            try {
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+                
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
@@ -232,21 +216,18 @@ const UserRegPhone = async (req, res) => {
                     'PersonalInfo.Phone': req.body.Phone,
                     'PersonalInfo.Password': hashedPwd2
                 })
-                newSignup.save()
-                res.redirect('/successful');
-                console.log(newSignup);
-
-            } catch (error) {
-                console.log(error);
-            }
-
-            try {
+                
                 const newBusinessSignup = await allCompanyNamesModel.create({
                     'BusinessName': req.body.BusinessName,
                 })
-                newBusinessSignup.save()
-                console.log(newBusinessSignup);
 
+                newSignup.save()
+                newBusinessSignup.save()
+                
+                console.log(newSignup);
+                console.log(newBusinessSignup);
+                return res.redirect('/successful');
+                
             } catch (error) {
                 console.log(error);
             };
