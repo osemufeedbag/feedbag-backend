@@ -4,8 +4,9 @@ const handleRefreshToken = require('../controllers/refreshTokenController');
 
     const verifyJWT = async (req, res, next) => {
     const accessToken = req.cookies.accjwt;
+    const refreshToken = req.cookies.jwt;
     //console.log("access token from verify " + accessToken);
-    if(accessToken == undefined) {
+    if(accessToken == undefined || refreshToken == undefined) {
         return await handleRefreshToken(req, res, next);
     } else {
         jwt.verify(

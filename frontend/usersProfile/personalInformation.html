@@ -39,9 +39,9 @@
             <div class="name">
                 <div class="namee">
                     <div><i class="bi bi-patch-check-fill"></i></div>
-                    <div><h2 id="name">Joshua Akeke</h2></div>
+                    <div><h2 id="name"> </h2></div>
                 </div>
-                <div><p id="companyname">Crisp Greens Co</p></div>
+                <div><p id="businessname0"> </p></div>
             </div>
         </div>
 
@@ -107,21 +107,21 @@
         <div class="personalInformation">
            <div class="top">
        <div><h2>Personal Information</h2></div>
-       <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+       <div><h2><a><button name="PersonalInfo" id="PInfo">Edit <i class="bi bi-pencil-fill"></i></button></a></h2></div>
            </div>
 
            <div class="bottom">
 
             <div class="left">
                 <div class="content">
-                    <div><p>first name</p></div>
+                    <div><p>Full Name</p></div>
                     <div><h3 id="name1"> </h3></div>
                 </div>
 
-                <div class="content">
+                <!--<div class="content">
                     <div><p>last name</p></div>
                     <div><h3>Akeke</h3></div>
-                </div>
+                </div>-->
 
                 <div class="content">
                     <div><p>Bio</p></div>
@@ -129,25 +129,25 @@
                 </div>
 
                 <div class="content">
-                    <div><p>country</p></div>
+                    <div><p>Country</p></div>
                     <div><h3 id="country"> </h3></div>
+                </div>
+
+                <div class="content">
+                    <div><p>Email</p></div>
+                    <div><h3 id="email"> </h3></div>
                 </div>
             </div>
 
             <div class="right">
-            
-                <div class="content">
-                    <div><p>email</p></div>
-                    <div><h3 id="email"> </h3></div>
-                </div>
 
                 <div class="content">
-                    <div><p>phone number</p></div>
+                    <div><p>Phone Number</p></div>
                     <div><h3 id="phone"> <h3></div>
                 </div>
 
                 <div class="content">
-                    <div><p>postal code</p></div>
+                    <div><p>Postal Code</p></div>
                     <div><h3 id="postalcode"> </h3></div>
                 </div>
 
@@ -164,7 +164,7 @@
 
             <div class="top">
                 <div><h2>Farm Information</h2></div>
-                <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+                <div><h2><button name="FarmInfo" id="FInfo">Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
             </div>
 
             <div class="bottom">
@@ -172,13 +172,13 @@
                 <div class="left">
 
                     <div class="content">
-                        <div><p>Business name</p></div>
-                        <div><h3 id="businessname"> </h3></div>
+                        <div><p>Business Name</p></div>
+                        <div><h3 id="businessname1"> </h3></div>
                     </div>
 
                     <div class="content">
                         <div><p>Postal Code</p></div>
-                        <div><h3>10200</h3></div>
+                        <div><h3 id="farmpostalcode"> </h3></div>
                     </div>
 
                     <div class="content">
@@ -198,15 +198,14 @@
                         <div><h3>Registered Business Cert</h3></div>
                      </div>
                     </div>
-
-                    
+  
                 </div>
 
                 <div class="right">
 
                     <div class="content">
                         <div><p>Farm Size</p></div>
-                        <div><h3 id="farmsize">5ha</h3></div>
+                        <div><h3 id="fsize"> </h3></div>
                     </div>
 
                     <div class="content">
@@ -214,16 +213,14 @@
                         <div><h3>15C Ajose Adeogun Street, Flat 4A, <br> Victoria Island, Lagos State</h3></div>
                     </div>
                 </div>
-            </div>
-
-                    
+            </div>       
         </div>
 
         <div class="billingInformation">
 
             <div class="top">
                 <div><h2>Billing Information</h2></div>
-                <div><h2><button>Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
+                <div><h2><button name="BillingInfo" id="BInfo">Edit <i class="bi bi-pencil-fill"></i></button></h2></div>
             </div>
 
             <div class="bottom">
@@ -231,13 +228,13 @@
                 <div class="left">
  
                     <div class="content">
-                        <div><p>Card holder</p></div>
-                        <div><h3>Joshua Akeke</h3></div>
+                        <div><p>Card Holder</p></div>
+                        <div><h3 id="cardholder"> </h3></div>
                     </div>
 
                     <div class="content">
                         <div><p>Payment Method</p></div>
-                        <div><h3>Token/Paypal</h3></div>
+                        <div><h3 id="paymentmethod"> </h3></div>
                     </div>
                 </div>
 
@@ -245,17 +242,14 @@
 
                     <div class="content">
                         <div><p>Card Number</p></div>
-                        <div><h3>5105 1051 0510 5100</h3></div>
+                        <div><h3 id="cardnos"> </h3></div>
                     </div>
 
                     <div class="content">
-                        <div><p>Billing address</p></div>
+                        <div><p>Billing Address</p></div>
                         <div><h3>10B Adeola Odeku Street, Victoria<br>Island, Lagos State</h3></div>
-                    </div>
-                    
+                    </div>   
                 </div>
-
-
             </div>
         </div>
 
@@ -987,6 +981,6 @@
     </div>
 
     <script src="../../js/usersProfile/usersProfileFront.js" type="module"></script>
-    <script src="../../js/usersProfile/usersProfileBack.js"></script>
+    <script src="../../js/usersProfile/usersProfileBack.js" type="module"></script>
 </body>
 </html>
