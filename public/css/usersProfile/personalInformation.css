@@ -11,6 +11,14 @@ body {
     height: 45px;
 }
 
+.userLogOut {
+text-decoration:none;
+
+}
+
+.userLogOut button h3 {
+    margin-left:0px;
+}
 .nav {
     display: flex;
     justify-content: space-between;

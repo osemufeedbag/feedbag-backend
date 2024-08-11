@@ -18,6 +18,8 @@ orderEl.onclick = orders
 let inventoryEl = document.getElementById("inventory")
 inventoryEl.onclick = inventory
 
+
+
 let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack")
 inventoryAddItemsGoBackEl.onclick = inventoryGoBack
 

@@ -52,9 +52,6 @@ body {
     font-size: 18px;
 }
 
-.verify {
-    text-align: left;
-}
 
 .identity {
     display: flex;
@@ -119,6 +116,7 @@ body {
     width: 70px;
     justify-content: space-between;
     margin-top: 40px;
+    margin-left:100px;
 }
 
 .contd {
@@ -171,6 +169,8 @@ body {
 
     .buttons {
         width: 150px;
+        border:2px solid red;
+      
     }
 
     .contd,
@@ -230,17 +230,18 @@ body {
     .identity .utility,
     .identity .id,
     .selfie {
-        width: 800px;
+        width: 90%;
         padding-left: 30px;
         padding-right: 30px;
     }
 
     input {
-        font-size: 900px;
+        font-size: 300px;
     }
 
     .buttons {
     width:600px;
+    display:flex;
    
     }
 
