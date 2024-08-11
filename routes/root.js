@@ -24,6 +24,10 @@ router.get('/phoneSignUp(.html)?', (req, res) => {
 router.get('/phoneLogin(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','login','loginPhoneNos.html'));
 });
+
+router.get('/loginEmail(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','login','loginEmail.html'));
+});
 //Login ends here
 
 router.get('/digitalWallet(.html)?', (req, res) => {

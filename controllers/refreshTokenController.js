@@ -29,13 +29,13 @@ const handleRefreshToken = async (req, res, next) => {
                 const accessToken = jwt.sign(
                     {Name: decoded.Name},
                     process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn: 60000 } //set long in production
+                    {expiresIn: 3600000 } //set long in production
                 );
                 res.cookie("accjwt", accessToken, { 
                     httpOnly: true, 
                     //sameSite: "None", 
                     origin: 'http://localhost:4000',
-                    maxAge: 60000, 
+                    maxAge: 3600000, 
                     //secure: true
                   });
                   return next();
