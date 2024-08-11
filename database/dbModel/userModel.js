@@ -24,6 +24,7 @@ const userSchema = new Schema({
         'FarmInfo': {
             'Name': {type: String, require: false},
             'Size': {type: String, require: false},
+            'PostalCode': {type: String, require: false},
             'Location': {type: String, require: false},
             'InfoDocument': {
                 data: Buffer

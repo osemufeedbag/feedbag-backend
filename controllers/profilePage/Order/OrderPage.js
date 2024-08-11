@@ -37,11 +37,18 @@ const PlaceOrder = async (req, res) => {
 
 
 const GetOrderHistory = async (req, res) => {
-    //const filter = req.params.filter;
-    const cookies = req.cookies;
+    /*const cookies = req.cookies;
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const refreshToken = cookies.jwt;*/
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 12: GetPersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
 
     const customerUser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
     const filter = customerUser.PersonalInfo.User;
@@ -52,7 +59,7 @@ const GetOrderHistory = async (req, res) => {
             const customerOrderHistory = await OrderModel.find({'Order.CustomerId': customerUser._id}).exec()
             if(!customerOrderHistory) return res.sendStatus(401);
 
-            res.json(customerOrderHistory);
+            res.json({customerOrderHistory});
         break;
 
         case "Farmer":
@@ -60,7 +67,7 @@ const GetOrderHistory = async (req, res) => {
             const farmerOrderHistory = await OrderModel.find({OrderReceiverId: farmerUser._id}).exec()
             if(!farmerOrderHistory) return res.sendStatus(401);
 
-            res.json(farmerOrderHistory);
+            res.json({farmerOrderHistory});
         break;
 
         case "Aggregator":
@@ -68,7 +75,7 @@ const GetOrderHistory = async (req, res) => {
             const aggregatorOrderHistory = await OrderModel.find({OrderReceiverId: aggregatorUser._id}).exec()
             if(!aggregatorOrderHistory) return res.sendStatus(401);
 
-            res.json(aggregatorOrderHistory);
+            res.json({aggregatorOrderHistory});
         break;
     };
 };

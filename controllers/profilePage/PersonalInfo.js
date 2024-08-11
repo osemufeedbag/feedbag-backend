@@ -21,10 +21,18 @@ const GetPersonalInfo = async (req, res) => {
 };
 
 const UpdatePersonalInfo = async (req, res) => {
-    const cookies = req.cookies;
+    /*const cookies = req.cookies;
     if (!cookies?.jwt) return res.sendStatus(401);
     console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const refreshToken = cookies.jwt;*/
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 12: GetPersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
     const EditSession = req.params.EditSession;
 
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
@@ -34,13 +42,12 @@ const UpdatePersonalInfo = async (req, res) => {
         // Personal Information
         case "PersonalInfo":
             if(req.body?.FirstName) user.PersonalInfo.FirstName = req.body.FirstName;
-            if(req.body?.LastName) user.PersonalInfo.LastName = req.body.LastName;
             if(req.body?.Phone) user.PersonalInfo.Phone = req.body.Phone;
             if(req.body?.Country) user.PersonalInfo.Country = req.body.Country;
             if(req.body?.Address) user.PersonalInfo.Address = req.body.Address;
             if(req.body?.PostalCode) user.PersonalInfo.PostalCode = req.body.PostalCode;
 
-            const result1 = await user.save();
+            await user.save();
 
             const newActivityLog = await activityLogsModel.create({
                 'UserId':user._id,
@@ -48,10 +55,9 @@ const UpdatePersonalInfo = async (req, res) => {
                 'ProfileUpdate': true
             });
 
-            newActivityLog.save();
-            console.log(newActivityLog);
+            await newActivityLog.save();
+            res.redirect('/userProfile');
 
-            res.json(result1);
         break;
 
         // Farm Information
@@ -66,11 +72,9 @@ const UpdatePersonalInfo = async (req, res) => {
                 'ProfileUpdate': true
             });
             
-            newActivityLogFarmer.save();
-            console.log(newActivityLogFarmer);
-
-            const result0 = await user.save();
-            res.json(result0);
+            await user.save();
+            await newActivityLogFarmer.save();
+            res.redirect('/userProfile');
         break;
 
         //Business Information
@@ -81,8 +85,8 @@ const UpdatePersonalInfo = async (req, res) => {
                 const newBusinessName = await allCompanyNamesModel.create({
                     "BusinessName" : req.body.BusinessName
                 });
-                newBusinessName.save();
-                console.log(newBusinessName);
+                await newBusinessName.save();
+                //console.log(newBusinessName);
             };
 
             if(req.body?.CompanyLocation) user.BusinessInfo.CompanyLocation = req.body.CompanyLocation;
@@ -93,13 +97,9 @@ const UpdatePersonalInfo = async (req, res) => {
                 'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
                 'ProfileUpdate': true
             });
-            
-            newActivityLogBuisness.save();
-            console.log(newActivityLogBuisness);
-
-            const result2 = await user.save();
-            res.json(result2);
-
+            await user.save();
+            await newActivityLogBuisness.save(); 
+            res.redirect('/userProfile');
         break;
 
         // Billing Information
@@ -109,8 +109,8 @@ const UpdatePersonalInfo = async (req, res) => {
             if(req.body?.PaymentMethod) user.BillingInfo.PaymentMethod = req.body.PaymentMethod;
             if(req.body?.BillingAddress) user.BillingAddress = req.body.BillingAddress;
 
-            const result3 = await user.save();
-            res.json(result3);
+            await user.save();
+            res.redirect('/userProfile');
         break;
     };   
 };
