@@ -18,6 +18,6 @@ router.route('/plogin')
     .post(LoginController.pLogin);
     
 router.route('/logout')
-    .post(logOutController.LogOut);
+    .get(logOutController.LogOut);
 
 module.exports = router;

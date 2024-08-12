@@ -14,6 +14,7 @@ const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const userModel = require('./database/dbModel/userModel');
 
 const list = ['https://www.domainname.com','http://127.0.0.1:5500','http://localhost:4000'];
 const corsOptions = {
@@ -69,20 +70,29 @@ const upload = multer({
 
 
 app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
-    try {
-        const newImage = await verificationDocModel.create({
-        data: req.body.nin,
-        image: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-            contentType: 'image/png'
-        },
-    });
-    newImage.save();
-    console.log(newImage);
-    res.status(200).send('Successful');
-    } catch (error) {
-        console.log(error);
-    }
+    console.log("Started");
+
+    const NINUrl = 'https://flickopenapi.co/kyc/nin';
+    const NINOptions = {
+    method: 'POST',
+    headers: {
+        "Accept": 'application/json',
+        'content-type': 'application/json',
+        "Authorization": "Bearer pk-U2FsdGVkX1/g7dHW+brFBWbLifI81Hh6p2C95rQ06M7Nc/BqlY6oViCAii72ybN6Jp6DmHv6f8Frn9z32IQG6Jr5mCpIHsKr+xHHv0LK8jqvUxFRmnJypBoCT5vmkwMm",
+    body: JSON.stringify({
+        nin: req.body.nin, 
+        dob: req.body.dob})
+    }};
+
+    fetch(NINUrl, NINOptions)
+        .then(res => res.json())
+        .then(data => {
+            //console.log(data)
+            res.json(data)
+            console.log("fetching data")
+            return res.json(data.status);
+        })
+        .catch(err => console.error('error:' + err));
 });
 
 app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
@@ -114,10 +124,17 @@ app.get('/docUploads', (req, res) => {
 
 // User profile picture upload and display start--->
 app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) return res.sendStatus(401);
 
     const newImage = await userProfileImgModel.create({
-        businessName: req.body.businessName,
-        image: {
+        "userId": user._id,
+        "image": {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             contentType: 'image/png'
         },
@@ -133,8 +150,19 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
     newImage.save();
 });
 
-app.get('/userProfileImgUpload', (req, res) => {
+app.get('/getUserProfileImg', async (req, res) => {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
 
+    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) {
+        return res.sendStatus(401) //Creat an error log database where errors like this can be logged and later rectified.
+    };
+    const userImage = await userProfileImgModel.findOne({userId: user._id}).exec()
+
+    return res.send(userImage.image);
 });
 // User profile picture upload and display ends--->
 

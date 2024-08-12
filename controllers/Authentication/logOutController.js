@@ -1,10 +1,13 @@
-const UserModel = require('../../database/dbModel/userModel');;
+const UserModel = require('../../database/dbModel/userModel');
 
 const LogOut = async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    if (!jwtToken) {
+        console.log('app crashed at line 12: logout');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
 
     const userDetails = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     if(!userDetails) {

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userProfileImgSchema = new Schema({
-    businessName: {
-        type: String, require: false
+    userId: {
+        type: String, require: true
     },
     image: {
         data: Buffer
