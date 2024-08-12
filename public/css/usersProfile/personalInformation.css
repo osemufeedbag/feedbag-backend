@@ -1188,6 +1188,7 @@ justify-content: space-around;
     font-size:20px;
     font-family:'poppins';
     font-weight:500;
+    margin-left:20px;
 }
 
 .ddashboardTop, .dashBoardBottom {
@@ -1279,7 +1280,7 @@ color:#49C01F;
 .mainDashTop button {
     width:107px;
     height:26px;
-    padding:10px 160x 10px 20px;
+    padding:10px 20px 10px 20px;
     background-color: #49C01F;
     border:none;
 }
@@ -1349,7 +1350,7 @@ color:#49C01F;
 
 .topSellingProduct {
     display:flex;
-    justify-content: column;
+    flex-direction: column;
     width:350px;
     height:170px;
     border-radius:12px;
@@ -1400,6 +1401,10 @@ color:#49C01F;
     margin-right:15px;
     border-radius:50%;
 }
+
+.topSellingProductContent .eachproduct {
+    margin-left:120px;
+    }
  .eachPercentage {
     display:flex;
     flex-direction:column;
@@ -2007,6 +2012,129 @@ font-size:40px;
 }
 .trackOrders p {
     font-size:20px;
+}
+
+.dashboard {
+    border:none;
+    width:863px;
+}
+
+.totalProduct,  .totalOrders,  .totalSales {
+width:230px;
+}
+
+.ddashboard {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    border:none;
+}
+
+.ddashboardTop {
+width:80%;
+}
+
+.dashBoardBottom {
+   justify-content: right;
+   align-items: center;
+   margin-top:0;
+}
+
+.rowOne p {
+    font-size:16px;
+
+}
+.rowOne i {
+    font-size:32px;
+}
+
+.rowTwo {
+    font-size:28px;
+}
+
+.rowThree i {
+    font-size:25px;
+    margin-right:10px;
+}
+
+.rowThree h6, .rowThree p{
+    font-size:12px;
+}
+.rowThree {
+    display:flex;
+    justify-content: start;
+}
+
+.rowThreeBottom {
+    display:flex;
+}
+
+.rowThreeBottom h6{
+    margin-right:5px;
+    color:#1FC043;
+}
+
+.mainDash {
+    width:828px;
+    height:444px;
+}
+
+.mainDashTop {
+    display:flex;
+    justify-content: space-between;
+    border:none;
+}
+
+.mainDashTop button {
+    width:149px;
+    height:44px;
+    border-radius:16px;
+}
+
+.mainDashTop h2 {
+    font-size:24px;
+}
+
+.actTop {
+    display:flex;
+}
+
+.actTop h2{
+font-size:22px;
+font-weight:600;
+}
+.actTop a {
+    font-size:16px;
+}
+
+.eachActivityLog {
+    margin-top:2px;
+    padding-top:0;
+    padding-bottom:0;
+}
+.activityLog, .topSellingProduct {
+    width:400px;
+    height:230px;
+}
+.eachActivityLog h4 {
+    font-size:14px;
+}
+.topSellingProduct {
+    display:flex;
+    flex-direction:column;
+}
+
+.topSellingProduct  .topSellingProductHead {
+    margin-bottom:20px;
+}
+
+.topSellingProductContent .eachproduct {
+margin-left:180px;
+}
+
+
+.recentSalesHead, .eachRecentSalesBody {
+width:740px;
 }
 
 }
