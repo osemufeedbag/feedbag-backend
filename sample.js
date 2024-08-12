@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
 
-//Verification via phone
+
+/*//Verification via phone
 const phoneUrl = 'https://flickopenapi.co/kyc/phone-basic';
 const phoneOptions = {
   method: 'POST',
@@ -15,11 +15,12 @@ const phoneOptions = {
 fetch(phoneUrl, phoneOptions)
   .then(res => res.json())
   .then(json => console.log(json))
-  .catch(err => console.error('error:' + err));
+  .catch(err => console.error('error:' + err));*/
   
 
 //NIN Verification
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 const NINUrl = 'https://flickopenapi.co/kyc/nin';
 const NINOptions = {
@@ -27,9 +28,9 @@ const NINOptions = {
   headers: {
     accept: 'application/json',
     'content-type': 'application/json',
-    authorization: KYC_API
+    authorization: process.env.KYC_API
   },
-  body: JSON.stringify({nin: '0000111122', dob: 'YYYY-MM-DD'})
+  body: JSON.stringify({nin: '29301274189', dob: '1992-01-07'})
 };
 
 fetch(NINUrl, NINOptions)
