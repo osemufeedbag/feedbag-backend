@@ -107,7 +107,8 @@ const pLogin = async (req, res) => {
             //console.log(accessToken);
             return res.redirect('/userProfile');
         } else {
-            res.sendStatus(401);
+            //res.sendStatus(401);
+            return res.redirect('/phoneLogin.html');
           }
 };
 
