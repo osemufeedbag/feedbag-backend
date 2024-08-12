@@ -1183,6 +1183,105 @@ justify-content: space-around;
     border:1px solid #49b821;
     margin-left:5px;
 }
+
+.dashboard  h2{
+    font-size:20px;
+    font-family:'poppins';
+    font-weight:500;
+}
+
+.ddashboardTop, .dashBoardBottom {
+    border:none;
+    width:350px;
+    height:112px;
+    display:flex;
+    justify-content: space-between;
+    margin-left:20px; /*check*/
+}
+
+.dashBoardBottom {
+    margin-top:10px;
+}
+
+
+.totalProduct, .totalOrders, .totalSales {
+    padding:12px;
+    border-radius:12px;
+    width:165px;
+    height:112px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction:column;
+    background-color: #FFFFFF;
+}
+
+.rowOne {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.rowOne p {
+    font-size:12px;
+    font-weight:500;
+    font-family:'poppins';
+    color:#202224;
+}
+
+.rowOne i  {
+    font-size:24px;
+    color:#292D32;
+}
+
+.rowTwo p {
+    font-family:'poppins';
+    font-weight:600;
+    font-size:16px;
+    color:#202224;
+}
+
+.rowThree i{
+font-size:24px;
+color:#49C01F;
+}
+
+.rowThree p, .rowThree h6 {
+    font-size:8px;
+    font-weight:400;
+    font-family:'poppins';
+}
+
+.rowThree {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.mainDash {
+    background-color: #ffffff;
+    width:350px;
+    height:371px;
+    border-radius:12px;
+    padding:24px;
+    margin-top:20px;
+    margin-left:16px;
+}
+.mainDashTop {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.mainDashTop h2 {
+    font-weight:500;
+    font-size:16px;
+    font-family:'poppins';
+}
+
+.mainDashTop button {
+    width:107px;
+    height:26px;
+    padding:10px 160x 10px 20px;
+    background-color: #49C01F;
+}
 @media (min-width: 768px) {
     .nav {
         display: flex;
