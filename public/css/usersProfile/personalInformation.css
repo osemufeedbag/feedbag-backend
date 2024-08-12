@@ -1333,7 +1333,7 @@ color:#49C01F;
 .activityInfo {
     display:flex;
     flex-direction:column;
-    align-items:center;
+   
 }
 .activityInfo h4 {
     font-family:'poppins';
