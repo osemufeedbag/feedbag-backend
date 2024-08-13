@@ -60,7 +60,8 @@ const storage = multer.diskStorage({
         cb(null, 'uploads')
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
+        //cb(null, file.fieldname + '-' + Date.now())
+        cb(null, file.originalname)
     }
 });
 
@@ -102,14 +103,15 @@ app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
                 "NINdata.verificationStatus": data.status,
                 "image": {
                     data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
+                    //data: req.file.filename,
                     contentType: 'image/png'
                 }
             });
             newImage.save();
-            fs.unlink(path.join(__dirname + '/uploads/' + req.files[0].filename), (err) => {
+            /*fs.unlink(path.join(__dirname + '/uploads/' + req.files[0].filename), (err) => {
                 if (err) throw err;
                 console.log('Image deleted');
-              });
+              });*/
             console.log("fetched data")
             return res.json(data);
         })
@@ -155,38 +157,68 @@ app.get('/docUploads', (req, res) => {
 
 // User profile picture upload and display start--->
 app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    console.log(req);
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
 
     const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    const imageSearch = await userProfileImgModel.findOne({userId: user._id}).exec()
     if(!user) return res.sendStatus(401);
+    console.log('User was found');
 
-    const newImage = await userProfileImgModel.create({
-        "userId": user._id,
-        "image": {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-            contentType: 'image/png'
-        },
-    }) 
-    await newImage.save();
-    //return res.json(newImage);
+    if(imageSearch) {
+        imageSearch.image.data = fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename));
+        await imageSearch.save();
+        fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
+            if (err) throw err;
+            console.log('Image deleted');
+          });
+        return  res.status(200).json({ success: true, message: 'Successfully' });
+    } else {
+        const newImage = await userProfileImgModel.create({
+            "userId": user._id,
+            "image": {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+                contentType: req.file.mimetype
+            }
+        })
+        await newImage.save();
+        console.log(newImage);
+        fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
+            if (err) throw err;
+            console.log('Image deleted');
+          });
+          
+        return  res.status(200).json({ success: true, message: 'Image uploaded successfully' });
+    }
 });
 
-app.get('/getUserProfileImg', async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
-
-    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+app.get('/getuserProfileImg', async (req, res) => {
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const user = await userModel.findOne({RefreshToken: jwtToken}).exec()
     if(!user) {
         return res.sendStatus(401) //Creat an error log database where errors like this can be logged and later rectified.
     };
     const userImage = await userProfileImgModel.findOne({userId: user._id}).exec()
-
-    return res.send(userImage.image);
+    if(userImage) {
+        const imageData = userImage.image.data.toString('base64');
+        const imageContentType = userImage.image.contentType;
+        return res.json({image: {data: imageData, contentType: imageContentType}});
+    } else {
+        return res.status(404).json({error: 'Image not found'});
+    }
 });
 // User profile picture upload and display ends--->
 
@@ -194,7 +226,7 @@ app.get('/getUserProfileImg', async (req, res) => {
 
 // Protected pages starts here
 app.use(verifyJWT);
-app.use('/userProfile(.html)?',(req, res) => {
+app.use('/userProfile',(req, res) => {
     res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
 });
 

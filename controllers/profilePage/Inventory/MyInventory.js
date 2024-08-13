@@ -59,6 +59,7 @@ const UpdateInventory =  async (req, res) => {
 
 const GetUserAllItems =  async (req, res) => {
     const cookies = req.headers.cookie;
+    console.log(cookies);
     const jwtToken = cookies.split("=")[1].split(";")[0];
     console.log(jwtToken);
     if (!jwtToken) {
