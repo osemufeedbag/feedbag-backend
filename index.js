@@ -72,13 +72,21 @@ const upload = multer({
 app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
     console.log("Started");
 
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) return res.sendStatus(401);
+
     const NINUrl = 'https://flickopenapi.co/kyc/nin';
     const NINOptions = {
     method: 'POST',
     headers: {
         "Accept": 'application/json',
         'content-type': 'application/json',
-        "Authorization": "Bearer pk-U2FsdGVkX1/g7dHW+brFBWbLifI81Hh6p2C95rQ06M7Nc/BqlY6oViCAii72ybN6Jp6DmHv6f8Frn9z32IQG6Jr5mCpIHsKr+xHHv0LK8jqvUxFRmnJypBoCT5vmkwMm",
+        "Authorization": process.env.KYC_API,
     body: JSON.stringify({
         nin: req.body.nin, 
         dob: req.body.dob})
@@ -86,20 +94,43 @@ app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
 
     fetch(NINUrl, NINOptions)
         .then(res => res.json())
-        .then(data => {
-            //console.log(data)
-            res.json(data)
-            console.log("fetching data")
-            return res.json(data.status);
+        .then(async data =>  {
+            //Update NINdata status
+            const newImage = await verificationDocModel.create({
+                "userId": user._id,
+                "NINdata.data": req.body.nin,
+                "NINdata.verificationStatus": data.status,
+                "image": {
+                    data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
+                    contentType: 'image/png'
+                }
+            });
+            newImage.save();
+            fs.unlink(path.join(__dirname + '/uploads/' + req.files[0].filename), (err) => {
+                if (err) throw err;
+                console.log('Image deleted');
+              });
+            console.log("fetched data")
+            return res.json(data);
         })
         .catch(err => console.error('error:' + err));
 });
 
 app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
     console.log(req.files);
+
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    console.log(cookies.jwt);
+    const refreshToken = cookies.jwt;
+
+    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) return res.sendStatus(401);
+
     try {
         const newImage = await verificationDocModel.create({
-        image: {
+        "userId": user._id,
+        "image": {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
             contentType: 'image/png'
         },
@@ -139,15 +170,8 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
             contentType: 'image/png'
         },
     }) 
-    .then ((err) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.sendStatus(200);
-        }
-    })
-    newImage.save();
+    await newImage.save();
+    //return res.json(newImage);
 });
 
 app.get('/getUserProfileImg', async (req, res) => {
