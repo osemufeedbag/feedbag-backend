@@ -58,16 +58,20 @@ const UpdateInventory =  async (req, res) => {
 };
 
 const GetUserAllItems =  async (req, res) => {
-    
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
 
     const totalCount = req.params.filter
     switch (totalCount) {
         case "Count":
             const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+            console.log(user);
             const userInventory = await inventoryModel.find({'UserId': user._id}).exec()
 
             res.json(JSON.parse(JSON.stringify(userInventory)).length);

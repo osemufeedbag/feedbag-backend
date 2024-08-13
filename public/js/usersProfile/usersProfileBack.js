@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 //Personal info edit
-document.getElementById(' ').addEventListener('click', () => {
+/*document.getElementById(' ').addEventListener('click', () => {
     const EditSession = document.getElementById(' ').name;
     fetch(`http://localhost:4000/UserProfile/personalInfo/${EditSession}`, {
         method: 'POST',
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
     }
-);
+);*/
     
         
     
