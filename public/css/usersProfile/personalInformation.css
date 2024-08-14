@@ -248,13 +248,21 @@ text-decoration:none;
     display:flex;
     flex-direction:column;
     background-color: #F1F1F1;
-    padding-left:5%;
-    
+    padding-left:5%;  
+}
+
+.Orders h1 {
+    font-size:20px;
+    font-family:'poppins';
+    font-weight:500;
 }
 
 .Orders .search {
 border:none;
-width:100%;
+width:350px;
+border-radius:12px;
+height:53px;
+
 }
 .search input {
     width:80%;
@@ -281,6 +289,9 @@ width:100%;
     height:45px;
     width:100px;
     border-radius:5px;
+    font-size:14px;
+    font-weight:400;
+    font-family:'poppins';
     border:none;
     background-color:#F1FCF3;
 }
@@ -327,7 +338,9 @@ width:100%;
 .orderListHead p {
     text-align: center;
     margin: 0; 
-    font-weight:700;
+    font-size:10.68px;
+    font-weight:500;
+    font-family:'poppins';
 }
 
 .eachOrderList {
@@ -356,6 +369,8 @@ width:100%;
 .eachOrderList p {
     text-align: center;
     margin: 0; 
+    font-weight:400;
+    font-size:10px;
 }
 
 
@@ -427,7 +442,7 @@ width:100%;
 }
 
 .trackOrders {
-padding:5%;
+padding-right:5%;
 border:none;
 }
 .trackOrders input {
@@ -451,19 +466,31 @@ border:none;
     margin-top:10px;
 }
 .idTop i {
-    font-size:30px;
+    font-size:56px;
     background-color: #F1FCF3;
     margin-right:10px;
 }
 .idTop h6 {
-    font-size:20px;
+    font-size:16px;
+    font-weight:400;
+    font-family:'poppins';
 }
 
+.idDetails p {
+    font-size:12px;
+    font-family:'poppins';
+    font-weight:400;
+}
 .customerInformation {
     padding:5%;
     background-color:white;
     margin-top:20px;
     border-radius:16px;
+}
+.customerInformation h3 {
+    font-size:16px;
+    font-family:'poppins';
+    font-weight:400;
 }
 
 .customerInfo {
@@ -482,14 +509,40 @@ border:none;
 }
 
 .eachCustomerInfo h6 {
-    font-size:16px;
+    font-size:14px;
+    font-weight:400;
+    font-family:'poppins';
+
+}
+.eachCustomerInfo p {
+    font-size:12px;
+    font-weight:500;
+    font-family:'poppins';
+    color:#979797;
 }
 
 .orderSummary img{
-width:100px;
-height:90px;
-border-radius:10px;
+width:91px;
+height:74px;
+border-radius:16px;
 margin-right:10px;
+}
+
+.itemData p {
+    font-family:'poppins';
+    font-weight:400;
+    font-size:16px;
+}
+
+.itemData h5 {
+    font-family:'poppins';
+    font-size:16px;
+    font-weight:500;
+}
+.orderSummary h3 {
+    font-family:'poppins';
+    font-size:16px;
+    font-weight:400;
 }
 
 .eachOrderItem {
@@ -514,6 +567,16 @@ margin-top:20px;
     margin-bottom:5px;
 }
 
+.eachSubDetails p {
+    font-family:'poppins';
+    font-weight:400;
+    font-size:14px;
+}
+.eachSubDetails h4 {
+    font-size:16px;
+    font-weight:500;
+    font-family:'poppins';
+}
 .orderTracker {
     background-color:white;
     padding-right:0;
@@ -522,22 +585,38 @@ margin-top:20px;
     border-radius:16px;
     overflow: auto;
     margin-right:0px;
+    
 }
 .orderTracker h2 {
     margin-bottom:10px;
+    font-size:16px;
+    font-family:'poppins';
+    font-weight:500;
 }
 
+.orderTracker p {
+    font-size:14px;
+    font-weight:400;
+    font-family:'poppins';
+}
 .orderPath {
     display:flex;
-    width:1600px;
+    width:550px;
     margin-top:20px;
 
 }
 .eachPathDetails h2  {
-    font-size:20px;
+    font-size:12px;
+    font-weight:400;
+    font-family:'poppins';
     padding-left:15px;
 }
 
+.eachPathDetails p {
+    font-size:10px;
+    font-weight:400;
+    font-family:'poppins';
+}
 .eachPath {
     display:flex;
     flex-direction:column;
@@ -1352,7 +1431,7 @@ color:#49C01F;
     display:flex;
     flex-direction: column;
     width:350px;
-    height:170px;
+    height:200px;
     border-radius:12px;
     padding:12px;
     background-color:#ffffff;
@@ -1385,11 +1464,13 @@ color:#49C01F;
 
 .products .eachproduct {
     background-color: #F2F2F2;
-   
     padding:4px 12px 4px 12px;
     border-radius:12px;
     display:flex;
+    justify-content: space-between;
+    margin-bottom:5px;
     align-items:center;
+
     margin-right:10px;
     width:132px;
 }
@@ -1412,6 +1493,10 @@ color:#49C01F;
     align-items:center;
     height:110px;
     border:none;
+}
+.eachPercentage  div{
+    margin-bottom:30px;
+    margin-top:7px;
 }
 
 .recentSales {
@@ -1672,15 +1757,22 @@ color:#49C01F;
 
     .Orders{
         margin-top:30px;
-        width:150%;
+        width:100%;
         margin-left:30px;
         padding-left:50px;
     }
 
+    .Orders h1 {
+        font-size:28px;
+        font-family:'poppins';
+        font-weight:600;
+    }
      
     .search input  {
-     height:60px;
-     border-radius:10px;
+     height:62px;
+     width:500px;
+     border-radius:16px;
+     background-color: #ffffff;
      font-size:25px;
     }
 
@@ -1694,19 +1786,23 @@ color:#49C01F;
     }
 
     .orderListHead {
-        width:90%;
+        width:80%;
     }
 
     .orderListHead p {
-        font-size:25px;
+        font-size:16px;
+        font-family:'poppins';
+        font-weight:500;
     }
 
     .eachOrderList{
-        width:90%;
+        width:80%;
     }
 
     .eachOrderList p  {
-      font-size:20px;
+      font-size:16px;
+      font-family:'poppins';
+      font-weight:400;
     }
 
    .btnumbers {
@@ -1730,9 +1826,16 @@ color:#49C01F;
 
    .orderNav {
     border:none;
-    width:90%;
+    width:80%;
    }
+
+   .orderPath {
+    display:flex;
+    width:900px;
+    margin-top:20px;
+    padding-right:10px;
  
+   }
    .inventoryBody {
     width:auto;
    }
@@ -2130,6 +2233,11 @@ font-weight:600;
 
 .topSellingProductContent .eachproduct {
 margin-left:180px;
+margin-bottom:20px;
+}
+.eachPercentage  div{
+    margin-bottom:0;
+    margin-top:0;
 }
 
 
