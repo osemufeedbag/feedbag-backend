@@ -9,11 +9,14 @@ const mongoose = require('mongoose');
 const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
 const userProfileImgModel = require('./database/dbModel/userProfileImg/userProfileImgModel')
+const activityLogsModel = require('./database/dbModel/activityLogs');
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const date = require('date-and-time');
+const now = new Date();
 const userModel = require('./database/dbModel/userModel');
 
 const list = ['https://www.domainname.com','http://127.0.0.1:5500','http://localhost:4000'];
@@ -50,6 +53,7 @@ app.use('/Marketplace', require('./api/CAFMarketplace/mainPage/mainPage'));
 app.use('/UserProfile', require('./api/UserProfile/personalInfo'));
 app.use('/Inventory', require('./api/UserProfile/inventory'));
 app.use('/Order', require('./api/UserProfile/order'));
+app.use('/Als', require('./api/UserProfile/Dashboard/activity'));
 
 //middleware for cookies
 app.use(cookieParser());
@@ -174,6 +178,15 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
 
     if(imageSearch) {
         imageSearch.image.data = fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename));
+
+        const inventoryActivitylog = await activityLogsModel.create({
+            'UserId': user._id,
+            'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            "Time": date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[1],
+            'Status':  "Profile picture updated."
+        });
+
+        await inventoryActivitylog.save();
         await imageSearch.save();
         fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
             if (err) throw err;

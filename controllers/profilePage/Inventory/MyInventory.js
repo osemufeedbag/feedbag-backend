@@ -1,5 +1,6 @@
 const inventoryModel = require('../../../database/dbModel/inventoryModel');
 const UserModel = require('../../../database/dbModel/userModel');
+const activityLogsModel = require('../../../database/dbModel/activityLogs');
 const date = require('date-and-time');
 const now = new Date();
 
@@ -7,26 +8,38 @@ const now = new Date();
 //date.format(new Date(), 'DD-[MM]-YYYY');
 
 const AddInventoryItem =  async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
 
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
     if(!user) return res.sendStatus(401);
-
+    const count = new Uint32Array(1);
 
     try {
         const inventory = await inventoryModel.create({
             'UserId': user._id,
-            'AllItem.ItemName': req.body.ItemName,
-            'AllItem.DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
-            'AllItem.Price': req.body.Price,
-            'AllItem.Quantity': req.body.Quantity,
-            'AllItem.Id': Math.trunc((crypto.getRandomValues(count))/1000000)
+            'Name': req.body.ItemName,
+            'DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            'Price': req.body.Price,
+            'WeightKG': req.body.WeightKG,
+            'Quantity': req.body.Quantity,
+            'Description': req.body.Description,
+            'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
         });
-        inventory.save();
-        res.json(inventory);
+        await inventory.save();
+        const inventoryActivitylog = await activityLogsModel.create({
+            'UserId': user._id,
+            'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            "Time": date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[1],
+            'Status':  "Inventory updated."
+        });
+        await inventoryActivitylog.save();
+        return res.redirect('/userProfile');
 
     } catch (error) {
         console.log(error);
@@ -34,22 +47,32 @@ const AddInventoryItem =  async (req, res) => {
 };
 
 const UpdateInventory =  async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
 
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
     const userInventory = await inventoryModel.findOne({UserId: user._id}).exec()
     if(!user) return res.sendStatus(401);
 
 
     try {
         
-        if(req.body?.ItemName) userInventory.AllItem.ItemName = req.body.ItemName;
-        if(req.body?.Price) userInventory.AllItem.Price = req.body.Price;
+        if(req.body?.ItemName) userInventory.ItemName = req.body.ItemName;
+        if(req.body?.Price) userInventory.Price = req.body.Price;
 
         const userInventoryResult = await userInventory.save();
+
+        const inventoryActivitylog = await activityLogsModel.create({
+            'UserId': user._id,
+            'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            'NewInventoryAdded':  "Inventroy updated."
+        });
+        await inventoryActivitylog.save();
         res.json(userInventoryResult);
 
     } catch (error) {
@@ -96,37 +119,44 @@ const GetUserAllItems =  async (req, res) => {
 };
 
 const OutOfStock =  async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
 
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-    const userInventory = await inventoryModel.find({'UserId': user._id, 'AllItem.Quantity': {$lt: 1}}).exec()
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
+    const userInventory = await inventoryModel.find({'UserId': user._id, 'Quantity': {$lt: 1}}).exec()
     res.json(userInventory);
 };
 
 const LowStock =  async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
 
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-    const userInventory = await inventoryModel.find({'UserId': user._id, 'AllItem.Quantity': {$lt: 3}}).exec()
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
+    const userInventory = await inventoryModel.find({'UserId': user._id, 'Quantity': {$lt: 3}}).exec()
     res.json(userInventory);
 };
 
 const SearchInventory =  async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
-
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
     const search = req.body.itemSearch
-
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-    const searchedInventory = await inventoryModel.find({'UserId': user._id, 'AllItem.ItemName': search}).exec()
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
+    const searchedInventory = await inventoryModel.find({'UserId': user._id, 'ItemName': search}).exec()
     res.json(searchedInventory);
 };
 

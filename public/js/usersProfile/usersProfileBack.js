@@ -108,7 +108,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
                 const imgSrc = `data:${data.image.contentType};base64,${data.image.data}`;
                 document.querySelector('.pic img').src = imgSrc;
             }
-        })
+            
+        }) 
         .catch(error => console.error('Error:', error));
     }
 
