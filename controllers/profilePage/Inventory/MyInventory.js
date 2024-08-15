@@ -86,7 +86,7 @@ const GetUserAllItems =  async (req, res) => {
     const jwtToken = cookies.split("=")[1].split(";")[0];
     console.log(jwtToken);
     if (!jwtToken) {
-        console.log('app crashed at line 119: PersonalInfo');
+        console.log('app crashed at line 119: MyInventory');
         return res.sendStatus(401);
     }
     const refreshToken = jwtToken;
