@@ -67,8 +67,54 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
     });
 
+document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
+
+document.getElementById('iconUpload').addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById('imageInput').click();
+    });
+
+    document.getElementById('imageInput').addEventListener('change', () => {
+        const file = imageInput.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('userProfileImg', file);
+    
+            fetch('http://localhost:4000/userProfileImgUpload', {
+                method: 'POST',
+                credentials: 'include',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    fetchUserProfileImage();
+                } else {
+                    console.error('Image upload failed');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+    
+    function fetchUserProfileImage() {
+        fetch('http://localhost:4000/getuserProfileImg', {
+            method: 'GET',
+            credentials: 'include',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.image) {
+                const imgSrc = `data:${data.image.contentType};base64,${data.image.data}`;
+                document.querySelector('.pic img').src = imgSrc;
+            }
+            
+        }) 
+        .catch(error => console.error('Error:', error));
+    }
+
 //Personal info edit
-document.getElementById(' ').addEventListener('click', () => {
+/*document.getElementById(' ').addEventListener('click', () => {
     const EditSession = document.getElementById(' ').name;
     fetch(`http://localhost:4000/UserProfile/personalInfo/${EditSession}`, {
         method: 'POST',
@@ -151,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
     }
-);
+);*/
     
         
     

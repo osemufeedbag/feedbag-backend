@@ -32,13 +32,14 @@
     <div class="lapMiddle">
     <div class="dashNav">
         <div class="profile">
-            <div class="pic">
-                <div><img src="../../img/usersProfile/userImageDemo.png" alt=""></div> <!--Image should be loaded from userdb not from public img-->
-                <div><i class="bi bi-pencil-square"></i></div>
-            </div>
+                <div class="pic">
+                    <!--<div><img src="../../img/usersProfile/userImageDemo.png" alt=""></div>--> <!--Image should be loaded from userdb not from public img-->
+                    <div><img src=" " alt=""></div>
+                    <div><a href="" id="iconUpload"><i class="bi bi-pencil-square"></i></a></div>
+                    <input type="file" name="userProfileImg" id="imageInput" accept="image/*" value="" style="display:none">
+                </div>
             <div class="name">
                 <div class="namee">
-
                     <div><h2 id="name"> </h2></div>
                 </div>
                 <div><p id="businessname0"> </p></div>
@@ -108,12 +109,12 @@
                <div class="ddashboardTop">
                 <div class="totalProduct">
                     <div class="rowOne">
-                        <div><p>Total Product</p></div>
+                        <div><p>Total Products</p></div>
                         <div><i class="bi bi-box-fill"></i></div>
                     </div>
 
                     <div class="rowTwo">
-                        <div><p>20,689</p></div>
+                        <div><p id="totalproducts"> </p></div>
                     </div>
 
                     <div class="rowThree">
@@ -124,12 +125,12 @@
                 </div>
                 <div class="totalOrders">
                     <div class="rowOne">
-                        <div><p>Total Product</p></div>
+                        <div><p>Total Order</p></div>
                         <div><i class="bi bi-cart-fill"></i></div>
                     </div>
 
                     <div class="rowTwo">
-                        <div><p>20,689</p></div>
+                        <div><p id="totalorders"> </p></div>
                     </div>
 
                     <div class="rowThree">
@@ -146,7 +147,7 @@
                 <div class="totalSales">
 
                     <div class="rowOne">
-                        <div><p>Total Product</p></div>
+                        <div><p>Total Sales</p></div>
                         <div><i class="bi bi-bar-chart-line-fill"></i></div>
                     </div>
 
@@ -181,12 +182,12 @@
             <div class="activityLog">
                 <div class="activityLogTop">
                     <div><h2>Activity Log</h2></div>
-                    <div><a>View All</a></div>
+                    <div><a href="">View All</a></div>
                 </div>
                 <div class="eachActivityLog">
                     <div class="activityLogo"><i class="bi bi-bar-chart-line-fill"></i></div>
                     <div class="activityInfo">
-                        <div><h4>You placed an order with agrotech</h4></div>
+                        <div><h4 id="log1"> </h4></div>
                         <div><p>just now</p></div>
                     </div>
                 </div>
@@ -194,7 +195,7 @@
                 <div class="eachActivityLog">
                     <div class="activityLogo"><i class="bi bi-bar-chart-line-fill"></i></div>
                     <div class="activityInfo">
-                        <div><h4>You placed an order with agrotech</h4></div>
+                        <div><h4 id="log2"> </h4></div>
                         <div><p>just now</p></div>
                     </div>
                 </div>
@@ -202,7 +203,7 @@
                 <div class="eachActivityLog">
                     <div class="activityLogo"><i class="bi bi-bar-chart-line-fill"></i></div>
                     <div class="activityInfo">
-                        <div><h4>You placed an order with agrotech</h4></div>
+                        <div><h4 id="log3"> </h4></div>
                         <div><p>just now</p></div>
                     </div>
                 </div>
@@ -786,35 +787,35 @@
 <div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
             </div>
 
-            <form action="">
+            <form id="inventoryForm" action="" method="POST">
                 <div class="forms">
                     <div class="eachform">
                         <div><label for="">Item name</label></div>
-                        <div><input type="text" placeholder="Enter your product name"></div>
+                        <div><input type="text" name="ItemName" id="ItemName" value="" placeholder="Enter your product name"></div>
                     </div>
 
                     <div class="eachform">
                         <div><label for="">Price</label></div>
-                        <div><input type="text" placeholder="Enter Item price"></div>
+                        <div><input type="text" name="Price" id="Price" placeholder="Enter Item price"></div>
                     </div>
 
                     <div class="eachform">
                         <div><label for="">Quantity</label></div>
-                        <div><input type="text" placeholder="Item Quantity"></div>
+                        <div><input type="text" name="Quantity" id="Quantity" placeholder="Item Quantity"></div>
                     </div>
 
                     <div class="eachform">
                         <div><label for="">Weight(kg)</label></div>
-                        <div><input type="text" placeholder="Enter item weight"></div>
+                        <div><input type="text" name="WeightKG" id="WeightKG" placeholder="Enter item weight"></div>
                     </div>
 
                     <div class="descriptionForm">
                         <div><label for="">Item description</label></div>
-                        <div><input type="text" placeholder="please provide a detailed description of the product"></div>
+                        <div><input type="text" name="Description" id="Description" placeholder="please provide a detailed description of the product"></div>
                     </div>
                     <div class="buttons">
                         <div class="cancel"><button>Cancel</button></div>
-                        <div class="add"><button>Add Item</button></div>
+                        <div class="add"><button type="button" id="submitButton">Add Item</button></div>
                     </div>
                 </div>
             </form>
@@ -1158,7 +1159,9 @@
 
     <div class="footer"></div>
 
-    <script src="../../js/usersProfile/usersProfileFront.js" type="module"></script>
-    <script src="../../js/usersProfile/usersProfileBack.js" type="module"></script>
+    <script src="/js/usersProfile/usersProfileFront.js" type="module"></script>
+    <script src="/js/usersProfile/usersProfileBack.js" type="module"></script>
+    <script src="/js/usersProfile/Dashboard/totalProductsCount.js" type="module"></script>
+    <script src="/js/usersProfile/activitylogs.js" type="module"></script>
 </body>
 </html>

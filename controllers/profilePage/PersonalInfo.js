@@ -119,9 +119,8 @@ const DelAccount = async (req, res) => {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
     }
-    const refreshToken = jwtToken;
 
-    const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec();
 };
 
 module.exports = {
