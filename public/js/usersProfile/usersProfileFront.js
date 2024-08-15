@@ -3,6 +3,8 @@
     dashBoardEl.onclick();
 }
 */
+
+alert("javascript connected")
 let inventoryAddItemsEl = document.getElementById("inventoryAddItems")
 inventoryAddItemsEl.onclick = inventoryAddItems
 

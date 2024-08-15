@@ -949,6 +949,18 @@ margin-top:20px;
     height:50px;
     margin-right:5px;
 }
+
+.notificationBody h3 {
+    font-size:14px;
+    font-family:'poppins';
+    font-weight:600;
+}
+
+.notificationBody p {
+    font-size:12px;
+    font-weight:400;
+    font-family:'poppins';
+}
 .dataAndPrivacy {
     margin-left:5%;
 }
@@ -1073,7 +1085,7 @@ margin-top:20px;
     border-radius:16px;
     display:flex;
     flex-direction:column;
-    padding:5%;
+    padding:1%;
     justify-content: space-between;
 }
 
@@ -1117,6 +1129,12 @@ margin-bottom:5%;
     padding-right:5%;
 }
 
+.setting h2 {
+    font-family:'poppins';
+    font-size:28px;
+    font-weight:600;
+}
+
 .setting input {
     width:80%;
     padding-left:5%;
@@ -1125,7 +1143,9 @@ margin-bottom:5%;
     margin-bottom:10px;
     margin-top:10px;
 }
-
+.notificationSettings h3 {
+    font-family:'poppins';
+}
 .emailNotifications, .pushNotifications, .smsNotifications {
     background-color:white;
     border-radius:16px;
@@ -1133,6 +1153,20 @@ margin-bottom:5%;
     margin-bottom:20px;
     margin-top:10px;
     padding-top:10px;
+}
+
+.emailNotifications p, .pushNotifications p, .smsNotifications p {
+font-size:12px;
+font-family:'poppins';
+font-weight:400;
+}
+.adsSetting h2 .rrecentActivities h2, .notificationSound h2, .language h2  {
+    font-size:13px;
+    font-family:'poppins';
+    font-weight:600;
+}
+.setting p {
+    font-family:'poppins';
 }
 
 .head {
@@ -2091,6 +2125,9 @@ font-weight:600;
     width:70%;
     height:55px;
 }
+.legalComponent {
+    
+}
 .profileVisibilityComponent {
     display:flex;
     justify-content: start;
@@ -2114,6 +2151,7 @@ font-weight:600;
 }
 .marketPreferences h4, .cookiePreferences h4, .legalComponent h4 {
     padding-left: 5%;
+    margin-bottom:2%;
 }
 .legalComponent a {
 padding-left:5%;
@@ -2122,6 +2160,15 @@ padding-left:5%;
     font-size:16px;
     font-weight:400;
     font-family:'poppins';
+}
+.dataUsage  {
+    margin:0;
+    padding:0;
+}
+
+.dataUsage h2, .dataUsage p {
+    margin:0;
+    padding:2%;
 }
 
 .downloadDataComponent {
