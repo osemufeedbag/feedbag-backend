@@ -1,8 +1,9 @@
-// Ensure the dashboard is clicked on page load
-/*window.onload = () => {
+
+window.onload = () => {
     dashBoardEl.onclick();
 }
-*/
+
+
 
 //alert("javascript connected")
 let inventoryAddItemsEl = document.getElementById("inventoryAddItems")

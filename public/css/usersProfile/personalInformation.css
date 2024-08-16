@@ -1676,6 +1676,11 @@ color:#49C01F;
     font-family:'poppins';
 }
 
+.edit {
+    background-color:white;
+    border:1px solid red;
+}
+
 @media (min-width: 768px) {
     .nav {
         display: flex;
