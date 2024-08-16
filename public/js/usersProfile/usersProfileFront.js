@@ -3,40 +3,75 @@ window.onload = () => {
 }
 
 
-let dashBoardEl = document.getElementById("Dashboard");
-let inventoryAddItemsEl = document.getElementById("inventoryAddItems");
-let goBackEl = document.getElementById("goBack");
-let personalInformationEl = document.getElementById("personalInformation");
-let orderEl = document.getElementById("orders");
-let inventoryEl = document.getElementById("inventory");
-let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack");
-let notificationsEl = document.getElementById("notifications");
-let helpEl = document.getElementById("help");
-let settingsEl = document.getElementById("settings");
-let dataAndPrivacyEl = document.getElementById("dataAndPrivacy");
-let menuEl = document.getElementById("menu");
-let FAQEl = document.getElementById("FAQ");
-let contactSupportEl = document.getElementById("contactSupport")
 
+let inventoryAddItemsEl = document.getElementById("inventoryAddItems")
+inventoryAddItemsEl.onclick = inventoryAddItems
 
-contactSupportEl.onclick = contactSupport
-FAQEl.onclick = FAQ
-menuEl.onclick = menu;
-inventoryAddItemsEl.onclick = inventoryAddItems;
-goBackEl.onclick = goBack;
-personalInformationEl.onclick = personalInformation;
-orderEl.onclick = orders;
-inventoryEl.onclick = inventory;
-inventoryAddItemsGoBackEl.onclick = inventoryGoBack;
-notificationsEl.onclick = notifications;
-helpEl.onclick = help;
-settingsEl.onclick = settings;
-dataAndPrivacyEl.onclick = dataAndPrivacy;
+let goBackEl = document.getElementById("goBack")
+goBackEl.onclick = goBack
 
+let personalInformationEl = document.getElementById("personalInformation")
+personalInformationEl.onclick = personalInformation
 
-function FAQ() {
-    document.getElementsByClassName("FAQ")[0].style.display ="block"
-     document.getElementsByClassName("contactSupport")[0].style.display ="none"
+let orderEl = document.getElementById("orders")
+orderEl.onclick = orders
+
+let inventoryEl = document.getElementById("inventory")
+inventoryEl.onclick = inventory
+
+let dashBoardEl = document.getElementById("Dashboard")
+dashBoardEl.onclick = () => {
+    document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
+    document.getElementsByClassName("Orders")[0].style.display = "none"
+    document.getElementsByClassName("inventoryAddItem")[0].style.display = "none"
+    document.getElementsByClassName("inventory")[0].style.display = "none"
+    document.getElementsByClassName("notifications")[0].style.display = "none"
+    document.getElementsByClassName("dataAndPrivacy")[0].style.display = "none"
+    document.getElementsByClassName("setting")[0].style.display = "none"
+    document.getElementsByClassName("mainhelpAndSupport")[0].style.display = "none"
+    document.getElementsByClassName("dashboard")[0].style.display = "block"
+
+    if (window.innerWidth <= 768) {
+        document.getElementsByClassName("dashNav")[0].style.display = "none"
+    } else {
+        settingsEl.style.borderLeft = "0px"
+        helpEl.style.borderLeft = "0px"
+        dashBoardEl.style.borderLeft = "10px solid #49C01F"
+        helpEl.style.borderLeft = "0px"
+        dataAndPrivacyEl.style.borderLeft = "0px"
+        notificationsEl.style.borderLeft = "0px"
+        inventoryEl.style.borderLeft = "0px"
+        orderEl.style.borderLeft = "0px"
+        inventoryEl.style.borderBottomLeftRadius = "0px"
+        inventoryEl.style.borderTopLeftRadius = "0px"
+        personalInformationEl.style.borderLeft = "0px"
+    }
+}
+
+let inventoryAddItemsGoBackEl = document.getElementById("inventoryGoBack")
+inventoryAddItemsGoBackEl.onclick = inventoryGoBack
+
+let orderHistoryEl = document.getElementById("orderHistory").onclick = () => {
+    document.getElementsByClassName("orderHistory")[0].style.display = "block"
+    document.getElementsByClassName("trackOrders")[0].style.display = "none"
+}
+
+let trackOrderEL = document.getElementById("trackOrder").onclick = () => {
+    document.getElementsByClassName("orderHistory")[0].style.display = "none"
+    document.getElementsByClassName("trackOrders")[0].style.display = "block"
+}
+
+let notificationsEl = document.getElementById("notifications")
+notificationsEl.onclick = notifications
+
+document.getElementById("contactSupport").onclick = () => {
+    document.getElementsByClassName("FAQ")[0].style.display = "none"
+    document.getElementsByClassName("contactSupport")[0].style.display = "block"
+}
+
+document.getElementById("FAQ").onclick = () => {
+    document.getElementsByClassName("FAQ")[0].style.display = "block"
+    document.getElementsByClassName("contactSupport")[0].style.display = "none"
 }
 function contactSupport() {
     document.getElementsByClassName("FAQ")[0].style.display ="none"

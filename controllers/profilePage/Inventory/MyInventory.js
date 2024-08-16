@@ -10,7 +10,7 @@ const now = new Date();
 const AddInventoryItem =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
@@ -49,7 +49,7 @@ const AddInventoryItem =  async (req, res) => {
 const UpdateInventory =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
@@ -82,9 +82,9 @@ const UpdateInventory =  async (req, res) => {
 
 const GetUserAllItems =  async (req, res) => {
     const cookies = req.headers.cookie;
-    console.log(cookies);
+    //console.log(cookies);
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: MyInventory');
         return res.sendStatus(401);
@@ -95,7 +95,7 @@ const GetUserAllItems =  async (req, res) => {
     switch (totalCount) {
         case "Count":
             const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-            console.log(user);
+           // console.log(user);
             const userInventory = await inventoryModel.find({'UserId': user._id}).exec()
 
             res.json(JSON.parse(JSON.stringify(userInventory)).length);
@@ -121,7 +121,7 @@ const GetUserAllItems =  async (req, res) => {
 const OutOfStock =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
@@ -135,7 +135,7 @@ const OutOfStock =  async (req, res) => {
 const LowStock =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
@@ -149,7 +149,7 @@ const LowStock =  async (req, res) => {
 const SearchInventory =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+   // console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);

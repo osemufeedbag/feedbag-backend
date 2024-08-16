@@ -18,7 +18,7 @@ const LogOut = async (req, res) => {
 
      userDetails.RefreshToken = ' ';
      const result = await userDetails.save();
-     console.log(result);
+     //console.log(result);
      
      res.clearCookie('jwt', {httpOnly: true, origin: 'http://localhost:4000'}); //Add in production environment = secure: true;
      //res.sendStatus(204);

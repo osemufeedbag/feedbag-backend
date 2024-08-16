@@ -7,8 +7,9 @@ const now = new Date();
 
 const GetPersonalInfo = async (req, res) => {
     const cookies = req.headers.cookie;
+    //console.log(cookies)
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 12: GetPersonalInfo');
         return res.sendStatus(401);
@@ -23,7 +24,7 @@ const GetPersonalInfo = async (req, res) => {
 const UpdatePersonalInfo = async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 28 PersonalInfo');
         return res.sendStatus(401);
@@ -114,7 +115,7 @@ const UpdatePersonalInfo = async (req, res) => {
 const DelAccount = async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);

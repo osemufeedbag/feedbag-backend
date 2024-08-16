@@ -35,8 +35,8 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+                //console.log(newSignup);
+                //console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
@@ -73,8 +73,8 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+                //console.log(newSignup);
+                //console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
@@ -109,8 +109,8 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+               // console.log(newSignup);
+               // console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
@@ -151,8 +151,8 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+               // console.log(newSignup);
+              //  console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
@@ -188,8 +188,8 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+                //console.log(newSignup);
+               // console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
@@ -224,8 +224,8 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                console.log(newSignup);
-                console.log(newBusinessSignup);
+               // console.log(newSignup);
+                //console.log(newBusinessSignup);
                 return res.redirect('/successful');
                 
             } catch (error) {
