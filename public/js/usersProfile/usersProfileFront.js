@@ -19,6 +19,15 @@ orderEl.onclick = orders
 let inventoryEl = document.getElementById("inventory")
 inventoryEl.onclick = inventory
 
+let settingsEl = document.getElementById("settings")
+settingsEl.onclick = settings
+
+let helpEl = document.getElementById("help")
+helpEl.onclick = help
+
+let dataAndPrivacyEl = document.getElementById("dataAndPrivacy")
+dataAndPrivacyEl.onclick = dataAndPrivacy
+
 let dashBoardEl = document.getElementById("Dashboard")
 dashBoardEl.onclick = () => {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
