@@ -5,7 +5,7 @@ const activityLogsModel = require('../../../database/dbModel/activityLogs');
 const activity = async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 12: activityLogs');
         return res.sendStatus(401);

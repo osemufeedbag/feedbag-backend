@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
             })
         .then(data => {
-            console.log(data)
+            //console.log(data)
 
             let ln = data.userActivity;
             const arryLength = ln.length;

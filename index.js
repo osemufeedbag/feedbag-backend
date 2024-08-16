@@ -161,10 +161,10 @@ app.get('/docUploads', (req, res) => {
 
 // User profile picture upload and display start--->
 app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
-    console.log(req);
+    //console.log(req);
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
@@ -174,7 +174,7 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
     const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
     const imageSearch = await userProfileImgModel.findOne({userId: user._id}).exec()
     if(!user) return res.sendStatus(401);
-    console.log('User was found');
+    //console.log('User was found');
 
     if(imageSearch) {
         imageSearch.image.data = fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename));
@@ -190,7 +190,7 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
         await imageSearch.save();
         fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
             if (err) throw err;
-            console.log('Image deleted');
+            //console.log('Image deleted');
           });
         return  res.status(200).json({ success: true, message: 'Successfully' });
     } else {
@@ -202,10 +202,10 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
             }
         })
         await newImage.save();
-        console.log(newImage);
+        //console.log(newImage);
         fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
             if (err) throw err;
-            console.log('Image deleted');
+            //console.log('Image deleted');
           });
           
         return  res.status(200).json({ success: true, message: 'Image uploaded successfully' });
@@ -215,7 +215,7 @@ app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, r
 app.get('/getuserProfileImg', async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
-    console.log(jwtToken);
+    //console.log(jwtToken);
     if (!jwtToken) {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);

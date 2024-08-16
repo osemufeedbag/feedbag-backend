@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
             })
         .then(data => {
-            console.log(data)
+           // console.log(data)
             data.user.PersonalInfo && data.user.PersonalInfo.FirstName ? 
             document.getElementById('name').innerText = data.user.PersonalInfo.FirstName : document.getElementById('name').innerText = "----";
             

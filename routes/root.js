@@ -7,8 +7,16 @@ router.get('/signUp(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','signUp.html'));
 });
 
+router.get('/signUpCon(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','signUpConsumer.html'));
+});
+
 router.get('/EmailReg(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','EmailReg.html'));
+});
+
+router.get('/EmailRegCon(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','EmailRegCon.html'));
 });
 
 router.get('/successful(.html)?', (req, res) => {
@@ -17,6 +25,10 @@ router.get('/successful(.html)?', (req, res) => {
 
 router.get('/phoneSignUp(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','phoneNosSignUp.html'));
+});
+
+router.get('/conPhoneSignUp(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','Farmer','conPhoneNosSignUp.html'));
 });
 //Sign Up ends here
 

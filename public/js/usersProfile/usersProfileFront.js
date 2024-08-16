@@ -4,7 +4,7 @@
 }
 */
 
-alert("javascript connected")
+//alert("javascript connected")
 let inventoryAddItemsEl = document.getElementById("inventoryAddItems")
 inventoryAddItemsEl.onclick = inventoryAddItems
 
