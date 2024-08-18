@@ -4,7 +4,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: url("../../img/farmer/agrihub bg.png");
     background-size: cover;
     font-family: 'Poppins', sans-serif;
   }
@@ -24,7 +23,7 @@ body {
   }
   
   .left h1 {
-    color: white;
+    color: black;
     font-size: 20px;
   }
   
@@ -166,6 +165,7 @@ body {
   
     body {
       flex-direction: row;
+      background-image: url("../../img/farmer/agrihub bg.png");
     }
   
     .left {
@@ -189,6 +189,7 @@ body {
       margin-left: 0px;
       padding-left: 0px;
       text-align: left;
+      color:white;
     }
   
     .right {
@@ -284,11 +285,13 @@ body {
   
     .left h1 {
       font-size: 45px;
+      color:white;
     }
   
     .right {
       width: 65%;
       padding: 20px 3%;
+      height:100%;
     }
   
     .right h1 {
@@ -339,7 +342,7 @@ body {
     button {
       width: 300px;
       height: 45px;
-      font-size: 50px;
+      font-size: 17px;
     }
   
     .backk {

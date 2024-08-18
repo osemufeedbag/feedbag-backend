@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url("../../img/farmer/agrihub bg.png");
+  
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
@@ -27,13 +27,12 @@ body {
 }
 
 .left h1 {
-  color: white;
+  color: Black;
   font-size: 20px;
 }
 
 .right {
   width: 100%;
-  border: 5px solid #49c01f;
   background-color: white;
   padding: 30px 5%;
   box-sizing: border-box;
@@ -208,12 +207,14 @@ button:active {
 @media (min-width: 768px) {
   body {
       flex-direction: row;
+      background-image: url("../../img/farmer/agrihub bg.png");
   }
 
   .right {
       width: 60%;
       border: none;
-      height:1000px;
+      height:100%;
+      margin-left:20px;
   }
 
   .left {
@@ -238,6 +239,7 @@ button:active {
       padding-left: 0;
       text-align: left;
       font-weight:500;
+      color:white;
   }
 
   .head h1 {
@@ -261,6 +263,7 @@ button:active {
   .checkbox-container {
       height: 190px;
       width: 190px;
+      margin-right:5px;
   }
 
   .buttons {
