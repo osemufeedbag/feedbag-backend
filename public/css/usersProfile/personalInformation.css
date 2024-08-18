@@ -1166,6 +1166,14 @@ font-weight:400;
     font-family:'poppins';
     font-weight:600;
 }
+
+.adsSetting h2 {
+    font-size:13px;
+}
+
+.rrecentActivities h2 {
+    font-size:13px;
+}
 .setting p {
     font-family:'poppins';
 }

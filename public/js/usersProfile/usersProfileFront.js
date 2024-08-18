@@ -28,6 +28,9 @@ helpEl.onclick = help
 let dataAndPrivacyEl = document.getElementById("dataAndPrivacy")
 dataAndPrivacyEl.onclick = dataAndPrivacy
 
+let menuEl = document.getElementById("menu")
+menuEl.onclick = menu
+
 let dashBoardEl = document.getElementById("Dashboard")
 dashBoardEl.onclick = () => {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
