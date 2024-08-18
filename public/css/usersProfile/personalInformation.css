@@ -1392,6 +1392,11 @@ justify-content: space-around;
     margin-left:5px;
 }
 
+.dashboard {
+    border:1px solid red;
+    padding-right:5%;
+}
+
 .dashboard  h2{
     font-size:20px;
     font-family:'poppins';
@@ -1399,6 +1404,12 @@ justify-content: space-around;
     margin-left:20px;
 }
 
+
+.theDash {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
 .ddashboardTop, .dashBoardBottom {
     border:none;
     width:350px;
@@ -2332,7 +2343,6 @@ font-size:40px;
 
 .dashboard {
     border:none;
-    width:863px;
 }
 
 .totalProduct,  .totalOrders,  .totalSales {
@@ -2455,7 +2465,7 @@ margin-bottom:20px;
 
 
 .recentSalesHead, .eachRecentSalesBody {
-width:740px;
+width:750px;
 }
 
 .idDetails h6{
