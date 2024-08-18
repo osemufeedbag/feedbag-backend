@@ -36,18 +36,4 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
     });
 
-document.getElementById('submitButton').addEventListener("click", () => {
-    const itemname = document.getElementById('ItemName').value
-    const Price = document.getElementById('Price').value
-    const Quantity = document.getElementById('Quantity').value
-    const WeightKG = document.getElementById('WeightKG').value
-    const Description = document.getElementById('Description').value
-
-    if(!itemname || !Price || !Quantity || !WeightKG || !Description) {
-        alert('Fill in the required Information(s)');
-    } else {
-        document.getElementById('inventoryForm').action = "/Inventory/addInventory";
-        document.getElementById("submitButton").type = "submit";
-        alert('Inevntroy Updated.');
-    }
-})
+    

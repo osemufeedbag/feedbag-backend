@@ -7,6 +7,34 @@ const now = new Date();
 
 //date.format(new Date(), 'DD-[MM]-YYYY');
 
+/*const img = async (req, res) => {
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    //console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+
+    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
+    if(!user) return res.sendStatus(401);
+
+    console.log(req.body.inimage1);
+    const count = new Uint32Array(1);
+    const inventory = await inventoryModel.create({
+        'UserId': user._id,
+        'imageStack.img1': req.body.inimage1,
+        'imageStack.img2': req.body.inimage2,
+        'imageStack.img3': req.body.inimage3,
+        'imageStack.img4': req.body.inimage4,
+        'imageStack.img5': req.body.inimage5,
+        'imageStack.img6': req.body.inimage6,
+        'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
+    });
+    const result = await inventory.save();
+    console.log(result);
+};*/
+
 const AddInventoryItem =  async (req, res) => {
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
@@ -29,9 +57,16 @@ const AddInventoryItem =  async (req, res) => {
             'WeightKG': req.body.WeightKG,
             'Quantity': req.body.Quantity,
             'Description': req.body.Description,
+            'imageStack.img1': req.file.inimage1,
+            'imageStack.img2': req.file.inimage2,
+            'imageStack.img3': req.file.inimage3,
+            'imageStack.img4': req.file.inimage4,
+            'imageStack.img5': req.file.inimage5,
+            'imageStack.img6': req.file.inimage6,
             'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
         });
-        await inventory.save();
+        const result = await inventory.save();
+        console.log(result);
         const inventoryActivitylog = await activityLogsModel.create({
             'UserId': user._id,
             'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
@@ -142,7 +177,7 @@ const LowStock =  async (req, res) => {
     }
 
     const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
-    const userInventory = await inventoryModel.find({'UserId': user._id, 'Quantity': {$lt: 3}}).exec()
+    const userInventory = await inventoryModel.find({'UserId': user._id, 'Quantity': {$lt: 3, $gt: 0}}).exec()
     res.json(userInventory);
 };
 
@@ -154,9 +189,13 @@ const SearchInventory =  async (req, res) => {
         console.log('app crashed at line 119: PersonalInfo');
         return res.sendStatus(401);
     }
-    const search = req.body.itemSearch
+    const search = req.params.search
+    console.log(search);
     const user = await UserModel.findOne({RefreshToken: jwtToken}).exec()
-    const searchedInventory = await inventoryModel.find({'UserId': user._id, 'ItemName': search}).exec()
+    const searchedInventory = await inventoryModel.find({'UserId': user._id, 'ItemName': { $regex: search, $options: 'i' }}).exec();
+    if (!searchedInventory.length) {
+        return res.status(404).json({ message: 'No items found' });
+    }
     res.json(searchedInventory);
 };
 
@@ -165,5 +204,6 @@ module.exports = {
     AddInventoryItem,
     OutOfStock,
     LowStock,
-    SearchInventory
+    SearchInventory,
+    //img
 }

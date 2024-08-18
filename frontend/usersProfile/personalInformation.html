@@ -700,21 +700,20 @@
                 </div>
             </div>
 
-
-
-
         </div>
 
         <div class="inventory">
             <div><h2>My Inventory</h2></div>
-            <div class="inventorySearch"><input type="text" placeholder="search"></div>
+                <div class="inventorySearch">
+                    <input id="searchinventory" value="" type="text" placeholder="search">
+                </div>
 
 
             <div class="inventoryButtons">
                 <div class="first">
-                    <div><button>All Items</button></div>
-                    <div><button>Out of Stock</button></div>
-                    <div><button>Low stock</button></div>
+                    <div><button id="allitems">All Items</button></div>
+                    <div><button id="outofstock">Out of Stock</button></div>
+                    <div><button id="lowstock">Low stock</button></div>
                 </div>
 
                 <div class="second">
@@ -766,7 +765,6 @@
                                 <div><h4> </h4></div>
                             </div>
         
-                        
                             <div class="itemDate"><h3> </h3></div>
         
                             <div class="itemPrice"><h3> </h3></div>
@@ -775,10 +773,8 @@
                         </div>
                 </div>
 
-
             </div>
-
-            
+       
             <div class="orderNav">
                 <div><button class="previous"><-- Previous</button></div>
 
@@ -804,18 +800,22 @@
                 <div><input type="image"></div>
                 <div><p>You can only upload one video and a maximum of 8 pictures The first picture you select will be used as the thumbnail Ensure that all images are of high quality and clearly show the product</p></div>
             </div>
+            <form id="inventoryForm"  action="/newInt_ImgUpload" method="POST">
+                <!--<div class="images">
+                    <div><a href=""><img id="inventoryimage1" src="../../img/farmer/agrihub farmer.png" alt=""></div></a>
+                    <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                    <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                    <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                </div>-->
 
-            <div class="images">
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-<div><img src="../../img/farmer/agrihub farmer.png" alt=""></div>
-            </div>
-
-            <form id="inventoryForm" action="" method="POST">
+                <!--<form id="inventoryForm"  enctype="multipart/form-data" action="" method="POST">-->
                 <div class="forms">
+                    <div class="images">
+                        <!--<div><a href=""><img id="inventoryimage1" src="../../img/farmer/agrihub farmer.png" alt=""></div></a>-->
+                        <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                        <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                        <input type="file" name="inventoryImg" id="imgInput" accept="image/*">
+                    </div>
                     <div class="eachform">
                         <div><label for="">Item name</label></div>
                         <div><input type="text" name="ItemName" id="ItemName" value="" placeholder="Enter your product name"></div>
@@ -842,7 +842,7 @@
                     </div>
                     <div class="buttons">
                         <div class="cancel"><button>Cancel</button></div>
-                        <div class="add"><button type="button" id="submitButton">Add Item</button></div>
+                        <div class="add"><button type="submit" id="submitButton">Add Item</button></div>
                     </div>
                 </div>
             </form>

@@ -16,4 +16,10 @@ router.route('/outOfStock')
 router.route('/lowStock')
     .get(MyInventoryController.LowStock);
 
+router.route('/searchItem/:search')
+    .get(MyInventoryController.SearchInventory);
+
+/*router.route('/img')
+    .post(MyInventoryController.img);*/
+    
 module.exports = router;

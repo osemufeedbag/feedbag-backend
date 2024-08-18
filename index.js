@@ -10,6 +10,7 @@ const connectDB = require('./database/dbConfig/dbConn')
 const verificationDocModel = require('./database/dbModel/Digital_wallet_KYC/verificationDocModel');
 const userProfileImgModel = require('./database/dbModel/userProfileImg/userProfileImgModel')
 const activityLogsModel = require('./database/dbModel/activityLogs');
+const inventoryModel =  require('./database/dbModel/inventoryModel');
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
@@ -41,8 +42,8 @@ connectDB();
 app.use(express.static(path.join(__dirname, '/public')));
 
 // To handle form data
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(express.urlencoded({ limit: '100mb', extended: true}));
+app.use(express.json({ limit: '100mb' }));
 
 // built-in middleware to read json file into the server json
 app.use(express.json());
@@ -235,7 +236,95 @@ app.get('/getuserProfileImg', async (req, res) => {
 });
 // User profile picture upload and display ends--->
 
-//app.use('/refresh', require('./api/refresh'));
+//Inventory image upload starts here
+app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) => {
+    //console.log(req.files);
+    //console.log(req.body);
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    //console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
+
+    const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
+    if(!user) return res.sendStatus(401);
+    console.log('User was found');
+
+    const count = new Uint32Array(1);
+
+    try {
+        const inventory = await inventoryModel.create({
+            'UserId': user._id,
+            'Name': req.body.ItemName,
+            'DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            'Price': req.body.Price,
+            'WeightKG': req.body.WeightKG,
+            'Quantity': req.body.Quantity,
+            'Description': req.body.Description,
+            'image1': { 
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)).toString('base64'),
+                contentType: req.files[0].mimetype
+            },
+            'image2': { 
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)).toString('base64'),
+                contentType: req.files[1].mimetype
+            },
+            'image3': { 
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[2].filename)).toString('base64'),
+                contentType: req.files[2].mimetype
+            },
+            'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
+        });
+        const result = await inventory.save();
+        console.log(result);
+        const inventoryActivitylog = await activityLogsModel.create({
+            'UserId': user._id,
+            'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
+            "Time": date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[1],
+            'Status':  "Inventory updated."
+        });
+        await inventoryActivitylog.save();
+
+        req.files.forEach(files => {
+            fs.unlink(path.join(__dirname + '/uploads/' + files.filename), (err) => {
+                if (err) throw err;
+                //console.log('Image deleted');
+              });
+        })
+        console.log("All images deleted")
+        //res.redirect('/userProfile');
+        res.status(200).json({ success: true, message: 'Inventory updated and images processed' });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+app.get('/getIntImg', async (req, res) => {
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    //console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const user = await userModel.findOne({RefreshToken: jwtToken}).exec()
+    if(!user) {
+        return res.sendStatus(401) //Creat an error log database where errors like this can be logged and later rectified.
+    };
+    const userImage = await userProfileImgModel.findOne({userId: user._id}).exec()
+    if(userImage) {
+        const imageData = userImage.image.data.toString('base64');
+        const imageContentType = userImage.image.contentType;
+        return res.json({image: {data: imageData, contentType: imageContentType}});
+    } else {
+        return res.status(404).json({error: 'Image not found'});
+    }
+});
+//Iventory image upload ends here
 
 // Protected pages starts here
 app.use(verifyJWT);

@@ -10,6 +10,10 @@ const inventorySchema = new Schema({
         'WeightKG': {type: Number, require: true},
         'Quantity': {type: Number, require: true},
         'Description': {type: String, require: false},
+        "image1": {data: Buffer, contentType: String},
+        "image2": {data: Buffer, contentType: String},
+        "image3": {data: Buffer, contentType: String},
+        "video": {data: Buffer, contentType: String},
         'Id': {type: Number, require: true}
 });
 
