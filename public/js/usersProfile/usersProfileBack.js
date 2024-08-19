@@ -109,7 +109,9 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
         })
         .then(response => response.json())
         .then(data => {
+            //console.log(data)
             if (data.image) {
+                console.log(data.image.data);
                 const imgSrc = `data:${data.image.contentType};base64,${data.image.data}`;
                 document.querySelector('.pic img').src = imgSrc;
             }

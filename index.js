@@ -162,7 +162,7 @@ app.get('/docUploads', (req, res) => {
 
 // User profile picture upload and display start--->
 app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
-    //console.log(req);
+    //console.log(req.file);
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
     //console.log(jwtToken);
@@ -237,8 +237,8 @@ app.get('/getuserProfileImg', async (req, res) => {
 // User profile picture upload and display ends--->
 
 //Inventory image upload starts here
-app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) => {
-    //console.log(req.files);
+app.post('/newInt_ImgUpload', upload.single('inventoryImg'), async (req, res) => {
+    console.log(req.file);
     //console.log(req.body);
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
@@ -254,6 +254,10 @@ app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) 
     console.log('User was found');
 
     const count = new Uint32Array(1);
+    /*const images = req.files.map(file => ({
+        data: fs.readFileSync(path.join(__dirname, 'uploads', file.filename)),
+        contentType: file.mimetype
+    }));*/
 
     try {
         const inventory = await inventoryModel.create({
@@ -264,7 +268,7 @@ app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) 
             'WeightKG': req.body.WeightKG,
             'Quantity': req.body.Quantity,
             'Description': req.body.Description,
-            'image1': { 
+            /*'image1': { 
                 data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)).toString('base64'),
                 contentType: req.files[0].mimetype
             },
@@ -275,11 +279,15 @@ app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) 
             'image3': { 
                 data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[2].filename)).toString('base64'),
                 contentType: req.files[2].mimetype
-            },
+            },*/
+            'image': {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+                contentType: req.file.mimetype
+                },
             'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
         });
         const result = await inventory.save();
-        console.log(result);
+       // console.log(result);
         const inventoryActivitylog = await activityLogsModel.create({
             'UserId': user._id,
             'Date': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0],
@@ -287,13 +295,10 @@ app.post('/newInt_ImgUpload', upload.array('inventoryImg', 3), async (req, res) 
             'Status':  "Inventory updated."
         });
         await inventoryActivitylog.save();
-
-        req.files.forEach(files => {
-            fs.unlink(path.join(__dirname + '/uploads/' + files.filename), (err) => {
+            fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
                 if (err) throw err;
                 //console.log('Image deleted');
               });
-        })
         console.log("All images deleted")
         //res.redirect('/userProfile');
         res.status(200).json({ success: true, message: 'Inventory updated and images processed' });

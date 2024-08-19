@@ -139,6 +139,14 @@ const GetUserAllItems =  async (req, res) => {
         case "List":
             const Listuser = await UserModel.findOne({RefreshToken: refreshToken}).exec()
             const ListuserInventory = await inventoryModel.find({'UserId': Listuser._id}).exec()
+            if(ListuserInventory) {
+                ListuserInventory.forEach(item => {
+                    item.image.data = item.image.data.toString('base64');
+                })
+            }
+            
+                //return res.json({image: {data: imageData, contentType: imageContentType}});
+            //console.log(ListuserInventory);
             res.json(ListuserInventory);
         break;
 
