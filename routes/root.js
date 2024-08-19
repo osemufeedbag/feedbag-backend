@@ -3,6 +3,10 @@ const router = express.Router();
 const path = require('path');
 
 //Sign Up starts here
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','index.html'));
+});
+
 router.get('/signUp(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','signUp.html'));
 });
