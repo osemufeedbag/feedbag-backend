@@ -2,11 +2,33 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-//Sign Up starts here
+//Main website starts here
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','index.html'));
 });
 
+router.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','aboutUs.html'));
+});
+
+router.get('/cafToken', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','CafToken.html'));
+});
+
+router.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','contact.html'));
+});
+
+router.get('/privacy', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','privacy.html'));
+});
+
+router.get('/cafToken', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','CafToken.html'));
+});
+//Main website ends here
+
+//Sign Up starts here
 router.get('/signUp(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','Farmer','signUp.html'));
 });
