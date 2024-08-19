@@ -1,0 +1,263 @@
+:root {
+    --primary-color: #49C01F;
+    --secondary-color: #1FC043;
+    --text-color: #131313;
+    --bg-color: #F1FCF3;
+}
+
+body {
+    font-family: 'Poppins', 'SF Pro Display', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background-color: white;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img{
+    width: 100px;
+}
+
+.list-container{
+    width: 35%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.list-container a{
+    text-decoration: none;
+    position: relative;
+    width: fit-content;
+}
+
+.list-container a:hover:before{
+    animation: underline 500ms;
+    width: 100%;
+}
+
+.list-container ul li a::before{
+    display: block;
+    content: '';
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: removeUnderline 500ms;
+}
+
+.list-active::before{
+    display: block;
+    content: '';
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+@keyframes underline {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes removeUnderline {
+    from{
+        width: 100%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+.list-container a{
+    color: #000;
+}
+
+.list-container ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown{
+    position: absolute;
+    background: white;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    width: max-content;
+    display: none;
+}
+
+button{
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    padding: 24px 48px;
+    border-radius: 16px;
+}
+
+footer{
+    background: var(--text-color);
+    color: white;
+    padding: 2rem 5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.row-1{
+    display: flex;
+    margin-bottom: 4rem;
+    gap: 10rem;
+}
+
+.col-1, .col-2, .col-3{
+    width: 33.33%;
+}
+
+.col-1 img{
+    width: 100px;
+}
+
+.icons-list{
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.icons-list a{
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 25%;
+}
+
+.col-2 h2{
+    font-size: 16px;
+}
+
+.contact-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.cont{
+    margin-bottom: 1rem;
+}
+
+.cont a{
+    color: white;
+}
+
+.cont i{
+    color: var(--primary-color);
+    padding-right: 6px;
+}
+
+.col-3 h2{
+    font-size: 16px;
+}
+
+.down{
+    display: flex;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.down-text{
+    margin-left: 1rem;
+}
+
+.down-text p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.down-text p:first-of-type{
+    font-size: 12px;
+}
+
+.row-2{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+.row-2 a{
+    color: white;
+}
+
+.row-3{
+    margin: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+.mobile-nav{
+    width: 75vw !important;
+    height: 100vh;
+    z-index: 1000;
+    background: white;
+    position: fixed;
+    border-right: solid 1px #ccc;
+    display: none;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+.active{
+    display: block !important;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+.mobile-nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 20vh;
+}
+
+.mobile-nav button{
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 2.5rem;
+}
+
+.mobile-nav ul li a{
+    text-decoration: none;
+    color: #000;
+}
