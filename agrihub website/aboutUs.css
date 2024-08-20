@@ -5,20 +5,26 @@
     --bg-color: #F1FCF3;
 }
 
+* {
+    margin:0;
+    padding:0;
+}
+
 body {
     font-family: 'Poppins', 'SF Pro Display', sans-serif;
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    display:flex;
+    flex-direction:column;
 }
 
 .nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: fixed;
-    z-index: 10;
-    width: 100%;
+    position: sticky;
+    width: 500px;
     background-color: white;
 }
 
@@ -224,7 +230,7 @@ footer{
     height: 100vh;
     z-index: 1000;
     background: white;
-    position: fixed;
+    position: sticky;
     border-right: solid 1px #ccc;
     display: none;
     animation-direction: normal;
@@ -260,4 +266,245 @@ footer{
 .mobile-nav ul li a{
     text-decoration: none;
     color: #000;
+}
+
+.aboutUs {
+    background-image:url(./FBH-1.png);
+    background-size:cover;
+    
+    background-position:center;
+    background-repeat: no-repeat;
+    width:auto;
+    height:300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:10%;
+
+    color:white;
+}
+.aboutUs h1, .aboutUs p {
+    text-align:center;
+    margin-bottom:10px;
+    font-family:'poppins';
+}
+
+.aboutWhatWeDo {
+    display:flex;
+    flex-direction:column;
+    background-color:#EEFFF1;
+    padding:7%;
+    width:auto;
+}
+.rowOne {
+    display:flex;
+    flex-direction:column-reverse;
+    
+}
+
+.image1 {
+    height:260px;
+    border-radius:12px;
+}
+
+
+.image2 {
+   
+    width:150px;
+    height:210px;
+    object-fit:cover;
+    object-position: left;
+    margin-left:10px;
+   border-radius:12px;
+}
+.right {
+    display:flex;
+    align-items:center;
+}
+
+.left {
+    margin-top:10px;
+    font-family:'poppins';
+}
+.left h2 {
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.rowTwo {
+    padding-top:20px;
+}
+.rowTwo .head h2 {
+    font-size:16px;
+    border-left:solid #49C01F 4px;
+    margin-bottom:10px;
+}
+
+.eachBodySub {
+    margin-bottom:10px;
+}
+
+.un {
+    background-color:white;
+     padding:5%;
+     font-family:'poppins';
+}
+
+idk {
+    color:#1FC043;
+}
+.un h1 {
+    text-align:center;
+    font-size:22px;
+    margin-bottom:10px;
+}
+.eachUnContent {
+    margin-bottom:10px;
+}
+
+.unMission {
+    display:flex;
+    flex-direction:column;
+    color:white;
+}
+.MissionOne {
+    background-color:#E6002F;
+    border-radius:16px;
+    padding:5%;
+}
+.MissionTwo {
+    background-color: #E6A308;
+}
+.MissionThree {
+    background-color:#A2003D;
+}
+.MissionFour {
+    background-color: 
+    #CA8802;
+}
+
+@media (min-width: 768px) {
+.nav {
+    width:100%;
+}
+.aboutUs {
+    height:400px;
+    background-position: center;
+    padding:0%;
+    text-align:center;
+}
+
+.aboutUs h1 {
+    font-size:60px;
+    font-weight:600;
+    font-family:'poppins';
+    padding-top:30px;
+}
+
+.aboutUs p {
+  
+    padding-left:25%;
+    font-size:20px;
+    padding-right:25%;
+}
+
+.rowOne {
+    flex-direction:row;
+    justify-content: space-around;
+    align-items:center;
+    padding:0;
+    margin-top:0;
+}
+.rowOne .left {
+    width:631px;
+}
+
+.rowOne .left h2 {
+    font-size:40px;
+    font-weight:500;
+    font-family:'poppins';
+   
+    
+}
+
+.rowOne .left p {
+    font-size:25px;
+    font-weight:400;
+    font-family:'poppins';
+}
+
+.rowOne .right {
+    height:400px;
+    margin-top:0;
+}
+
+.image1 {
+    height:400px;
+}
+.image2 {
+    height:340px;
+    width:250px;
+}
+
+.rowTwo {
+    margin-top:10px;
+}
+
+.rowTwo h2 {
+    font-size:34px;
+    font-family:'poppins';
+    font-weight:900;
+    padding-left:3px;
+}
+.eachBodySub {
+    font-size:20px;
+}
+.un {
+    font-family:'poppins';
+}
+.un h1{
+font-size:40px;
+text-align: center;
+
+}
+
+.unContent p{
+font-size:20px;
+}
+
+.unMission {
+    display:flex;
+    flex-direction:row;
+   
+    justify-content: space-evenly;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:20px;
+}
+.MissionOne {
+    width:450px;
+    height:500px;
+    padding:10px;
+    margin:0;
+    display:flex;
+
+    align-items: top;
+    margin-right:20px;
+}
+
+.MissionOne .left {
+    display:flex;
+    flex-direction:column;
+    
+    min-width:260px;
+}
+
+.MissionOne .right {
+    padding-top:10%;
+}
+.MissionTwo, .MissionThree, .MissionFour {
+    width:206px;
+    margin-right:20px;
+    border-radius:20px;
+}
 }

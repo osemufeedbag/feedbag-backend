@@ -1,0 +1,556 @@
+:root {
+    --primary-color: #49C01F;
+    --secondary-color: #1FC043;
+    --text-color: #131313;
+    --bg-color: #F1FCF3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+}
+
+body {
+    font-family: 'Poppins', 'SF Pro Display', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    width: 100%;
+    background-color: white;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 100px;
+}
+
+.list-container {
+    width: 35%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.list-container a {
+    text-decoration: none;
+    position: relative;
+    width: fit-content;
+}
+
+.list-container a:hover:before {
+    animation: underline 500ms;
+    width: 100%;
+}
+
+.list-container ul li a::before {
+    display: block;
+    content: '';
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: removeUnderline 500ms;
+}
+
+.list-active::before {
+    display: block;
+    content: '';
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+@keyframes underline {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes removeUnderline {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+.list-container a {
+    color: #000;
+}
+
+.list-container ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown {
+    position: absolute;
+    background: white;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    width: max-content;
+    display: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    padding: 24px 48px;
+    border-radius: 16px;
+}
+
+footer {
+    background: var(--text-color);
+    color: white;
+    padding: 2rem 5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.row-1 {
+    display: flex;
+    margin-bottom: 4rem;
+    gap: 10rem;
+    flex-wrap: wrap;
+}
+
+.col-1, .col-2, .col-3 {
+    width: 100%;
+    max-width: 33.33%; /* Keep it responsive */
+}
+
+.col-1 img {
+    width: 100px;
+}
+
+.icons-list {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.icons-list a {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 25%;
+}
+
+.col-2 h2 {
+    font-size: 16px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cont {
+    margin-bottom: 1rem;
+}
+
+.cont a {
+    color: white;
+}
+
+.cont i {
+    color: var(--primary-color);
+    padding-right: 6px;
+}
+
+.col-3 h2 {
+    font-size: 16px;
+}
+
+.downn {
+    display: flex;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.down-text {
+    margin-left: 1rem;
+}
+
+.down-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.down-text p:first-of-type {
+    font-size: 12px;
+}
+
+.row-2 {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+
+.row-2 a {
+    color: white;
+}
+
+.row-3 {
+    margin: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+.mobile-nav {
+    width: 75vw !important;
+    height: 100vh;
+    z-index: 1000;
+    background: white;
+    position: sticky;
+    border-right: solid 1px #ccc;
+    display: none;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+.active {
+    display: block !important;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 20vh;
+}
+
+.mobile-nav button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 2.5rem;
+}
+
+.mobile-nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.search input {
+    padding: 5%;
+    margin: 5%;
+    border-radius: 16px;
+    font-size: 16px;
+    width: 80%;
+    margin-top: 10px;
+    height: 30px;
+    background-color: #EBFFEE;
+    border: none;
+}
+
+input:hover {
+    border: none;
+}
+
+.content {
+    margin-bottom: 7px;
+}
+
+.topPost .left {
+    padding: 3%;
+    background-color: #EBFFEE;
+    margin: 5%;
+    border-radius: 24px;
+}
+
+.topPost h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.first h4 {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.secondd {
+    height: 10px;
+    width: 10px;
+    background-color: #B0B0B0;
+    border-radius: 5px;
+}
+
+.second {
+    color: #B0B0B0;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.second div {
+    margin-left: 3px;
+}
+
+.rightt {
+    background-image: url(FBH-12.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 5%;
+    font-family: 'Poppins';
+    height: 300px;
+    color: white;
+    border-radius: 24px;
+}
+
+.right h6 {
+    padding-top: 140px;
+}
+
+.right h5 {
+    font-size: 15px;
+}
+
+.right p {
+    font-size: 12px;
+}
+
+.recentPost {
+    background-color: #F1F1F1;
+    margin-top: 10px;
+    width: 100%;
+    padding: 4%;
+    padding-bottom: 0;
+}
+
+.eachrecentPost {
+    margin-top: 30px;
+    font-family: 'Poppins';
+    padding-bottom: 5%;
+    margin-left:7%;
+}
+
+.eachrecentPost img {
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+
+    background-position: center;
+    border-radius: 24px;
+}
+
+.eachrecentPost h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eachrecentPost p {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.smallP {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #B0B0B0;
+}
+
+.circle {
+    background-color: #B0B0B0;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.content .second {
+    display:flex;
+    align-items:center;
+}
+
+.cafCommunity {
+    background-color: #49C01F;
+    font-family: 'Poppins';
+    width: 100%;
+    padding: 5%;
+    border-radius:20px;
+}
+
+.cafCommunity .left {
+    background-color: transparent;
+    color: white;
+}
+
+.cafCommunity .left h2 {
+    margin-bottom: 20px;
+}
+
+.cafCommunity button {
+    border: white 1px solid;
+    margin-top: 20px;
+}
+
+.cafCommunity .right img {
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 23px;
+    background-image: none;
+}
+
+@media (min-width: 768px) {
+
+    .search input {
+        width:30%;
+        height:60px;
+        padding:2%;
+        margin-bottom:0;
+    }
+    
+    .topPost {
+        padding:0;
+        margin:0;
+        display:flex;
+        justify-content:start;
+        flex-direction:row;
+        
+    }
+
+    .topPost .down {
+        margin:0;
+        padding:0;
+    }
+
+    .topPost .content {
+        margin:0;
+        padding:0;
+    }
+    .topPost .left {
+        height:auto;
+        width:42%;
+        display:flex;
+        flex-direction:column;
+        
+    }
+    .left h3 {
+        font-size:28px;
+        font-weight:500;
+        margin-bottom:10px;
+    }
+    .content h4 {
+        font-size:20px;
+        font-weight:400;
+    }
+    .second {
+        font-size:14px;
+    }
+
+    .rightt {
+     height:550px;
+     margin-left:0;
+    }
+    .rightt h6 {
+    padding-top:40%;
+    font-size:17px;
+    font-weight:400;
+    }
+
+    .rightt h5 {
+        font-size:22px;
+        font-weight:500;
+        font-size:26px;
+    }
+
+    .rightt p {
+        font-size:20px;
+    }
+
+    .recentPost {
+        margin:0;
+        padding:0;
+    }
+
+    .recentPost h3 {
+        font-size:38px;
+        margin-left:30px;
+    }
+    .rowOne, .rowTwo {
+        display:flex;
+        justify-content: space-around;
+    }
+
+    .eachrecentPost{
+        
+        display:flex;
+        width:30%;
+        flex-direction:column;
+        padding:2%;
+        margin:0;
+    }
+
+    .eachrecentPost img {
+        width:100%;
+        padding:0;
+        margin:0;
+        height:260px;
+        background-size:contain;
+        background-position: center;
+       
+    }
+
+    .cafCommunity {
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:25px;
+        margin-bottom:25px;
+        width:90%;
+        height:auto;
+        display:flex;
+        justify-content: left;
+    }
+
+    .cafCommunity img {
+        width:100%;
+        height:auto;
+    }
+}
