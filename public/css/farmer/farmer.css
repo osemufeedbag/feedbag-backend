@@ -157,6 +157,7 @@ button:active {
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0;
+  margin-bottom:10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -169,6 +170,28 @@ button:active {
   border: 2px solid #1fc043;
 }
 
+.buttons a {
+  text-decoration: none;
+}
+.emaill {
+  background-color: #1fc043;
+  color: white;
+  border: 2px solid #1fc043;
+  width: 200px;
+  height: 60px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.emaill a {
+  color:white;
+}
 .phone_number {
   background-color: white;
   color: #1fc043;
