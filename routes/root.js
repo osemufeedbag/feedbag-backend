@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+router.get('/kyc', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend', 'kyc.html'));
+});
+  
 //Main website starts here
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','index.html'));

@@ -1,7 +1,8 @@
-
+//const path = require('path');
+//const Dotenv = require('dotenv-webpack');
 
 const userStatus = sessionStorage.getItem('UserStatus');
-console.log(document.getElementById("regForm").action = `http://localhost:4000/access/pRegister/${userStatus}`)
+document.getElementById("regForm").action = `http://localhost:4000/access/pRegister/${userStatus}`;
 
 function reset(e) {
         e.preventDefault();
@@ -29,7 +30,5 @@ document.getElementById("submitButton").addEventListener('click', function() {
                 return alert("Business Registration number is not valid");
         } else {
                 document.getElementById("submitButton").type = "submit";
-            }
+        }
 });
-
-

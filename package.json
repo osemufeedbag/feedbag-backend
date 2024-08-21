@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sumsub/websdk": "^2.3.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "connection-string": "^4.4.0",
@@ -18,7 +19,6 @@
     "crypto": "^1.0.1",
     "date-and-time": "^3.4.1",
     "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "feedbag-backend": "file:",
     "jsonwebtoken": "^9.0.2",
@@ -28,5 +28,11 @@
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.4",
     "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^8.1.0",
+    "path-browserify": "^1.0.1",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
   }
 }

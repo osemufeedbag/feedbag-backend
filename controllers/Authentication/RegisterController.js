@@ -1,3 +1,5 @@
+require('dotenv').config();
+const fetch = require('node-fetch');
 const UserModel = require('../../database/dbModel/userModel');
 const allCompanyNamesModel = require('../../database/dbModel/allCompanyNamesModel');
 const bcrypt = require('bcryptjs');
@@ -150,11 +152,11 @@ const UserRegPhone = async (req, res) => {
 
                 newSignup.save()
                 newBusinessSignup.save()
-
                // console.log(newSignup);
               //  console.log(newBusinessSignup);
-                return res.redirect('/successful');
-                
+              
+                return res.redirect('/successful');   
+
             } catch (error) {
                 console.log(error);
             };

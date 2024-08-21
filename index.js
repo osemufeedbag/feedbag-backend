@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const cors = require('cors');
 const express = require('express');
 const app = express();
@@ -40,6 +39,7 @@ connectDB();
 
 //Serve static files
 app.use(express.static(path.join(__dirname, '/public')));
+
 
 // To handle form data
 app.use(express.urlencoded({ limit: '100mb', extended: true}));
@@ -332,11 +332,11 @@ app.get('/getIntImg', async (req, res) => {
 //Iventory image upload ends here
 
 // Protected pages starts here
+
 app.use(verifyJWT);
 app.use('/userProfile',(req, res) => {
     res.sendFile(path.join(__dirname, 'frontend','usersProfile','personalInformation.html'));
 });
-
 
 // Protected pages ends here
 
