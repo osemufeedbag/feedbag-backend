@@ -3,6 +3,7 @@ body {
     background-color: white;
     color: black;
     margin: 0;
+    font-family:'poppins';
     padding: 0;
 }
 
@@ -60,6 +61,10 @@ body {
     height: 30px;
     background-color: #49C01F;
     margin-right: 10px;
+}
+
+.col-1 p, .col-3 p {
+    color:white;
 }
 
 h2 {
