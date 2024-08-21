@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-router.get('/kyc', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','frontend', 'kyc.html'));
-});
   
 //Main website starts here
 router.get('/', (req, res) => {
@@ -29,6 +26,10 @@ router.get('/privacy', (req, res) => {
 
 router.get('/cafToken', (req, res) => {
     res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','CafToken.html'));
+});
+
+router.get('/blog', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','frontend','mainWebsite','blog.html'));
 });
 //Main website ends here
 
