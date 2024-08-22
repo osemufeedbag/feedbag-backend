@@ -267,6 +267,13 @@ button {
     width: 400px;
     height: 45px;
   }
+  .forms {
+  
+    display:flex;
+    width:auto;
+    align-items:center;
+  }
+  
 }
 
 /* Tablet View */
@@ -337,4 +344,5 @@ button {
     font-size:20px;
    
   }
+ 
 }
