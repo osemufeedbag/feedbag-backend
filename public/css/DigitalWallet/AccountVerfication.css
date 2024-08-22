@@ -104,6 +104,7 @@ body {
     width: 270px;
     background-color: #EBFFEE;
     border-radius: 16px;
+    margin-bottom:10px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -211,7 +212,7 @@ body {
         width: 60%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        height:1000px;
+        height:1100px;
     }
 
     .right h1 {
@@ -235,8 +236,8 @@ body {
         padding-right: 30px;
     }
 
-    input {
-        font-size: 300px;
+    input[type="checkbox"]:checked  {
+       background-color: black;
     }
 
     .buttons {
