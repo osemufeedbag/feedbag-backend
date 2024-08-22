@@ -232,6 +232,9 @@ body {
     .identity {
         height: 300px;
     }
+    .downn {
+        display:flex;
+    }
 
     .identity .nin,
     .identity .utility,
