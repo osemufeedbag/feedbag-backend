@@ -138,3 +138,28 @@ textarea {
 .info-item .icon {
     width: 24px;
 }
+
+@media (min-width: 768px) {
+    .section-container {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+        margin-top:30px;
+       
+    }
+
+    .image-container img {
+        width:100%;
+        border-radius:24px;
+    }
+
+    .image-container {
+        width:50%;
+    }
+
+    .section-container-reverse {
+        display:flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    } 
+}
