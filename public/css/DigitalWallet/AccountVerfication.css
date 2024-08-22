@@ -12,6 +12,12 @@ body {
 .left img {
     width: 120px;
 }
+.selfie{
+    display:none;
+}
+.selfiee {
+    display:none;
+}
 
 .left {
     margin-top: 20px;
@@ -162,6 +168,12 @@ body {
     .right h3 {
         font-size: 20px;
     }
+    .selfie{
+        display:none;
+    }
+    .selfiee {
+        display:none;
+    }
 
     .identity .nin,
     .identity .utility,
@@ -191,6 +203,14 @@ body {
     body {
         flex-direction: row;
     }
+
+    .selfie{
+        display:none;
+    }
+    .selfiee {
+        display:none;
+    }
+    
     .left {
         width: 40%;
         display: flex;
