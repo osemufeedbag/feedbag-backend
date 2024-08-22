@@ -38,6 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
         });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('http://localhost:4000/Order/totalSales', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include'
+    })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`); 
+                }
+                return response.json();
+                })
+            .then(data => {
+                console.log("totalSales: " + data)
+               
+                data && data > 0 ? document.getElementById('tsales').innerText = data : document.getElementById('tsales').innerText = "----";
+            })
+            .catch(error => console.error('Error:', error));
+        });
     
         
     
