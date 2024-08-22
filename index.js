@@ -237,8 +237,8 @@ app.get('/getuserProfileImg', async (req, res) => {
 // User profile picture upload and display ends--->
 
 //Inventory image upload starts here
-app.post('/newInt_ImgUpload', upload.single('inventoryImg'), async (req, res) => {
-    console.log(req.file);
+app.post('/newInt_ImgUpload', upload.array('inventoryImg'), async (req, res) => {
+    console.log(req.files);
     //console.log(req.body);
     const cookies = req.headers.cookie;
     const jwtToken = cookies.split("=")[1].split(";")[0];
@@ -268,21 +268,17 @@ app.post('/newInt_ImgUpload', upload.single('inventoryImg'), async (req, res) =>
             'WeightKG': req.body.WeightKG,
             'Quantity': req.body.Quantity,
             'Description': req.body.Description,
-            /*'image1': { 
-                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)).toString('base64'),
-                contentType: req.files[0].mimetype
-            },
-            'image2': { 
-                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)).toString('base64'),
-                contentType: req.files[1].mimetype
-            },
-            'image3': { 
-                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[2].filename)).toString('base64'),
-                contentType: req.files[2].mimetype
-            },*/
-            'image': {
-                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-                contentType: req.file.mimetype
+            'image1': {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
+                contentType: req.files.mimetype
+                },
+            'image2': {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)),
+                contentType: req.files.mimetype
+                },
+            'image3': {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[2].filename)),
+                contentType: req.files.mimetype
                 },
             'Id': Math.trunc((crypto.getRandomValues(count))/1000000)
         });
@@ -295,10 +291,13 @@ app.post('/newInt_ImgUpload', upload.single('inventoryImg'), async (req, res) =>
             'Status':  "Inventory updated."
         });
         await inventoryActivitylog.save();
-            fs.unlink(path.join(__dirname + '/uploads/' + req.file.filename), (err) => {
+        req.files.forEach(function (file) {
+            fs.unlink(path.join(__dirname + '/uploads/' + file.filename), (err) => {
                 if (err) throw err;
                 //console.log('Image deleted');
               });
+        })
+            
         console.log("All images deleted")
         //res.redirect('/userProfile');
         res.status(200).json({ success: true, message: 'Inventory updated and images processed' });

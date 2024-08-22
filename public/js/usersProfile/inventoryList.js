@@ -61,11 +61,11 @@ async function updateInventoryList() {
                 //console.log(item.image1.data);
                 const eachInventory = document.createElement('div');
                 eachInventory.classList.add('eachInventory');
-                const imgSrc = `data:${item.image.contentType};base64,${item.image.data}`;
+                //const imgSrc = `data:${item.image.contentType};base64,${item.image.data}`;
                 //console.log(imgSrc);
                 eachInventory.innerHTML = `
                     <div class="itemName">
-                        <div><img src= "${imgSrc}" alt=" "></div>
+                        
                         <div><h4>${item.Name}</h4></div>
                     </div>
                     <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
@@ -108,15 +108,14 @@ document.getElementById('allitems').addEventListener('click', async () => {
 
             // Loop through the fetched data and create new rows
             data.forEach(item => {
-                console.log(item.image.data);
+                //console.log(item.image.data);
                 const eachInventory = document.createElement('div');
                 eachInventory.classList.add('eachInventory');
 
-                const imgSrc = `data:${item.image.contentType};base64,${item.image.data}`;
+                //const imgSrc = `data:${item.image.contentType};base64,${item.image.data}`;
 
                 eachInventory.innerHTML = `
                     <div class="itemName">
-                        <div><img src="${imgSrc}" alt=""></div>
                         <div><h4>${item.Name}</h4></div>
                     </div>
                     <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
@@ -126,7 +125,7 @@ document.getElementById('allitems').addEventListener('click', async () => {
                 
                 // Append the new row to the table
                 inventoryList.appendChild(eachInventory);
-            })
+            });
         });
     } catch (error) {
         console.error('Error:', error);
@@ -161,7 +160,7 @@ document.getElementById('outofstock').addEventListener('click', async () => {
                 
                 eachInventory.innerHTML = `
                     <div class="itemName">
-                        <div><img src="../../img/farmer/agrihub farmer.png" alt=" "></div>
+                        
                         <div><h4>${item.Name}</h4></div>
                     </div>
                     <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
@@ -206,7 +205,7 @@ document.getElementById('lowstock').addEventListener('click', async () => {
                 
                 eachInventory.innerHTML = `
                     <div class="itemName">
-                        <div><img src=${item.image1} alt=" "></div>
+                        
                         <div><h4>${item.Name}</h4></div>
                     </div>
                     <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
@@ -224,57 +223,28 @@ document.getElementById('lowstock').addEventListener('click', async () => {
 });
 
 //Inventory search function starts here
-document.getElementById('searchinventory').addEventListener('change', async (event) => {
-        const searchTerm = event.target.value.trim();
-        console.log(searchTerm);
+const sh = document.querySelector('.inventorySearch input');
 
-            try {
-                const response = await fetch(`https://localhost:4000/Inventory/searchItem/${searchTerm}`, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'include'
-                })
+sh.addEventListener('input', () => {
+    const inList = document.querySelectorAll('.inventoryBody .inventoryList .eachInventory');
+    const searchInput = sh.value.toLowerCase(); // Convert input to lowercase for case-insensitive search
 
-                .then(async response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`); 
-                    }
-                    return response.json();
-                    })
-                .then(data => {
-                    const inventoryList = document.querySelector('.inventoryList');
-                
-                    // Clear any existing rows
-                    inventoryList.innerHTML = '';
+    inList.forEach(item => {
+        const listedItems = item.textContent.toLowerCase(); // Convert content to lowercase
+
+        // Check if the item contains the search input
+        const matchFound = listedItems.includes(searchInput);
         
-                    // Loop through the fetched data and create new rows
-                    data.forEach(item => {
-                        //console.log(item);
-                        const eachInventory = document.createElement('div');
-                        eachInventory.classList.add('eachInventory');
-                        
-                        eachInventory.innerHTML = `
-                            <div class="itemName">
-                                <div><img src="../../img/farmer/agrihub farmer.png" alt=" "></div>
-                                <div><h4>${item.Name}</h4></div>
-                            </div>
-                            <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
-                            <div class="itemPrice"><h3>${item.Price.toLocaleString()}</h3></div>
-                            <div class="itemQuantity"><h3>${item.Quantity}</h3></div>
-                        `;
-                        
-                        // Append the new row to the table
-                        inventoryList.appendChild(eachInventory);
-                    })
-                });
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        });
-//Inventory search function ends here
+        if (matchFound) {
+            item.classList.remove('hide'); // Show the item if it matches
+        } else {
+            item.classList.add('hide'); // Hide the item if it doesn't match
+        }
+    });
+});
 
 
-//Inventory image upload start
+    
 
+    
 
-//<div><img src="../../img/farmer/agrihub farmer.png" alt=" "></div>
