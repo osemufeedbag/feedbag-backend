@@ -243,6 +243,13 @@ document.getElementById("BInfo").onclick = () => {
     document.getElementById("componentSix").style.display = "none";
 }
 
+document.getElementById("cancelEdit").onclick = ()=> {
+    event.preventDefault()
+    document.getElementsByClassName("edit")[0].style.display = "none";
+    document.getElementsByClassName("lapComp")[0].style.filter = "blur(0px)";
+    document.getElementsByClassName("lapComp")[0].style.opacity = "1";
+}
+
 document.getElementById("saveEdit").onclick = (event) => {
     event.preventDefault();
     document.getElementsByClassName("edit")[0].style.display = "none";
