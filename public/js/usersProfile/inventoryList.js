@@ -50,7 +50,7 @@ async function updateInventoryList() {
             return response.json();
             })
         .then(data => {
-            console.log(data)
+            //console.log(data)
             const inventoryList = document.querySelector('.inventoryList');
         
             // Clear any existing rows

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSDK CDN Example</title>
+</head>
+<body>
+    <script src="https://static.sumsub.com/idensic/static/sns-websdk-builder.js"></script>
+    <div id="sumsub-websdk-container"></div>
+
+    <script>
+        async function launchWebSdk(accessToken, applicantEmail, applicantPhone) {
+            let snsWebSdkInstance = snsWebSdk
+                .init(accessToken, getNewAccessToken)
+                .withConf({
+                    lang: "en",
+                    email: applicantEmail,
+                    phone: applicantPhone,
+                })
+                .withOptions({ addViewportTag: false, adaptIframeHeight: true })
+                .on("idCheck.onStepCompleted", (payload) => {
+                    console.log("onStepCompleted", payload);
+                })
+                .on("idCheck.onError", (error) => {
+                    console.log("onError", error);
+                })
+                .onMessage((type, payload) => {
+                    console.log("onMessage", type, payload);
+                })
+                .build();
+            snsWebSdkInstance.launch("#sumsub-websdk-container");
+        }
+
+        async function getAccessToken() {
+    const response = await fetch('http://localhost:4000/access/accessToken');
+    
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error fetching access token:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.token;  // Assuming the token is in the `token` property
+}
+
+
+
+
+        async function startKYCProcess() {
+            const accessToken = await getAccessToken();
+            const applicantEmail = 'applicant@example.com'; // Replace with actual applicant email
+            const applicantPhone = '+1234567890'; // Replace with actual applicant phone
+
+            launchWebSdk(accessToken, applicantEmail, applicantPhone);
+        }
+
+        startKYCProcess();
+    </script>
+</body>
+</html>

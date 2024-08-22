@@ -71,7 +71,9 @@ const userSchema = new Schema({
             'AdsSettings': {type: Boolean}
         },
 
-        'RefreshToken': {type: String, require: false}
+        'RefreshToken': {type: String, require: false},
+        'applicant_KYCId' :{type: String, require: false},
+        'KYCStatus': {typr: String, require: false}
 });
 
 module.exports = mongoose.model('userdb', userSchema);

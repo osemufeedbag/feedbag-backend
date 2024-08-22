@@ -111,7 +111,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
         .then(data => {
             //console.log(data)
             if (data.image) {
-                console.log(data.image.data);
+                //console.log(data.image.data);
                 const imgSrc = `data:${data.image.contentType};base64,${data.image.data}`;
                 document.querySelector('.pic img').src = imgSrc;
             }
@@ -120,4 +120,17 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
         .catch(error => console.error('Error:', error));
     }
 //Profile picture upload ends here
+
+document.getElementById('dataDelete').addEventListener('click', (event) => {
+        if(confirm("Are you sure you want to delete your account?")){
+            fetch('http://localhost:4000/UserProfile/deletAccount', {
+                method: 'DELETE',
+                credentials: 'include',
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+        
+});
 

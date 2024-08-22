@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@sumsub/websdk": "^2.3.4",
+    "axios": "^1.7.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "connection-string": "^4.4.0",
