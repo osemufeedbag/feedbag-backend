@@ -2,6 +2,15 @@ window.onload((e) => {
     document.getElementById('Dashboard').click();
 });
 
+document.getElementById('od').addEventListener('click', () => {
+    document.getElementById('orderHistory').click();
+})
+
+document.getElementById('H&S').addEventListener('click', () => {
+    document.getElementById('contactSupport').click();
+})
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:4000/UserProfile/personalInfo', {
