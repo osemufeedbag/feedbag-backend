@@ -141,7 +141,9 @@ const GetUserAllItems =  async (req, res) => {
             const ListuserInventory = await inventoryModel.find({'UserId': Listuser._id}).exec()
             if(ListuserInventory) {
                 ListuserInventory.forEach(item => {
-                    item.image.data = item.image.data.toString('base64');
+                    item.image1.data = item.image1.data.toString('base64');
+                    item.image2.data = item.image2.data.toString('base64');
+                    item.image1.data = item.image3.data.toString('base64');
                 })
             }
             
