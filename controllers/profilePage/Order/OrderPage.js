@@ -121,12 +121,15 @@ const TotalOrder = async (req, res) => {
 };
 
 const TotalSales = async (req, res) => {
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
+    //console.log(jwtToken);
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
 
-    const User = await UserModel.findOne({RefreshToken: refreshToken}).exec()
+    const User = await UserModel.findOne({RefreshToken: jwtToken}).exec()
     const filter = User.PersonalInfo.User;
     const formatter = new Intl.NumberFormat();
 
@@ -134,7 +137,7 @@ const TotalSales = async (req, res) => {
         case "Farmer":
             var totalamount = 0;
             const farmerTotalOrder = await OrderModel.find({OrderReceiverId: User._id}).exec()
-            if(!farmerTotalOrder) return res.sendStatus(401);
+            if(!farmerTotalOrder) return " "; //return res.sendStatus(401);
             farmerTotalOrder.forEach(order => {
                 totalamount += order.Order.Amount;
             });

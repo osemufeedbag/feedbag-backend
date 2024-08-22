@@ -15,7 +15,7 @@ const UserRegEmail = async (req, res) => {
             const FarmerDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
             /*const name = req.body.Fullname;
             const firstname = name.split(' ')[0];*/
-            if (FarmerUser) return res.sendStatus(409);
+            if (FarmerUser) return res.redirect("/EmailReg");
             if (FarmerDuplicateBusinessName) return res.sendStatus(409);
 
             try {
@@ -53,7 +53,7 @@ const UserRegEmail = async (req, res) => {
             const AggregatorUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
             const AggregatorDuplicateBusinessName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
 
-            if (AggregatorUser) return res.sendStatus(409);
+            if (AggregatorUser) return res.redirect("/EmailReg");
             if (AggregatorDuplicateBusinessName) return res.sendStatus(409);
 
             try {
@@ -91,7 +91,7 @@ const UserRegEmail = async (req, res) => {
         const ConsumerUser = await UserModel.findOne({'PersonalInfo.Email': req.body.Email}).exec();
         const ConsumerUserName = await allCompanyNamesModel.findOne({'BusinessName': req.body.BusinessName}).exec();
 
-            if (ConsumerUser) return res.sendStatus(409);
+            if (ConsumerUser) return res.redirect('/signUpCon');
             if (ConsumerUserName) return res.sendStatus(409);
 
             try {
