@@ -10,6 +10,14 @@ document.getElementById('H&S').addEventListener('click', () => {
     document.getElementById('contactSupport').click();
 })
 
+document.getElementById('profileVis').addEventListener('click', () => {
+    document.getElementById('profileVis').innerText == "only me" ? document.getElementById('profileVis').innerText = "everyone" : document.getElementById('profileVis').innerText = "only me" 
+})
+
+document.getElementById('activityVis').addEventListener('click', () => {
+    document.getElementById('activityVis').innerText == "only me" ? document.getElementById('activityVis').innerText = "everyone" : document.getElementById('activityVis').innerText = "only me" 
+})
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -131,7 +139,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
 //Profile picture upload ends here
 
 document.getElementById('dataDelete').addEventListener('click', (event) => {
-        if(confirm("Are you sure you want to delete your account?")){
+    event.preventDefault();
+        if(confirm("Are you sure you want to delete your account?") == true){
             fetch('http://localhost:4000/UserProfile/deletAccount', {
                 method: 'DELETE',
                 credentials: 'include',
@@ -139,7 +148,12 @@ document.getElementById('dataDelete').addEventListener('click', (event) => {
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
+        } else {
+            document.getElementById('D&P').click();
         }
-        
 });
 
+document.getElementById('nin').addEventListener('click', (event) => {
+    event.preventDefault();
+    document.getElementById('ninimage').click();
+});
