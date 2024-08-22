@@ -36,7 +36,7 @@
                     <!--<div><img src="../../img/usersProfile/userImageDemo.png" alt=""></div>--> <!--Image should be loaded from userdb not from public img-->
                     <div><img src=" " alt=""></div>
                     <div><a href="" id="iconUpload"><i class="bi bi-pencil-square"></i></a></div>
-                    <input type="file" name="userProfileImg" id="imageInput" accept="image/*" value="" style="display:none">
+                    <input type="file" name="userProfileImg" id="ninimage" accept="image/*" value="" style="display:none">
                 </div>
             <div class="name">
                 <div class="namee">
@@ -74,7 +74,7 @@
         
             <button class="comp" id="dataAndPrivacy">
                 <div><i class="bi bi-shield-fill-exclamation"></i></div>
-                <h3>Data & Privacy</h3>
+                <h3 id="D&P">Data & Privacy</h3>
             </button>
         
             <button class="comp" id="settings">
@@ -874,7 +874,7 @@
 
             <div class="dataAndPrivacy">
                 <div><h2>Data & Privacy</h2></div>
-                <div><input type="text" placeholder="search"></div>
+                <!--<div><input type="text" placeholder="search"></div>-->
 
                 <div class="privacySetting">
                     <div><h2>Privacy Setting</h2></div>
@@ -885,7 +885,7 @@
                         <div class="profileVisibilityComponent">
                             <div><i class="bi bi-eye-fill"></i></div>
                             <div><p>Who can see your profile</p></div>
-                            <div><button>everyone</button></div>
+                            <div><a><button id="profileVis">everyone</button></a></div>
                         </div>
                     </div>
 
@@ -894,7 +894,7 @@
                         <div class="activityVisibilityComponent">
                             <div><i class="bi bi-eye-fill"></i></div>
                             <div><p>Control the visibility of your activities such as orders, reviews and post</p></div>
-                            <div><button>everyone</button></div>
+                            <div><button id="activityVis">everyone</button></div>
                         </div>
                     </div>
                 </div>
@@ -950,7 +950,7 @@
 
                 </div>
 
-                <div class="cookiePreferences"> 
+                <!--<div class="cookiePreferences"> 
                     <div><h4>Cookie Preferences</h4></div>
                     <div class="secondRow">
                         <div><i class="bi bi-cookie"></i></div>
@@ -963,7 +963,7 @@
 
                     <div><a href="Also read our cookie policy"></a></div>
 
-                </div>
+                </div>-->
             </div>
 
             <div class="legalCompliance">
@@ -979,7 +979,7 @@
 
         <div class="setting">
             <div><h2>Settings</h2></div>
-            <div><input type="text" placeholder="search"></div>
+            <!--<div><input type="text" placeholder="search"></div>-->
             <div class="notificationSettings">
                 <div><h3>Notification Settings</h3></div>
 
@@ -1070,7 +1070,7 @@
 
         <div class="mainhelpAndSupport">
             <div><h2>Help and Support</h2></div>
-            <div><input type="text" placeholder="search"></div>
+            <!--<div><input type="text" placeholder="search"></div>-->
             <div class="buttons">
                 <div class="contactSupportButton"><button id="contactSupport">Contact Support</button></div>
                 <div class="FAQButton"><button id="FAQ">FAQ</button></div>
