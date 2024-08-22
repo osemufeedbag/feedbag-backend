@@ -1819,13 +1819,14 @@ color:#49C01F;
         display:none;
     }
 
+  
     .personalInformation {
         margin-top:0px;
         padding-top:20px;
-        margin-left:50px;
         border: none; 
-        width:110%;
-        
+        width:100%;    
+        padding-left:0;
+        margin-left:0;
         background-color:white;
         border-radius:24px;
         margin-bottom:40px;
@@ -1891,10 +1892,13 @@ color:#49C01F;
 
     .farmInformation {
         padding-top:20px;
-        margin-left:50px;
+       
         margin-top:0;
         border: none; 
-        width:110%;
+        width:100%;    
+        padding-left:0;
+        margin-left:0;
+        
         height:350px;
         background-color:white;
         border-radius:24px;
@@ -1921,10 +1925,12 @@ color:#49C01F;
 
     .billingInformation {
         padding-top:20px;
-        margin-left:50px;
+        
         margin-top:0;
         border: none; 
-        width:110%;
+        width:100%;    
+        padding-left:0;
+        margin-left:0;
         height:250px;
         background-color:white;
         border-radius:24px;
@@ -1943,8 +1949,9 @@ color:#49C01F;
     .Orders{
         margin-top:30px;
         width:120%;
-        margin-left:30px;
-        padding-left:50px;
+        margin-left:0;
+        padding-left:0;
+        
     }
 
     .Orders h1 {
@@ -1971,7 +1978,7 @@ color:#49C01F;
     }
 
     .orderListHead {
-        width:100%;
+        width:90%;
     }
 
     .orderListHead p {
@@ -1981,7 +1988,7 @@ color:#49C01F;
     }
 
     .eachOrderList{
-        width:100%;
+        width:90%;
     }
 
     .eachOrderList p  {
@@ -2011,7 +2018,7 @@ color:#49C01F;
 
    .orderNav {
     border:none;
-    width:100%;
+    width:80%;
    }
 
    .orderPath {
@@ -2023,9 +2030,12 @@ color:#49C01F;
    }
    .inventoryBody {
     width:auto;
+    overflow: hidden;
    }
    .inventory {
     margin-top:30px;
+    width:80%;
+  
    }
    .inventoryList {
     width:120%;
@@ -2035,6 +2045,8 @@ color:#49C01F;
     display:flex;
     flex-direction:row;
     justify-content: space-between;
+    
+    width:80%;
    }
    .inventoryButtons button {
     width:130px;
@@ -2075,7 +2087,7 @@ color:#49C01F;
    }
 
    .inventoryHead, .eachInventory {
-  width: 1000px;
+  width: 80%;
   justify-content: space-between;
    }
 
@@ -2152,7 +2164,7 @@ color:#49C01F;
     height:60px;
      border-radius:10px;
      font-size:28px;
-     width:900px;
+     width:80%;
 }
 
 .all button {
@@ -2178,7 +2190,7 @@ color:#49C01F;
 
 .dataAndPrivacy {
     border:none;
-    width:130%;
+    width:100%;
 }
 .dataAndPrivacy h2{
 font-size:28px;
@@ -2190,9 +2202,7 @@ font-weight:600;
     width:70%;
     height:55px;
 }
-.legalComponent {
-    
-}
+
 .profileVisibilityComponent {
     display:flex;
     justify-content: start;
@@ -2200,13 +2210,14 @@ font-weight:600;
 .activityVisibilityComponent {
     display:flex;
     justify-content: start;
+    
 }
 
 .profileVisibilityComponent button{
     margin-left:440px;
 }
 .activityVisibilityComponent button {
-    margin-left:150px;
+    margin-left:10px;
 }
 
 .profileVisibility h4, .activityVisibility h4, .downloadData h4, .deleteData h4, .marketPreferences h4, .cookiePreferences h4, .legalComponent h4{
@@ -2254,11 +2265,11 @@ font-size:16px;
 }
 
 .setting {
-    width:130%;
+    width:100%;
 }
 
-.setting h2 {
-    font-size:40px;
+.setting h2, .adsSetting h2, .recentActivities h2, .notifactionSound h2, .language h2 {
+    font-size:25px;
 }
 
 .setting input {
@@ -2266,7 +2277,7 @@ font-size:16px;
 }
 
 .setting h3 {
-    font-size:25px;
+    font-size:20px;
 }
 .setting p {
     font-size:20px;
@@ -2281,11 +2292,11 @@ font-size:16px;
     height:50px;
 }
 .languageComponent button {
-    margin-left:400px;
+    margin-left:300px;
 }
 .mainhelpAndSupport{
     border:none;
-    width:130%;
+    width:100%;
 }
 .mainhelpAndSupport h2{
 font-size:35px;
@@ -2329,7 +2340,7 @@ font-size:35px;
 }
 
 .trackOrders {
-    border:none;
+    width:80%;
 }
 
 .trackOrders i{

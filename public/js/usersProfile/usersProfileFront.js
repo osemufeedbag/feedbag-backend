@@ -150,6 +150,7 @@ function orders() {
     hideAllSections();
     document.getElementsByClassName("lapComp")[0].style.display = "block";
     document.getElementsByClassName("Orders")[0].style.display = "block";
+    document.getElementsByClassName("trackOrders")[0].style.display = "none"
     updateNavStyles(orderEl);
 }
 
