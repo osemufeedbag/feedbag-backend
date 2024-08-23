@@ -13,20 +13,32 @@ body {
   }
 
   .forgetPassword {
-    display:block;
+    display:none;
     position:absolute;
     margin-top:20%;
-    background-color:black;
+    background-color:#EBFFEE;
     margin-left:40%;
-    color:white;
+    color:black;
     height:50%;
-    display:flex;
+    width:50%;
     flex-direction:column;
+    align-items:center;
     justify-content:space-around;
-
+    border-radius:16px;
   }
   .forgetPassword input {
-    border:1px solid white;
+    border:1px solid black;
+  }
+
+  .forgetPassword button {
+    width:auto;
+    padding:10px;
+    align-items:center;
+    margin-left:20%;
+    font-size:15px;
+    margin-top:10px;
+    border-radius:5px;
+    width:130px;
   }
 
 
