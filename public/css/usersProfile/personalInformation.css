@@ -1760,15 +1760,22 @@ color:#49C01F;
     margin-left:10%;
 }
 .edit button {
-    width:30%;
+    width:130px;
     margin-left: 35%;
     height:50px;
     margin-top:10px;
+    margin-right:20px;
     border:none;
     font-family: 'poppins';
     border-radius:5px;
     background-color: #1FC043;
     color:white;
+}
+
+.editButtons {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
 }
 
 .menu button {
