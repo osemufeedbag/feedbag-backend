@@ -1,43 +1,43 @@
 let hasSelected = false;
-        const identitySection = document.querySelector('.identity');
-        const ninButtonEl = document.querySelectorAll('.ninContinue');
-        const utiButtonEl = document.querySelectorAll('.utiContinue');
-        const idButtonEl = document.querySelectorAll('.idContinue');
 
-        ninButtonEl.forEach(button => {
-            button.addEventListener('click', () => {
-                if (!hasSelected) {
-                    hasSelected = true;
-                    document.getElementsByClassName("id").style.display = 'none';
-                    document.getElementsByClassName("utility").style.display = 'none';
-                    document.getElementsByClassName("selfiee").style.display = 'block';
-                    document.getElementsByClassName("selfie").style.display = 'block';
-                }
-            });
-        });
+document.querySelectorAll('.kycContinue').forEach(button => {
+    button.addEventListener('click', () => {
+        if (!hasSelected) {
+            hasSelected = true;
+           /* document.querySelector(".id").style.display = 'none';
+            document.querySelector(".utility").style.display = 'none';
+            */
+           document.querySelector(".identity").style.display = "none"
+            document.querySelector(".selfiee").style.display = 'block';
+            document.querySelector(".selfie").style.display = 'block';
+        }
+    });
+});
 
-        
-        utiButtonEl.forEach(button => {
-            button.addEventListener('click', () => {
-                if (!hasSelected) {
-                    hasSelected = true;
-                    document.getElementsByClassName("id").style.display = 'none';
-                    document.getElementsByClassName("nin").style.display = 'none';
-                    document.getElementsByClassName("selfiee").style.display = 'block';
-                    document.getElementsByClassName("selfie").style.display = 'block';
-                }
-            });
-        });
+document.querySelectorAll('.utiContinue').forEach(button => {
+    button.addEventListener('click', () => {
+        if (!hasSelected) {
+            hasSelected = true;
+          /*  document.querySelector(".id").style.display = 'none';
+            document.querySelector(".nin").style.display = 'none';
+            */
+            document.querySelector(".identity").style.display = "none"
+            document.querySelector(".selfiee").style.display = 'block';
+            document.querySelector(".selfie").style.display = 'block';
+        }
+    });
+});
 
-        
-        idButtonEl.forEach(button => {
-            button.addEventListener('click', () => {
-                if (!hasSelected) {
-                    hasSelected = true;
-                    document.getElementsByClassName("utility").style.display = 'none';
-                    document.getElementsByClassName("nin").style.display = 'none';
-                    document.getElementsByClassName("selfiee").style.display = 'block';
-                    document.getElementsByClassName("selfie").style.display = 'block';
-                }
-            });
-        });
+document.querySelectorAll('.idContinue').forEach(button => {
+    button.addEventListener('click', () => {
+        if (!hasSelected) {
+            hasSelected = true;
+           /* document.querySelector(".utility").style.display = 'none';
+            document.querySelector(".nin").style.display = 'none';
+            */
+            document.querySelector(".identity").style.display = "none"
+            document.querySelector(".selfiee").style.display = 'block';
+            document.querySelector(".selfie").style.display = 'block';
+        }
+    });
+});
