@@ -279,7 +279,7 @@ blockquote {
 }
 
 .headline-nav {
-    display: flex;
+    display: none; /*flexput the dislay to none*/
     gap: 1rem;
     position: relative;
     z-index: 2;
