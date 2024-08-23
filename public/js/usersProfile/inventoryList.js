@@ -58,14 +58,13 @@ async function updateInventoryList() {
 
             // Loop through the fetched data and create new rows
             data.forEach(item => {
-                //console.log(item.image1.data);
+                //console.log(item);
                 const eachInventory = document.createElement('div');
                 eachInventory.classList.add('eachInventory');
                 //const imgSrc = `data:${item.image.contentType};base64,${item.image.data}`;
                 //console.log(imgSrc);
                 eachInventory.innerHTML = `
                     <div class="itemName">
-                        
                         <div><h4>${item.Name}</h4></div>
                     </div>
                     <div class="itemDate"><h3>${new Date(item.DateAdded).toLocaleDateString()}</h3></div>
@@ -199,7 +198,7 @@ document.getElementById('lowstock').addEventListener('click', async () => {
 
             // Loop through the fetched data and create new rows
             data.forEach(item => {
-                //console.log(item);
+                console.log(item.Quantity);
                 const eachInventory = document.createElement('div');
                 eachInventory.classList.add('eachInventory');
                 
