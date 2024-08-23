@@ -16,7 +16,7 @@ body {
     display:none;
     position:absolute;
     margin-top:20%;
-    background-color:#EBFFEE;
+    background-color:white;
     margin-left:40%;
     color:black;
     height:50%;
@@ -28,6 +28,10 @@ body {
   }
   .forgetPassword input {
     border:1px solid black;
+    height:60px;
+  }
+  .forgetPassword h3 {
+    text-align:center;
   }
 
   .forgetPassword button {
