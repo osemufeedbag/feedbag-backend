@@ -31,6 +31,38 @@ dataAndPrivacyEl.onclick = dataAndPrivacy
 let menuEl = document.getElementById("menu")
 menuEl.onclick = menu
 
+
+const faqButtons = document.querySelectorAll('.faqButton');
+
+faqButtons.forEach(button => {
+    button.onclick = () => {
+        const questionBottom = button.closest('.eachQuestion').querySelector('.eachQuestionBottom');
+        const icon = button.querySelector('i');
+
+        if (questionBottom.style.maxHeight && questionBottom.style.maxHeight !== '0px') {
+            
+            questionBottom.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+            
+            
+            setTimeout(() => {
+                questionBottom.style.padding = '0';
+            }, 500); 
+        } else {
+            
+            questionBottom.style.maxHeight = questionBottom.scrollHeight + '2px';
+            icon.style.transform = 'rotate(45deg)';
+
+
+            questionBottom.style.padding = '10px 0'; // Adjust padding as needed
+        }
+
+    
+        questionBottom.style.transition = 'max-height 0.5s ease-in-out, padding 0.5s ease-in-out';
+        icon.style.transition = 'transform 0.3s ease-in-out';
+    };
+});
+
 let dashBoardEl = document.getElementById("Dashboard")
 dashBoardEl.onclick = () => {
     document.getElementsByClassName("personalPersonalInformation")[0].style.display = "none"
@@ -109,6 +141,8 @@ function notifications() {
     document.getElementsByClassName("notifications")[0].style.display = "block";
     updateNavStyles(notificationsEl);
 }
+
+
 
 function help() {
     hideAllSections();

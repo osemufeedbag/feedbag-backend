@@ -1273,6 +1273,7 @@ margin-left:20px;
     border:none;
     padding-left:5%;
     padding-right:5%;
+    font-family:'poppins';
 }
 .mainhelpAndSupport input {
     width:80%;
@@ -1303,6 +1304,14 @@ margin-left:20px;
   border:none;
   color:black;
   border-radius:16px;
+}
+.eachQuestion p {
+    font-weight:600;
+
+}
+.eachQuestion button {
+    border:none;
+    background-color: transparent;
 }
 .FAQButton button:hover {
     background-color: #49C01F;
@@ -1386,6 +1395,7 @@ justify-content: space-around;
     padding:5%;
     margin-bottom:10px;
     display:flex;
+    flex-direction:column;
     justify-content: space-between;
 }
 
@@ -1396,6 +1406,30 @@ justify-content: space-around;
     margin-left:5px;
 }
 
+/*ANIMATION*/
+
+
+
+
+.eachQuestionTop {
+    display:flex;
+    justify-content: space-between;
+  
+    width:100%;
+}
+
+.eachQuestionBottom {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.5s ease-in-out; 
+    display: block; 
+    padding: 0; 
+}
+
+.eachQuestionBottom p{
+    font-weight:400;
+    padding-top:10px;
+}
 .dashboard {
     border:1px solid red;
     padding-right:5%;
