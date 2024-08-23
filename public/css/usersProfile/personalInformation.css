@@ -725,7 +725,7 @@ margin-top:20px;
     border:none;
 }
 
-.inventoryHead{
+.inventoryHead, .eachInventory{
     display:flex;
     flex-direction: row;
     align-items:center;
@@ -753,7 +753,7 @@ margin-top:20px;
 }
 .inventoryList {
     width:100%;
-}
+}/*
 .eachInventory {
     display:flex;
     flex-direction:row;
@@ -762,7 +762,7 @@ margin-top:20px;
     align-items: center;
     border:1px solid red;
 }
-
+*/
 .headName, .itemName {
     border:none;
     width:250px;
@@ -2122,7 +2122,7 @@ color:#49C01F;
    }
 
    .inventoryHead, .eachInventory {
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
    }
 

@@ -236,6 +236,8 @@ document.getElementById("PInfo").onclick = () => {
     document.getElementsByClassName("edit")[0].style.display = "flex";
     document.getElementsByClassName("lapComp")[0].style.filter = "blur(8px)";
     document.getElementsByClassName("lapComp")[0].style.opacity = "0.8";
+    document.getElementsByClassName("dashNav")[0].style.filter = "blur(8px)";
+    document.getElementsByClassName("dashNav")[0].style.opacity = "0.8";
 
     document.getElementById("labelOne").innerHTML = "Full Name";
     document.getElementById("labelTwo").innerHTML = "Country";
@@ -251,6 +253,8 @@ document.getElementById("FInfo").onclick = () => {
     document.getElementsByClassName("edit")[0].style.display = "flex";
     document.getElementsByClassName("lapComp")[0].style.filter = "blur(8px)";
     document.getElementsByClassName("lapComp")[0].style.opacity = "0.8";
+    document.getElementsByClassName("dashNav")[0].style.filter = "blur(8px)";
+    document.getElementsByClassName("dashNav")[0].style.opacity = "0.8";
 
     document.getElementById("labelOne").innerHTML = "Business Name";
     document.getElementById("labelTwo").innerHTML = "Postal Code";
@@ -267,6 +271,9 @@ document.getElementById("BInfo").onclick = () => {
     document.getElementsByClassName("edit")[0].style.display = "flex";
     document.getElementsByClassName("lapComp")[0].style.filter = "blur(8px)";
     document.getElementsByClassName("lapComp")[0].style.opacity = "0.8";
+    document.getElementsByClassName("dashNav")[0].style.filter = "blur(8px)";
+    document.getElementsByClassName("dashNav")[0].style.opacity = "0.8";
+
 
     document.getElementById("labelOne").innerHTML = "Card Holder";
     document.getElementById("labelTwo").innerHTML = "Payment Method";
@@ -282,6 +289,8 @@ document.getElementById("cancelEdit").onclick = ()=> {
     document.getElementsByClassName("edit")[0].style.display = "none";
     document.getElementsByClassName("lapComp")[0].style.filter = "blur(0px)";
     document.getElementsByClassName("lapComp")[0].style.opacity = "1";
+    document.getElementsByClassName("dashNav")[0].style.filter = "blur(0px)";
+    document.getElementsByClassName("dashNav")[0].style.opacity = "1";
 }
 
 document.getElementById("saveEdit").onclick = (event) => {
@@ -289,6 +298,9 @@ document.getElementById("saveEdit").onclick = (event) => {
     document.getElementsByClassName("edit")[0].style.display = "none";
     document.getElementsByClassName("lapComp")[0].style.filter = "blur(0px)";
     document.getElementsByClassName("lapComp")[0].style.opacity = "1";
+    document.getElementsByClassName("dashNav")[0].style.filter = "blur(0px)";
+    document.getElementsByClassName("dashNav")[0].style.opacity = "1";
+}
     
 
     if (isEditingPersonalInfo) {
@@ -321,7 +333,6 @@ document.getElementById("saveEdit").onclick = (event) => {
 
         clearInputs();
     }
-}
 
 
 function clearInputs() {
