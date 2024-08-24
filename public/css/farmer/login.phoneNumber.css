@@ -252,7 +252,7 @@ body {
   
     .right {
       width: 60%;
-      height: auto;
+      height: 120%;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
