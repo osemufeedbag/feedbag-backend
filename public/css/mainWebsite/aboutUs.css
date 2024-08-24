@@ -109,6 +109,7 @@ idk {
     display:flex;
     flex-direction:column;
     color:white;
+   
 }
 
 .unMission a {
@@ -117,27 +118,34 @@ idk {
 .MissionOne {
     background-color:#E6002F;
     border-radius:16px;
-    padding:5%;
-    margin-right:10px;
+    padding:1%;
+   
+    width:20%
 }
 .MissionTwo {
     background-color: #E6A308;
     border-radius:16px;
-    padding:5%;
-    margin-right:10px;
+    padding:1%;
+    
+    width:20%
 }
 .MissionThree {
     background-color:#A2003D;
     border-radius:16px;
-    padding:5%;
-    margin-right:10px;
+    padding:1%;
+    
+    width:20%
 }
 .MissionFour {
     background-color: 
     #CA8802;
     border-radius:16px;
-    padding:5%;
-    margin-right:10px;
+    padding:1%;
+   
+    width:20%
+}
+.unMission img {
+    width:100%;
 }
 
 @media (min-width: 768px) {
@@ -231,27 +239,18 @@ font-size:20px;
 .unMission {
     display:flex;
     flex-direction:row;
+    justify-content: space-between;
    
-    justify-content: space-evenly;
-    margin-left:15%;
-    margin-right:15%;
     margin-top:20px;
 }
 
 
-.MissionOne .left {
-    display:flex;
-    flex-direction:column;
-    
-    min-width:260px;
-}
 
-.MissionOne .right {
-    padding-top:10%;
-}
+
+
 .MissionOne .MissionTwo, .MissionThree, .MissionFour {
-    width:206px;
-    margin-right:20px;
+    
+   
     border-radius:20px;
 }
 }

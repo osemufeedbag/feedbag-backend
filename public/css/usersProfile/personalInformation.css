@@ -1835,7 +1835,7 @@ color:#49C01F;
     }
 
     .dashNav {
-       
+        position:sticky;
         margin-left: 100px;
         margin-right:50px;
         width: 300px;
