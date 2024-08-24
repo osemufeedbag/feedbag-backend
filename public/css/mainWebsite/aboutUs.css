@@ -108,41 +108,47 @@ idk {
 .unMission {
     display:flex;
     flex-direction:column;
+    align-items:center;
     color:white;
    
 }
 
 .unMission a {
     color:white;
+    
+}
+
+.unMission .down {
+    padding-left:30px;
 }
 .MissionOne {
     background-color:#E6002F;
     border-radius:16px;
     padding:1%;
-   
-    width:20%
+    margin-bottom:10px;
+    width:auto;
 }
 .MissionTwo {
     background-color: #E6A308;
     border-radius:16px;
     padding:1%;
-    
-    width:20%
+    margin-bottom:10px;
+    width:auto;
 }
 .MissionThree {
     background-color:#A2003D;
     border-radius:16px;
     padding:1%;
-    
-    width:20%
+    margin-bottom:10px;
+    width:auto;
 }
 .MissionFour {
     background-color: 
     #CA8802;
     border-radius:16px;
     padding:1%;
-   
-    width:20%
+   margin-bottom:10px;
+    width:auto;
 }
 .unMission img {
     width:100%;
