@@ -366,9 +366,16 @@ blockquote {
 
 .heading-text {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     gap: 8px;
     margin-bottom: 8px;
+    
+}
+
+.testimonials p, .features p {
+    text-align:center;
+    width:100%;
+    text-align: center;
 }
 
 .heading-line {
