@@ -2,22 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const sectionData = [
         {
             title: "Marketplace",
-            imgUrl: "shopping-cart.svg",
+            imgUrl: "../../img/mainWebsite/shopping-cart.svg",
             subTitle: "Connects buyers and sellers globally. By leveraging advanced blockchain technology.",
         },
         {
             title: "Transport & Logistics",
-            imgUrl: "truck.svg",
+            imgUrl: "../../img/mainWebsite/truck.svg",
             subTitle: "Apply as a truck driver/owner, search for drivers, rent a warehouse, rent farm machineries e.t.c",
         },
         {
             title: "Education",
-            imgUrl: "book.svg",
+            imgUrl: "../../img/mainWebsite/book.svg",
             subTitle: "Predictive farming using A.I, Get insights on regional weather forecasts, crops & livestock treatment and diagnosis, e.t.c",
         },
         {
             title: "Finance",
-            imgUrl: "binance-usd-(busd).svg",
+            imgUrl: "../../img/mainWebsite/binance-usd-(busd).svg",
             subTitle: "Unlock multiple financial tools- Agro insurance, Defi, Caf token and keep a secure farm record and inventory.",
         },
     ];
@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Tobe Obi",
             content: "Purchased pack of maize and bell pepper seeds via the Caf marketplace, the delivery and transactions was a seamless experience. Overall a reliable customer support.",
             occupation: "Distributor",
-            img: "FBH-21.jpg",
+            img: "../../img/mainWebsite/FBH-21.jpg",
             location: "Owerri, Nigeria.",
         },
         {
             name: "Mohammed",
             content: "Supplied total 150kg of carrots, cabbage and cucumber vegetables via the marketplace from North to Onitsha. The reliability about the platform's advanced escrow in securing the transactions for all parties involved kept my mind at ease. Highly recommend.",
             occupation: "Organic Farmer",
-            img: "FBH-20.jpg",
+            img: "../../img/mainWebsite/FBH-20.jpg",
             location: "Zaria, Nigeria.",
         },
     ];
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <div class="rating">
-                        ${Array(5).fill('<img src="teenyicons_star-outline.svg" alt="star">').join('')}
+                        ${Array(5).fill('<img src="../../img/mainWebsite/teenyicons_star-outline.svg" alt="star">').join('')}
                     </div>
                 </div>
             `;
