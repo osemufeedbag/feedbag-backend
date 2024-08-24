@@ -733,7 +733,6 @@ margin-top:20px;
    border-bottom: 2px solid #49b821;
     width:200%;
     background-color:#F1FCF3;
-    border:1px solid red;
     overflow: auto;
 }
 
@@ -1007,6 +1006,7 @@ margin-top:20px;
 .privacySetting, .activityVisibility {
     margin-top:10px;
     margin-right:2%;
+    padding-right:10px;
     display:flex;
     flex-direction:column;
     align-items: left;
@@ -1017,6 +1017,7 @@ margin-top:20px;
     border-radius:16px;
     margin-top:10px;
     padding-left:5%;
+    padding-right:15px;
     margin-right:5%;
     height:136px;
     display:flex;
@@ -1151,7 +1152,8 @@ margin-bottom:5%;
 }
 
 .setting input {
-    width:80%;
+    width:40%;
+    margin-right:7px;
     padding-left:5%;
     background-color:white;
     border-radius:16xpx;
@@ -1835,7 +1837,7 @@ color:#49C01F;
     }
 
     .dashNav {
-       
+        position:sticky;
         margin-left: 100px;
         margin-right:50px;
         width: 300px;
@@ -2080,7 +2082,6 @@ color:#49C01F;
    }
    .inventoryBody {
     width:auto;
-    overflow: hidden;
    }
    .inventory {
     margin-top:30px;
@@ -2088,7 +2089,7 @@ color:#49C01F;
   
    }
    .inventoryList {
-    width:120%;
+    width:100%;
 }
   
    .inventoryButtons {

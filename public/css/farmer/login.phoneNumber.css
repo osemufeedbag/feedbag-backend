@@ -55,6 +55,13 @@ body {
     height:40px;
     margin-left:15%;
   }
+  .resetPasswordButtons {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+
   
   .left {
     margin-top: 20px;
