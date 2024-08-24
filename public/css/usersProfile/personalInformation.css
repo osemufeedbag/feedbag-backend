@@ -1784,7 +1784,7 @@ color:#49C01F;
 
 .editButtons {
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items: center;
 }
 
@@ -2578,4 +2578,11 @@ font-family:'poppins';
     width:50%;
 
 }
+
+.editButtons {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+
 }
