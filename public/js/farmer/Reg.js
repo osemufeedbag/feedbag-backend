@@ -1,5 +1,5 @@
 const userStatus = sessionStorage.getItem('UserStatus');
-document.getElementById("regForm").action = `http://localhost:4000/access/eRegister/${userStatus}`
+document.getElementById("regForm").action = `/access/eRegister/${userStatus}`
 
 function reset(e) {
         e.preventDefault();
