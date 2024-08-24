@@ -2,7 +2,7 @@
 //const Dotenv = require('dotenv-webpack');
 
 const userStatus = sessionStorage.getItem('UserStatus');
-document.getElementById("regForm").action = `http://localhost:4000/access/pRegister/${userStatus}`;
+document.getElementById("regForm").action = `/access/pRegister/${userStatus}`;
 
 function reset(e) {
         e.preventDefault();

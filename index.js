@@ -20,7 +20,7 @@ const date = require('date-and-time');
 const now = new Date();
 const userModel = require('./database/dbModel/userModel');
 
-const list = ['https://www.domainname.com','http://127.0.0.1:5500','http://localhost:4000'];
+const list = ['https://www.feedbagagrihub.com','http://127.0.0.1:5500','http://localhost:4000'];
 const corsOptions = {
     orgin: (origin, callback)=>{ 
         if(list.indexOf(origin) !== -1 || !origin) {
@@ -59,6 +59,10 @@ app.use('/Als', require('./api/UserProfile/Dashboard/activity'));
 
 //middleware for cookies
 app.use(cookieParser());
+
+app.get('/health', (req, res) => {
+    res.sendStatus(200);
+})
 
 // Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({

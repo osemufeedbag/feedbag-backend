@@ -2,7 +2,7 @@ function reset(e) {
         e.preventDefault();
 };
 
-document.getElementById("loginButton").addEventListener('click', function() {
+/*document.getElementById("loginButton").addEventListener('click', function() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         
@@ -10,9 +10,9 @@ document.getElementById("loginButton").addEventListener('click', function() {
                 return alert("Please fill in your details");
             } 
             else {
-                document.getElementById("logForm").action = "http://localhost:4000/access/eLogin"
+                document.getElementById("logForm").action = "/access/eLogin"
                 document.getElementById("loginButton").type = "submit";
             }
-});
+});*/
 
 
