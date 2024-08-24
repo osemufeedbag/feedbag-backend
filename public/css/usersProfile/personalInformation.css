@@ -1153,7 +1153,8 @@ margin-bottom:5%;
 }
 
 .setting input {
-    width:80%;
+    width:40%;
+    margin-right:7px;
     padding-left:5%;
     background-color:white;
     border-radius:16xpx;
