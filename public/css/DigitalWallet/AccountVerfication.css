@@ -205,10 +205,10 @@ body {
     }
 
     .selfie{
-        display:none;
+        display:block;
     }
     .selfiee {
-        display:none;
+        display:block;
     }
     
     .left {
@@ -238,7 +238,7 @@ body {
         width: 60%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        height:1100px;
+        height:1200px;
     }
 
     .right h1 {
