@@ -27,7 +27,7 @@ buttonEl.addEventListener("click", ()=> {
 
    
 })
-document.querySelectorAll('.kycContinue').forEach(button => {
+document.querySelectorAll('.ninContinue').forEach(button => {
     button.addEventListener('click', () => {
         if (!hasSelected) {
             hasSelected = true;
