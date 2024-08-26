@@ -21,7 +21,8 @@ document.getElementById('activityVis').addEventListener('click', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:4000/UserProfile/personalInfo', {
+    //fetch('http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com/UserProfile/personalInfo', {
+    fetch('/api/UserProfile/personalInfo', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
@@ -102,7 +103,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
             const formData = new FormData();
             formData.append('userProfileImg', file);
     
-            fetch('http://localhost:4000/userProfileImgUpload', {
+            fetch('/api/userProfileImgUpload', {
                 method: 'POST',
                 credentials: 'include',
                 body: formData
@@ -120,7 +121,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
     });
     
     function fetchUserProfileImage() {
-        fetch('http://localhost:4000/getuserProfileImg', {
+        fetch('/api/getuserProfileImg', {
             method: 'GET',
             credentials: 'include',
         })

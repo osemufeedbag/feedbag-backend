@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const cors = require('cors');
 const crypto = require('crypto')
 const express = require('express');
@@ -17,10 +18,16 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const date = require('date-and-time');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const now = new Date();
 const userModel = require('./database/dbModel/userModel');
 
-const list = ['https://www.feedbagagrihub.com','http://127.0.0.1:5500','http://localhost:4000'];
+
+
+const list = ['https://www.feedbagagrihub.com',
+    'http://127.0.0.1:5500',
+    'http://localhost:4000',
+    'http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com'];
 const corsOptions = {
     orgin: (origin, callback)=>{ 
         if(list.indexOf(origin) !== -1 || !origin) {
@@ -60,9 +67,14 @@ app.use('/Als', require('./api/UserProfile/Dashboard/activity'));
 //middleware for cookies
 app.use(cookieParser());
 
-app.get('/health', (req, res) => {
-    res.sendStatus(200);
-})
+app.use('/api', createProxyMiddleware({
+    target: 'http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com',
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api': '', // Remove the '/api' prefix when forwarding the request
+    },
+    secure: false, // If your backend uses HTTPS and you have a self-signed certificate
+}));
 
 // Digital wallet document verification upload and display start--->
 const storage = multer.diskStorage({

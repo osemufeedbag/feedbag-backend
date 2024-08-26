@@ -15,7 +15,8 @@ document.getElementById('inventoryForm').addEventListener("submit", async (event
 
     try {
         // Send the form data using fetch
-        const response = await fetch('http://localhost:4000/newInt_ImgUpload', {
+        //const response = await fetch('http://localhost:4000/newInt_ImgUpload', {
+        const response = await fetch('http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com/newInt_ImgUpload', {
             method: 'POST',
             credentials: 'include',
             body: formData // Automatically handles file uploads
