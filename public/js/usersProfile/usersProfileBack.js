@@ -18,7 +18,8 @@ document.getElementById('profileVis').addEventListener('click', () => {
     const EditSession = "ProfileVisibility"
     const profileVisStatus = sessionStorage.getItem('profileVisStatus')
 
-    fetch(`http://18.221.116.240/UserProfile/personalInfo/${EditSession}`, {
+    //fetch(`http://18.221.116.240/UserProfile/personalInfo/${EditSession}`, {
+    fetch(`http://locaalhost:4000/UserProfile/personalInfo/${EditSession}`, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify({
@@ -40,9 +41,9 @@ document.getElementById('activityVis').addEventListener('click', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    //fetch('http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com/UserProfile/personalInfo', {
     //fetch('/api/UserProfile/personalInfo', {
-    fetch('http://18.221.116.240/UserProfile/personalInfo', {
+    //fetch('http://18.221.116.240/UserProfile/personalInfo', {
+    fetch('http://localhost:4000/UserProfile/personalInfo', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
@@ -124,7 +125,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
             formData.append('userProfileImg', file);
     
             //fetch('/api/userProfileImgUpload', {
-            fetch('http://18.221.116.240/userProfileImgUpload', {
+            //fetch('http://18.221.116.240/userProfileImgUpload', {
+            fetch('http://localhost:4000/userProfileImgUpload', {
                 method: 'POST',
                 credentials: 'include',
                 body: formData
@@ -142,7 +144,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
     });
     
     function fetchUserProfileImage() {
-        fetch('http://18.221.116.240/getuserProfileImg', {
+        //fetch('http://18.221.116.240/getuserProfileImg', {
+        fetch('http://localhost:4000/getuserProfileImg', {
             method: 'GET',
             credentials: 'include',
         })

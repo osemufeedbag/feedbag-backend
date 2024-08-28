@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try{
-        await mongoose.connect(process.env.mongodb_URI, {
-            tls: true,
-            tlsAllowInvalidCertificates: true
-        })
+        await mongoose.connect(process.env.mongodb_URI)
     } catch (err) {
         console.error(err);
 }}
