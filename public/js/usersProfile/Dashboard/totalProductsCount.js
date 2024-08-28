@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:4000/Inventory/allInventory/Count', {
+    fetch('http://18.221.116.240/Inventory/allInventory/Count', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.addEventListener('DOMContentLoaded', () => {
-        fetch('http://localhost:4000/Order/totalOrder', {
+        fetch('http://18.221.116.240/Order/totalOrder', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include'
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.addEventListener('DOMContentLoaded', () => {
-        fetch('http://localhost:4000/Order/totalSales', {
+        fetch('http://18.221.116.240/Order/totalSales', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include'

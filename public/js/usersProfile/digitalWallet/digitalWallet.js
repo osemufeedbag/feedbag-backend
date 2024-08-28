@@ -22,10 +22,9 @@ buttonEl.addEventListener("click", async (event) => {
 
     // Draw the current frame from the video element onto the canvas
     context.drawImage(videoEl, 0, 0, canvas.width, canvas.height);
-    
 
-   
 })
+
 document.querySelectorAll('.ninContinue').forEach(button => {
     button.addEventListener('click', () => {
         if (!hasSelected) {

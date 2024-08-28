@@ -109,6 +109,13 @@ const UpdatePersonalInfo = async (req, res) => {
             await user.save();
             res.redirect('/userProfile');
         break;
+
+        case "ProfileVisibility":
+            if(req.body?.ProfileVis) user.ProfileVisibility = req.body.ProfileVis;
+
+            await user.save();
+            res.redirect('/userProfile');
+        break;
     };   
 };
 

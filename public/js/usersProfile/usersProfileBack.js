@@ -11,7 +11,26 @@ document.getElementById('H&S').addEventListener('click', () => {
 })
 
 document.getElementById('profileVis').addEventListener('click', () => {
-    document.getElementById('profileVis').innerText == "only me" ? document.getElementById('profileVis').innerText = "everyone" : document.getElementById('profileVis').innerText = "only me" 
+    document.getElementById('profileVis').innerText == "only me" ? 
+    sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "everyone") 
+    : sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "only me")
+
+    const EditSession = "ProfileVisibility"
+    const profileVisStatus = sessionStorage.getItem('profileVisStatus')
+
+    fetch(`http://18.221.116.240/UserProfile/personalInfo/${EditSession}`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify({
+            'ProfileVisibility': profileVisStatus
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+    
+    })
+    .catch(error => console.error('Error:', error));
+
 })
 
 document.getElementById('activityVis').addEventListener('click', () => {
@@ -22,7 +41,8 @@ document.getElementById('activityVis').addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     //fetch('http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com/UserProfile/personalInfo', {
-    fetch('/api/UserProfile/personalInfo', {
+    //fetch('/api/UserProfile/personalInfo', {
+    fetch('http://18.221.116.240/UserProfile/personalInfo', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
@@ -103,7 +123,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
             const formData = new FormData();
             formData.append('userProfileImg', file);
     
-            fetch('/api/userProfileImgUpload', {
+            //fetch('/api/userProfileImgUpload', {
+            fetch('http://18.221.116.240/userProfileImgUpload', {
                 method: 'POST',
                 credentials: 'include',
                 body: formData
@@ -121,7 +142,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
     });
     
     function fetchUserProfileImage() {
-        fetch('/api/getuserProfileImg', {
+        fetch('http://18.221.116.240/getuserProfileImg', {
             method: 'GET',
             credentials: 'include',
         })
@@ -142,7 +163,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
 document.getElementById('dataDelete').addEventListener('click', (event) => {
     event.preventDefault();
         if(confirm("Are you sure you want to delete your account?") == true){
-            fetch('http://localhost:4000/UserProfile/deletAccount', {
+            fetch('http://18.221.116.240/UserProfile/deletAccount', {
                 method: 'DELETE',
                 credentials: 'include',
             })
@@ -153,3 +174,13 @@ document.getElementById('dataDelete').addEventListener('click', (event) => {
             document.getElementById('D&P').click();
         }
 });
+
+document.getElementById('PInfo').addEventListener('click', () => {
+    const EditSession = sessionStorage.setItem('EditSession', "PersonalInfo");
+    //document.getElementById('ediftForm').action = `/api/UserProfile/personalInfo/${EditSession}`
+    document.getElementById('ediftForm').action = `18.221.116.240/UserProfile/personalInfo/${EditSession}`
+    document.getElementById('saveEdit').type = "Submit";
+
+    document.getElementById('inputOne').name = "FirstName";
+})
+

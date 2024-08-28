@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:4000/Als/activityLogs', {
+    fetch('http://18.221.116.240/Als/activityLogs', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
