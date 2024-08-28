@@ -36,6 +36,7 @@ const eLogin = async (req, res) => {
           res.cookie("jwt", refreshToken, { 
             httpOnly: true, 
             //sameSite: "None", 
+            //origin: 'http://localhost:4000',
             origin: 'http://localhost:4000',
             //maxAge: 24 * 60 * 60 * 1000,
             maxAge: 3600000,
@@ -45,6 +46,7 @@ const eLogin = async (req, res) => {
           res.cookie("accjwt", accessToken, { 
             httpOnly: true, 
             //sameSite: "None", 
+            //origin: 'http://localhost:4000',
             origin: 'http://localhost:4000',
             maxAge: 1800000, 
             //secure: true
@@ -90,6 +92,7 @@ const pLogin = async (req, res) => {
             res.cookie("jwt", refreshToken, { 
               httpOnly: true, 
               //sameSite: "None", 
+              //origin: 'http://localhost:4000',
               origin: 'http://localhost:4000',
               //maxAge: 24 * 60 * 60 * 1000,
               maxAge: 3600000,
@@ -99,6 +102,7 @@ const pLogin = async (req, res) => {
             res.cookie("accjwt", accessToken, { 
               httpOnly: true, 
               //sameSite: "None", 
+              //origin: 'http://localhost:4000',
               origin: 'http://localhost:4000',
               maxAge: 1800000, 
               //secure: true
