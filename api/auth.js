@@ -6,7 +6,7 @@ const logOutController = require('../controllers/Authentication/logOutController
 const accessTokenController = require('../controllers/accessToken');
 
 
-router.route('/eRegister/:user')
+router.route('/applicant')
     .post(RegisterController.UserRegEmail);
 
 router.route('/pRegister/:user')

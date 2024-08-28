@@ -26,15 +26,10 @@ buttonEl.addEventListener("click", async (event) => {
 
     context.drawImage(videoEl, 0, 0, canvas.width, canvas.height);
     
+
    
-    const imageDataURL = canvas.toDataURL('image/png');
-    console.log(imageDataURL);
-
-    
-});
-
-// Utility bill selection
-document.querySelectorAll('.utiContinue').forEach(button => {
+})
+document.querySelectorAll('.ninContinue').forEach(button => {
     button.addEventListener('click', () => {
         if (!isUtilityBillSelected) {
             isUtilityBillSelected = true;

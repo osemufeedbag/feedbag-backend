@@ -26,7 +26,7 @@ document.getElementById("submitButton").addEventListener('click', function() {
         if (isNaN(Number(businessRegistrationNos))) {
                 return alert("Business Registration number is not valid");
         } else {
-                document.getElementById("submitButton").type = "submit";
+                        document.getElementById("submitButton").type = "submit";
             }
 });
 

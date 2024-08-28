@@ -27,6 +27,8 @@ const userModel = require('./database/dbModel/userModel');
 const list = ['https://www.feedbagagrihub.com',
     'http://127.0.0.1:5500',
     'http://localhost:4000',
+    'http://18.221.116.240',
+    'https://18.221.116.240',
     'http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com'];
 const corsOptions = {
     orgin: (origin, callback)=>{ 
