@@ -70,7 +70,7 @@ app.use('/Als', require('./api/UserProfile/Dashboard/activity'));
 app.use(cookieParser());
 
 app.use('/api', createProxyMiddleware({
-    target: 'http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com',
+    target: 'http://18.221.116.240',
     changeOrigin: true,
     pathRewrite: {
         '^/api': '', // Remove the '/api' prefix when forwarding the request

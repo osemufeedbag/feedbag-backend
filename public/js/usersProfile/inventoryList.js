@@ -16,7 +16,7 @@ document.getElementById('inventoryForm').addEventListener("submit", async (event
     try {
         // Send the form data using fetch
         //const response = await fetch('http://18.221.116.240/newInt_ImgUpload', {
-        const response = await fetch('http://feedbag-server-alb-1-570128653.us-east-2.elb.amazonaws.com/newInt_ImgUpload', {
+        const response = await fetch('http://localhost:4000/newInt_ImgUpload', {
             method: 'POST',
             credentials: 'include',
             body: formData // Automatically handles file uploads
@@ -38,7 +38,8 @@ document.getElementById('inventoryForm').addEventListener("submit", async (event
 // Function to fetch data from the API and update the table
 async function updateInventoryList() {
     try {
-        const response = await fetch('http://18.221.116.240/Inventory/allInventory/List', { 
+        //const response = await fetch('http://18.221.116.240/Inventory/allInventory/List', { 
+        const response = await fetch('http://localhost:4000/Inventory/allInventory/List', { 
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include' 
@@ -87,7 +88,8 @@ document.addEventListener('DOMContentLoaded', updateInventoryList);
 
 document.getElementById('allitems').addEventListener('click', async () => {
     try {
-        const response = await fetch('http://18.221.116.240/Inventory/allInventory/List', { 
+        //const response = await fetch('http://18.221.116.240/Inventory/allInventory/List', { 
+        const response = await fetch('http://localhost:4000/Inventory/allInventory/List', { 
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include' 
@@ -134,7 +136,8 @@ document.getElementById('allitems').addEventListener('click', async () => {
 
 document.getElementById('outofstock').addEventListener('click', async () => {
     try {
-        const response = await fetch('http://18.221.116.240/Inventory/outOfStock', { 
+        //const response = await fetch('http://18.221.116.240/Inventory/outOfStock', { 
+        const response = await fetch('http://localhost:4000/Inventory/outOfStock', { 
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include' 
@@ -179,7 +182,8 @@ document.getElementById('outofstock').addEventListener('click', async () => {
 
 document.getElementById('lowstock').addEventListener('click', async () => {
     try {
-        const response = await fetch('http://18.221.116.240/Inventory/lowStock', { 
+        //const response = await fetch('http://18.221.116.240/Inventory/lowStock', { 
+        const response = await fetch('http://localhost:4000/Inventory/lowStock', { 
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include' 

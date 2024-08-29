@@ -12,6 +12,12 @@ router.route('/personalInfo')
 router.route('/personalInfo/:EditSession')
     .put(PersonalInfoController.UpdatePersonalInfo);
 
+router.route('/personalInfo/getVis')
+    .get(PersonalInfoController.getActVisibility);
+
+router.route('/personalInfo/settings/:filter')
+    .post(PersonalInfoController.Settings);
+
 router.route('/consentOption')
     .put(Consent_PerController.consent_info);
 

@@ -1,4 +1,4 @@
-window.onload((e) => {
+window.onload((event) => {
     document.getElementById('Dashboard').click();
 });
 
@@ -14,7 +14,6 @@ document.getElementById('profileVis').addEventListener('click', () => {
     document.getElementById('profileVis').innerText == "only me" ? 
     sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "everyone") 
     : sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "only me")
-
 
     //fetch('http://18.221.116.240/UserProfile/personalInfo/ProfileVisibility', {
     fetch('http://localhost:4000/UserProfile/personalInfo/ProfileVisibility', {
@@ -49,8 +48,52 @@ document.getElementById('activityVis').addEventListener('click', () => {
     .catch(error => console.error('Error:', error));
 })
 
+function profileVisibility () {
+    //fetch('http://18.221.116.240/getuserProfileImg', {
+        fetch('http://localhost:4000/UserProfile/personalInfo/getVis', {
+            method: 'GET',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(data => { 
+            console.log(data)
+            document.getElementById('profileVis').innerText = data.profileVis;
+            document.getElementById('activityVis').innerText = data.activityVis;
+        })
+        .catch(error => console.error('Error:', error));
+}
 
+document.getElementById('oU').addEventListener('click', () => {
 
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'emailNotClick':  document.getElementById('oU').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+function oU () {
+    //fetch('http://18.221.116.240/getuserProfileImg', {
+        fetch('http://localhost:4000/UserProfile/personalInfo/getVis', {
+            method: 'GET',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(data => { 
+            document.getElementById('oU').checked = true;
+        })
+        .catch(error => console.error('Error:', error));
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -124,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
+document.addEventListener('DOMContentLoaded', profileVisibility);
+document.addEventListener('DOMContentLoaded', );
 
 //Profile picture upload starts here
 document.getElementById('iconUpload').addEventListener('click', (event) => {
@@ -179,7 +224,8 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
 document.getElementById('dataDelete').addEventListener('click', (event) => {
     event.preventDefault();
         if(confirm("Are you sure you want to delete your account?") == true){
-            fetch('http://18.221.116.240/UserProfile/deletAccount', {
+           // fetch('http://18.221.116.240/UserProfile/deletAccount', {
+            fetch('http://localhost:4000/UserProfile/deletAccount', {
                 method: 'DELETE',
                 credentials: 'include',
             })
@@ -193,10 +239,12 @@ document.getElementById('dataDelete').addEventListener('click', (event) => {
 
 document.getElementById('PInfo').addEventListener('click', () => {
     const EditSession = sessionStorage.setItem('EditSession', "PersonalInfo");
-    //document.getElementById('ediftForm').action = `/api/UserProfile/personalInfo/${EditSession}`
-    document.getElementById('ediftForm').action = `18.221.116.240/UserProfile/personalInfo/${EditSession}`
+   // document.getElementById('ediftForm').action = `18.221.116.240/UserProfile/personalInfo/${EditSession}`
+    document.getElementById('ediftForm').action = `/UserProfile/personalInfo/${EditSession}`
     document.getElementById('saveEdit').type = "Submit";
 
     document.getElementById('inputOne').name = "FirstName";
 })
+
+
 
