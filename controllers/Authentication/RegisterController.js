@@ -111,7 +111,7 @@ const UserRegEmail = async (req, res) => {
 
                 response = await axios(createApplicant(externalUserId, levelName))
                 .then(function (response) {
-                    console.log("Response:\n", response.data);
+                    //console.log("Response:\n", response.data);
                     return response;
                 })
                 .catch(function (error) {
@@ -160,13 +160,29 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                //console.log(newSignup);
-                //console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
 
         break;
 
@@ -196,13 +212,29 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-               // console.log(newSignup);
-               // console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
     }
 }
 
@@ -237,14 +269,30 @@ const UserRegPhone = async (req, res) => {
 
                 newSignup.save()
                 newBusinessSignup.save()
-               // console.log(newSignup);
-              //  console.log(newBusinessSignup);
-              
-                return res.redirect('/successful');   
 
-            } catch (error) {
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
+                
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
         break;
 
         case "Aggregator":
@@ -275,13 +323,29 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                //console.log(newSignup);
-               // console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
 
         break;
 
@@ -311,13 +375,29 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-               // console.log(newSignup);
-                //console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
     }
 }
 //Sign up logic end-->

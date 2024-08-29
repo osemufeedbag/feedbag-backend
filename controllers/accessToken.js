@@ -77,63 +77,6 @@ const accessToken = async ( ) => {
       });
 }
 
-// Create applicant
-
-function createApplicant(externalUserId, levelName) {
-  console.log("Creating an applicant...");
-
-  var method = 'post';
-  var url = '/resources/applicants?levelName=' + encodeURIComponent(levelName);
-  var ts = Math.floor(Date.now() / 1000);
-  
-  var body = {
-      externalUserId: externalUserId
-  };
-
-  var headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-App-Token': SUMSUB_APP_TOKEN
-  };
-
-  config.method = method;
-  config.url = url;
-  config.headers = headers;
-  config.data = JSON.stringify(body);
-
-  return config;
-}
-
-const createApp = async (req, res) => {
-    const cookies = req.headers.cookie;
-    const jwtToken = cookies.split("=")[1].split(";")[0];
-    //console.log(jwtToken);
-    if (!jwtToken) {
-        console.log('app crashed at line 119: PersonalInfo');
-        return res.sendStatus(401);
-    }
-    const user = await UserModel.findOne({RefreshToken: jwtToken}).exec();
-    if (!user) return ;
-
-    const externalUserId = user._id;
-    const levelName = 'basic-kyc-level';
-
-    response = await axios(createApplicant(externalUserId, levelName))
-      .then(function (response) {
-        console.log("Response:\n", response.data);
-        return response;
-      })
-      .catch(function (error) {
-        console.log("Error:\n", error.response.data);
-      });
-    
-    user.applicant_KYCId = response.data.id;
-    const result = await user.save();
-
-    const applicantId = response.data.id;
-    console.log("ApplicantID: ", applicantId);
-}
-
 // Add applicants document(s)
 
 function addDocument(applicantId, type, cty, cnt) {
@@ -254,7 +197,6 @@ const applicantStatus = async (req, res) => {
 
 module.exports = {
     accessToken,
-    createApp,
     docAdd,
     applicantStatus
 }

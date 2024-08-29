@@ -24,9 +24,6 @@ router.route('/logout')
 router.route('/accessToken')
     .post(accessTokenController.accessToken);
 
-router.route('/createApp')
-    .post(accessTokenController.createApp);
-
 router.route('/addDoc')
     .post(accessTokenController.docAdd);
 

@@ -78,7 +78,8 @@ app.use('/api', createProxyMiddleware({
     secure: false, // If your backend uses HTTPS and you have a self-signed certificate
 }));
 
-// Digital wallet document verification upload and display start--->
+
+// Digital wallet document verification upload start--->
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
@@ -94,7 +95,7 @@ const upload = multer({
 });
 
 
-app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
+/*app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
     console.log("Started");
 
     const cookies = req.cookies;
@@ -135,20 +136,22 @@ app.post('/docUploads', upload.single("imageDocument"), async (req, res) => {
             /*fs.unlink(path.join(__dirname + '/uploads/' + req.files[0].filename), (err) => {
                 if (err) throw err;
                 console.log('Image deleted');
-              });*/
+              });
             console.log("fetched data")
             return res.json(data);
         })
         .catch(err => console.error('error:' + err));
-});
+});*/
 
-app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
+app.post('/KYCdocUploads3', upload.array("imageDocument"), async (req, res) => {
+    const cookies = req.headers.cookie;
+    const jwtToken = cookies.split("=")[1].split(";")[0];
     console.log(req.files);
-
-    const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
-    console.log(cookies.jwt);
-    const refreshToken = cookies.jwt;
+    if (!jwtToken) {
+        console.log('app crashed at line 119: PersonalInfo');
+        return res.sendStatus(401);
+    }
+    const refreshToken = jwtToken;
 
     const user = await userModel.findOne({RefreshToken: refreshToken}).exec()
     if(!user) return res.sendStatus(401);
@@ -157,17 +160,24 @@ app.post('/docUploads2', upload.array("imageDocument", 2), async (req, res) => {
         const newImage = await verificationDocModel.create({
         "userId": user._id,
         "image": {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)),
-            contentType: 'image/png'
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[0].filename)).toString('base64'),
+            contentType: req.files[0].mimetype
         },
-        SelfieImage: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)),
-            contentType: 'image/png'
+        "image1": {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[1].filename)).toString('base64'),
+            contentType: req.files[1].mimetype
         },
+        /*"image2": {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.files[2].filename)).toString('base64'),
+            contentType: req.files[2].mimetype
+        },*/
     });
+
     newImage.save();
-    //console.log(newImage);
-    res.status(200).send('Successful');
+    console.log(newImage);
+
+    res.redirect('/phoneLogin');
+
     } catch (error) {
         console.log(error);
     }
@@ -177,7 +187,7 @@ app.get('/docUploads', (req, res) => {
 
 });
 
-// Digital wallet document verification upload and display ends--->
+// Digital wallet document verification upload ends--->
 
 // User profile picture upload and display start--->
 app.post('/userProfileImgUpload', upload.single('userProfileImg'), async (req, res) => {
@@ -254,6 +264,8 @@ app.get('/getuserProfileImg', async (req, res) => {
     }
 });
 // User profile picture upload and display ends--->
+
+
 
 //Inventory image upload starts here
 app.post('/newInt_ImgUpload', upload.array('inventoryImg'), async (req, res) => {
