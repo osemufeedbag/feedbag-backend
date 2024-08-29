@@ -80,7 +80,7 @@ body {
 
 
 
-.identity .utility {
+.identity .utility{
     border: none;
     display: flex;
     justify-content: space-between;
@@ -93,9 +93,22 @@ body {
     padding-right: 15px;
 }
 
+.identity .NIN {
+    border: none;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    background-color: #EBFFEE;
+    border-radius: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
 .identity .id {
     border: none;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
    
@@ -259,6 +272,7 @@ body {
     .identity .nin,
     .identity .utility,
     .identity .id,
+    .identity .NIN,
     .selfie {
         width: 90%;
         padding-left: 30px;

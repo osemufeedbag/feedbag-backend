@@ -29,13 +29,16 @@ buttonEl.addEventListener("click", async (event) => {
 
    
 })
-document.querySelectorAll('.ninContinue').forEach(button => {
+document.querySelectorAll('.utiContinue').forEach(button => {
     button.addEventListener('click', () => {
-        if (!isUtilityBillSelected) {
+        if (document.getElementById("utility").files.length > 0) {
             isUtilityBillSelected = true;
             alert("Utility Bill has been attached");
-            hasSelected = false; 
-            alert("Utility Bill is already attached");
+            document.getElementsByClassName("NIN")[0].style.display = "flex"
+            document.getElementsByClassName("id")[0].style.display = "flex"
+            document.getElementsByClassName("utility")[0].style.display = "none"
+        }else {
+            alert("Attach a copy of your Utility Bill")
         }
     });
 });
@@ -43,33 +46,39 @@ document.querySelectorAll('.ninContinue').forEach(button => {
 // NIN selection
 document.querySelectorAll('.ninContinue').forEach(button => {
     button.addEventListener('click', () => {
-        if (!isUtilityBillSelected) {
-            alert("Please attach your Utility Bill first.");
-        } else if (!documentSelected) {
+        if(document.getElementById("ninId").files.length > 0) {
+        if (hasSelected === true) {
+            alert("A file has already been attached");
+        } else if (hasSelected === false) {
             documentSelected = true;
             hasSelected = true;
             document.querySelector(".identity").style.display = "none";
-            document.querySelector(".selfiee").style.display = 'block';
-            document.querySelector(".selfie").style.display = 'block';
-        } else {
-            alert("You can only select one document (NIN or ID Card).");
+            document.getElementsByClassName("id").style.display = "none";
+            document.querySelector(".selfiee").style.display = 'flex';
+            document.querySelector(".selfie").style.display = 'flex';
+        } } else {
+            alert("Please Attach your NIN")
         }
+    
     });
 });
 
 // ID card selection
 document.querySelectorAll('.idContinue').forEach(button => {
     button.addEventListener('click', () => {
-        if (!isUtilityBillSelected) {
-            alert("Please attach your Utility Bill first.");
-        } else if (!documentSelected) {
+        if(document.getElementById("id").files.length > 0) {
+        if (hasSelected === true) {
+            alert("A file has already been attached");
+        } else if (hasSelected === false) {
             documentSelected = true;
             hasSelected = true;
             document.querySelector(".identity").style.display = "none";
-            document.querySelector(".selfiee").style.display = 'block';
-            document.querySelector(".selfie").style.display = 'block';
-        } else {
-            alert("You can only select one document (NIN or ID Card).");
-        }
+            document.getElementsByClassName("id").style.display = "none";
+            document.querySelector(".selfiee").style.display = 'flex';
+            document.querySelector(".selfie").style.display = 'flex';
+        } 
+    }else {
+        alert("Please attach your Id Card")
+    }
     });
 });
