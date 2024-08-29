@@ -17,7 +17,7 @@ const GetPersonalInfo = async (req, res) => {
     const refreshToken = jwtToken;
     
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec();
-    if(!user) return res.sendStatus(409);
+    if(!user) return  res.redirect('/userProfile') //res.sendStatus(409);
     res.json({user});
 };
 
@@ -33,7 +33,7 @@ const UpdatePersonalInfo = async (req, res) => {
     const EditSession = req.params.EditSession;
 
     const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
-    if(!user) return res.sendStatus(409);
+    if(!user) return  res.redirect('/userProfile') //res.sendStatus(409);
 
     switch (EditSession) {
         // Personal Information
@@ -111,10 +111,31 @@ const UpdatePersonalInfo = async (req, res) => {
         break;
 
         case "ProfileVisibility":
-            if(req.body?.ProfileVis) user.ProfileVisibility = req.body.ProfileVis;
+            //console.log(req.body)
+            try {
+                if(req.body?.ProfileVis) {
+                    user.ProfileVisibility = req.body.ProfileVis;
+                    await user.save();
+                    //console.log('Changed');
+                    //res.redirect('/userProfile');
+                }
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            }  
+        break;
 
-            await user.save();
-            res.redirect('/userProfile');
+        case "ActVisibility":
+            //console.log(req.body)
+            try {
+                if(req.body?.activityVis) {
+                    user.ActVisibility = req.body.activityVis;
+                    await user.save();
+                    //console.log('Changed');
+                    //res.redirect('/userProfile');
+                }
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            }  
         break;
     };   
 };

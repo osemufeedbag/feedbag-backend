@@ -15,28 +15,41 @@ document.getElementById('profileVis').addEventListener('click', () => {
     sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "everyone") 
     : sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "only me")
 
-    const EditSession = "ProfileVisibility"
-    const profileVisStatus = sessionStorage.getItem('profileVisStatus')
 
-    //fetch(`http://18.221.116.240/UserProfile/personalInfo/${EditSession}`, {
-    fetch(`http://locaalhost:4000/UserProfile/personalInfo/${EditSession}`, {
+    //fetch('http://18.221.116.240/UserProfile/personalInfo/ProfileVisibility', {
+    fetch('http://localhost:4000/UserProfile/personalInfo/ProfileVisibility', {
         method: 'PUT',
         credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            'ProfileVisibility': profileVisStatus
+            'ProfileVis': sessionStorage.getItem('profileVisStatus')
         })
     })
     .then(response => response.json())
-    .then(data => {
-    
-    })
+    .then(data => {})
     .catch(error => console.error('Error:', error));
-
 })
 
 document.getElementById('activityVis').addEventListener('click', () => {
-    document.getElementById('activityVis').innerText == "only me" ? document.getElementById('activityVis').innerText = "everyone" : document.getElementById('activityVis').innerText = "only me" 
+    document.getElementById('activityVis').innerText == "only me" ? 
+    sessionStorage.setItem('activityVisStatus', document.getElementById('activityVis').innerText = "everyone") 
+    : sessionStorage.setItem('activityVisStatus', document.getElementById('activityVis').innerText = "only me")
+
+    //fetch('http://18.221.116.240/UserProfile/personalInfo/ProfileVisibility', {
+    fetch('http://localhost:4000/UserProfile/personalInfo/ActVisibility', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            'activityVis': sessionStorage.getItem('activityVisStatus')
+        })
+    })
+    .then(response => response.json())
+    .then(data => {})
+    .catch(error => console.error('Error:', error));
 })
+
+
 
 
 
