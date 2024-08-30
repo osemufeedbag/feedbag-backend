@@ -15,10 +15,10 @@ router.route('/personalInfo/:EditSession')
 router.route('/personalInfo/getVis')
     .get(PersonalInfoController.getActVisibility);
 
-router.route('/personalInfo/settings/:filter')
+router.route('/personalInfo/settings/emailNot/:filter')
     .post(PersonalInfoController.Settings);
 
-router.route('/personalInfo/settings/:filter')
+router.route('/personalInfo/settings/emailNot/:filter')
     .get(PersonalInfoController.Settings);
 
 router.route('/consentOption')

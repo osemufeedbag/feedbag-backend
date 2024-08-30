@@ -182,14 +182,45 @@ const Settings = async (req, res) => {
     if(!user) return  res.redirect('/userProfile') //res.sendStatus(409);
 
     switch (filter) {
-        case "emailNot":
+        case "oU":
             console.log(req.body)
             try {  
-                if(req.body?.emailNotClick && req.body.emailNotClick == true) {
-                    user.Settings.Notification.EmailNotifications.Order_updates = true;
-                } else {
-                    user.Settings.Notification.EmailNotifications.Order_updates = false;
-                }
+                req.body  && req.body.orderUpdateClick == true ? 
+                user.Settings.Notification.EmailNotifications.Order_updates = true :
+                user.Settings.Notification.EmailNotifications.Order_updates = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "mP":
+            console.log(req.body)
+            try {  
+                req.body && req.body.marketingPro == true ? 
+                user.Settings.Notification.EmailNotifications.Marketing_Promotions = true :
+                user.Settings.Notification.EmailNotifications.Marketing_Promotions = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "aC":
+            console.log(req.body)
+            try {  
+                req.body && req.body.accountAct == true ? 
+                user.Settings.Notification.EmailNotifications.Account_activity = true :
+                user.Settings.Notification.EmailNotifications.Account_activity = false;
+
                 await user.save()
                 return res.json(user);
                 //console.log(result)

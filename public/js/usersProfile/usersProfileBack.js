@@ -68,14 +68,39 @@ function profileVisibility () {
         .catch(error => console.error('Error:', error));
 }
 
+//Settings => Email notification start
+
+function oU () {
+    //fetch('http://18.221.116.240/getuserProfileImg', {
+        fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/getEmailNot', {
+            method: 'GET',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(data => { 
+            console.log(data);
+            data && data.Order_updates == true? 
+            document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
+
+            data && data.Marketing_Promotions == true? 
+            document.getElementById('mP').checked = true : document.getElementById('mP').checked = false;
+
+            data && data.Account_activity == true? 
+            document.getElementById('aC').checked = true : document.getElementById('aC').checked = false;
+
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 document.getElementById('oU').addEventListener('click', () => {
 
-    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot', {
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/oU', {
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'emailNotClick':  document.getElementById('oU').checked
+                'orderUpdateClick':  document.getElementById('oU').checked
             })
         })
     .then(res => res.json())
@@ -85,26 +110,59 @@ document.getElementById('oU').addEventListener('click', () => {
     .catch(error => console.error('Error:', error));
 })
 
-function setOu(data){
-    data ? 
-    document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
-}
+document.getElementById('mP').addEventListener('click', () => {
 
-function oU () {
-    //fetch('http://18.221.116.240/getuserProfileImg', {
-        fetch('http://localhost:4000/UserProfile/personalInfo/settings/getEmailNot', {
-            method: 'GET',
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/mP', {
+            method: 'POST',
             credentials: 'include',
-            headers: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'marketingPro':  document.getElementById('mP').checked
+            })
         })
-        .then(response => response.json())
-        .then(data => { 
-            console.log(data.Order_updates);
-            data && data.Order_updates == true? 
-            document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('aC').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/aC', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'accountAct':  document.getElementById('aC').checked
+            })
         })
-        .catch(error => console.error('Error:', error));
-}
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+/*document.getElementById('mP').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/mP', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'marketingPro':  document.getElementById('mP').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})*/
+
+//Settings => Email notification end
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
