@@ -80,38 +80,42 @@ function getEmailNot () {
         .then(response => response.json())
         .then(data => { 
             console.log(data);
-            data && data.EmailNotifications.Order_updates == true? 
+            data && data.Notification.EmailNotifications.Order_updates == true? 
             document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
 
-            data && data.EmailNotifications.Marketing_Promotions == true? 
+            data && data.Notification.EmailNotifications.Marketing_Promotions == true? 
             document.getElementById('mP').checked = true : document.getElementById('mP').checked = false;
 
-            data && data.EmailNotifications.Account_activity == true? 
+            data && data.Notification.EmailNotifications.Account_activity == true? 
             document.getElementById('aC').checked = true : document.getElementById('aC').checked = false;
 
-            data && data.EmailNotifications.Social_Interactions == true? 
+            data && data.Notification.EmailNotifications.Social_Interactions == true? 
             document.getElementById('sI').checked = true : document.getElementById('sI').checked = false;
 
-            data && data.PushNotifications.Order_updates == true? 
+            data && data.Notification.PushNotifications.Order_updates == true? 
             document.getElementById('oU1').checked = true : document.getElementById('oU1').checked = false;
 
-            data && data.PushNotifications.Marketing_Promotions == true? 
+            data && data.Notification.PushNotifications.Marketing_Promotions == true? 
             document.getElementById('mP1').checked = true : document.getElementById('mP1').checked = false;
 
-            data && data.PushNotifications.Account_activity == true? 
+            data && data.Notification.PushNotifications.Account_activity == true? 
             document.getElementById('aC1').checked = true : document.getElementById('aC1').checked = false;
 
-            data && data.PushNotifications.Social_Interactions == true? 
+            data && data.Notification.PushNotifications.Social_Interactions == true? 
             document.getElementById('sI1').checked = true : document.getElementById('sI1').checked = false;
 
-            data && data.SMSNotifications.Order_updates == true? 
+            data && data.Notification.SMSNotifications.Order_updates == true? 
             document.getElementById('oU2').checked = true : document.getElementById('oU2').checked = false;
 
-            data && data.SMSNotifications.Account_activity == true? 
+            data && data.Notification.SMSNotifications.Account_activity == true? 
             document.getElementById('aC2').checked = true : document.getElementById('aC2').checked = false;
 
-            data && data.SMSNotifications.Security_alerts == true? 
+            data && data.Notification.SMSNotifications.Security_alerts == true? 
             document.getElementById('sA').checked = true : document.getElementById('sA').checked = false;
+
+            data && data.AdsSettings == true? 
+            document.getElementById('pA').checked = true : document.getElementById('pA').checked = false;
+
 
         })
         .catch(error => console.error('Error:', error));
@@ -295,6 +299,23 @@ document.getElementById('sA').addEventListener('click', () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'socialAlt':  document.getElementById('sA').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('pA').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/pA', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'personalAds':  document.getElementById('pA').checked
             })
         })
     .then(res => res.json())

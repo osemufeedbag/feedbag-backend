@@ -358,9 +358,25 @@ const Settings = async (req, res) => {
             } 
         break;
 
+        case "pA":
+            console.log(req.body)
+            try {  
+                req.body && req.body.personalAds == true ? 
+                user.Settings.AdsSettings = true :
+                user.Settings.AdsSettings = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
         case "getEmailNot":
             try {  
-                const result = user.Settings.Notification;
+                const result = user.Settings;
                 return res.json(result);
                 //console.log(result)
         
