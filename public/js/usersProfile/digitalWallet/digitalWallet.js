@@ -55,7 +55,7 @@ document.querySelectorAll('.ninContinue').forEach(button => {
             document.querySelector(".identity").style.display = "none";
             document.getElementsByClassName("id").style.display = "none";
             document.querySelector(".selfiee").style.display = 'flex';
-            document.querySelector(".selfie").style.display = 'flex';
+            document.querySelector(".selfie").style.display = 'block';
         } } else {
             alert("Please Attach your NIN")
         }
@@ -75,7 +75,7 @@ document.querySelectorAll('.idContinue').forEach(button => {
             document.querySelector(".identity").style.display = "none";
             document.getElementsByClassName("id").style.display = "none";
             document.querySelector(".selfiee").style.display = 'flex';
-            document.querySelector(".selfie").style.display = 'flex';
+            document.querySelector(".selfie").style.display = 'block';
         } 
     }else {
         alert("Please attach your Id Card")
