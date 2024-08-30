@@ -58,7 +58,7 @@ const userSchema = new Schema({
                 },
                 'PushNotifications': {
                     'Order_updates': {type: Boolean},
-                    'Marketing_Promotion': {type: Boolean},
+                    'Marketing_Promotions': {type: Boolean},
                     'Account_activity': {type: Boolean},
                     'Social_Interactions': {type: Boolean}
                 },

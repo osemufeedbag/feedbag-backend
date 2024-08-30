@@ -230,9 +230,137 @@ const Settings = async (req, res) => {
             } 
         break;
 
+        case "sI":
+            console.log(req.body)
+            try {  
+                req.body && req.body.socialInt == true ? 
+                user.Settings.Notification.EmailNotifications.Social_Interactions = true :
+                user.Settings.Notification.EmailNotifications.Social_Interactions = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "oU1":
+            console.log(req.body)
+            try {  
+                req.body  && req.body.orderUpdateClick == true ? 
+                user.Settings.Notification.PushNotifications.Order_updates = true :
+                user.Settings.Notification.PushNotifications.Order_updates = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "mP1":
+            console.log(req.body)
+            try {  
+                req.body && req.body.marketingPro == true ? 
+                user.Settings.Notification.PushNotifications.Marketing_Promotions = true :
+                user.Settings.Notification.PushNotifications.Marketing_Promotions = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "aC1":
+            console.log(req.body)
+            try {  
+                req.body && req.body.accountAct == true ? 
+                user.Settings.Notification.PushNotifications.Account_activity = true :
+                user.Settings.Notification.PushNotifications.Account_activity = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "sI1":
+            console.log(req.body)
+            try {  
+                req.body && req.body.socialInt == true ? 
+                user.Settings.Notification.PushNotifications.Social_Interactions = true :
+                user.Settings.Notification.PushNotifications.Social_Interactions = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "oU2":
+            console.log(req.body)
+            try {  
+                req.body  && req.body.orderUpdateClick == true ? 
+                user.Settings.Notification.SMSNotifications.Order_updates = true :
+                user.Settings.Notification.SMSNotifications.Order_updates = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "aC2":
+            console.log(req.body)
+            try {  
+                req.body && req.body.accountAct == true ? 
+                user.Settings.Notification.SMSNotifications.Account_activity = true :
+                user.Settings.Notification.SMSNotifications.Account_activity = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
+        case "sA":
+            console.log(req.body)
+            try {  
+                req.body && req.body.socialAlt == true ? 
+                user.Settings.Notification.SMSNotifications.Security_alerts = true :
+                user.Settings.Notification.SMSNotifications.Security_alerts = false;
+
+                await user.save()
+                return res.json(user);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
+
         case "getEmailNot":
             try {  
-                const result = user.Settings.Notification.EmailNotifications;
+                const result = user.Settings.Notification;
                 return res.json(result);
                 //console.log(result)
         

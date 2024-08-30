@@ -4,7 +4,7 @@ window.onload((event) => {
 
 document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
 document.addEventListener('DOMContentLoaded', profileVisibility);
-document.addEventListener('DOMContentLoaded', oU);
+document.addEventListener('DOMContentLoaded', getEmailNot);
 
 document.getElementById('od').addEventListener('click', () => {
     document.getElementById('orderHistory').click();
@@ -70,7 +70,7 @@ function profileVisibility () {
 
 //Settings => Email notification start
 
-function oU () {
+function getEmailNot () {
     //fetch('http://18.221.116.240/getuserProfileImg', {
         fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/getEmailNot', {
             method: 'GET',
@@ -80,14 +80,38 @@ function oU () {
         .then(response => response.json())
         .then(data => { 
             console.log(data);
-            data && data.Order_updates == true? 
+            data && data.EmailNotifications.Order_updates == true? 
             document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
 
-            data && data.Marketing_Promotions == true? 
+            data && data.EmailNotifications.Marketing_Promotions == true? 
             document.getElementById('mP').checked = true : document.getElementById('mP').checked = false;
 
-            data && data.Account_activity == true? 
+            data && data.EmailNotifications.Account_activity == true? 
             document.getElementById('aC').checked = true : document.getElementById('aC').checked = false;
+
+            data && data.EmailNotifications.Social_Interactions == true? 
+            document.getElementById('sI').checked = true : document.getElementById('sI').checked = false;
+
+            data && data.PushNotifications.Order_updates == true? 
+            document.getElementById('oU1').checked = true : document.getElementById('oU1').checked = false;
+
+            data && data.PushNotifications.Marketing_Promotions == true? 
+            document.getElementById('mP1').checked = true : document.getElementById('mP1').checked = false;
+
+            data && data.PushNotifications.Account_activity == true? 
+            document.getElementById('aC1').checked = true : document.getElementById('aC1').checked = false;
+
+            data && data.PushNotifications.Social_Interactions == true? 
+            document.getElementById('sI1').checked = true : document.getElementById('sI1').checked = false;
+
+            data && data.SMSNotifications.Order_updates == true? 
+            document.getElementById('oU2').checked = true : document.getElementById('oU2').checked = false;
+
+            data && data.SMSNotifications.Account_activity == true? 
+            document.getElementById('aC2').checked = true : document.getElementById('aC2').checked = false;
+
+            data && data.SMSNotifications.Security_alerts == true? 
+            document.getElementById('sA').checked = true : document.getElementById('sA').checked = false;
 
         })
         .catch(error => console.error('Error:', error));
@@ -135,6 +159,142 @@ document.getElementById('aC').addEventListener('click', () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'accountAct':  document.getElementById('aC').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('sI').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/sI', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'socialInt':  document.getElementById('sI').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('oU1').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/oU1', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'orderUpdateClick':  document.getElementById('oU1').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('mP1').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/mP1', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'marketingPro':  document.getElementById('mP1').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('aC1').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/aC1', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'accountAct':  document.getElementById('aC1').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('sI1').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/sI1', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'socialInt':  document.getElementById('sI1').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+document.getElementById('oU2').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/oU2', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'orderUpdateClick':  document.getElementById('oU2').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+
+document.getElementById('aC2').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/aC2', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'accountAct':  document.getElementById('aC2').checked
+            })
+        })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.error('Error:', error));
+})
+
+document.getElementById('sA').addEventListener('click', () => {
+
+    fetch('http://localhost:4000/UserProfile/personalInfo/settings/emailNot/sA', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'socialAlt':  document.getElementById('sA').checked
             })
         })
     .then(res => res.json())
