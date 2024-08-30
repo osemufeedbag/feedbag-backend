@@ -198,6 +198,17 @@ const Settings = async (req, res) => {
                 console.error('Failed to update user:', error);
             } 
         break;
+
+        case "getEmailNot":
+            try {  
+                const result = user.Settings.Notification.EmailNotifications;
+                return res.json(result);
+                //console.log(result)
+        
+            } catch (error) {
+                console.error('Failed to update user:', error);
+            } 
+        break;
     }
      
 };

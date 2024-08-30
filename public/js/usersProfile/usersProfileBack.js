@@ -2,6 +2,10 @@ window.onload((event) => {
     document.getElementById('Dashboard').click();
 });
 
+document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
+document.addEventListener('DOMContentLoaded', profileVisibility);
+document.addEventListener('DOMContentLoaded', oU);
+
 document.getElementById('od').addEventListener('click', () => {
     document.getElementById('orderHistory').click();
 })
@@ -81,16 +85,23 @@ document.getElementById('oU').addEventListener('click', () => {
     .catch(error => console.error('Error:', error));
 })
 
+function setOu(data){
+    data ? 
+    document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
+}
+
 function oU () {
     //fetch('http://18.221.116.240/getuserProfileImg', {
-        fetch('http://localhost:4000/UserProfile/personalInfo/getVis', {
+        fetch('http://localhost:4000/UserProfile/personalInfo/settings/getEmailNot', {
             method: 'GET',
             credentials: 'include',
             headers: {'Content-Type': 'application/json'}
         })
         .then(response => response.json())
         .then(data => { 
-            document.getElementById('oU').checked = true;
+            console.log(data.Order_updates);
+            data && data.Order_updates == true? 
+            document.getElementById('oU').checked = true : document.getElementById('oU').checked = false;
         })
         .catch(error => console.error('Error:', error));
 }
@@ -166,9 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
     });
 
-document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
-document.addEventListener('DOMContentLoaded', profileVisibility);
-document.addEventListener('DOMContentLoaded', );
+
+//document.addEventListener('DOMContentLoaded', profileVisibility);
 
 //Profile picture upload starts here
 document.getElementById('iconUpload').addEventListener('click', (event) => {

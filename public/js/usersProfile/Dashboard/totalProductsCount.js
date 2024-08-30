@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', count)
+
+function count() {
     //fetch('http://18.221.116.240/Inventory/allInventory/Count', {
     fetch('http://localhost:4000/Inventory/allInventory/Count', {
     method: 'GET',
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data ? document.getElementById('totalproducts').innerText = data : document.getElementById('totalproducts').innerText = "----";
         })
         .catch(error => console.error('Error:', error));
-    });
+    };
 
 
     document.addEventListener('DOMContentLoaded', () => {

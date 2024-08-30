@@ -18,6 +18,9 @@ router.route('/personalInfo/getVis')
 router.route('/personalInfo/settings/:filter')
     .post(PersonalInfoController.Settings);
 
+router.route('/personalInfo/settings/:filter')
+    .get(PersonalInfoController.Settings);
+
 router.route('/consentOption')
     .put(Consent_PerController.consent_info);
 
