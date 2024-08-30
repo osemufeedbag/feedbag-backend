@@ -18,8 +18,6 @@ const SUMSUB_BASE_URL = 'https://api.sumsub.com';
 var config = {};
 config.baseURL= SUMSUB_BASE_URL;
 
-
-
 // Make sure to specify 'Content-Type' header with value of 'application/json' if you're not sending a body for most of requests
 
 // This function creates signature for the request as described here: https://docs.sumsub.com/reference/authentication

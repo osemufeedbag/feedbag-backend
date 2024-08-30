@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', fetchUserProfileImage);
 document.addEventListener('DOMContentLoaded', profileVisibility);
 document.addEventListener('DOMContentLoaded', getEmailNot);
 
+
 document.getElementById('od').addEventListener('click', () => {
     document.getElementById('orderHistory').click();
 })
@@ -14,7 +15,7 @@ document.getElementById('H&S').addEventListener('click', () => {
     document.getElementById('contactSupport').click();
 })
 
-document.getElementById('profileVis').addEventListener('click', () => {
+document.getElementById('profileVis').onclick = () => {
     document.getElementById('profileVis').innerText == "only me" ? 
     sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "everyone") 
     : sessionStorage.setItem('profileVisStatus', document.getElementById('profileVis').innerText = "only me")
@@ -31,7 +32,7 @@ document.getElementById('profileVis').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {})
     .catch(error => console.error('Error:', error));
-})
+};
 
 document.getElementById('activityVis').addEventListener('click', () => {
     document.getElementById('activityVis').innerText == "only me" ? 
@@ -425,7 +426,7 @@ document.getElementById('iconUpload').addEventListener('click', (event) => {
         document.getElementById('imageInput').click();
     });
 
-    document.getElementById('imageInput').addEventListener('change', () => {
+document.getElementById('imageInput').addEventListener('change', () => {
         const file = imageInput.files[0];
         if (file) {
             const formData = new FormData();

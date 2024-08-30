@@ -46,6 +46,7 @@ const UpdatePersonalInfo = async (req, res) => {
             if(req.body?.PostalCode) user.PersonalInfo.PostalCode = req.body.PostalCode;
 
             await user.save();
+            console.log('saving info...')
 
             const newActivityLog = await activityLogsModel.create({
                 'UserId':user._id,
@@ -54,6 +55,7 @@ const UpdatePersonalInfo = async (req, res) => {
             });
 
             await newActivityLog.save();
+            console.log('saving logs...')
             res.redirect('/userProfile');
 
         break;
