@@ -1,5 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://18.221.116.240/Inventory/allInventory/Count', {
+document.addEventListener('DOMContentLoaded', count)
+
+function count() {
+    //fetch('http://18.221.116.240/Inventory/allInventory/Count', {
+    fetch('http://localhost:4000/Inventory/allInventory/Count', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
     credentials: 'include'
@@ -16,11 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             data ? document.getElementById('totalproducts').innerText = data : document.getElementById('totalproducts').innerText = "----";
         })
         .catch(error => console.error('Error:', error));
-    });
+    };
 
 
     document.addEventListener('DOMContentLoaded', () => {
-        fetch('http://18.221.116.240/Order/totalOrder', {
+        //fetch('http://18.221.116.240/Order/totalOrder', {
+        fetch('http://localhost:4000/Order/totalOrder', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include'
@@ -41,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.addEventListener('DOMContentLoaded', () => {
-        fetch('http://18.221.116.240/Order/totalSales', {
+        //fetch('http://18.221.116.240/Order/totalSales', {
+        fetch('http://localhost:4000/Order/totalSales', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include'

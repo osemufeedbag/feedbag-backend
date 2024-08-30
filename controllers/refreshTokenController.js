@@ -12,7 +12,8 @@ const handleRefreshToken = async (req, res, next) => {
     const userDetails = await UserModel.findOne({RefreshToken: refreshToken}).exec();
     if(!userDetails) {
         console.log('app terminated at line 14: refreshTokenController');
-        return res.sendStatus(403);
+        //return res.sendStatus(403);
+        return res.redirect('/');
     }
     
         jwt.verify(
@@ -24,7 +25,8 @@ const handleRefreshToken = async (req, res, next) => {
                 if(err || filter !== decoded.Name) {
                     console.log('app terminated at line 25: refreshTokenController');
                     console.log(err);
-                    return res.sendStatus(403);
+                    //return res.sendStatus(403);
+                    return res.redirect('/');
                 }
                 const accessToken = jwt.sign(
                     {Name: decoded.Name},

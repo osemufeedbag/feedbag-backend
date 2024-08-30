@@ -18,8 +18,6 @@ const SUMSUB_BASE_URL = 'https://api.sumsub.com';
 var config = {};
 config.baseURL= SUMSUB_BASE_URL;
 
-
-
 // Make sure to specify 'Content-Type' header with value of 'application/json' if you're not sending a body for most of requests
 
 // This function creates signature for the request as described here: https://docs.sumsub.com/reference/authentication
@@ -111,7 +109,7 @@ const UserRegEmail = async (req, res) => {
 
                 response = await axios(createApplicant(externalUserId, levelName))
                 .then(function (response) {
-                    console.log("Response:\n", response.data);
+                    //console.log("Response:\n", response.data);
                     return response;
                 })
                 .catch(function (error) {
@@ -160,13 +158,29 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                //console.log(newSignup);
-                //console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
 
         break;
 
@@ -196,13 +210,29 @@ const UserRegEmail = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-               // console.log(newSignup);
-               // console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
     }
 }
 
@@ -237,14 +267,30 @@ const UserRegPhone = async (req, res) => {
 
                 newSignup.save()
                 newBusinessSignup.save()
-               // console.log(newSignup);
-              //  console.log(newBusinessSignup);
-              
-                return res.redirect('/successful');   
 
-            } catch (error) {
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
+                
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
         break;
 
         case "Aggregator":
@@ -275,13 +321,29 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-                //console.log(newSignup);
-               // console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
 
         break;
 
@@ -311,13 +373,29 @@ const UserRegPhone = async (req, res) => {
                 newSignup.save()
                 newBusinessSignup.save()
                 
-               // console.log(newSignup);
-                //console.log(newBusinessSignup);
-                return res.redirect('/successful');
+                const externalUserId = newSignup._id;
+                const levelName = 'basic-kyc-level';
+
+                response = await axios(createApplicant(externalUserId, levelName))
+                .then(function (response) {
+                    //console.log("Response:\n", response.data);
+                    return response;
+                })
+                .catch(function (error) {
+                    console.log("Error:\n", error.response.data);
+                });
                 
-            } catch (error) {
+                newSignup.applicant_KYCId = response.data.id;
+                const result = await newSignup.save()
+
+                const applicantId = response.data.id;
+                console.log("ApplicantID: ", applicantId);
+
+                return res.redirect('/successful');
+
+              }  catch (error) {
                 console.log(error);
-            };
+                };
     }
 }
 //Sign up logic end-->

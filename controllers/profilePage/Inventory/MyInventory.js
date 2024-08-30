@@ -132,8 +132,8 @@ const GetUserAllItems =  async (req, res) => {
             const user = await UserModel.findOne({RefreshToken: refreshToken}).exec()
            // console.log(user);
             const userInventory = await inventoryModel.find({'UserId': user._id}).exec()
-
-            res.json(JSON.parse(JSON.stringify(userInventory)).length);
+            const result = JSON.parse(JSON.stringify(userInventory)).length;
+            res.json(result);
         break;
 
         case "List":
@@ -158,7 +158,8 @@ const GetUserAllItems =  async (req, res) => {
                 'UserId': L24hrUser._id, 
                 'AllItem.DateAdded': date.format(now, 'YYYY/MM/DD HH:mm:ss').split(" ")[0]
             }).exec()
-            res.json(JSON.parse(JSON.stringify(L24hrUserInventory)).length);
+            const L24hrresult  = JSON.parse(JSON.stringify(L24hrUserInventory)).length;
+            res.json(L24hrresult);
         break;
     }
 };

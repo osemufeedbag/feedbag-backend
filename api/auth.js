@@ -6,7 +6,7 @@ const logOutController = require('../controllers/Authentication/logOutController
 const accessTokenController = require('../controllers/accessToken');
 
 
-router.route('/applicant')
+router.route('/eRegister/:user')
     .post(RegisterController.UserRegEmail);
 
 router.route('/pRegister/:user')
@@ -20,12 +20,6 @@ router.route('/plogin')
     
 router.route('/logout')
     .get(logOutController.LogOut);
-
-router.route('/accessToken')
-    .post(accessTokenController.accessToken);
-
-router.route('/createApp')
-    .post(accessTokenController.createApp);
 
 router.route('/addDoc')
     .post(accessTokenController.docAdd);

@@ -245,6 +245,18 @@ document.getElementById("PInfo").onclick = () => {
     document.getElementById("labelFour").innerHTML = "Phone Number";
     document.getElementById("labelFive").innerHTML = "Postal Code";
     document.getElementById("labelSix").innerHTML = "Address";
+
+    document.getElementById("inputOne").name = "FirstName";
+    document.getElementById("inputTwo").name = "Country";
+    document.getElementById("inputThree").name = "Email";
+    document.getElementById("inputFour").name = "Phone";
+    document.getElementById("inputFive").name = "PostalCode";
+    document.getElementById("inputSix").name = "Address";
+
+    document.getElementById("ediftForm").action = "/userProfile/personalInfo/PersonalInfo";
+    document.getElementById("saveEdit").type = "submit";
+    console.log(document.getElementById("ediftForm").action);
+    console.log(document.getElementById("saveEdit").type);
 }
 
 document.getElementById("FInfo").onclick = () => {

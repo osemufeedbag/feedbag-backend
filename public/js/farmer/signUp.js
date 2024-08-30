@@ -13,7 +13,7 @@ document.getElementById("aggregatorStatus").addEventListener('click', function()
 
 document.getElementById("consumerStatus").addEventListener('click', function() {
         sessionStorage.getItem('UserStatus') == "Consumer" ? sessionStorage.removeItem('UserStatus') : sessionStorage.setItem('UserStatus', document.getElementById("consumerStatus").innerText);
-        document.getElementById("emailSignUp").href = "/EmailRegCon.html"
+        document.getElementById("emailSignUp").href = "/EmailRegCon"
     });
 
 /*document.getElementById("emailSignUp").addEventListener('click', function() {
